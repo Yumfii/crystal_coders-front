@@ -1,28 +1,57 @@
 .welcome {
   width: 343px;
-  height: 411px;
   flex-shrink: 0;
   border-radius: 30px;
-  background: #F0EFF4;
+  background: #f0eff4;
   padding: 24px 16px;
 }
 
-
 .subheader {
-  color: #2F2F2F;
+  color: #2f2f2f;
   font-family: 'Poppins';
   font-size: 14px;
   font-weight: 400;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.28;
   letter-spacing: 0.84px;
 }
 
 .header {
   align-self: stretch;
-  color: #323F47;
-  font-family: 'Poppins', sans-serif;
+  color: #323f47;
+  font-family: 'Poppins';
   font-size: 38px;
   font-weight: 700;
-  line-height: 38px; /* 100% */
+  line-height: 1;
   letter-spacing: -0.38px;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .welcome {
+    width: 704px;
+    padding: 32px;
+  }
+  .subheader {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.96px;
+  }
+  .header {
+    font-size: 64px;
+    line-height: 1.09;
+    letter-spacing: -0.64px;
+  }
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1280px) {
+  .welcome {
+    width: 672px;
+  }
+  .header {
+    font-size: 80px;
+    line-height: 0.95;
+    letter-spacing: -0.8px;
+  }
 }
