@@ -1,0 +1,94 @@
+
+/* Mobile */
+/* Common button styles */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+  text-align: center;
+}
+
+
+/* Navigation */
+.nav {
+  display: flex;
+  padding: 14px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid #323F47;
+  margin: 32px 16px;
+
+}
+
+
+/* Signup button */
+.signup {
+  padding: 14px 20px;
+  background: #9BE1A0;
+  color: #323F47;
+}
+
+.signup:hover,
+.signup:focus {
+  background: #87D28D;
+}
+
+.signup:disabled {
+  background: #E6E6E6;
+  color: #BCBCBC;
+}
+
+/* Signin button */
+.signin {
+  padding: 14px 28px;
+  border: 1px solid #323F47;
+  color: #323F47;
+}
+
+.signin:hover,
+.signin:focus {
+  border-color: #87D28D;
+  color: #87D28D;
+}
+
+.signin:disabled {
+  opacity: 0.2;
+  border-color: #323F47;
+  color: #323F47;
+}
+
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .btn{
+
+font-size: 16px;
+line-height: 24px; /* 150% */
+letter-spacing: -0.16px;
+  }
+
+  .nav{
+
+      padding: 18px 40px;
+      gap: 16px;
+  }
+
+
+
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1280px){
+
+
+}

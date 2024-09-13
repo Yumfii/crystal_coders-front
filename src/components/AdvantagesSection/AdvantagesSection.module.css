@@ -1,0 +1,105 @@
+.advantages {
+  width: 343px;
+  height: 353px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: url(<path-to-image>) lightgray -102.72px -12px / 162.166% 105.099% no-repeat;
+  padding: 32px 16px;
+}
+
+.customersContainer {
+  display: inline-flex;
+  padding: 10px 14px;
+  align-items: center;
+  gap: 52px;
+  border-radius: 30px;
+  background: #FFF;
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
+  margin: 209px 16px;
+}
+
+.customersList {
+  display: flex;
+  position: relative;
+}
+
+.customersImg {
+  border-radius: 50px;
+  border: 2px solid #FFF;
+  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+  margin-left: -10px;
+}
+
+.customersText {
+  color: #323F47;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.happy {
+  color: #9BE1A0;
+}
+
+.benefits {
+  display: flex;
+  width: 168px;
+  align-items: flex-start;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin: 265px 16px 32px; }
+
+.habitContainer {
+  display: flex;
+  padding: 9px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 30px;
+  background: #323F47;
+}
+
+.circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #9BE1A0;
+}
+
+.habitText {
+  color: #FFF;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 8px;
+  letter-spacing: -0.08px;
+}
+
+.statistics, .setting {
+  display: flex;
+  padding: 9px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+}
+
+.statistics {
+  background: #9BE1A0;
+}
+
+.setting {
+  background: #FFF;
+}
+
+.statisticsText, .settingText {
+  color: #323F47;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 8px;
+  letter-spacing: -0.08px;
+}
