@@ -7,11 +7,22 @@
 }
 
 :root {
-  font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Poppins, Gilroy, system-ui, Helvetica, Arial, sans-serif;
+  --dark-gray: #2f2f2f;
+  --dark-blue: #323f47;
+  --light-green: #9be1a0;
+  --white: #ffffff;
+  --light-gray: #f0eff4;
+  --linear-gradient: linear-gradient(
+    3deg,
+    rgba(155, 225, 160, 0) 1.54%,
+    #9be1a0 93.64%
+  );
+  --animation: 0.4s cubic-bezier(0.5, -0.45, 0.5, 1.45);
 }
 
 body {
-  font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Poppins, Gilroy, system-ui, Helvetica, Arial, sans-serif;
   color: #2f2f2f;
   background-color: #fff;
   margin: 0;
