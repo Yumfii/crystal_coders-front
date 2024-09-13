@@ -3,7 +3,8 @@
   height: 353px;
   flex-shrink: 0;
   border-radius: 30px;
-  background: url(<path-to-image>) lightgray -102.72px -12px / 162.166% 105.099% no-repeat;
+  background: url(<path-to-image>) lightgray -102.72px -12px / 162.166% 105.099%
+    no-repeat;
   padding: 32px 16px;
 }
 
@@ -13,7 +14,7 @@
   align-items: center;
   gap: 52px;
   border-radius: 30px;
-  background: #FFF;
+  background: #fff;
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
   margin: 209px 16px;
 }
@@ -24,31 +25,35 @@
 }
 
 .customersImg {
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
   border-radius: 50px;
-  border: 2px solid #FFF;
+  border: 2px solid #fff;
   background: url(<path-to-image>) lightgray 50% / cover no-repeat;
   margin-left: -10px;
 }
 
 .customersText {
-  color: #323F47;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins';
   font-size: 12px;
   font-weight: 700;
   line-height: 14px;
 }
 
 .happy {
-  color: #9BE1A0;
+  color: #9be1a0;
 }
 
 .benefits {
   display: flex;
   width: 168px;
   align-items: flex-start;
+  align-content: flex-start;
   gap: 4px;
   flex-wrap: wrap;
-  margin: 265px 16px 32px; }
+  margin: 265px 16px 32px;
+}
 
 .habitContainer {
   display: flex;
@@ -57,27 +62,28 @@
   align-items: center;
   gap: 4px;
   border-radius: 30px;
-  background: #323F47;
+  background: #323f47;
 }
 
 .circle {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #9BE1A0;
+  background-color: #9be1a0;
 }
 
 .habitText {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins';
   font-size: 8px;
   font-weight: 700;
   line-height: 8px;
   letter-spacing: -0.08px;
 }
 
-.statistics, .setting {
+.statistics,
+.setting {
   display: flex;
   padding: 9px 12px;
   justify-content: center;
@@ -87,19 +93,58 @@
 }
 
 .statistics {
-  background: #9BE1A0;
+  background: #9be1a0;
 }
 
 .setting {
-  background: #FFF;
+  background: #fff;
 }
 
-.statisticsText, .settingText {
-  color: #323F47;
+.statisticsText,
+.settingText {
+  color: #323f47;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 8px;
   font-weight: 700;
   line-height: 8px;
   letter-spacing: -0.08px;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .advantages {
+    width: 704px;
+  }
+  .customersContainer {
+    padding: 10px 20px;
+  }
+
+  .customersText {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .benefits {
+    width: 242px;
+    gap: 10px;
+    margin: 32px;
+  }
+  .statistics, .habitContainer, .setting{
+    padding: 11px 16px;
+  }
+
+  .statisticsText,
+  .settingText, .habitText {
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.12px;
+  }
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1280px) {
+  .advantages {
+    width: 672px;
+  }
 }
