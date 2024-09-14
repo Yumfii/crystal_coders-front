@@ -3,8 +3,8 @@
   height: 353px;
   flex-shrink: 0;
   border-radius: 30px;
-  /* background: url(<path-to-image>) lightgray -102.72px -12px / 162.166% 105.099%
-    no-repeat; */
+  background: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1234567890/woman_with_water.jpg') no-repeat center center;
+  background-size: cover;
   padding: 32px 16px;
 }
 

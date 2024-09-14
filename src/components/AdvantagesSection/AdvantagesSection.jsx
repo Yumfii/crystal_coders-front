@@ -1,24 +1,27 @@
+import { CloudinaryContext, Image } from "cloudinary-react";
 import css from "./AdvantagesSection.module.css";
 // import { Cloudinary } from "cloudinary-react";
 
 const AdvantatgesSection = () => {
+  const cloudinaryImageUrl = 'https://res.cloudinary.com/your-cloud-name/image/upload/v1234567890/image-name.jpg';
   return (
+    <CloudinaryContext cloudName="dwyxffoux">
     <div className={css.advantages}>
       <div className={css.customersContainer}>
         <ul className={css.customersList}>
           <li className={css.customersImg}>
-            <img src="" alt="customer1" />
+            <Image publicId="tmbodlkkjpdiqirehfp6" alt="customer1" />
           </li>
           <li className={css.customersImg}>
-            <img src="" alt="customer2" />
+            <Image publicId="gn4nssaqqugodu3pnzi2" alt="customer2" />
           </li>
           <li className={css.customersImg}>
-            <img src="" alt="customer3" />
+            <Image publicId="og5jodgwvckh5kxgalyq" alt="customer3" />
           </li>
         </ul>
 
         <p className={css.customersText}>
-          Our <span className={css.happy}>happy</span> customers
+          Our  <span className={css.happy}> 25 happy</span> customers
         </p>
       </div>
       <div className={css.benefits}>
@@ -28,10 +31,11 @@ const AdvantatgesSection = () => {
         </div>
       <div className={css.statistics}><p className={css.statisticsText}>View statistics</p></div>
       <div className={css.setting}>
-        <p className={css.settingText}></p>
+        <p className={css.settingText}>Personal rate setting</p>
       </div>
       </div>
     </div>
+    </CloudinaryContext>
   );
 };
 

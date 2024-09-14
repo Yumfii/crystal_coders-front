@@ -5,11 +5,11 @@
   background: var(--light-gray);
   padding: 24px 16px;
   text-align: left;
-  align-self: flex-start;
-  margin:0;
+  align-self: center;
+  margin: 0;
 }
-.logo{
-  margin-bottom: 74px
+.logo {
+  margin-bottom: 74px;
 }
 
 .subheader {
@@ -30,14 +30,14 @@
   letter-spacing: -0.38px;
   margin-bottom: 32px;
 }
-.nav{
+.nav {
   display: flex;
 
   justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
   border-radius: 30px;
-
+  margin-bottom: 68px;
 }
 
 .btn {
@@ -52,23 +52,24 @@
   letter-spacing: -0.14px;
   text-align: center;
   height: 46px;
-  width:auto;
+  width: auto;
 }
 
 /* Signup button */
-.signup, .Google {
+.signup,
+.Google {
   padding: 14px 20px;
-  background:var(--light-green);
+  background: var(--light-green);
   color: (var--dark-blue);
 }
-.Google{
-  width:120px;
+.Google {
+  width: 120px;
 }
 
 .signup:hover,
 .signup:focus,
 .Google:hover,
-.Google:focus{
+.Google:focus {
   background: #87d28d;
 }
 
@@ -94,15 +95,13 @@
 .signin:disabled {
   opacity: 0.2;
   border-color: (var--dark-blue);
-  color:(var--dark-blue);
+  color: (var--dark-blue);
 }
-
-
 
 /* Tablet */
 @media screen and (min-width: 768px) {
   .welcome {
-    width: 704px;
+    width: 658px;
     padding: 32px;
   }
   .subheader {
@@ -110,13 +109,15 @@
     line-height: 1.5;
     letter-spacing: 0.96px;
     margin-bottom: 16px;
+    padding-left: 32px;
   }
   .header {
     font-size: 64px;
     line-height: 1.09;
     letter-spacing: -0.64px;
+    padding-left: 32px;
   }
-  .logo{
+  .logo {
     margin-bottom: 50px;
   }
 
@@ -127,13 +128,14 @@
   }
 
   .nav {
-
     gap: 16px;
+    margin-bottom: 50px;
+    padding-left: 32px;
   }
-  .signin, .signup{
+  .signin,
+  .signup {
     padding: 18px 40px;
   }
-
 }
 
 /* Desktop */
@@ -141,22 +143,17 @@
 @media screen and (min-width: 1280px) {
   .welcome {
     width: 672px;
+  }
 
-  }
-  .subheader{
-    padding-left: 32px;
-  }
   .header {
     font-size: 80px;
     line-height: 0.95;
     letter-spacing: -0.8px;
-    padding-left: 32px;
   }
-  .logo{
+  .logo {
     margin-bottom: 132px;
   }
-  .nav{
+  .nav {
     margin-bottom: 188px;
-    padding-left: 32px;
   }
 }
