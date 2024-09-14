@@ -1,15 +1,14 @@
 .advantages {
-  flex-shrink: 0;
+
+  width:400px;
   border-radius: 30px;
   background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/t4qxv1yretc1celrttux');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding: 32px 16px;
-  width: 100%;
-  max-width: 704px;
-  margin: 0 auto;
-  min-height: 350px;
+
+
 }
 
 .customersContainer {
@@ -17,7 +16,7 @@
   padding: 10px 14px;
   align-items: center;
   border-radius: 30px;
-  background: #fff;
+  background: var(--white);
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
   margin-top: 209px;
   height: 48px;
@@ -38,7 +37,7 @@
 .customersImg {
   flex-shrink: 0;
   border-radius: 50px;
-  border: 2px solid #fff;
+  border: 2px solid var(--white);
   margin-left: -10px;
   width: 28px;
   height: 28px;
@@ -52,7 +51,7 @@
 }
 
 .happy {
-  color: #9be1a0;
+  color: var(--light-green);
 }
 
 .benefits {
@@ -72,18 +71,18 @@
   align-items: center;
   gap: 4px;
   border-radius: 30px;
-  background: #323f47;
+  background: var(  --dark-blue);
 }
 
 .circle {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #9be1a0;
+  background-color: var(--light-green);
 }
 
 .habitText {
-  color: #fff;
+  color: var(--white);
   text-align: center;
 
   font-size: 8px;
@@ -102,16 +101,16 @@
 }
 
 .statistics {
-  background: #9be1a0;
+  background:var(--light-green);
 }
 
 .setting {
-  background: #fff;
+  background: var(--white);
 }
 
 .statisticsText,
 .settingText {
-  color: #323f47;
+  color: var(--dark-blue);
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 8px;

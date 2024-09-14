@@ -1,12 +1,10 @@
 .welcome {
-  width: 343px;
-  flex-shrink: 0;
+  width:400px;
   border-radius: 30px;
   background: var(--light-gray);
-padding:24px 16px;
+  padding: 24px 16px;
   text-align: left;
   align-self: center;
-  margin: 0;
 }
 .logo {
   margin-bottom: 74px;
@@ -70,13 +68,13 @@ padding:24px 16px;
 .signup:focus,
 .Google:hover,
 .Google:focus {
-  background: #87d28d;
+  background: var(--light-green-hover);
 }
 
 .signup:disabled,
 .Google:disabled {
-  background: #e6e6e6;
-  color: #bcbcbc;
+  background: var( --white-disabled);
+  color: var( --light-gray-disabled);
 }
 
 /* Signin button */
@@ -88,8 +86,8 @@ padding:24px 16px;
 
 .signin:hover,
 .signin:focus {
-  border-color: #87d28d;
-  color: #87d28d;
+  border-color: var(--light-green-hover);
+  color: var(--light-green-hover);
 }
 
 .signin:disabled {
@@ -102,7 +100,6 @@ padding:24px 16px;
 @media screen and (min-width: 768px) {
   .welcome {
     width: 658px;
-
   }
   .subheader {
     font-size: 16px;
