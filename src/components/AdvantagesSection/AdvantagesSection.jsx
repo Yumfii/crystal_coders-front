@@ -1,4 +1,5 @@
 import css from "./AdvantagesSection.module.css";
+// import { Cloudinary } from "cloudinary-react";
 
 const AdvantatgesSection = () => {
   return (

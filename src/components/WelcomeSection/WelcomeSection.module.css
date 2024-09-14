@@ -2,28 +2,101 @@
   width: 343px;
   flex-shrink: 0;
   border-radius: 30px;
-  background: #f0eff4;
+  background: var(--light-gray);
   padding: 24px 16px;
+  text-align: left;
+  align-self: flex-start;
+  margin:0;
+}
+.logo{
+  margin-bottom: 74px
 }
 
 .subheader {
-  color: #2f2f2f;
-  font-family: 'Poppins';
+  color: var(--dark-gray);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
   letter-spacing: 0.84px;
+  margin-bottom: 16px;
 }
 
 .header {
   align-self: stretch;
-  color: #323f47;
-  font-family: 'Poppins';
+  color: var(--dark-blue);
   font-size: 38px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.38px;
+  margin-bottom: 32px;
 }
+.nav{
+  display: flex;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 30px;
+
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.14px;
+  text-align: center;
+  height: 46px;
+  width:auto;
+}
+
+/* Signup button */
+.signup, .Google {
+  padding: 14px 20px;
+  background:var(--light-green);
+  color: (var--dark-blue);
+}
+.Google{
+  width:120px;
+}
+
+.signup:hover,
+.signup:focus,
+.Google:hover,
+.Google:focus{
+  background: #87d28d;
+}
+
+.signup:disabled,
+.Google:disabled {
+  background: #e6e6e6;
+  color: #bcbcbc;
+}
+
+/* Signin button */
+.signin {
+  padding: 14px 28px;
+  border: 1px solid var(--dark-blue);
+  color: var(--dark-blue);
+}
+
+.signin:hover,
+.signin:focus {
+  border-color: #87d28d;
+  color: #87d28d;
+}
+
+.signin:disabled {
+  opacity: 0.2;
+  border-color: (var--dark-blue);
+  color:(var--dark-blue);
+}
+
 
 
 /* Tablet */
@@ -36,11 +109,29 @@
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.96px;
+    margin-bottom: 16px;
   }
   .header {
     font-size: 64px;
     line-height: 1.09;
     letter-spacing: -0.64px;
+  }
+  .logo{
+    margin-bottom: 50px;
+  }
+
+  .btn {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.16px;
+  }
+
+  .nav {
+
+    gap: 16px;
+  }
+  .signin, .signup{
+    padding: 18px 40px;
   }
 
 }
@@ -50,10 +141,22 @@
 @media screen and (min-width: 1280px) {
   .welcome {
     width: 672px;
+
+  }
+  .subheader{
+    padding-left: 32px;
   }
   .header {
     font-size: 80px;
     line-height: 0.95;
     letter-spacing: -0.8px;
+    padding-left: 32px;
+  }
+  .logo{
+    margin-bottom: 132px;
+  }
+  .nav{
+    margin-bottom: 188px;
+    padding-left: 32px;
   }
 }
