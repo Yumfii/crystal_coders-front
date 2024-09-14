@@ -3,8 +3,8 @@ import css from "./AdvantagesSection.module.css";
 // import { Cloudinary } from "cloudinary-react";
 
 const AdvantatgesSection = () => {
-  const cloudinaryImageUrl = 'https://res.cloudinary.com/your-cloud-name/image/upload/v1234567890/image-name.jpg';
-  return (
+    return (
+
     <CloudinaryContext cloudName="dwyxffoux">
     <div className={css.advantages}>
       <div className={css.customersContainer}>
