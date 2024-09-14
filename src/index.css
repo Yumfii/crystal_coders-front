@@ -11,8 +11,12 @@
   --dark-gray: #2f2f2f;
   --dark-blue: #323f47;
   --light-green: #9be1a0;
+  --light-green-hover: #87d28d;
   --white: #ffffff;
+  --white-disabled: #e6e6e6;
   --light-gray: #f0eff4;
+  --light-gray-disabled: #bcbcbc;
+  --light-red: #ef5050;
   --linear-gradient: linear-gradient(
     3deg,
     rgba(155, 225, 160, 0) 1.54%,
