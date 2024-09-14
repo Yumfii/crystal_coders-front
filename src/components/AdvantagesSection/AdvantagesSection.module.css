@@ -16,14 +16,10 @@
   display: inline-flex;
   padding: 10px 14px;
   align-items: center;
-
   border-radius: 30px;
   background: #fff;
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
   margin-top: 209px;
-
-  margin-bottom: 8px;
-
   height: 48px;
   gap: 4px;
 }
@@ -136,9 +132,7 @@
   .customersContainer {
     padding: 10px 20px;
     align-items: center;
-    margin-top: 537px;
-
-    margin-bottom: 0;
+margin-top: 293px;
   }
 
   .customersImg {
@@ -191,7 +185,6 @@
   .advantages {
     background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/jbfi4mcwyi6qc8s4ycpi');
   }
-
 }
 
 @media screen and (min-width: 768px) and (min-resolution: 192dpi),
