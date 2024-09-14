@@ -3,7 +3,7 @@
   flex-shrink: 0;
   border-radius: 30px;
   background: var(--light-gray);
-  padding: 24px 16px;
+
   text-align: left;
   align-self: center;
   margin: 0;
@@ -102,7 +102,7 @@
 @media screen and (min-width: 768px) {
   .welcome {
     width: 658px;
-    padding: 32px;
+
   }
   .subheader {
     font-size: 16px;
@@ -118,6 +118,7 @@
     padding-left: 32px;
   }
   .logo {
+    margin-top: 32px;
     margin-bottom: 50px;
   }
 

@@ -1,22 +1,30 @@
 .advantages {
-  width: 343px;
-  height: 353px;
   flex-shrink: 0;
   border-radius: 30px;
-  background: url('https://res.cloudinary.com/dwyxffoux/image/upload/t4qxv1yretc1celrttux/woman_with_water.jpg') no-repeat center center;
+  background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/t4qxv1yretc1celrttux');
   background-size: cover;
-  padding: 32px 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 704px;
+  margin: 0 auto;
+  min-height: 350px;
 }
 
 .customersContainer {
   display: inline-flex;
   padding: 10px 14px;
   align-items: center;
-  gap: 52px;
+
   border-radius: 30px;
   background: #fff;
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
-  margin: 209px 16px;
+  margin-top: 209px;
+  margin-left: 16px;
+  margin-bottom: 8px;
+  width: 180px;
+  height: 48px;
+  gap: 4px;
 }
 
 .customersList {
@@ -25,17 +33,14 @@
 }
 
 .customersImg {
-  width: 47px;
-  height: 47px;
   flex-shrink: 0;
   border-radius: 50px;
   border: 2px solid #fff;
-  /* background: url(<path-to-image>) lightgray 50% / cover no-repeat; */
   margin-left: -10px;
 }
 
 .customersText {
-  font-family: 'Poppins';
+  text-align: right;
   font-size: 12px;
   font-weight: 700;
   line-height: 14px;
@@ -52,7 +57,8 @@
   align-content: flex-start;
   gap: 4px;
   flex-wrap: wrap;
-  margin: 265px 16px 32px;
+  margin-left: 160px;
+  margin-bottom: 32px;
 }
 
 .habitContainer {
@@ -75,7 +81,7 @@
 .habitText {
   color: #fff;
   text-align: center;
-  font-family: 'Poppins';
+
   font-size: 8px;
   font-weight: 700;
   line-height: 8px;
@@ -114,31 +120,30 @@
 /* Tablet */
 @media screen and (min-width: 768px) {
   .advantages {
-    width: 704px;
-  }
-  .customersContainer {
-    padding: 10px 20px;
+    width: 658px;
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/ncrpeodjj9zflxafe1xb');
+  min-height: 440px;
   }
 
-  .customersText {
+
+  /* .customersText {
     font-size: 15px;
     line-height: 1.5;
   }
-  .benefits {
-    width: 242px;
-    gap: 10px;
-    margin: 32px;
-  }
-  .statistics, .habitContainer, .setting{
+
+  .statistics,
+  .habitContainer,
+  .setting {
     padding: 11px 16px;
   }
 
   .statisticsText,
-  .settingText, .habitText {
+  .settingText,
+  .habitText {
     font-size: 12px;
     line-height: 1;
     letter-spacing: -0.12px;
-  }
+  } */
 }
 
 /* Desktop */
@@ -146,5 +151,30 @@
 @media screen and (min-width: 1280px) {
   .advantages {
     width: 672px;
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/jbfi4mcwyi6qc8s4ycpi');
+min-height:700px;
+  }
+}
+
+/* Retina */
+
+@media screen and (min-resolution: 192dpi),
+       screen and (-webkit-min-device-pixel-ratio: 2) {
+  .advantages {
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/jbfi4mcwyi6qc8s4ycpi');
+  }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi),
+       screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  .advantages {
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/mmidk94jcczcxl5rsutz');
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-resolution: 192dpi),
+       screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+  .advantages {
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/ucqyki2cvgbqbafwxysy');
   }
 }
