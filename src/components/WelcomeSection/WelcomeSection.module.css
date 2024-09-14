@@ -35,7 +35,7 @@
   align-items: flex-start;
   gap: 10px;
   border-radius: 30px;
-  margin-bottom: 68px;
+  margin-bottom: 52px;
 }
 
 .btn {
@@ -100,6 +100,7 @@
 @media screen and (min-width: 768px) {
   .welcome {
     width: 658px;
+    padding: 32px;
   }
   .subheader {
     font-size: 16px;
@@ -115,9 +116,9 @@
     padding-left: 32px;
   }
   .logo {
-    padding-top: 32px;
+
     margin-bottom: 50px;
-    padding-left: 32px;
+
   }
 
   .btn {
@@ -128,7 +129,7 @@
 
   .nav {
     gap: 16px;
-    margin-bottom: 50px;
+margin-bottom: 28px;
     padding-left: 32px;
   }
   .signin,

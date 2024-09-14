@@ -172,9 +172,16 @@ margin-top: 293px;
 @media screen and (min-width: 1280px) {
   .advantages {
     width: 672px;
+    min-height: 754px;
     background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/jbfi4mcwyi6qc8s4ycpi');
-    min-height: 722px;
+
   }
+
+  .customersContainer{
+
+    margin-top:537px;
+  }
+
 }
 
 /* Retina */
