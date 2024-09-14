@@ -42,7 +42,7 @@ const AdvantatgesSection = () => {
 
 
           <p className={css.customersText}>
-            Our <span className={css.happy}> 25 happy</span> customers
+            Our <span className={css.happy}> happy</span> customers
           </p>
         </div>
         <div className={css.benefits}>
