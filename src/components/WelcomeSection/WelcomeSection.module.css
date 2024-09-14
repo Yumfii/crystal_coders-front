@@ -1,5 +1,5 @@
 .welcome {
-  width:400px;
+  width:340px;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
@@ -143,6 +143,7 @@ margin-bottom: 28px;
 @media screen and (min-width: 1280px) {
   .welcome {
     width: 672px;
+    min-height: 754px;
   }
 
   .header {
@@ -153,7 +154,5 @@ margin-bottom: 28px;
   .logo {
     margin-bottom: 132px;
   }
-  .nav {
-    margin-bottom: 188px;
-  }
+
 }
