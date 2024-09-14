@@ -1,27 +1,45 @@
 import { CloudinaryContext, Image } from 'cloudinary-react';
 import css from './AdvantagesSection.module.css';
-import { Cloudinary } from 'cloudinary-core';
 
+const imageIds = {
+  customer1: {
+    nonRetina: 'tmbodlkkjpdiqirehfp6',
+    retina: 'yj4j2yfgjtmur5lvrzka '
+  },
+  customer2: {
+    nonRetina: 'gn4nssaqqugodu3pnzi2',
+    retina: 'jqj6k2vbrnbuqhtgblpr'
+  },
+  customer3: {
+    nonRetina: 'og5jodgwvckh5kxgalyq',
+    retina: 'dluks7qhsvduivuaaxrp'
+  }
+};
 const AdvantatgesSection = () => {
-  const cloudinary = new Cloudinary({
-    cloud_name: 'dwyxffoux',
-  });
+  const getImageUrl = (baseId, isRetina) => {
+    return isRetina ? imageIds[baseId].retina : imageIds[baseId].nonRetina;
+  };
+
+  const isRetina = window.matchMedia('(min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2)').matches;
+
+
 
   return (
     <CloudinaryContext cloudName="dwyxffoux">
       <div className={css.advantages}>
         <div className={css.customersContainer}>
-          <ul className={css.customersList}>
+        <ul className={css.customersList}>
             <li className={css.customersImg}>
-              <Image publicId="tmbodlkkjpdiqirehfp6" alt="customer1" />
+              <Image publicId={getImageUrl('customer1', isRetina)} alt="customer1" />
             </li>
             <li className={css.customersImg}>
-              <Image publicId="gn4nssaqqugodu3pnzi2" alt="customer2" />
+              <Image publicId={getImageUrl('customer2', isRetina)} alt="customer2" />
             </li>
             <li className={css.customersImg}>
-              <Image publicId="og5jodgwvckh5kxgalyq" alt="customer3" />
+              <Image publicId={getImageUrl('customer3', isRetina)} alt="customer3" />
             </li>
           </ul>
+
 
           <p className={css.customersText}>
             Our <span className={css.happy}> 25 happy</span> customers

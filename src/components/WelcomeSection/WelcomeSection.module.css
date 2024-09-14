@@ -118,8 +118,9 @@
     padding-left: 32px;
   }
   .logo {
-    margin-top: 32px;
+    padding-top: 32px;
     margin-bottom: 50px;
+    padding-left: 32px;
   }
 
   .btn {
