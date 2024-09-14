@@ -30,7 +30,8 @@
 }
 .nav {
   display: flex;
-
+width: 300px;
+flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
@@ -60,9 +61,7 @@
   background: var(--light-green);
   color: (var--dark-blue);
 }
-.Google {
-  width: 120px;
-}
+
 
 .signup:hover,
 .signup:focus,
@@ -128,6 +127,7 @@
   }
 
   .nav {
+    width:400px;
     gap: 16px;
 margin-bottom: 28px;
     padding-left: 32px;

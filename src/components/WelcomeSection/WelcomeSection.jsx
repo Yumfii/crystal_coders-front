@@ -21,7 +21,7 @@ const WelcomeSection = () => {
           <NavLink className={`${css.signin} ${css.btn}`} to="/signin">
            Sign  In
           </NavLink>
-          <NavLink className={`${css.Google} ${css.btn}`}><FaGoogle/></NavLink>
+          <NavLink className={`${css.Google} ${css.btn}`}><FaGoogle/><p>Sign in with Google</p></NavLink>
 
     </div>
 
