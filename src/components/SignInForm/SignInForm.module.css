@@ -1,0 +1,96 @@
+@import '../../index.css';
+
+.signin-form-container {
+  display: flex;
+  width: 311px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.signin-title {
+  color: var(--dark-blue);
+  font-family: Poppins, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.36px;
+}
+
+.signin-form {
+  margin-top: 32px;
+}
+
+.form-group {
+  gap: 16px;
+}
+
+.form-label {
+  color: var(--dark-gray);
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.14px;
+}
+
+.form-field {
+  border-radius: 15px;
+  border: 1px solid rgba(47, 47, 47, 0.2);
+}
+
+.signim-button {
+  margin-top: 32px;
+  display: flex;
+  width: 311px;
+  padding: 16px 131px;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-offer {
+  color: rgba(47, 47, 47, 0.5);
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.14px;
+}
+
+.signup-link {
+  color: var(--dark-gray);
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.14px;
+  text-decoration-line: underline;
+}
+
+@media screen and (min-width: 768px) {
+  .signin-title {
+    font-size: 36px;
+    line-height: 38px;
+  }
+
+  .form-label {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .signin-title {
+    font-size: 36px;
+    line-height: 38px;
+  }
+
+  .form-label {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

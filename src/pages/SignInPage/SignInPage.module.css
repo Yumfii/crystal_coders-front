@@ -1,0 +1,61 @@
+@import '../../index.css';
+
+.info-form-container {
+  width: 704px;
+  height: 960px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: #f0eff4;
+}
+.image-container {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .info-form-container {
+    width: 343px;
+    height: 780px;
+    flex-shrink: 0;
+  }
+  .image-container {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .info-form-container {
+    width: 672px;
+    height: 736px;
+    flex-shrink: 0;
+  }
+
+  .image-container {
+    width: 672px;
+    height: 736px;
+    flex-shrink: 0;
+  }
+}
