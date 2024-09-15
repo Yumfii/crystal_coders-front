@@ -9,7 +9,7 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/signin" element={<SignInPage />} />
-      <Route path="/singup" element={<SignUpPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
     </Routes>
   );
 };
