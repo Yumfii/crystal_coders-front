@@ -49,32 +49,45 @@ const SignUpForm = () => {
         <Form className={css.SignUpForm}>
           <h2 className={css.SignText}>Sign Up</h2>
 
-          <label htmlFor={emailId}>Email </label>
-          <Field name="email" id={emailId} placeholder="Enter your email" />
-          <br />
+          <div className={css.inputDiv}>
+            <label htmlFor={emailId}>Email </label>
+            <Field
+              name="email"
+              id={emailId}
+              placeholder="Enter your email"
+              className={css.input}
+            />
+          </div>
 
-          <label htmlFor={passwordId}>Password </label>
-          <Field
-            name="password"
-            type="password"
-            id={passwordId}
-            placeholder="Enter your password"
-          />
-          <br />
+          <div className={css.inputDiv}>
+            <label htmlFor={passwordId}>Password </label>
+            <Field
+              name="password"
+              type="password"
+              id={passwordId}
+              placeholder="Enter your password"
+              className={css.input}
+            />
+          </div>
 
-          <label htmlFor={repeatPasswordId}>Repeat password </label>
-          <Field
-            name="repeatPassword"
-            type="password"
-            id={repeatPasswordId}
-            placeholder="Repeat password"
-          />
-          <hr />
+          <div className={css.inputDiv}>
+            <label htmlFor={repeatPasswordId}>Repeat password </label>
+            <Field
+              name="repeatPassword"
+              type="password"
+              id={repeatPasswordId}
+              placeholder="Repeat password"
+              className={css.input}
+            />
+          </div>
           <button type="submit" className={css.btn}>
             Sign Up
           </button>
-          <p>
-            Already have account? <Link to="/signin">Sign In</Link>
+          <p className={css.text}>
+            Already have account?{' '}
+            <Link to="/signin" className={css.linkText}>
+              Sign In
+            </Link>
           </p>
         </Form>
       </Formik>

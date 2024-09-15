@@ -2,24 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
 }
 
 .advantages {
   display: none;
 }
 
-@media screen and (min-width: 1280px) {
-  .advantatges {
-    display: flex;
-  }
-}
-
-/*
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   .SignUpPageContainer {
     flex-direction: row;
     gap: 32px;
+  }
+  .advantages {
     display: block;
   }
-} */
+}

@@ -4,26 +4,77 @@
   background: var(--light-gray);
   padding: 24px 16px;
   text-align: left;
-  align-self: center;
-}
-
-.logo {
-  margin-bottom: 126px;
 }
 
 .SignUpForm {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  margin-bottom: 16px;
+  display: grid;
+  align-content: center;
   padding: 16px;
   gap: 16px;
+  align-self: center;
 }
 
 .SignText {
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+}
+
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input {
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 15px;
+  border: 1px solid rgba(47, 47, 47, 0.2);
+  background: var(--light-gray);
 }
 
 .btn {
-  margin-top: 32px;
+  margin-top: 16px;
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: var(--light-green);
+}
+
+.text {
+  color: rgba(47, 47, 47, 0.5);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.14px;
+  text-align: center;
+}
+
+.linkText {
+  color: #2f2f2f;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.14px;
+  text-decoration-line: underline;
+}
+
+@media screen and (min-width: 768px) {
+  .SignUpContainer {
+    width: 704px;
+    padding: 32px;
+  }
+  .SignUpForm {
+    padding: 102px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .SignUpContainer {
+    width: 672px;
+    gap: 32px;
+  }
 }
