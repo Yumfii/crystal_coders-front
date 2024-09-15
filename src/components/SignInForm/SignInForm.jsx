@@ -2,7 +2,7 @@ import css from './SignInForm.module.css'; // Import CSS as a module
 
 import { useState } from 'react';
 import * as Yup from 'yup';
-import { Formik, Field, ErrorMessage, Form } from 'formik';
+import { Formik, ErrorMessage, Form } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
