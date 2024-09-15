@@ -3,19 +3,41 @@
   background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/ktnghogpjachr01lpp11');
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 262px 335px;
   background-color: var(--light-green);
 }
 
-/* @media screen and (min-resolution: 192dpi),
+@media screen and (min-width: 768px) {
+  .section {
+    background-size: 374px 477px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .section {
+    width: 49%;
+    background-size: 472px 604px;
+  }
+}
+
+@media screen and (min-resolution: 192dpi),
   screen and (-webkit-min-device-pixel-ratio: 2) {
   .section {
     background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/fytohiouaxmhletupzjx');
   }
-} */
+}
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 768px) and (min-resolution: 192dpi),
+  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
   .section {
-    width: 48%;
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/fytohiouaxmhletupzjx');
+  }
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
+  .section {
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/fytohiouaxmhletupzjx');
   }
 }
 
@@ -27,7 +49,7 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    padding: 33px 33px 64px;
+    padding: 33px 33px 60px;
   }
 }
 
@@ -72,6 +94,7 @@
 
 @media screen and (min-width: 1440px) {
   .dailyNorma {
+    margin-left: 30px;
     margin-bottom: 180px;
   }
 }
@@ -147,8 +170,24 @@
 }
 
 .linearProgress {
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
+  height: 8px;
   margin-bottom: 6px;
+  border-radius: 9px;
+}
+
+.linearProgress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background-color: var(--white);
+  border-radius: 50%;
+  border: 2px solid var(--light-green);
+  margin-top: -1px;
+  margin-left: 2px;
 }
 
 .values {
@@ -174,7 +213,9 @@
   justify-content: flex-end;
 }
 .addWaterBtn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   padding: 14px 20px;
   border-radius: 30px;
   background-color: var(--dark-blue);
@@ -183,6 +224,7 @@
   font-weight: 700;
   line-height: 1.28;
   letter-spacing: -0.14px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
