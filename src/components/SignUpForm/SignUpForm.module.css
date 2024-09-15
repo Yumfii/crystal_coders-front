@@ -1,0 +1,29 @@
+.SignUpContainer {
+  width: 343px;
+  border-radius: 30px;
+  background: var(--light-gray);
+  padding: 24px 16px;
+  text-align: left;
+  align-self: center;
+}
+
+.logo {
+  margin-bottom: 126px;
+}
+
+.SignUpForm {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 16px;
+  padding: 16px;
+  gap: 16px;
+}
+
+.SignText {
+  margin-bottom: 32px;
+}
+
+.btn {
+  margin-top: 32px;
+}
