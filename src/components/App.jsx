@@ -1,4 +1,6 @@
 import HomePage from 'pages/HomePage/HomePage';
+import SignInPage from 'pages/SignInPage/SignInPage';
+import SignUpPage from 'pages/SignUpPage/SignUpPage';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -6,18 +8,8 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/signin" element={<SignInPage />} />
+      <Route path="/singup" element={<SignUpPage />} />
     </Routes>
-    // <div
-    //   style={{
-    //     height: '100vh',
-    //     display: 'flex',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     fontSize: 40,
-    //     color: '#010101'
-    //   }}
-    // >
-    //   React homework template
-    // </div>
   );
 };
