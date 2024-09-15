@@ -1,8 +1,9 @@
 import { Field, Form, Formik } from 'formik';
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import * as yup from 'yup';
 // import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
@@ -27,6 +28,7 @@ export const validationSchema = yup.object().shape({
 });
 
 const SignUpForm = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
   // const dispatch = useDispatch();
   const emailId = useId();
   const passwordId = useId();
@@ -61,24 +63,42 @@ const SignUpForm = () => {
 
           <div className={css.inputDiv}>
             <label htmlFor={passwordId}>Password </label>
-            <Field
-              name="password"
-              type="password"
-              id={passwordId}
-              placeholder="Enter your password"
-              className={css.input}
-            />
+            <div className={css.wrapPass}>
+              <Field
+                name="password"
+                type={passwordVisible ? 'text' : 'password'}
+                id={passwordId}
+                placeholder="Enter your password"
+                className={css.input}
+              />
+              <button
+                type="button"
+                className={css.toggle}
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              >
+                {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+              </button>
+            </div>
           </div>
 
           <div className={css.inputDiv}>
             <label htmlFor={repeatPasswordId}>Repeat password </label>
-            <Field
-              name="repeatPassword"
-              type="password"
-              id={repeatPasswordId}
-              placeholder="Repeat password"
-              className={css.input}
-            />
+            <div className={css.wrapPass}>
+              <Field
+                name="repeatPassword"
+                type={passwordVisible ? 'text' : 'password'}
+                id={repeatPasswordId}
+                placeholder="Repeat password"
+                className={css.input}
+              />
+              <button
+                type="button"
+                className={css.toggle}
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              >
+                {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+              </button>
+            </div>
           </div>
           <button type="submit" className={css.btn}>
             Sign Up
