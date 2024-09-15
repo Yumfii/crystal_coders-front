@@ -98,7 +98,7 @@ flex-wrap: wrap;
 /* Tablet */
 @media screen and (min-width: 768px) {
   .welcome {
-    width: 658px;
+    width:704px;
     padding: 32px;
   }
   .subheader {
