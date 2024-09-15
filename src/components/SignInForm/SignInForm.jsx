@@ -6,6 +6,7 @@ import { Formik, Field, ErrorMessage, Form } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
+import { signIn } from 'services/auth';
 
 const validationSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -16,6 +17,18 @@ const validationSchema = Yup.object({
 
 const SignInForm = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await signIn({ "email": email, "password": password })
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
   return (
     <div className={css.infoContainer}>
@@ -29,17 +42,21 @@ const SignInForm = () => {
           //onSubmit={handleSubmit}
         >
           {({ errors, touched }) => (
-            <Form autoComplete="off" className={css.form} noValidate>
+            <Form autoComplete="off" className={css.form} noValidate onSubmit={handleSubmit}>
               <h1 className={css.title}>Sign In</h1>
               <div className={css.inputBox}>
                 <div className={css.group}>
                   <label htmlFor="email" className={css.label}>
                     Email
                   </label>
-                  <Field
+                  <input
                     type="email"
                     name="email"
                     id="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value)
+                    }}
                     placeholder="Enter your email"
                     className={`${css.input} ${
                       touched.email && errors.email ? css.error : ''
@@ -56,11 +73,15 @@ const SignInForm = () => {
                     Password
                   </label>
                   <div className={css.wrapPass}>
-                    <Field
+                    <input
                       type={passwordVisible ? 'text' : 'password'}
                       name="password"
                       id="password"
                       placeholder="Enter your password"
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.target.value)
+                      }}
                       className={`${css.input} ${
                         touched.password && errors.password ? css.error : ''
                       }`}
