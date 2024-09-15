@@ -72,6 +72,11 @@
   background: var(--light-green);
 }
 
+.btn:hover,
+.btn:focus {
+  background: var(--light-green-hover);
+}
+
 .text {
   color: rgba(47, 47, 47, 0.5);
   font-size: 14px;
@@ -109,5 +114,12 @@
   .SignUpContainer {
     width: 672px;
     gap: 32px;
+    min-height: 754px;
+  }
+  .SignUpForm {
+    padding: 0 102px;
+  }
+  .logo {
+    margin-bottom: 74px;
   }
 }
