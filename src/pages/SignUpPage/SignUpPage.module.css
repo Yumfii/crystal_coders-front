@@ -14,5 +14,6 @@
   .SignUpPageContainer {
     flex-direction: row;
     gap: 32px;
+    display: block;
   }
 } */
