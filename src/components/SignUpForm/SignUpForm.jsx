@@ -1,12 +1,12 @@
 import { Field, Form, Formik } from 'formik';
 import { useId } from 'react';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
-import { registerOperation } from '../../redux/auth/operations';
+// import { registerOperation } from '../../redux/auth/operations';
 
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -27,16 +27,15 @@ export const validationSchema = yup.object().shape({
 });
 
 const SignUpForm = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const emailId = useId();
   const passwordId = useId();
   const repeatPasswordId = useId();
 
-  const handleSubmit = (values, actions) => {
-    dispatch(registerOperation(values));
-    actions.resetForm();
-  };
-
+  // const handleSubmit = (values, actions) => {
+  //   dispatch(registerOperation(values));
+  //   actions.resetForm();
+  // };
   return (
     <div className={css.SignUpContainer}>
       <div className={css.logo}>
@@ -44,7 +43,7 @@ const SignUpForm = () => {
       </div>
       <Formik
         initialValues={{ email: '', password: '', repeatPassword: '' }}
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <Form className={css.SignUpForm}>

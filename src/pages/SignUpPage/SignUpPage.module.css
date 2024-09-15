@@ -9,6 +9,12 @@
   display: none;
 }
 
+@media screen and (min-width: 1280px) {
+  .advantatges {
+    display: flex;
+  }
+}
+
 /*
 @media screen and (min-width: 1280px) {
   .SignUpPageContainer {
