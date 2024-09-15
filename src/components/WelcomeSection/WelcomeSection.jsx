@@ -2,9 +2,8 @@
 
 import css from "./WelcomeSection.module.css"
 import Logo from "components/Logo/Logo"
-import { NavLink } from "react-router-dom"
-import { FaGoogle } from "react-icons/fa"
-
+import { NavLink } from "react-router-dom";
+import GoogleBtn from "components/GoogleBtn/GoogleBtn";
 
 const WelcomeSection = () => {
   return (
@@ -21,7 +20,8 @@ const WelcomeSection = () => {
           <NavLink className={`${css.signin} ${css.btn}`} to="/signin">
            Sign  In
           </NavLink>
-          <NavLink className={`${css.Google} ${css.btn}`}><FaGoogle/><p>Sign in with Google</p></NavLink>
+          < div className={css.GoogleHomePage}> <GoogleBtn/></div>
+
 
     </div>
 

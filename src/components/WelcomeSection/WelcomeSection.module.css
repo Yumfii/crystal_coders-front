@@ -55,8 +55,8 @@ flex-wrap: wrap;
 }
 
 /* Signup button */
-.signup,
-.Google {
+.signup
+ {
   padding: 14px 20px;
   background: var(--light-green);
   color: (var--dark-blue);
@@ -64,20 +64,18 @@ flex-wrap: wrap;
 
 
 .signup:hover,
-.signup:focus,
-.Google:hover,
-.Google:focus {
+.signup:focus
+{
   background: var(--light-green-hover);
 }
 
-.signup:disabled,
-.Google:disabled {
+.signup:disabled{
   background: var( --white-disabled);
   color: var( --light-gray-disabled);
 }
 
 /* Signin button */
-.signin {
+.signin{
   padding: 14px 28px;
   border: 1px solid var(--dark-blue);
   color: var(--dark-blue);
@@ -93,6 +91,14 @@ flex-wrap: wrap;
   opacity: 0.2;
   border-color: (var--dark-blue);
   color: (var--dark-blue);
+}
+
+.GoogleHomePage{
+  width: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* Tablet */
@@ -136,6 +142,14 @@ margin-bottom: 28px;
   .signup {
     padding: 18px 40px;
   }
+
+   .GoogleHomePage{
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 }
 
 /* Desktop */
