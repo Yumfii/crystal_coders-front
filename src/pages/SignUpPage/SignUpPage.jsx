@@ -6,7 +6,7 @@ const SignUpPage = () => {
   return (
     <div className={css.SignUpPageContainer}>
       <SignUpForm />
-      <div className={css.advantatges}>
+      <div className={css.advantages}>
         <AdvantatgesSection />
       </div>
     </div>
