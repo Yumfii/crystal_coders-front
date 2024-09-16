@@ -7,50 +7,10 @@
   background-color: var(--light-green);
 }
 
-@media screen and (min-width: 768px) {
-  .section {
-    background-size: 374px 477px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .section {
-    width: 49%;
-    background-size: 472px 604px;
-  }
-}
-
-@media screen and (min-resolution: 192dpi),
-  screen and (-webkit-min-device-pixel-ratio: 2) {
-  .section {
-    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/fytohiouaxmhletupzjx');
-  }
-}
-
-@media screen and (min-width: 768px) and (min-resolution: 192dpi),
-  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
-  .section {
-    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/fytohiouaxmhletupzjx');
-  }
-}
-
-@media screen and (min-width: 1440px) and (min-resolution: 192dpi),
-  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
-  .section {
-    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/fytohiouaxmhletupzjx');
-  }
-}
-
 .container {
   padding: 0 16px;
   padding-top: 24px;
   padding-bottom: 32px;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    padding: 33px 33px 60px;
-  }
 }
 
 .title {
@@ -64,145 +24,26 @@
 }
 
 @media screen and (min-width: 768px) {
+  .section {
+    background-size: 374px 477px;
+  }
+  .container {
+    padding: 33px 33px 64px;
+  }
   .title {
     font-size: 24px;
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .section {
+    width: 672px;
+    height: calc(100vh - 64px);
+    background-size: 472px 604px;
+  }
   .title {
     line-height: 24px;
     letter-spacing: -0.24px;
-  }
-}
-
-/* WaterDailyNorma */
-
-.dailyNorma {
-  display: inline-block;
-  margin-bottom: 49px;
-  padding: 14px 18px;
-  border-radius: 15px;
-  background-color: var(--white);
-}
-
-@media screen and (min-width: 768px) {
-  .dailyNorma {
-    margin-bottom: 87px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .dailyNorma {
-    margin-left: 30px;
-    margin-bottom: 180px;
-  }
-}
-
-.dailyNorma .numberLiters {
-  display: inline-block;
-  margin-bottom: 6px;
-  color: var(--dark-blue);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 14px;
-}
-
-@media screen and (min-width: 768px) {
-  .dailyNorma .numberLiters {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-}
-
-.dailyNorma .text {
-  color: rgba(47, 47, 47, 0.6);
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 10px;
-}
-
-@media screen and (min-width: 768px) {
-  .dailyNorma .text {
-    font-size: 12px;
-    line-height: 1.9;
-  }
-}
-
-/* WaterProgressBar */
-
-.waterProgressBar {
-  padding: 12px;
-  width: 198px;
-  margin: 0 auto;
-  margin-bottom: 42px;
-  background-color: var(--white);
-  border-radius: 15px;
-}
-
-@media screen and (min-width: 768px) {
-  .waterProgressBar {
-    width: 295px;
-    padding: 20px;
-    margin-bottom: 26px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .waterProgressBar {
-    margin-bottom: 50px;
-  }
-}
-
-.day {
-  margin-bottom: 8px;
-  color: var(--dark-blue);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 14px;
-}
-
-@media screen and (min-width: 768px) {
-  .day {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-}
-
-.linearProgress {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 8px;
-  margin-bottom: 6px;
-  border-radius: 9px;
-}
-
-.linearProgress::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 12px;
-  height: 12px;
-  background-color: var(--white);
-  border-radius: 50%;
-  border: 2px solid var(--light-green);
-  margin-top: -1px;
-  margin-left: 2px;
-}
-
-.values {
-  display: flex;
-  justify-content: space-between;
-  color: rgba(47, 47, 47, 0.6);
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 10px;
-}
-
-@media screen and (min-width: 768px) {
-  .day {
-    font-size: 15px;
-    line-height: 1.5;
   }
 }
 
@@ -238,5 +79,26 @@
 @media screen and (min-width: 1440px) {
   .addWaterBtn {
     padding: 18px 30px;
+  }
+}
+
+@media screen and (min-resolution: 192dpi),
+  screen and (-webkit-min-device-pixel-ratio: 2) {
+  .section {
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/fytohiouaxmhletupzjx');
+  }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi),
+  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  .section {
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/fytohiouaxmhletupzjx');
+  }
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
+  .section {
+    background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/fytohiouaxmhletupzjx');
   }
 }
