@@ -8,7 +8,6 @@
   text-align: left;
   align-self: center;
   margin: 0 auto;
-  height: 736px;
 }
 
 .logo {
@@ -27,7 +26,7 @@
 
 .title {
   color: var(--dark-blue);
-  font-family: Poppins, sans-serif;
+
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
@@ -109,14 +108,7 @@
 }
 
 .toggle {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
+  display: none;
 }
 
 .toggle:focus {
@@ -141,7 +133,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  line-height: 18px; /* 128.571% */
+  line-height: 18px;
   letter-spacing: -0.14px;
 }
 
@@ -213,19 +205,10 @@
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
 }
 
-.register {
-  color: rgba(47, 47, 47, 0.5);
-
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: -0.14px;
-}
-
 @media screen and (min-width: 768px) {
   .infoContainer {
     width: 704px;
+    height: 100vh;
     padding: 32px;
   }
 
@@ -234,6 +217,13 @@
   }
 
   .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -257,6 +247,18 @@
     padding: 16px 290px 16px 16px;
   }
 
+  .toggle {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
   .signInBtn {
     width: 436px;
     height: 60px;
@@ -274,7 +276,8 @@
 @media screen and (min-width: 1440px) {
   .infoContainer {
     width: 672px;
-    height: 736px;
+
+    height: 754px;
     margin: 0;
   }
 

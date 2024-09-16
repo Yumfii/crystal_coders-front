@@ -92,12 +92,6 @@ const SignInForm = () => {
                 </p>
 
                 <p className={css.conc}>Or</p>
-
-                <NavLink className={css.redirect} to="/">
-                  <button className={css.google}>
-                    <span class={css.register}>Register with</span> <FaGoogle />
-                  </button>
-                </NavLink>
               </div>
             </Form>
           )}
