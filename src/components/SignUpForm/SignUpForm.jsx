@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { useId, useState } from 'react';
 import * as yup from 'yup';
 // import { useDispatch } from 'react-redux';
@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
+import { signUp } from 'services/auth';
 // import { registerOperation } from '../../redux/auth/operations';
 
 const emailRegex =
@@ -34,10 +35,23 @@ const SignUpForm = () => {
   const passwordId = useId();
   const repeatPasswordId = useId();
 
-  // const handleSubmit = (values, actions) => {
-  //   dispatch(registerOperation(values));
-  //   actions.resetForm();
-  // };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    console.log(email, password, repeatPassword);
+    try {
+      const response = await signUp({
+        email: email,
+        password: password,
+      });
+      console.log(response.data);
+    } catch (er) {
+      console.log(er.message);
+    }
+  };
   return (
     <div className={css.SignUpContainer}>
       <div className={css.logo}>
@@ -45,31 +59,39 @@ const SignUpForm = () => {
       </div>
       <Formik
         initialValues={{ email: '', password: '', repeatPassword: '' }}
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        <Form className={css.SignUpForm}>
+        <Form className={css.SignUpForm} onSubmit={handleSubmit}>
           <h2 className={css.SignText}>Sign Up</h2>
 
           <div className={css.inputDiv}>
             <label htmlFor={emailId}>Email </label>
-            <Field
+            <input
               name="email"
-              id={emailId}
+              // id={emailId}
+              onChange={e => {
+                setEmail(e.target.value);
+              }}
               placeholder="Enter your email"
               className={css.input}
+              value={email}
             />
           </div>
 
           <div className={css.inputDiv}>
             <label htmlFor={passwordId}>Password </label>
             <div className={css.wrapPass}>
-              <Field
+              <input
                 name="password"
-                type={passwordVisible ? 'text' : 'password'}
-                id={passwordId}
+                type="password"
+                // id={passwordId}
+                onChange={e => {
+                  setPassword(e.target.value);
+                }}
                 placeholder="Enter your password"
                 className={css.input}
+                value={password}
               />
               <button
                 type="button"
@@ -80,16 +102,19 @@ const SignUpForm = () => {
               </button>
             </div>
           </div>
-
           <div className={css.inputDiv}>
             <label htmlFor={repeatPasswordId}>Repeat password </label>
             <div className={css.wrapPass}>
-              <Field
+              <input
                 name="repeatPassword"
-                type={passwordVisible ? 'text' : 'password'}
-                id={repeatPasswordId}
+                type="password"
+                // id={repeatPasswordId}
+                onChange={e => {
+                  setRepeatPassword(e.target.value);
+                }}
                 placeholder="Repeat password"
                 className={css.input}
+                value={repeatPassword}
               />
               <button
                 type="button"
