@@ -1,0 +1,172 @@
+.welcome {
+  width:340px;
+  border-radius: 30px;
+  background: var(--light-gray);
+  padding: 24px 16px;
+  text-align: left;
+  align-self: center;
+}
+.logo {
+  margin-bottom: 74px;
+}
+
+.subheader {
+  color: var(--dark-gray);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: 0.84px;
+  margin-bottom: 16px;
+}
+
+.header {
+  align-self: stretch;
+  color: var(--dark-blue);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.38px;
+  margin-bottom: 32px;
+}
+.nav {
+  display: flex;
+width: 300px;
+flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 30px;
+  margin-bottom: 52px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.14px;
+  text-align: center;
+  height: 46px;
+  width: auto;
+}
+
+/* Signup button */
+.signup
+ {
+  padding: 14px 20px;
+  background: var(--light-green);
+  color: (var--dark-blue);
+}
+
+
+.signup:hover,
+.signup:focus
+{
+  background: var(--light-green-hover);
+}
+
+.signup:disabled{
+  background: var( --white-disabled);
+  color: var( --light-gray-disabled);
+}
+
+/* Signin button */
+.signin{
+  padding: 14px 28px;
+  border: 1px solid var(--dark-blue);
+  color: var(--dark-blue);
+}
+
+.signin:hover,
+.signin:focus {
+  border-color: var(--light-green-hover);
+  color: var(--light-green-hover);
+}
+
+.signin:disabled {
+  opacity: 0.2;
+  border-color: (var--dark-blue);
+  color: (var--dark-blue);
+}
+
+.GoogleHomePage{
+  width: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .welcome {
+    width:704px;
+    padding: 32px;
+  }
+  .subheader {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.96px;
+    margin-bottom: 16px;
+    padding-left: 32px;
+  }
+  .header {
+    font-size: 64px;
+    line-height: 1.09;
+    letter-spacing: -0.64px;
+    padding-left: 32px;
+  }
+  .logo {
+
+    margin-bottom: 50px;
+
+  }
+
+  .btn {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.16px;
+  }
+
+  .nav {
+    width:400px;
+    gap: 16px;
+margin-bottom: 28px;
+    padding-left: 32px;
+  }
+  .signin,
+  .signup {
+    padding: 18px 40px;
+  }
+
+   .GoogleHomePage{
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1280px) {
+  .welcome {
+    width: 672px;
+    min-height: 754px;
+  }
+
+  .header {
+    font-size: 80px;
+    line-height: 0.95;
+    letter-spacing: -0.8px;
+  }
+  .logo {
+    margin-bottom: 132px;
+  }
+
+}

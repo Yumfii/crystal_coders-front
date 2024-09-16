@@ -1,0 +1,19 @@
+.SignUpPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.advantages {
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .SignUpPageContainer {
+    flex-direction: row;
+    gap: 32px;
+  }
+  .advantages {
+    display: block;
+  }
+}
