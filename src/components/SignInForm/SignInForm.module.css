@@ -78,7 +78,6 @@
   background: transparent;
 
   color: rgba(47, 47, 47, 0.6);
-  font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -129,7 +128,7 @@
   white-space: nowrap;
 
   color: var(--dark-blue);
-  font-family: Poppins;
+
   font-size: 14px;
   font-style: normal;
   font-weight: 700;

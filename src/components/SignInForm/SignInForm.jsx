@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
 import { signIn } from 'services/auth';
+import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
 
 const validationSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -17,18 +18,18 @@ const validationSchema = Yup.object({
 
 const SignInForm = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await signIn({ "email": email, "password": password })
+      const response = await signIn({ email: email, password: password });
       console.log(response.data);
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
 
   return (
     <div className={css.infoContainer}>
@@ -42,7 +43,12 @@ const SignInForm = () => {
           //onSubmit={handleSubmit}
         >
           {({ errors, touched }) => (
-            <Form autoComplete="off" className={css.form} noValidate onSubmit={handleSubmit}>
+            <Form
+              autoComplete="off"
+              className={css.form}
+              noValidate
+              onSubmit={handleSubmit}
+            >
               <h1 className={css.title}>Sign In</h1>
               <div className={css.inputBox}>
                 <div className={css.group}>
@@ -54,8 +60,8 @@ const SignInForm = () => {
                     name="email"
                     id="email"
                     value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value)
+                    onChange={e => {
+                      setEmail(e.target.value);
                     }}
                     placeholder="Enter your email"
                     className={`${css.input} ${
@@ -79,8 +85,8 @@ const SignInForm = () => {
                       id="password"
                       placeholder="Enter your password"
                       value={password}
-                      onChange={(e) => {
-                        setPassword(e.target.value)
+                      onChange={e => {
+                        setPassword(e.target.value);
                       }}
                       className={`${css.input} ${
                         touched.password && errors.password ? css.error : ''
@@ -113,6 +119,7 @@ const SignInForm = () => {
                 </p>
 
                 <p className={css.conc}>Or</p>
+                <GoogleBtn />
               </div>
             </Form>
           )}
