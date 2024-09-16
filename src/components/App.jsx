@@ -4,6 +4,7 @@ import SignUpPage from 'pages/SignUpPage/SignUpPage';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+
 export const App = () => {
   return (
     <Routes>
