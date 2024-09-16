@@ -28,7 +28,7 @@
     background-size: 374px 477px;
   }
   .container {
-    padding: 33px 33px 64px;
+    padding: 33px 33px 64px 33px;
   }
   .title {
     font-size: 24px;
