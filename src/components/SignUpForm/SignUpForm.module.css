@@ -64,10 +64,15 @@
 
 .inputError {
   border: 1px solid #ef5050;
+  color: #ef5050;
 }
 
 .error {
   color: #ef5050;
+}
+
+.input:focus {
+  outline: none;
 }
 
 .btn {

@@ -8,6 +8,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
 import { signUp } from 'services/auth';
+import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
 
 export const validationSchema = yup.object().shape({
   email: yup
@@ -109,7 +110,6 @@ const SignUpForm = () => {
         </div>
 
         <div className={css.inputDiv}>
-          {/* <label htmlFor={repeatPasswordId}>Repeat password </label> */}
           <label>Repeat password</label>
           <div className={css.wrapPass}>
             <Controller
@@ -119,18 +119,10 @@ const SignUpForm = () => {
                 <input
                   {...field}
                   type={repeatPasswordVisible ? 'text' : 'password'}
-                  // <input
-                  //   name="repeatPassword"
-                  //   type="password"
-                  //   // id={repeatPasswordId}
-                  //   onChange={e => {
-                  //     setRepeatPassword(e.target.value);
-                  //   }}
                   placeholder="Repeat password"
                   className={`${css.input} ${
                     errors.repeatPassword ? css.inputError : ''
                   }`}
-                  // value={repeatPassword}
                 />
               )}
             />
@@ -155,8 +147,8 @@ const SignUpForm = () => {
             Sign In
           </Link>
         </p>
-        {/* </Form>
-      </Formik> */}
+        <p className={css.text}>or</p>
+        <GoogleBtn />
       </form>
     </div>
   );
