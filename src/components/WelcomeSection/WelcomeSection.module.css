@@ -5,6 +5,7 @@
   padding: 24px 16px;
   text-align: left;
   align-self: center;
+
 }
 .logo {
   margin-bottom: 74px;
@@ -157,6 +158,10 @@ margin-bottom: 28px;
 @media screen and (min-width: 1280px) {
   .welcome {
     width: 672px;
+
+
+
+
     min-height: 754px;
   }
 

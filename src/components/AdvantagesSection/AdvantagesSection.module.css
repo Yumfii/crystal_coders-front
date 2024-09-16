@@ -1,5 +1,4 @@
 .advantages {
-
   width:340px;
   border-radius: 30px;
   background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/t4qxv1yretc1celrttux');
@@ -172,6 +171,7 @@ margin-top: 293px;
 @media screen and (min-width: 1280px) {
   .advantages {
     width: 672px;
+
     min-height: 754px;
     background-image: url('https://res.cloudinary.com/dwyxffoux/image/upload/v1/jbfi4mcwyi6qc8s4ycpi');
 
