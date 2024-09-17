@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://goitacademy.github.io/react-homework-template/",
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@reactour/tour": "^3.7.0",
     "@reduxjs/toolkit": "^2.2.7",
     "@testing-library/jest-dom": "^6.5.0",
