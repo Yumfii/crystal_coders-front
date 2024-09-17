@@ -1,0 +1,238 @@
+
+.settingsForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.avatarBlock{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.avatarImage{
+    width: 75px;
+}
+
+.uploadTitleInput{
+    position: absolute;
+    top: 150px;
+    width: 150px;
+    opacity: 0;
+}
+
+.uploadTitle{
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    align-content: center;
+    cursor: pointer;
+}
+
+.uploadIcon{
+    width: 18px;
+    height: 18px;
+    color: var(--dark-gray);
+}
+
+.boldInputLabel{
+    display: block;
+    color: var(--dark-blue);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25em;
+    width: 100%;
+}
+.boldInputLabel:nth-child(3){
+    margin-top: 14px;
+}
+
+.genderBlockWrapper{
+    margin-bottom: 24px;
+}
+
+.radioBtnWrapper{
+    display: inline-flex;
+    margin-top: 14px;
+}
+
+.radioBtn{
+    display: none;
+}
+
+.customRadioBtn{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--light-green);
+    border-radius: 50%;
+    position: relative;
+}
+
+.radioBtn:checked + .customRadioBtn:after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--light-green);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radioLabel{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.radioLabel:not(:last-child){
+    margin-right: 20px;
+}
+
+.textInput{
+    width: 100%;
+    height: auto;
+    padding: 14px 16px;
+    border: 1px, solid, rgba(47, 47, 47, 0.15);
+    border-radius: 15px;
+    margin-top: 8px;
+    color: var(--dark-gray);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.textInput:focus{
+    border: 1px solid rgba(47, 47, 47, 0.40);
+    outline: none;
+}
+
+.inputLabel{
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.inputLabel:not(:first-child){
+    margin-top: 14px;
+}
+
+.waterPerDayTitle{
+    display: block;
+    margin-top: 24px;
+}
+
+.litersPerDay{
+    color: var(--light-green);
+    font-weight: 700;
+}
+
+.marginLabel{
+    display: block;
+    margin-top: 14px;
+}
+
+.submitBtn{
+    width: 116px;
+    height: 46px;
+    background-color: var(--light-green);
+    border: none;
+    border-radius: 30px;
+    color: var(--dark-gray);
+    font-weight: 700;
+    line-height: 1.28em;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.submitBtn:hover{
+    background-color: var(--light-green-hover);
+}
+
+.errorInput{
+    border: 1px, solid, #EF5050;
+    width: 100%;
+    height: auto;
+    padding: 14px 16px;
+    border-radius: 15px;
+    margin-top: 8px;
+    color: var(--dark-gray);
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+}
+
+.errorMessage{
+    color:#EF5050;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28em;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+
+    .avatarImage{
+        width: 100px;
+    }
+
+    .uploadTitle{
+        font-size: 16px;
+    }
+
+    .uploadTitleInput{
+        /* position: absolute; */
+        top: 195px;
+    }
+
+    .boldInputLabel{
+    font-size: 18px;
+    line-height: 1.33em;
+    }
+    .radioLabel{
+        font-size: 16px;
+    }
+    .textInput{
+        padding: 16px;
+        font-size: 16px;
+        line-height: 1.5em;
+    }
+
+    .errorInput{
+        border: 1px, solid, #EF5050;
+        padding: 16px;
+        font-size: 16px;
+        line-height: 1.5em;
+}
+
+    .submitBtn{
+        width: 141px;
+        height: 56px;
+        font-size: 16px;
+        line-height: 1.5em;
+    }
+
+}
+
+@media only screen and (min-width: 1440px) {
+    .desktopBlock{
+       display: flex;
+       gap: 40px;
+    }
+    .leftDesktopBlock{
+    max-width: 400px;
+    }
+    .rightDesktopBlock{
+    max-width: 400px;
+    }
+    .boldInputLabel{
+        font-size: 18px;
+        line-height: 1.33em;
+    }
+    .uploadTitleInput{
+        top: 165px
+    }
+}
