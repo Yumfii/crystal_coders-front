@@ -21,7 +21,7 @@
     position: absolute;
     top: 150px;
     width: 150px;
-    opacity: 0;
+    display: none;
 }
 
 .uploadTitle{
@@ -184,8 +184,7 @@
     }
 
     .uploadTitleInput{
-        /* position: absolute; */
-        top: 195px;
+        top: 190px;
     }
 
     .boldInputLabel{
@@ -233,6 +232,6 @@
         line-height: 1.33em;
     }
     .uploadTitleInput{
-        top: 165px
+        top: 190px
     }
 }

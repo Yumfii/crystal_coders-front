@@ -83,7 +83,7 @@ const UserSettingsForm = () => {
           publicId="nvtxl4guwbr4a3atayvr"
           crop="scale"
         />
-          <span className={CSS.uploadTitle}>
+          <label htmlFor='avatar' className={CSS.uploadTitle}>
           <FiUpload className={CSS.uploadIcon} />
             Upload a photo
 
@@ -91,9 +91,9 @@ const UserSettingsForm = () => {
             onChange={uploadToCloudinary()}
             type='file' name='avatar' id='avatar'
             accept='image/png, image/jpeg'>
-            </input>
+          </input>
 
-          </span>
+          </label>
 
         </div>
 
