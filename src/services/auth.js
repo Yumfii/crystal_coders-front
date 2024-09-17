@@ -11,7 +11,7 @@ export async function signUp(body) {
 
 export async function signIn(body) {
   const response = await axios.post(
-    'https://crystal-coders-back.onrender.com/login',
+    'https://crystal-coders-back.onrender.com/auth/login',
     body
   );
 
