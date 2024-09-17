@@ -19,7 +19,6 @@ const validationSchema = Yup.object().shape({
 
 const SignInForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Hook for navigation
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const {

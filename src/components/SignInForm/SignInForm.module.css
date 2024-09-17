@@ -38,8 +38,11 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  align-content: center;
+  padding: 16px;
+  gap: 16px;
+  align-self: center;
 }
 
 .inputBox {

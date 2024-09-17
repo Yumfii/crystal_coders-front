@@ -15,9 +15,9 @@ const SignInPage = () => {
       <div className={css.advantagesSection}>
         <AdvantagesSection />
       </div>
-      {isLoggedIn ? navigate('/') : null}
+      {isLoggedIn ? navigate('/tracker') : null}
     </div>
-  ); // замінити на watertracker route
+  );
 };
 
 export default SignInPage;
