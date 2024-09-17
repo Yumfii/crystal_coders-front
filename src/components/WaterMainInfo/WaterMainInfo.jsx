@@ -13,7 +13,7 @@ const WaterMainInfo = () => {
         <WaterProgressBar value={value} />
         {/* AddWaterBtn */}
         <div className={css.wrapper}>
-          <button type="button" className={css.addWaterBtn}>
+          <button type="button" className={css.addWaterBtnMainInfo}>
             <GoPlus size={22} />
             Add water
           </button>
