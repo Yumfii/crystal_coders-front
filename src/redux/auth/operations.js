@@ -39,12 +39,10 @@ export const signIn = createAsyncThunk(
 
 export const signUp = createAsyncThunk(
   'auth/register',
-  async ({ email, password }, thunkAPI) => {
+  async (credentials, thunkAPI) => {
+    console.log(credentials);
     try {
-      const { data } = await axios.post('auth/register', {
-        email,
-        password,
-      });
+      const { data } = await axios.post('auth/register', credentials);
       const accessToken = data.data.accessToken;
       setAuthHeader(accessToken);
       return data;
