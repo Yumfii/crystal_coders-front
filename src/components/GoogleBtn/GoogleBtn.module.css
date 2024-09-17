@@ -1,0 +1,49 @@
+.Google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.14px;
+  text-align: center;
+  height: 46px;
+  width: 311px;
+  padding: 14px 28px;
+  border: 2px solid var(--dark-blue);
+  color: var(--dark-blue);
+  background: transparent;
+}
+
+.Google:hover,
+.Google:focus {
+  background: var(--light-green);
+  transform: 250s;
+  border: none;
+}
+
+.Google:disabled {
+  opacity: 0.2;
+  border-color: (var--dark-blue);
+  color: (var--dark-blue);
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--white);
+  width: 26px;
+  height: 26px;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .Google {
+    width: 436px;
+    font-size: 16px;
+  }
+}

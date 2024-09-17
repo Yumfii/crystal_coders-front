@@ -21,3 +21,37 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.response.data);
   }
 });
+
+const setAuthHeader = token => {
+  if (token) {
+    console.log(token);
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    console.log(
+      'Authorization Header Set:',
+      axios.defaults.headers.common.Authorization
+    );
+  }
+};
+
+const clearAuthHeader = () => {
+  delete axios.defaults.headers.common.Authorization;
+};
+
+export const signIn = createAsyncThunk(
+  'auth/login',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await axios.post('auth/login', credentials);
+      const accessToken = data.data.accessToken;
+      setAuthHeader(accessToken);
+      console.log(data.data.accessToken);
+
+      return data;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(
+        error.response ? error.response.data : error.message
+      );
+    }
+  }
+);

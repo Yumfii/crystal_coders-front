@@ -1,5 +1,5 @@
 .welcome {
-  width:400px;
+  width: 340px;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
@@ -30,7 +30,8 @@
 }
 .nav {
   display: flex;
-
+  width: 300px;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
@@ -54,27 +55,20 @@
 }
 
 /* Signup button */
-.signup,
-.Google {
+.signup {
   padding: 14px 20px;
   background: var(--light-green);
   color: (var--dark-blue);
 }
-.Google {
-  width: 120px;
-}
 
 .signup:hover,
-.signup:focus,
-.Google:hover,
-.Google:focus {
+.signup:focus {
   background: var(--light-green-hover);
 }
 
-.signup:disabled,
-.Google:disabled {
-  background: var( --white-disabled);
-  color: var( --light-gray-disabled);
+.signup:disabled {
+  background: var(--white-disabled);
+  color: var(--light-gray-disabled);
 }
 
 /* Signin button */
@@ -96,10 +90,18 @@
   color: (var--dark-blue);
 }
 
+.GoogleHomePage {
+  width: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 /* Tablet */
 @media screen and (min-width: 768px) {
   .welcome {
-    width: 658px;
+    width: 704px;
     padding: 32px;
   }
   .subheader {
@@ -116,9 +118,7 @@
     padding-left: 32px;
   }
   .logo {
-
     margin-bottom: 50px;
-
   }
 
   .btn {
@@ -128,13 +128,22 @@
   }
 
   .nav {
+    width: 400px;
     gap: 16px;
-margin-bottom: 28px;
+    margin-bottom: 28px;
     padding-left: 32px;
   }
   .signin,
   .signup {
     padding: 18px 40px;
+  }
+
+  .GoogleHomePage {
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -143,6 +152,7 @@ margin-bottom: 28px;
 @media screen and (min-width: 1280px) {
   .welcome {
     width: 672px;
+    min-height: 754px;
   }
 
   .header {
@@ -152,8 +162,5 @@ margin-bottom: 28px;
   }
   .logo {
     margin-bottom: 132px;
-  }
-  .nav {
-    margin-bottom: 188px;
   }
 }

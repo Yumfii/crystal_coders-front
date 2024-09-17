@@ -1,21 +1,13 @@
-.HomePageContainer{
+.HomePageContainer {
   display: flex;
   flex-direction: column;
-  gap:16px;
+  gap: 16px;
   align-items: center;
-
-
-
 }
 
-
-
-
-@media screen and (min-width: 1280px){
-  .HomePageContainer{
+@media screen and (min-width: 1280px) {
+  .HomePageContainer {
     flex-direction: row;
     gap: 32px;
-
-
   }
 }
