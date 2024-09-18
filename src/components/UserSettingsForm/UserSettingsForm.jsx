@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import CSS from './UserSettingsForm.module.css'
 import UserSettingsDailyNormaInfo from '../UserSettingsDailyNormaInfo/UserSettingsDailyNormaInfo'
@@ -14,24 +14,36 @@ const UserSettingsForm = () => {
     watch,
     formState: { errors },
   } = useForm({
-      resolver: yupResolver(userSchema),
-      mode: "onChange",
-      defaultValues: {
-          gender: 'woman',
-        // resp.user.gender && 'woman'
-          name: 'Nadia',
-          // if(resp.user.name === null) {return resp.user.email.split('@'[0])}
-          email: 'nadia10@gmail.com',
-        // resp.user.email
+    resolver: yupResolver(userSchema),
+    mode: "onChange",
+    defaultValues: {
+      gender: 'woman',
+      // resp.user.gender && 'woman'
+      name: 'Nadia',
+      // if(resp.user.name === null) {return resp.user.email.split('@'[0])}
+      email: 'nadia10@gmail.com',
+      // resp.user.email
 
-          weight: 0,
-        // resp.user.weight||0
-          time: 0,
-        // resp.user.hours||0
-          liters: 2,
-      }
+      weight: 0,
+      // resp.user.weight||0
+      time: 0,
+      // resp.user.hours||0
+      liters: 2,
+    }
   });
 
+  const [gender, setGender] = useState(watch('gender'))
+
+  useEffect(() => {
+    const subscription = watch((value, { name }) => {
+      if (name === 'gender') {
+        setGender(value.gender);
+      }
+    })
+    return () => subscription.unsubscribe();
+    }, [watch('gender')]);
+
+  
   function uploadToCloudinary() {
     // cloudinary.v2.uploader.upload("/home/my_image.jpg",
     //   { upload_preset: "my_preset" },
@@ -59,10 +71,18 @@ const UserSettingsForm = () => {
 
     const weight = watch('weight')
 
-    if (weight !== 0 || weight !== '' ) {
+    if (weight !== 0 || weight !== '') {
+
       const time = watch('time')
-      const volume = (weight * 0.03) + (time * 0.4)
-      return volume.toFixed(1)
+
+      if (gender === 'woman') {
+        const volume = (weight * 0.03) + (time * 0.4)
+        return volume.toFixed(1)
+      }
+      else {
+        const volume = (weight * 0.04) + (time * 0.6)
+        return volume.toFixed(1)
+      }
     }
     return NaN
     }
@@ -105,7 +125,7 @@ const UserSettingsForm = () => {
           <span className={CSS.radioBtnWrapper}>
             <label htmlFor='woman' className={CSS.radioLabel}>
               <input className={CSS.radioBtn}
-              type="radio" name='gender' id='woman' value='woman'
+              type="radio" name='woman' id='woman' value='woman'
               {...register('gender', { required: true })} />
               <span className={CSS.customRadioBtn}></span>
               Woman
@@ -113,8 +133,8 @@ const UserSettingsForm = () => {
 
 
             <label htmlFor='man' className={CSS.radioLabel}>
-            <input className={CSS.radioBtn}
-              type="radio" name='gender' id='man' value='man'
+              <input className={CSS.radioBtn}
+              type="radio" name='man' id='man' value='man'
             {...register('gender', { required: true })}/>
             <span className={CSS.customRadioBtn}></span>
             Man
