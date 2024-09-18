@@ -6,6 +6,7 @@ import { Image } from 'cloudinary-react'
 import { FiUpload } from "react-icons/fi";
 import { userSchema, validateInput } from './userSettingsFormValidation'
 import { yupResolver } from "@hookform/resolvers/yup"
+import { scryRenderedComponentsWithType } from 'react-dom/test-utils'
 
 const UserSettingsForm = () => {
   const {
@@ -43,7 +44,7 @@ const UserSettingsForm = () => {
     return () => subscription.unsubscribe();
     }, [watch('gender')]);
 
-  
+
   function uploadToCloudinary() {
     // cloudinary.v2.uploader.upload("/home/my_image.jpg",
     //   { upload_preset: "my_preset" },
@@ -53,6 +54,7 @@ const UserSettingsForm = () => {
   }
 
   const validateInputValue = async (evt) => {
+
     const key = evt.target.name
     const value = evt.target.value
 
@@ -71,7 +73,7 @@ const UserSettingsForm = () => {
 
     const weight = watch('weight')
 
-    if (weight !== 0 || weight !== '') {
+    if (weight !== '0' && weight !== '') {
 
       const time = watch('time')
 
@@ -203,7 +205,7 @@ const UserSettingsForm = () => {
         <span className={CSS.waterPerDayTitle}>
           The required amount of water in liters per day:
           <span className={CSS.litersPerDay}>
-            {isNaN(calculateLiters()) ? 0 : calculateLiters()} L
+            {isNaN(calculateLiters()) ? '0.0' : calculateLiters()} L
           </span>
         </span>
 
