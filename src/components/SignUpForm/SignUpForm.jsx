@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
-import { signUp } from '../../redux/auth/operations.js';
+import { signUp } from 'services/auth';
 import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
 
 export const validationSchema = yup.object().shape({
@@ -46,7 +46,7 @@ const SignUpForm = () => {
 
   const onSubmit = async data => {
     try {
-      const response = signUp({
+      const response = await signUp({
         email: data.email,
         password: data.password,
       });
