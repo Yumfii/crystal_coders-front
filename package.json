@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/react-homework-template/",
+  "homepage": "https://yumfii.github.io/crystal_coders-front/",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@reactour/tour": "^3.7.0",
@@ -38,6 +38,8 @@
     "yup": "^1.4.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -65,6 +67,7 @@
   "devDependencies": {
     "@eslint/js": "^9.10.0",
     "eslint-plugin-react": "^7.36.0",
+    "gh-pages": "^6.1.1",
     "globals": "^15.9.0"
   }
 }
