@@ -13,7 +13,7 @@ const SignInPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(isLoggedIn) {
+    if (isLoggedIn) {
       navigate('/tracker');
     }
   }, [isLoggedIn, navigate]);

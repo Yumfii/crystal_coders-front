@@ -52,7 +52,7 @@ const SignUpForm = () => {
         password: data.password,
       });
 
-      if(response.status === 201) {
+      if (response.status === 201) {
         navigation('/tracker');
       }
 

@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(47, 47, 47, 0.60);
+  background: rgba(47, 47, 47, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,4 +54,3 @@
     right: 20px;
   }
 }
-
