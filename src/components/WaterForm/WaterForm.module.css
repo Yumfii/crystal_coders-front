@@ -15,7 +15,7 @@
   font-weight: 700;
   line-height: 1.33; /* 24px */
   letter-spacing: -0.18px;
-  margin-bottom: 1.25rem; /* 20px */
+   /* 20px */
 }
 
 .title2 {
@@ -27,64 +27,14 @@
   letter-spacing: -0.16px;
 }
 
-.form-group {
-  margin-bottom: 1rem;
-}
 
-.input-group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.btn {
-  background-color: var(--light-green);
-  color: var(--white);
-  border: none;
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color var(--animation);
-}
-
-.btn:hover {
-  background-color: var(--light-green-hover);
-}
-
-.input {
-  display: flex;
-  padding: 1rem; /* 16px */
-  align-items: flex-start;
-  gap: 0.625rem; /* 10px */
-  border-radius: 15px;
-  border: 1px solid rgba(47, 47, 47, 0.15);
-}
-
-.water-amount-panel {
-  font-size: 1.25rem;
-  margin: 0 1rem;
-  color: var(--dark-gray);
-}
 
 .error-message {
   color: var(--light-red);
   font-size: 0.875rem;
 }
 
-.btn-submit {
-  background-color: var(--light-green);
-  color: var(--white);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color var(--animation);
-}
 
-.btn-submit:hover {
-  background-color: var(--light-green-hover);
-}
 
 @media screen and (max-width: 375px) {
   .title {
@@ -118,5 +68,3 @@
     max-width: 438px;
   }
 }
-
-
