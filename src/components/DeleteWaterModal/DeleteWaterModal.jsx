@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Modal from '../Modal/Modal';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
@@ -6,28 +7,7 @@ import clsx from 'clsx';
 import { deleteWater } from '../../redux/water/operations';
 import css from './DeleteWaterModal.module.css';
 
-export const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-  return (
-    <div>
-      <button onClick={handleOpenModal}>Open Modal</button>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <p>children.</p>
-      </Modal>
-    </div>
-  );
-};
-
-const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
+export const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -68,5 +48,3 @@ const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
     </Modal>
   );
 };
-
-export default DeleteWaterModal;
