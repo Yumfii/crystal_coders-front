@@ -38,6 +38,7 @@
     "yup": "^1.4.0"
   },
   "scripts": {
+    "proxy": "http://localhost:3000",
     "deploy": "npm run build && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
