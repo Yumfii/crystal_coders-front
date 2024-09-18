@@ -1,34 +1,40 @@
 import css from './SignInForm.module.css'; // Import CSS as a module
-
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { Formik, ErrorMessage, Form } from 'formik';
-import { NavLink } from 'react-router-dom';
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
-import { signIn } from 'services/auth';
+import { signIn } from '../../redux/auth/operations';
+import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import { useDispatch } from 'react-redux';
 
-const validationSchema = Yup.object({
+const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email address').required('Required'),
   password: Yup.string()
-    .min(6, 'Must be at least 6 characters')
+    .min(8, 'Must be at least 8 characters')
     .required('Required'),
 });
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await signIn({ "email": email, "password": password })
-      console.log(response.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
+
+  const onSubmit = data => {
+    const { email, password } = data;
+    dispatch(signIn({ email, password }));
+    reset();
+  };
 
   return (
     <div className={css.infoContainer}>
@@ -36,93 +42,67 @@ const SignInForm = () => {
         <Logo />
       </div>
       <div className={css.formContainer}>
-        <Formik
-          initialValues={{ email: '', password: '' }}
-          validationSchema={validationSchema}
-          //onSubmit={handleSubmit}
-        >
-          {({ errors, touched }) => (
-            <Form autoComplete="off" className={css.form} noValidate onSubmit={handleSubmit}>
-              <h1 className={css.title}>Sign In</h1>
-              <div className={css.inputBox}>
-                <div className={css.group}>
-                  <label htmlFor="email" className={css.label}>
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value)
-                    }}
-                    placeholder="Enter your email"
-                    className={`${css.input} ${
-                      touched.email && errors.email ? css.error : ''
-                    }`}
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className={css.error}
-                  />
-                </div>
-                <div className={css.group}>
-                  <label htmlFor="password" className={css.label}>
-                    Password
-                  </label>
-                  <div className={css.wrapPass}>
-                    <input
-                      type={passwordVisible ? 'text' : 'password'}
-                      name="password"
-                      id="password"
-                      placeholder="Enter your password"
-                      value={password}
-                      onChange={(e) => {
-                        setPassword(e.target.value)
-                      }}
-                      className={`${css.input} ${
-                        touched.password && errors.password ? css.error : ''
-                      }`}
-                    />
-                    <button
-                      type="button"
-                      className={css.toggle}
-                      onClick={() => setPasswordVisible(!passwordVisible)}
-                    >
-                      {passwordVisible ? <FaEye /> : <FaEyeSlash />}
-                    </button>
-                    <ErrorMessage
-                      name="password"
-                      component="div"
-                      className={css.error}
-                    />
-                  </div>
-                </div>
-              </div>
-              <button type="submit" className={css.signInBtn}>
-                Sign In
-              </button>
-              <div className={css.offerCont}>
-                <p className={css.signupoffer}>
-                  Don't have an account?&nbsp;
-                  <NavLink className={css.signuplink} to="/signup">
-                    Sign Up
-                  </NavLink>
-                </p>
+        <form className={css.form} noValidate onSubmit={handleSubmit(onSubmit)}>
+          <h1 className={css.title}>Sign In</h1>
+          <div className={css.inputBox}>
+            <div className={css.group}>
+              <label htmlFor="email" className={css.label}>
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                className={`${css.input} ${errors.email ? css.error : ''}`}
+                {...register('email')}
+              />
+              {errors.email && (
+                <p className={css.error}>{errors.email.message}</p>
+              )}
+            </div>
 
-                <p className={css.conc}>Or</p>
-
-                <NavLink className={css.redirect} to="/">
-                  <button className={css.google}>
-                    <span class={css.register}>Register with</span> <FaGoogle />
-                  </button>
-                </NavLink>
+            <div className={css.group}>
+              <label htmlFor="password" className={css.label}>
+                Password
+              </label>
+              <div className={css.wrapPass}>
+                <input
+                  type={passwordVisible ? 'text' : 'password'}
+                  id="password"
+                  placeholder="Enter your password"
+                  className={`${css.input} ${errors.password ? css.error : ''}`}
+                  {...register('password')}
+                />
+                <button
+                  type="button"
+                  className={css.toggle}
+                  onClick={() => setPasswordVisible(!passwordVisible)}
+                >
+                  {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+                </button>
+                {errors.password && (
+                  <p className={css.error}>{errors.password.message}</p>
+                )}
               </div>
-            </Form>
-          )}
-        </Formik>
+            </div>
+          </div>
+
+          <button type="submit" className={css.signInBtn}>
+            Sign In
+          </button>
+
+          <div className={css.offerCont}>
+            <p className={css.signupoffer}>
+              Don't have an account?&nbsp;
+              <NavLink className={css.signuplink} to="/signup">
+                Sign Up
+              </NavLink>
+            </p>
+
+            <p className={css.conc}>Or</p>
+            <GoogleBtn />
+          </div>
+        </form>
       </div>
     </div>
   );

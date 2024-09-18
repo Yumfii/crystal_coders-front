@@ -1,5 +1,5 @@
 .welcome {
-  width:340px;
+  width: 340px;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
@@ -30,8 +30,8 @@
 }
 .nav {
   display: flex;
-width: 300px;
-flex-wrap: wrap;
+  width: 300px;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
@@ -55,27 +55,24 @@ flex-wrap: wrap;
 }
 
 /* Signup button */
-.signup
- {
+.signup {
   padding: 14px 20px;
   background: var(--light-green);
   color: (var--dark-blue);
 }
 
-
 .signup:hover,
-.signup:focus
-{
+.signup:focus {
   background: var(--light-green-hover);
 }
 
-.signup:disabled{
-  background: var( --white-disabled);
-  color: var( --light-gray-disabled);
+.signup:disabled {
+  background: var(--white-disabled);
+  color: var(--light-gray-disabled);
 }
 
 /* Signin button */
-.signin{
+.signin {
   padding: 14px 28px;
   border: 1px solid var(--dark-blue);
   color: var(--dark-blue);
@@ -93,7 +90,7 @@ flex-wrap: wrap;
   color: (var--dark-blue);
 }
 
-.GoogleHomePage{
+.GoogleHomePage {
   width: 230px;
   display: flex;
   justify-content: center;
@@ -104,7 +101,7 @@ flex-wrap: wrap;
 /* Tablet */
 @media screen and (min-width: 768px) {
   .welcome {
-    width:704px;
+    width: 704px;
     padding: 32px;
   }
   .subheader {
@@ -121,9 +118,7 @@ flex-wrap: wrap;
     padding-left: 32px;
   }
   .logo {
-
     margin-bottom: 50px;
-
   }
 
   .btn {
@@ -133,9 +128,9 @@ flex-wrap: wrap;
   }
 
   .nav {
-    width:400px;
+    width: 400px;
     gap: 16px;
-margin-bottom: 28px;
+    margin-bottom: 28px;
     padding-left: 32px;
   }
   .signin,
@@ -143,13 +138,13 @@ margin-bottom: 28px;
     padding: 18px 40px;
   }
 
-   .GoogleHomePage{
-  width: 320px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+  .GoogleHomePage {
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 /* Desktop */
@@ -168,5 +163,4 @@ margin-bottom: 28px;
   .logo {
     margin-bottom: 132px;
   }
-
 }
