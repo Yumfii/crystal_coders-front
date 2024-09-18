@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-homework-template/static/css/main.49cd998b.css",
-    "main.js": "/react-homework-template/static/js/main.84683169.js",
-    "index.html": "/react-homework-template/index.html",
-    "main.49cd998b.css.map": "/react-homework-template/static/css/main.49cd998b.css.map",
-    "main.84683169.js.map": "/react-homework-template/static/js/main.84683169.js.map"
+    "main.css": "/crystal_coders-front/static/css/main.f4b74128.css",
+    "main.js": "/crystal_coders-front/static/js/main.68acee26.js",
+    "index.html": "/crystal_coders-front/index.html",
+    "main.f4b74128.css.map": "/crystal_coders-front/static/css/main.f4b74128.css.map",
+    "main.68acee26.js.map": "/crystal_coders-front/static/js/main.68acee26.js.map"
   },
   "entrypoints": [
-    "static/css/main.49cd998b.css",
-    "static/js/main.84683169.js"
+    "static/css/main.f4b74128.css",
+    "static/js/main.68acee26.js"
   ]
 }
