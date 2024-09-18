@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yumfii.github.io/crystal_coders-front/",
+  "homepage": "https://yumfii.github.io/crystal_coders-front",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@reactour/tour": "^3.7.0",
