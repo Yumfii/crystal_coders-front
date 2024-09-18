@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yumfii.github.io/crystal_coders-front",
+  "homepage": "https://goitacademy.github.io/react-homework-template/",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@reactour/tour": "^3.7.0",
@@ -38,7 +38,6 @@
     "yup": "^1.4.0"
   },
   "scripts": {
-    "proxy": "http://localhost:3000",
     "deploy": "npm run build && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
