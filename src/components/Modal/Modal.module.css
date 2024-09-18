@@ -1,0 +1,57 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(47, 47, 47, 0.60);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 40px 20px;
+  border-radius: var(--border-radius);
+  position: relative;
+  width: 343px;
+  max-width: 100%;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: background-color var(--animation), color var(--animation);
+}
+
+.modal-close-button:hover {
+  background-color: var(--light-gray);
+}
+
+.modal-close-button:focus {
+  outline: 2px solid var(--light-green);
+  outline-offset: 2px;
+}
+
+@media (min-width: 376px) {
+  .modal-content {
+    padding: 40px;
+    width: 518px;
+  }
+
+  .modal-close-button {
+    width: 28px;
+    height: 28px;
+    top: 20px;
+    right: 20px;
+  }
+}
+
