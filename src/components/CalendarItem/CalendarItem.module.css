@@ -1,0 +1,21 @@
+.btnDay {
+  width: 28px;
+  height: 28px;
+  border-radius: 30px;
+  color: #323f47;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.14px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .btnDay {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.16px;
+    width: 38px;
+    height: 38px;
+  }
+}
