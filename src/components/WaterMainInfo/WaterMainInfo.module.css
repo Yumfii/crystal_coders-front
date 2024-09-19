@@ -5,6 +5,7 @@
   background-position: center;
   background-size: 262px 335px;
   background-color: var(--light-green);
+  margin-bottom: 16px;
 }
 
 .container {
@@ -27,6 +28,7 @@
     width: 672px;
     min-height: calc(100vh - 64px);
     background-size: 472px 604px;
+    margin-bottom: 0;
   }
 }
 
