@@ -1,0 +1,85 @@
+.dailyNormaBlock{
+    text-align: left;
+    margin: 24px 0;
+}
+
+.dailyNormaTitle{
+    color: var(--dark-blue);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25em;
+}
+
+.dailyNormaFormulaWrapper{
+    display: block;
+    margin: 14px 0;
+    line-height: 1.28em;
+}
+
+.dailyNormaFormulaTitle{
+    display: flex;
+    flex-direction: column;
+}
+.dailyNormaFormulaTitle:not(:last-child){
+    margin-bottom: 12px;
+}
+
+.dailyNormaFormula{
+    margin-top: 4px;
+    color: var(--light-green);
+    font-weight: 700;
+}
+
+.infoParagraph{
+    display: block;
+    padding: 16px;
+    border: 1px solid rgba(47, 47, 47, 0.15);
+    border-radius: 15px;
+    color: rgba(47, 47, 47, 0.60);
+    font-weight: 400;
+    line-height: 1.28em;
+    letter-spacing: -0.14px;
+    margin: 14px 0;
+}
+
+.paragraphSpan{
+    color: var(--light-green);
+}
+
+.activeTimeInHours{
+    display: flex;
+    gap: 4px;
+    line-height: 1.28em;
+}
+
+.exclamIcon{
+    color: var(--light-green);
+    height: 18px;
+    width: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+    .dailyNormaTitle{
+        font-size: 18px;
+        line-height: 1.33em;
+    }
+   .dailyNormaFormulaWrapper{
+    display: flex;
+    gap: 28px
+  }
+  .dailyNormaFormulaTitle{
+    font-size: 16px;
+    line-height: 1.5em;
+    margin: 0;
+  }
+  .dailyNormaFormula{
+    line-height: 1.5em;
+  }
+  .infoParagraph{
+    line-height: 1.5em;
+  }
+  .exclamIcon{
+    width: 22px;
+    height: 22px;
+}
+}

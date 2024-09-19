@@ -2,7 +2,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import Logo from 'components/Logo/Logo';
@@ -28,6 +28,7 @@ export const validationSchema = yup.object().shape({
 });
 
 const SignUpForm = () => {
+  const navigation = useNavigate();
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
 
@@ -50,6 +51,11 @@ const SignUpForm = () => {
         email: data.email,
         password: data.password,
       });
+
+      if (response.status === 201) {
+        navigation('/tracker');
+      }
+
       console.log(response.data);
     } catch (err) {
       console.log(err.message);
