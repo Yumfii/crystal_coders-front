@@ -1,5 +1,7 @@
 .addWaterBtnMainInfo {
-  display: inline-flex;
+  display: flex;
+  width: 178px -40px;
+  margin-left: auto;
   align-items: center;
   gap: 10px;
   padding: 14px 20px;
@@ -25,7 +27,6 @@
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: -0.16px;
-  cursor: pointer;
 }
 
 .iconPrimaryBtn {
@@ -38,6 +39,7 @@
   height: 30px;
   background-color: var(--light-green);
   border-radius: 50%;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
