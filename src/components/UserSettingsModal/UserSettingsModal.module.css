@@ -1,0 +1,30 @@
+.modalContainer{
+    max-width: 337px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.settingsHeader{
+    margin-bottom: 20px;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+   .modalContainer{
+    max-width: 568px;
+  }
+  .settingsHeader{
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.14em;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+   .modalContainer{
+    max-width: 840px;
+    max-height: 916px;
+  }
+
+}

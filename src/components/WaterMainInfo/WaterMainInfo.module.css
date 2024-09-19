@@ -13,25 +13,12 @@
   padding-bottom: 32px;
 }
 
-.title {
-  margin-bottom: 90px;
-  color: var(--dark-blue);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.11;
-  letter-spacing: -0.18px;
-  text-transform: uppercase;
-}
-
 @media screen and (min-width: 768px) {
   .section {
     background-size: 374px 477px;
   }
   .container {
-    padding: 33px 33px 60px 33px;
-  }
-  .title {
-    font-size: 24px;
+    padding: 33px 33px 39px;
   }
 }
 
@@ -41,15 +28,14 @@
     min-height: calc(100vh - 64px);
     background-size: 472px 604px;
   }
-  .title {
-    line-height: 24px;
-    letter-spacing: -0.24px;
-  }
 }
 
-.wrapper {
-  display: flex;
-  justify-content: flex-end;
+@media screen and (min-width: 1440px) {
+  .section {
+    width: 672px;
+    min-height: calc(100vh - 64px);
+    background-size: 472px 604px;
+  }
 }
 
 @media screen and (min-resolution: 192dpi),
