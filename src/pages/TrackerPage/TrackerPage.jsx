@@ -3,9 +3,11 @@ import React from 'react';
 
 const TrackerPage = () => {
   return (
-    <div>
-      <WaterMainInfo />
-    </div>
+    <>
+      <div>
+        <WaterMainInfo />
+      </div>
+    </>
   );
 };
 
