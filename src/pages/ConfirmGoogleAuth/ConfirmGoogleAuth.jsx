@@ -9,13 +9,11 @@ const ConfirmGoogleAuth = () => {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const authCode = queryParams.get('code');
-    console.log(authCode);
-
 
     if (authCode) {
       axios.post('https://crystal-coders-back.onrender.com/auth/confirm-oauth', { code: authCode })
-        .then(() => {
-          navigate('/react-homework-template/tracker');
+        .then((response) => {
+          navigate('/tracker');
         })
         .catch((error) => {
           console.error('Error during OAuth confirmation:', error);
