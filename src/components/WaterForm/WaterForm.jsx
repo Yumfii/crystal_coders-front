@@ -36,6 +36,7 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
+
     defaultValues: {
       amount: waterAmount,
       time: time,
