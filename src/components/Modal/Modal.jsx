@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.module.css';
-import { RxCross2 } from "react-icons/rx";
-
-
+import { RxCross2 } from 'react-icons/rx';
 
 const Modal = ({ isOpen, onClose, children }) => {
-
   useEffect(() => {
-    const handleEsc = (event) => {
+    const handleEsc = event => {
       if (event.key === 'Escape') {
         onClose();
       }
@@ -18,11 +15,9 @@ const Modal = ({ isOpen, onClose, children }) => {
     return () => document.removeEventListener('keydown', handleEsc);
   }, [onClose]);
 
-
   if (!isOpen) return null;
 
-
-  const handleBackdropClick = (e) => {
+  const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -32,11 +27,9 @@ const Modal = ({ isOpen, onClose, children }) => {
     <div className="modal-backdrop" onClick={handleBackdropClick}>
       <div className="modal-content">
         <button className="modal-close-button" onClick={onClose}>
-           <RxCross2 size="28" color="black"/>
+          <RxCross2 size="28" color="black" />
         </button>
-        <div className="modal-body">
-          {children}
-        </div>
+        <div className="modal-body">{children}</div>
       </div>
     </div>,
     document.body
@@ -44,8 +37,6 @@ const Modal = ({ isOpen, onClose, children }) => {
 };
 
 export default Modal;
-
-
 
 // import React, { useState } from 'react';
 // import Modal from './Modal';

@@ -1,5 +1,4 @@
 .SignUpContainer {
-  width: 343px;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
@@ -9,11 +8,17 @@
 }
 
 .SignUpForm {
-  display: grid;
+  /* display: grid;
   align-content: center;
-  padding: 16px;
   gap: 16px;
-  align-self: center;
+  justify-items: start;
+  min-width: 256px; */
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  min-width: 256px;
 }
 
 .logo {
@@ -32,8 +37,9 @@
 
 .wrapPass {
   position: relative;
-  display: flex;
+  display: grid;
   align-items: center;
+  justify-items: stretch;
 }
 
 .toggle {
@@ -57,7 +63,6 @@
   border-radius: 15px;
   border: 1px solid rgba(47, 47, 47, 0.2);
   background: var(--light-gray);
-  width: 100%;
   padding-right: 40px;
   transition: border-color 0.3s ease;
 }
@@ -124,7 +129,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .SignUpContainer {
     width: 672px;
     gap: 32px;
