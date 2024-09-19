@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-// import { yupResolver } from '@hookform/resolvers/yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import toast, { Toaster } from 'react-hot-toast';
 import * as Yup from 'yup';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './WaterForm.module.css';
-import axios from 'axios';
-import { AiOutlineMinusCircle } from 'react-icons/ai';
-import { AiOutlinePlusCircle } from 'react-icons/ai';
 
-// import { updateWaterProgress, updateWaterList, updateCalendar } from '../redux/actions';
+import { AiOutlineMinusCircle } from "react-icons/ai";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import axiosInstance from '../../redux/water/operations';
+
+import { updateWaterProgress, updateWaterList, updateCalendar } from '../redux/actions';
 
 const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [waterAmount, setWaterAmount] = useState(50);
   const [time, setTime] = useState(new Date().toISOString().substring(11, 16));
 
@@ -24,13 +25,9 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
     time: Yup.string().required('Time is required'),
   });
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
-    // resolver: yupResolver(schema),
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+    resolver: yupResolver(schema),
+
     defaultValues: {
       amount: waterAmount,
       time: time,
@@ -39,8 +36,8 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
 
   useEffect(() => {
     if (mode === 'edit' && initialData) {
-      axios
-        .get(`/api/water/${initialData.id}`)
+      axiosInstance.get(`api/water/${initialData.id}`)
+
         .then(response => {
           const data = response.data;
           setValue('amount', data.amount);
@@ -60,10 +57,10 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
 
   const updateWaterAmountBackend = async newAmount => {
     try {
-      await axios.put('/api/water/update', { amount: newAmount });
-      // dispatch(updateWaterProgress({ amount: newAmount }));
-      // dispatch(updateWaterList({ amount: newAmount }));
-      // dispatch(updateCalendar({ amount: newAmount }));
+      await axiosInstance.put('/water/update', { amount: newAmount });
+      dispatch(updateWaterProgress({ amount: newAmount }));
+      dispatch(updateWaterList({ amount: newAmount }));
+      dispatch(updateCalendar({ amount: newAmount }));
       toast.success('Water amount updated successfully!');
     } catch (error) {
       toast.error(
@@ -97,19 +94,18 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
 
   const onSubmit = async data => {
     try {
-      const url =
-        mode === 'edit' ? `/api/water/${initialData.id}` : '/api/water';
+      const url = mode === 'edit' ? `/water/${initialData.id}` : '/water';
       const method = mode === 'edit' ? 'put' : 'post';
 
-      await axios({
+      await axiosInstance({
         method: method,
         url: url,
         data: data,
       });
 
-      // dispatch(updateWaterProgress(data));
-      // dispatch(updateWaterList(data));
-      // dispatch(updateCalendar(data));
+      dispatch(updateWaterProgress(data));
+      dispatch(updateWaterList(data));
+      dispatch(updateCalendar(data));
 
       toast.success('Water entry saved successfully!');
       onClose();
