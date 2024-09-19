@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export async function signUp(body) {
   const response = await axios.post(
-    'https://crystal-coders-back.onrender.com/register',
+    'https://crystal-coders-back.onrender.com/auth/register',
     body
   );
 
@@ -30,6 +30,7 @@ export async function logOut(body) {
 export async function refresh(body) {
   const response = await axios.post(
     'https://crystal-coders-back.onrender.com/refresh',
+    'https://crystal-coders-back.onrender.com/login',
     body
   );
 
