@@ -12,7 +12,7 @@ const WaterMainInfo = () => {
         <Logo />
         <WaterDailyNorma />
         <WaterProgressBar value={value} />
-        <AddWaterBtn variant="secondary" />
+        <AddWaterBtn variant="primary" />
       </div>
     </div>
   );
