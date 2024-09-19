@@ -1,5 +1,6 @@
 .dailyNorma {
   display: inline-block;
+  margin-top: 78px;
   margin-bottom: 49px;
   padding: 14px 18px;
   border-radius: 15px;
@@ -8,6 +9,7 @@
 
 @media screen and (min-width: 768px) {
   .dailyNorma {
+    margin-top: 101px;
     margin-bottom: 87px;
   }
 }
