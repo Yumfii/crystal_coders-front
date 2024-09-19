@@ -1,4 +1,4 @@
-import css from './SignInForm.module.css'; // Import CSS as a module
+import css from './SignInForm.module.css';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -6,11 +6,13 @@ import * as Yup from 'yup';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
-import { signIn } from '../../redux/auth/operations';
 import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { signIn } from '../../redux/auth/operations';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import NotificationSignIn from '../../components/NotificationSignIn/NotificationSignIn';
 
-const validationSchema = Yup.object().shape({
+const validationSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Required'),
   password: Yup.string()
     .min(8, 'Must be at least 8 characters')
@@ -19,7 +21,11 @@ const validationSchema = Yup.object().shape({
 
 const SignInForm = () => {
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const navigate = useNavigate();
+
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loginError, setLoginError] = useState(null); // Local error state
 
   const {
     register,
@@ -30,10 +36,15 @@ const SignInForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     const { email, password } = data;
-    dispatch(signIn({ email, password }));
-    reset();
+
+    try {
+      await dispatch(signIn({ email, password })).unwrap();
+      reset();
+    } catch (error) {
+      setLoginError(error);
+    }
   };
 
   return (
@@ -98,11 +109,14 @@ const SignInForm = () => {
                 Sign Up
               </NavLink>
             </p>
-
-            <p className={css.conc}>Or</p>
-            <GoogleBtn />
           </div>
+
+          {/* Show Notification if there's a local login error */}
+          {loginError && <NotificationSignIn />}
         </form>
+
+        <p className={css.conc}>Or</p>
+        <GoogleBtn />
       </div>
     </div>
   );
