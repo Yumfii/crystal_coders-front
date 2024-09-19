@@ -2,7 +2,7 @@ import css from './SignInForm.module.css';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
+import * as yup from 'yup';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
@@ -12,11 +12,17 @@ import { signIn } from '../../redux/auth/operations';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import NotificationSignIn from '../../components/NotificationSignIn/NotificationSignIn';
 
-const validationSchema = Yup.object({
-  email: Yup.string().email('Invalid email address').required('Required'),
-  password: Yup.string()
-    .min(8, 'Must be at least 8 characters')
-    .required('Required'),
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .trim()
+    .required('Email is required')
+    .email('Invalid email format'),
+  password: yup
+    .string()
+    .trim()
+    .required('Password is required')
+    .min(8, 'Password must be at least 8 characters long'),
 });
 
 const SignInForm = () => {
