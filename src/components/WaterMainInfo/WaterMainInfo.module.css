@@ -38,7 +38,7 @@
 @media screen and (min-width: 1440px) {
   .section {
     width: 672px;
-    min-height: calc(100vh - 64px);
+    height: calc(100vh - 64px);
     background-size: 472px 604px;
   }
   .title {
