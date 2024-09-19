@@ -1,31 +1,31 @@
 import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const ConfirmGoogleAuth = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const fetchToken = async () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const code = urlParams.get('code');
+    const queryParams = new URLSearchParams(location.search);
+    const authCode = queryParams.get('code');
+    console.log(authCode);
 
-      if (code) {
-        try {
-          const response = await axios.post('https://crystal-coders-back.onrender.com/auth/confirm-oauth', { code });
-          if (response.status === 200) {
-            navigate('/tracker');
-          }
-        } catch (error) {
-          console.error('Ошибка при подтверждении Google OAuth:', error);
-        }
-      }
-    };
 
-    fetchToken();
-  }, [navigate]);
+    if (authCode) {
+      axios.post('https://crystal-coders-back.onrender.com/auth/confirm-oauth', { code: authCode })
+        .then(() => {
+          navigate('/react-homework-template/tracker');
+        })
+        .catch((error) => {
+          console.error('Error during OAuth confirmation:', error);
+        });
+    } else {
+      console.error('No authorization code found');
+    }
+  }, [location.search, navigate]);
 
-  return <div>Loading...</div>;
+  return <div>Processing...</div>;
 };
 
 export default ConfirmGoogleAuth;
