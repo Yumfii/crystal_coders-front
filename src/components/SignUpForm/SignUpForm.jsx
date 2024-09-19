@@ -8,7 +8,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
 import { signUp } from 'services/auth';
-import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import GoogleBtnSignUp from 'components/GoogleBtnSignUp/GoogleBtnSignUp';
 
 export const validationSchema = yup.object().shape({
   email: yup
@@ -29,6 +29,7 @@ export const validationSchema = yup.object().shape({
 
 const SignUpForm = () => {
   const navigate = useNavigate();
+
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
 
@@ -54,13 +55,14 @@ const SignUpForm = () => {
 
       if (response.status === 201) {
         navigate('/tracker');
-      }
+
 
       console.log(response.data);
-    } catch (err) {
+    }} catch (err) {
       console.log(err.message);
     }
-  };
+  }
+;
 
   return (
     <div className={css.SignUpContainer}>
@@ -150,7 +152,7 @@ const SignUpForm = () => {
           </Link>
         </p>
         <p className={css.text}>or</p>
-        <GoogleBtn />
+        <GoogleBtnSignUp />
       </form>
     </div>
   );

@@ -6,6 +6,7 @@ import ConfirmGoogleAuth from 'pages/ConfirmGoogleAuth/ConfirmGoogleAuth';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+
 export const App = () => {
   return (
     <Routes>
