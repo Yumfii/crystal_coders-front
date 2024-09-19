@@ -1,18 +1,14 @@
-/* eslint-disable no-unused-vars */
 import Modal from '../Modal/Modal';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import clsx from 'clsx';
 import { deleteWater } from '../../redux/water/operations';
 import css from './DeleteWaterModal.module.css';
 
-export const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
-  const [isLoading, setIsLoading] = useState(false);
+const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    setIsLoading(() => true);
     dispatch(deleteWater(waterId))
       .unwrap()
       .then(() => {
@@ -48,3 +44,5 @@ export const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
     </Modal>
   );
 };
+
+export default DeleteWaterModal;
