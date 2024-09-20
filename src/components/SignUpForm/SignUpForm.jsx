@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { toast } from 'react-hot-toast'; // Import react-hot-toast
+import { toast } from 'react-hot-toast';
 
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
