@@ -1,21 +1,22 @@
-import { Form, Formik } from 'formik';
-import { useId, useState } from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-// import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
 import { signUp } from 'services/auth';
-// import { registerOperation } from '../../redux/auth/operations';
-
-const emailRegex =
-  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+// import GoogleBtnSignUp from 'components/GoogleBtnSignUp/GoogleBtnSignUp';
+import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
 
 export const validationSchema = yup.object().shape({
-  email: yup.string().trim().required('Email is required').matches(emailRegex, {
-    message: 'Invalid email.',
-  }),
+  email: yup
+    .string()
+    .trim()
+    .required('Email is required')
+    .email('Invalid email format'),
   password: yup
     .string()
     .trim()
@@ -28,96 +29,132 @@ export const validationSchema = yup.object().shape({
 });
 
 const SignUpForm = () => {
-  // const dispatch = useDispatch();
-  const emailId = useId();
-  const passwordId = useId();
-  const repeatPasswordId = useId();
+  const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
 
-  const handleSubmit =  async (e) => {
-    e.preventDefault();
-    console.log(email, password, repeatPassword);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: '',
+      password: '',
+      repeatPassword: '',
+    },
+    resolver: yupResolver(validationSchema),
+  });
+
+  const onSubmit = async data => {
     try {
       const response = await signUp({
-      "email": email,
-      "password": password
-      })
-      console.log(response.data)
+        email: data.email,
+        password: data.password,
+      });
+
+      if (response.status === 201) {
+        navigate('/tracker');
+
+
+      console.log(response.data);
+    }} catch (err) {
+      console.log(err.message);
     }
-    catch (er) {
-      console.log(er.message);
-    }
-  };
+  }
+;
+
   return (
     <div className={css.SignUpContainer}>
       <div className={css.logo}>
         <Logo />
       </div>
-      <Formik
-        initialValues={{ email: '', password: '', repeatPassword: '' }}
-        onSubmit={handleSubmit}
-        validationSchema={validationSchema}
-      >
-        <Form className={css.SignUpForm} onSubmit={handleSubmit}>
-          <h2 className={css.SignText}>Sign Up</h2>
+      <form className={css.SignUpForm} onSubmit={handleSubmit(onSubmit)}>
+        <h2 className={css.SignText}>Sign Up</h2>
+        <div className={css.inputDiv}>
+          <label>Email</label>
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => (
+              <input
+                {...field}
+                placeholder="Enter your email"
+                className={`${css.input} ${errors.email ? css.inputError : ''}`}
+              />
+            )}
+          />
+          {errors.email && <p className={css.error}>{errors.email.message}</p>}
+        </div>
 
-          <div className={css.inputDiv}>
-            <label htmlFor={emailId}>Email </label>
-            <input
-              name="email"
-              // id={emailId}
-              onChange={(e) => {
-                setEmail(e.target.value)
-              }}
-              placeholder="Enter your email"
-              className={css.input}
-              value={email}
-            />
-          </div>
-
-          <div className={css.inputDiv}>
-            <label htmlFor={passwordId}>Password </label>
-            <input
+        <div className={css.inputDiv}>
+          <label>Password</label>
+          <div className={css.wrapPass}>
+            <Controller
               name="password"
-              type="password"
-              // id={passwordId}
-              onChange={(e) => {
-                setPassword(e.target.value)
-              }}
-              placeholder="Enter your password"
-              className={css.input}
-              value={password}
+              control={control}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  type={passwordVisible ? 'text' : 'password'}
+                  placeholder="Enter your password"
+                  className={`${css.input} ${errors.password ? css.inputError : ''}`}
+                />
+              )}
             />
+            <button
+              type="button"
+              className={css.toggle}
+              onClick={() => setPasswordVisible(!passwordVisible)}
+            >
+              {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+            </button>
           </div>
+          {errors.password && (
+            <p className={css.error}>{errors.password.message}</p>
+          )}
+        </div>
 
-          <div className={css.inputDiv}>
-            <label htmlFor={repeatPasswordId}>Repeat password </label>
-            <input
+        <div className={css.inputDiv}>
+          <label>Repeat password</label>
+          <div className={css.wrapPass}>
+            <Controller
               name="repeatPassword"
-              type="password"
-              // id={repeatPasswordId}
-              onChange={(e) => {
-                setRepeatPassword(e.target.value)
-              }}
-              placeholder="Repeat password"
-              className={css.input}
-              value={repeatPassword}
+              control={control}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  type={repeatPasswordVisible ? 'text' : 'password'}
+                  placeholder="Repeat password"
+                  className={`${css.input} ${errors.repeatPassword ? css.inputError : ''}`}
+                />
+              )}
             />
+            <button
+              type="button"
+              className={css.toggle}
+              onClick={() => setRepeatPasswordVisible(!repeatPasswordVisible)}
+            >
+              {repeatPasswordVisible ? <FaEye /> : <FaEyeSlash />}
+            </button>
           </div>
-          <button type="submit" className={css.btn}>
-            Sign Up
-          </button>
-          <p className={css.text}>
-            Already have account?{' '}
-            <Link to="/signin" className={css.linkText}>
-              Sign In
-            </Link>
-          </p>
-        </Form>
-      </Formik>
+          {errors.repeatPassword && (
+            <p className={css.error}>{errors.repeatPassword.message}</p>
+          )}
+        </div>
+        <button type="submit" className={css.btn}>
+          Sign Up
+        </button>
+        <p className={css.text}>
+          Already have account?{' '}
+          <Link to="/signin" className={css.linkText}>
+            Sign In
+          </Link>
+        </p>
+        <p className={css.text}>or</p>
+        <GoogleBtn />
+      </form>
     </div>
   );
 };
