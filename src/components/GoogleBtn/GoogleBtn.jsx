@@ -4,7 +4,7 @@ import css from './GoogleBtn.module.css';
 
 const GoogleBtn = () => {
   const handleGoogleLogin = () => {
-    window.location.href = 'https://crystal-coders-back.onrender.com/auth/get-oauth-url';
+    window.location.href = 'https://crystal-coders-back.onrender.com/auth/get-oauth-url?callback=http://localhost:3000/confirm-google-auth';
   };
 
   return (
@@ -16,19 +16,5 @@ const GoogleBtn = () => {
     </button>
   );
 };
-
-// import { NavLink } from 'react-router-dom';
-
-// const GoogleBtn = () => {
-//   return (
-//     <NavLink className={css.Google} to="/auth/google">
-//       <div className={css.icon}>
-//         <FcGoogle />
-//       </div>
-//       <p>Sign in with Google</p>
-//     </NavLink>
-//   );
-// };
-
 
 export default GoogleBtn;
