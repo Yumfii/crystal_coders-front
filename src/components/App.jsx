@@ -4,6 +4,7 @@ import SignUpPage from 'pages/SignUpPage/SignUpPage';
 import TrackerPage from 'pages/TrackerPage/TrackerPage';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import UserSettingsModal from '../components/UserSettingsModal/UserSettingsModal'
 
 
 export const App = () => {
@@ -13,6 +14,9 @@ export const App = () => {
       <Route path="/signin" element={<SignInPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/tracker" element={<TrackerPage />} />
+
+      <Route path='/settings' element={<UserSettingsModal/>}/>
+
     </Routes>
   );
 };

@@ -1,34 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { signIn, signUp } from './operations.js';
 
-const initialState = {
-  user: {
-    email: null,
-    password: null,
-  },
-  token: null,
-  isLoggedIn: false,
-  isRefreshing: false,
-  error: null,
-};
-
-// export const initialState = {
+// const initialState = {
 //   user: {
-//     name: '',
 //     email: null,
-//     gender: null,
-//     weight: 0,
-//     sportActiveTime: 0,
-//     dailyWater: 0,
-//     avatar: null,
+//     password: null,
 //   },
-//   allUsers: null,
-//   accessToken: null,
-//   isLoading: false,
+//   token: null,
 //   isLoggedIn: false,
 //   isRefreshing: false,
 //   error: null,
 // };
+
+export const initialState = {
+  user: {
+    name: '',
+    email: null,
+    gender: null,
+    weight: 0,
+    sportActiveTime: 0,
+    dailyWater: 0,
+    avatar: null,
+  },
+  allUsers: null,
+  accessToken: null,
+  isLoading: false,
+  isLoggedIn: false,
+  isRefreshing: false,
+  error: null,
+};
 
 const authSlice = createSlice({
   name: 'auth',

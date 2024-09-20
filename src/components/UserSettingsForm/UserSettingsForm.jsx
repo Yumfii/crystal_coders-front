@@ -6,7 +6,9 @@ import { Image } from 'cloudinary-react'
 import { FiUpload } from "react-icons/fi";
 import { userSchema, validateInput } from './userSettingsFormValidation'
 import { yupResolver } from "@hookform/resolvers/yup"
-import { scryRenderedComponentsWithType } from 'react-dom/test-utils'
+import { useDispatch, useSelector, UseSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { fetchUserById } from '../../redux/user/operations'
 
 const UserSettingsForm = () => {
   const {
@@ -33,7 +35,19 @@ const UserSettingsForm = () => {
     }
   });
 
+  const dispatch = useDispatch();
   const [gender, setGender] = useState(watch('gender'))
+  const id = useParams()
+  console.log(id);
+
+  // const user = useSelector(selectUser)
+  // console.log(user);
+
+  useEffect(()=>{
+    const fetchedUser = dispatch(fetchUserById(`${id}`))
+    console.log(fetchedUser);
+    },
+    [dispatch])
 
   useEffect(() => {
     const subscription = watch((value, { name }) => {
