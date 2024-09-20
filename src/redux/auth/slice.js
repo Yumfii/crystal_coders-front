@@ -5,6 +5,11 @@ import { signIn, signUp } from './operations.js';
 //   user: {
 //     email: null,
 //     password: null,
+//     gender: null,
+//     weight: 0,
+//     sportActiveTime: 0,
+//     dailyWater: 2,
+//     avatar: null,
 //   },
 //   token: null,
 //   isLoggedIn: false,

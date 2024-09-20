@@ -8,7 +8,8 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
 import { signUp } from 'services/auth';
-import GoogleBtnSignUp from 'components/GoogleBtnSignUp/GoogleBtnSignUp';
+// import GoogleBtnSignUp from 'components/GoogleBtnSignUp/GoogleBtnSignUp';
+import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
 
 export const validationSchema = yup.object().shape({
   email: yup
@@ -28,7 +29,8 @@ export const validationSchema = yup.object().shape({
 });
 
 const SignUpForm = () => {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
+
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
 
@@ -53,14 +55,15 @@ const SignUpForm = () => {
       });
 
       if (response.status === 201) {
-        navigation('/tracker');
-      }
+        navigate('/tracker');
+
 
       console.log(response.data);
-    } catch (err) {
+    }} catch (err) {
       console.log(err.message);
     }
-  };
+  }
+;
 
   return (
     <div className={css.SignUpContainer}>
@@ -96,9 +99,7 @@ const SignUpForm = () => {
                   {...field}
                   type={passwordVisible ? 'text' : 'password'}
                   placeholder="Enter your password"
-                  className={`${css.input} ${
-                    errors.password ? css.inputError : ''
-                  }`}
+                  className={`${css.input} ${errors.password ? css.inputError : ''}`}
                 />
               )}
             />
@@ -126,9 +127,7 @@ const SignUpForm = () => {
                   {...field}
                   type={repeatPasswordVisible ? 'text' : 'password'}
                   placeholder="Repeat password"
-                  className={`${css.input} ${
-                    errors.repeatPassword ? css.inputError : ''
-                  }`}
+                  className={`${css.input} ${errors.repeatPassword ? css.inputError : ''}`}
                 />
               )}
             />
@@ -154,7 +153,7 @@ const SignUpForm = () => {
           </Link>
         </p>
         <p className={css.text}>or</p>
-        <GoogleBtnSignUp />
+        <GoogleBtn />
       </form>
     </div>
   );

@@ -15,7 +15,7 @@
   font-weight: 700;
   line-height: 1.33; /* 24px */
   letter-spacing: -0.18px;
-   /* 20px */
+
 }
 
 .title2 {
@@ -34,37 +34,21 @@
   font-size: 0.875rem;
 }
 
-
-
 @media screen and (max-width: 375px) {
-  .title {
-    font-size: 1rem; /* 16px */
-    line-height: 1.25; /* 20px */
+  .circle-btn {
+    font-size: 40px !important;
   }
 
-  .title2 {
-    font-size: 0.875rem; /* 14px */
-  }
-
-  .input {
-    padding: 1rem 1rem; /* Adjusted for smaller screens */
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .title {
-    font-size: 1.125rem; /* 18px */
-    line-height: 1.33; /* 24px */
+  .water-amount-panel {
+    font-size: 14px !important;
+    line-height: 18px !important;
   }
 
   .input {
-    padding: 1rem 1.5rem; /* Adjusted for medium screens */
+    padding: 14px !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
   }
-}
 
-/* Desktop and larger screens */
-@media screen and (min-width: 1440px) {
-  .water-form {
-    max-width: 438px;
-  }
+
 }
