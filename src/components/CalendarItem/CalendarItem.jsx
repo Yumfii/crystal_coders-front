@@ -1,22 +1,16 @@
 import React from 'react';
 import css from './CalendarItem.module.css';
 
-const CalendarItem = ({ daysArray, handleDayClick }) => {
+const CalendarItem = ({ day, handleDayClick }) => {
   return (
     <>
-      {daysArray.map(day => {
-        return (
-          <li key={day}>
-            <button
-              style={{ backgroundColor: '#FFF' }}
-              onClick={() => handleDayClick(day)}
-              className={css.btnDay}
-            >
-              {day}
-            </button>
-          </li>
-        );
-      })}
+      <button
+        style={{ backgroundColor: '#FFF' }}
+        onClick={() => handleDayClick(day)}
+        className={css.btnDay}
+      >
+        {day}
+      </button>
     </>
   );
 };

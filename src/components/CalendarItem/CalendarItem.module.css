@@ -1,6 +1,10 @@
 .btnDay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 28px;
   height: 28px;
+  padding: 0;
   border-radius: 30px;
   color: #323f47;
   font-size: 14px;

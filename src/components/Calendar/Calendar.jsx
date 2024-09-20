@@ -23,7 +23,11 @@ const Calendar = ({ selectedDate, setSelectedDate }) => {
   return (
     <div>
       <ul className={css.listDays}>
-        <CalendarItem daysArray={daysArray} handleDayClick={handleDayClick} />
+        {daysArray.map(day => (
+          <li key={day}>
+            <CalendarItem day={day} handleDayClick={handleDayClick} />
+          </li>
+        ))}
       </ul>
     </div>
   );
