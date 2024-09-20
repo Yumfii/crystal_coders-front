@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -22,7 +22,6 @@ const ConfirmGoogleAuth = () => {
     }
   }, [navigate]);
 
-  return <div><h1>Authenticating...</h1></div>;
 };
 
 export default ConfirmGoogleAuth;
