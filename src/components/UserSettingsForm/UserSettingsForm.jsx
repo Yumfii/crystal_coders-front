@@ -6,7 +6,6 @@ import { Image } from 'cloudinary-react'
 import { FiUpload } from "react-icons/fi";
 import { userSchema, validateInput } from './userSettingsFormValidation'
 import { yupResolver } from "@hookform/resolvers/yup"
-import { scryRenderedComponentsWithType } from 'react-dom/test-utils'
 
 const UserSettingsForm = () => {
   const {
