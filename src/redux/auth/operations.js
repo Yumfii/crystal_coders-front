@@ -1,6 +1,7 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+axios.defaults.baseURL = 'https://crystal-coders-back.onrender.com/';
 
 const setAuthHeader = token => {
   if (token) {
@@ -16,6 +17,7 @@ const setAuthHeader = token => {
 // const clearAuthHeader = () => {
 //   delete axios.defaults.headers.common.Authorization;
 // };
+
 
 export const signIn = createAsyncThunk(
   'auth/login',
