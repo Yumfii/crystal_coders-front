@@ -1,5 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signIn, signUp } from './operations.js';
+import { signIn, signUp, logOut, refresh } from './operations.js';
+
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+const handlePending = state => {
+  state.isLoading = true;
+  state.error = null;
+};
 
 const initialState = {
   user: {
@@ -51,18 +60,35 @@ const authSlice = createSlice({
       })
 
       .addCase(signUp.pending, state => {
-        state.loading = true;
+        state.isLoading = true;
       })
       .addCase(signUp.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = null;
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
       .addCase(signUp.rejected, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(logOut.pending, handlePending)
+      .addCase(logOut.fulfilled, () => {
+        return initialState;
+      })
+      .addCase(logOut.rejected, handleRejected)
+      .addCase(refresh.pending, handlePending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(refresh.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isRefreshing = false;
+        state.isLoggedIn = true;
+        state.accessToken = action.payload.accessToken;
+      })
+      .addCase(refresh.rejected, handleRejected, state => {
+        state.isRefreshing = true;
       });
   },
 });
