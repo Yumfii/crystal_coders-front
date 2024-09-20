@@ -47,7 +47,7 @@ const UserSettingsForm = () => {
     const fetchedUser = dispatch(fetchUserById(`${id}`))
     console.log(fetchedUser);
     },
-    [dispatch])
+    [dispatch, id])
 
   useEffect(() => {
     const subscription = watch((value, { name }) => {
@@ -56,7 +56,7 @@ const UserSettingsForm = () => {
       }
     })
     return () => subscription.unsubscribe();
-    }, [watch('gender')]);
+    }, [watch]);
 
 
   function uploadToCloudinary() {
