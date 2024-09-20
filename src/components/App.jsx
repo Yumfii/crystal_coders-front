@@ -6,6 +6,8 @@ import SignUpPage from 'pages/SignUpPage/SignUpPage';
 import TrackerPage from 'pages/TrackerPage/TrackerPage';
 import UserSettingsModalT from 'pages/UserSettingsModal/UserSettingModalT';
 import ConfirmGoogleAuth from 'pages/ConfirmGoogleAuth/ConfirmGoogleAuth';
+import ForgotPasswordPage from 'pages/ForgotPassword/ForgotPassword';
+import ResetPasswordPage from 'pages/ResetPassword/ResetPassword';
 
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -20,6 +22,9 @@ export const App = () => {
       <Route path="/userSetting" element={<UserSettingsModalT />} />
       <Route path="/waterform" element={<UserSettingsModalT />} />
       <Route path="/confirm-google-auth" element={<ConfirmGoogleAuth />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
+
     </Routes>
   );
 };
