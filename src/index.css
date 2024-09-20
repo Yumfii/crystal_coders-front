@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-
 :root {
   font-family: Poppins, Gilroy, system-ui, Helvetica, Arial, sans-serif;
   --dark-gray: #2f2f2f;
@@ -33,7 +32,6 @@ body {
   margin: 0;
   padding: 16px;
 }
-
 
 body::-webkit-scrollbar {
   width: 0;
