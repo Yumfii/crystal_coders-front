@@ -10,9 +10,11 @@ const WelcomeSection = () => {
         {' '}
         <Logo />
       </div>
+      <div className={css.headerContainer}>
+        <p className={css.subheader}> Record daily water intake and track</p>
+        <h1 className={css.header}> Water consumption tracker</h1>
+      </div>
 
-      <p className={css.subheader}> Record daily water intake and track</p>
-      <h1 className={css.header}> Water consumption tracker</h1>
       <div className={css.nav}>
         <NavLink className={`${css.signup} ${css.btn}`} to="/signup">
           Try tracker

@@ -1,5 +1,7 @@
 .welcome {
-  width: 340px;
+  width:100%;
+  /* max-width: 340px; */
+  /* max-width:100%; */
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
@@ -10,13 +12,22 @@
   margin-bottom: 74px;
 }
 
+.headerContainer {
+  display: flex;
+  width: 311px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
 .subheader {
   color: var(--dark-gray);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
   letter-spacing: 0.84px;
-  margin-bottom: 16px;
+
 }
 
 .header {
@@ -26,7 +37,7 @@
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.38px;
-  margin-bottom: 32px;
+
 }
 .nav {
   display: flex;
@@ -101,21 +112,27 @@
 /* Tablet */
 @media screen and (min-width: 768px) {
   .welcome {
-    width: 704px;
+    /* max-width: 704px; */
     padding: 32px;
+  }
+
+  .headerContainer {
+    padding-left: 32px;
+    width: 547px;
+
   }
   .subheader {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.96px;
-    margin-bottom: 16px;
-    padding-left: 32px;
+
+
   }
   .header {
     font-size: 64px;
     line-height: 1.09;
     letter-spacing: -0.64px;
-    padding-left: 32px;
+
   }
   .logo {
     margin-bottom: 50px;
@@ -152,7 +169,7 @@
 @media screen and (min-width: 1280px) {
   .welcome {
     width: 672px;
-    min-height: 754px;
+    min-height: calc(100vh - 64px);
   }
 
   .header {
