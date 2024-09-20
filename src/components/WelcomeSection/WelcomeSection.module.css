@@ -1,7 +1,5 @@
 .welcome {
-  width:100%;
-  /* max-width: 340px; */
-  /* max-width:100%; */
+  width: 100%;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
@@ -27,7 +25,6 @@
   font-weight: 400;
   line-height: 1.28;
   letter-spacing: 0.84px;
-
 }
 
 .header {
@@ -37,7 +34,6 @@
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.38px;
-
 }
 .nav {
   display: flex;
@@ -119,20 +115,16 @@
   .headerContainer {
     padding-left: 32px;
     width: 547px;
-
   }
   .subheader {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.96px;
-
-
   }
   .header {
     font-size: 64px;
     line-height: 1.09;
     letter-spacing: -0.64px;
-
   }
   .logo {
     margin-bottom: 50px;

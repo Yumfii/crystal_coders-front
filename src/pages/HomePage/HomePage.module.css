@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 @media screen and (min-width: 1280px) {

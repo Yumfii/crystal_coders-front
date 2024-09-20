@@ -46,6 +46,7 @@ const AdvantatgesSection = () => {
   return (
     <CloudinaryContext cloudName="dwyxffoux">
       <div className={css.advantages}>
+
         <div className={css.customersContainer}>
           <ul className={css.customersList}>
             <li className={css.customersImg}>
@@ -73,7 +74,7 @@ const AdvantatgesSection = () => {
           </p>
         </div>
         <div className={css.benefits}>
-          <div className={css.habitContainer}>
+           <div className={css.habitContainer}>
             <div className={css.circle}></div>
             <p className={css.habitText}>Habit drive</p>
           </div>
