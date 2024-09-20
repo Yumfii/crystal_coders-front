@@ -1,6 +1,6 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+/* bring in normalize.css styles *, */
 
-*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -29,8 +29,6 @@ body {
   font-family: Poppins, Gilroy, system-ui, Helvetica, Arial, sans-serif;
   color: #2f2f2f;
   background-color: #fff;
-  margin: 0;
-  padding: 16px;
 }
 
 body::-webkit-scrollbar {
