@@ -1,29 +1,33 @@
 import React, { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ConfirmGoogleAuth = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    const authCode = queryParams.get('code');
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    console.log(code);
 
-    if (authCode) {
-      axios.post('https://crystal-coders-back.onrender.com/auth/confirm-oauth', { code: authCode })
-        .then((response) => {
-          navigate('/tracker');
-        })
-        .catch((error) => {
-          console.error('Error during OAuth confirmation:', error);
-        });
-    } else {
-      console.error('No authorization code found');
+    if (code) {
+      axios.post('https://crystal-coders-back.onrender.com/auth/confirm-oauth', {
+        code: code
+      })
+      .then(() => {
+        navigate('/tracker');
+      })
+      .catch(error => {
+        console.error("Error during Google OAuth callback:", error);
+      });
     }
-  }, [location.search, navigate]);
+  }, [navigate]);
 
-  return <div>Processing...</div>;
+  return (
+    <div>
+      <h1>Authenticating...</h1>
+    </div>
+  );
 };
 
 export default ConfirmGoogleAuth;
