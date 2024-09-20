@@ -6,12 +6,6 @@ import css from './Calendar.module.css';
 const Calendar = ({ selectedDate, setSelectedDate }) => {
   const daysInMonth = getDaysInMonth(selectedDate);
 
-  // const getDayStyle = waterData => {
-  //   const percentage = (waterData.consumed / waterData.dailyGoal) * 100;
-  //   if (percentage < 100) return { backgroundColor: 'rgba(50, 63, 71, 0.20)' };
-  //   if (percentage >= 100) return { backgroundColor: '#FFF' };
-  // };
-
   const handleDayClick = day => {
     const date = new Date(
       selectedDate.getFullYear(),
