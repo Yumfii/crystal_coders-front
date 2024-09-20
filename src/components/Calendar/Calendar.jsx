@@ -1,9 +1,9 @@
 import React from 'react';
-import { format, getDaysInMonth } from 'date-fns';
+import { getDaysInMonth } from 'date-fns';
 import CalendarItem from 'components/CalendarItem/CalendarItem';
 import css from './Calendar.module.css';
 
-const Calendar = ({ selectedDate, setChooseDate }) => {
+const Calendar = ({ selectedDate, setSelectedDate }) => {
   const daysInMonth = getDaysInMonth(selectedDate);
 
   // const getDayStyle = waterData => {
@@ -13,11 +13,12 @@ const Calendar = ({ selectedDate, setChooseDate }) => {
   // };
 
   const handleDayClick = day => {
-    const date = format(
-      new Date(selectedDate.getFullYear(), selectedDate.getMonth(), day),
-      'd, MMMM'
+    const date = new Date(
+      selectedDate.getFullYear(),
+      selectedDate.getMonth(),
+      day
     );
-    setChooseDate(date);
+    setSelectedDate(date);
   };
 
   const daysArray = Array.from(
