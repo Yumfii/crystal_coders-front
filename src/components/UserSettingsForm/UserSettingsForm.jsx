@@ -6,7 +6,7 @@ import { Image } from 'cloudinary-react'
 import { FiUpload } from "react-icons/fi";
 import { userSchema, validateInput } from './userSettingsFormValidation'
 import { yupResolver } from "@hookform/resolvers/yup"
-import { scryRenderedComponentsWithType } from 'react-dom/test-utils'
+// import { Watch } from 'react-loader-spinner'
 
 const UserSettingsForm = () => {
   const {
@@ -42,7 +42,7 @@ const UserSettingsForm = () => {
       }
     })
     return () => subscription.unsubscribe();
-    }, [watch('gender')]);
+    }, [watch]);
 
 
   function uploadToCloudinary() {
