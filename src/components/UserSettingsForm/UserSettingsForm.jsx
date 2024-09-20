@@ -41,7 +41,7 @@ const UserSettingsForm = () => {
       }
     })
     return () => subscription.unsubscribe();
-    }, [watch('gender')]);
+    }, [watch]);
 
 
   function uploadToCloudinary() {

@@ -37,29 +37,3 @@ const Modal = ({ isOpen, onClose, children }) => {
 };
 
 export default Modal;
-
-// import React, { useState } from 'react';
-// import Modal from './Modal';
-
-// const App = () => {
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-//   const handleOpenModal = () => {
-//     setIsModalOpen(true);
-//   };
-
-//   const handleCloseModal = () => {
-//     setIsModalOpen(false);
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={handleOpenModal}>Open Modal</button>
-//       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-//       <p>children.</p>
-//       </Modal>
-//     </div>
-//   );
-// };
-
-// export default App;

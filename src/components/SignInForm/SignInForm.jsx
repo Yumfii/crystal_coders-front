@@ -84,6 +84,9 @@ const SignInForm = () => {
                   <p className={css.error}>{errors.password.message}</p>
                 )}
               </div>
+              <NavLink to="/forgot-password" className={css.forgotPassword}>
+                Forgot password?
+              </NavLink>
             </div>
           </div>
 
