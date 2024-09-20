@@ -9,7 +9,7 @@ import ConfirmGoogleAuth from 'pages/ConfirmGoogleAuth/ConfirmGoogleAuth';
 
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import GraphPage from 'pages/GrafPage/GraphPage';
+import GraphPage from 'pages/GraphPage/GraphPage';
 
 export const App = () => {
   return (
