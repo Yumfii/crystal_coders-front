@@ -6,7 +6,6 @@ import css from './MonthInfo.module.css';
 
 const MonthInfo = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  // const [chooseDate, setChooseDate] = useState(null);
 
   const nextMonth = () => {
     setSelectedDate(prevDate => addMonths(prevDate, 1));
