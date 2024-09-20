@@ -9,6 +9,7 @@ import ConfirmGoogleAuth from 'pages/ConfirmGoogleAuth/ConfirmGoogleAuth';
 
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import GraphPage from 'pages/GrafPage/GraphPage';
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
       <Route path="/userSetting" element={<UserSettingsModalT />} />
       <Route path="/waterform" element={<UserSettingsModalT />} />
       <Route path="/confirm-google-auth" element={<ConfirmGoogleAuth />} />
+      <Route path="/water-graph" element={<GraphPage/>} />
     </Routes>
   );
 };
