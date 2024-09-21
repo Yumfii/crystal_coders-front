@@ -17,18 +17,18 @@ const LogOutModal = ({ modalIsOpen, closeModal }) => {
   const transparentBtnClass = clsx(css.btn, css.transparentBtn);
 
   return (
-      <div className={css.modalBox}>
-        <h3 className={css.modalTitle}>Log out</h3>
-        <p className={css.modalText}>Do you really want to leave?</p>
-        <div className={css.btnBox}>
-          <button className={colorBtnClass} onClick={handleClick}>
-            Log out
-          </button>
-          <button className={transparentBtnClass} onClick={() => closeModal()}>
-            Cancel
-          </button>
-        </div>
+    <div className={css.modalBox}>
+      <h3 className={css.modalTitle}>Log out</h3>
+      <p className={css.modalText}>Do you really want to leave?</p>
+      <div className={css.btnBox}>
+        <button className={colorBtnClass} onClick={handleClick}>
+          Log out
+        </button>
+        <button className={transparentBtnClass} onClick={() => closeModal()}>
+          Cancel
+        </button>
       </div>
+    </div>
   );
 };
 

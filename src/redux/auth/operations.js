@@ -18,7 +18,6 @@ const setAuthHeader = token => {
 //   delete axios.defaults.headers.common.Authorization;
 // };
 
-
 export const signIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
