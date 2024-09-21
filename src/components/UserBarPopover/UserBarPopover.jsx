@@ -18,8 +18,12 @@ const UserBarPopover = () => {
 
   return (
     <div className={CSS.popoverBlock}>
-      <button type='button' className={`${CSS.popoverBtn}`}>
-        <TbSettings className={CSS.settingsIcon} onClick={handleOpenModal} />
+      <button
+        type='button'
+        className={`${CSS.popoverBtn}`}
+        onClick={handleOpenModal}
+      >
+        <TbSettings className={CSS.settingsIcon} />
         Settings
       </button>
       <button type='button' className={`${CSS.popoverBtn} ${CSS.transparentBtn}`}>
