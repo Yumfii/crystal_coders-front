@@ -10,6 +10,7 @@ import css from './SignUpForm.module.css';
 import { signUp } from 'services/auth';
 // import GoogleBtnSignUp from 'components/GoogleBtnSignUp/GoogleBtnSignUp';
 import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import { toast } from 'react-hot-toast';
 
 export const validationSchema = yup.object().shape({
   email: yup
@@ -55,15 +56,17 @@ const SignUpForm = () => {
       });
 
       if (response.status === 201) {
-        navigate('/tracker');
 
+        toast.success('Registration successful! Please check your email to verify your account!');
+        setTimeout(()=>{
+          navigate('/tracker')
+        }, 2000);
 
       console.log(response.data);
     }} catch (err) {
       console.log(err.message);
     }
-  }
-;
+  };
 
   return (
     <div className={css.SignUpContainer}>
@@ -158,5 +161,4 @@ const SignUpForm = () => {
     </div>
   );
 };
-
 export default SignUpForm;

@@ -13,9 +13,11 @@ import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 export const App = () => {
   return (
+    <>
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/signin" element={<SignInPage />} />
@@ -31,5 +33,7 @@ export const App = () => {
       <Route path='/settings' element={<UserSettingsModal/> } />
 
     </Routes>
+    <Toaster/>
+    </>
   );
 };
