@@ -43,15 +43,15 @@ export const WaterGraph = () => {
     <LineChart data={data} height={273} width={588}>
       <defs>
         <linearGradient
-          id="paint0_linear_61_2931"
+          id="linear_gradient"
           x1="189.618"
           y1="207"
           x2="193.11"
           y2="7.79258"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#9BE1A0" stop-opacity="0" />
-          <stop offset="1" stop-color="#9BE1A0" />
+          <stop stopColor="#9BE1A0" stopOpacity="0" />
+          <stop offset="1" stopColor="#9BE1A0" />
         </linearGradient>
       </defs>
 
@@ -73,7 +73,15 @@ export const WaterGraph = () => {
         tickLine={false}
         axisLine={false}
       />
-      <Tooltip />
+      <Tooltip cursor={false} />
+
+      <Area
+        type="monotone"
+        dataKey="volume"
+        stroke="none"
+        fill="url(#linear_gradient)"
+        fillOpacity={1}
+      />
 
       <Line
         dataKey="volume"
@@ -81,15 +89,6 @@ export const WaterGraph = () => {
         strokeWidth={3}
         type="linear"
         dot={{ r: 9 }}
-      />
-
-      <Area
-        type="linear"
-        dataKey="close"
-        stroke={false}
-        strokeWidth={2}
-        fillOpacity={1}
-        fill="url(#paint0_linear_61_2931)"
       />
     </LineChart>
   );

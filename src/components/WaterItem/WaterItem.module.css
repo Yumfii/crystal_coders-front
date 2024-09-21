@@ -1,29 +1,58 @@
-.waterItem{
-  width: 149px;
-  height: 74px;
-  padding: 18px 14px;
-  background-color: var(--white);
-  border-radius: 15px;
+.iconWrap {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
-.details{
+
+.iconGlass {
+  width: 38px;
+  height: 38px;
+  fill: var(--light-green);
+}
+.information {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  justify-content: space-between;
+  width: 51px;
+  text-align: center;
 }
-.detailsInfoAmount{
+
+.volume {
+  margin-bottom: 6px;
+  color: var(--dark-blue);
   font-size: 14px;
   font-weight: 700;
+  line-height: 1;
 }
-.detailsInfoTime{
+
+.time {
+  color: rgba(47, 47, 47, 0.6);
   font-size: 12px;
   font-weight: 400;
+  line-height: 1;
 }
-.btnIcons{
+
+.control {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
-.btnIcon{
+
+.btnIcon {
   background-color: transparent;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .iconGlass {
+    width: 44px;
+    height: 45px;
+  }
+  .volume {
+    margin-bottom: 0;
+    font-size: 15px;
+  }
+  .time {
+    line-height: 1.9;
+  }
 }
