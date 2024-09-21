@@ -9,6 +9,7 @@ const LogOutModal = ({ modalIsOpen, closeModal }) => {
 
   const handleClick = () => {
     dispatch(logOut());
+    closeModal();
   };
 
   const colorBtnClass = clsx(css.btn, css.colorBtn);
@@ -16,7 +17,6 @@ const LogOutModal = ({ modalIsOpen, closeModal }) => {
   const transparentBtnClass = clsx(css.btn, css.transparentBtn);
 
   return (
-    <Modal modalIsOpen={modalIsOpen} closeModal={closeModal}>
       <div className={css.modalBox}>
         <h3 className={css.modalTitle}>Log out</h3>
         <p className={css.modalText}>Do you really want to leave?</p>
@@ -29,7 +29,6 @@ const LogOutModal = ({ modalIsOpen, closeModal }) => {
           </button>
         </div>
       </div>
-    </Modal>
   );
 };
 

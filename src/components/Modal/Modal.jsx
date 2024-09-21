@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './Modal.module.css';
 import { RxCross2 } from 'react-icons/rx';
 
-const Modal = ({ isOpen, onClose, children }) => {
-  const [modalWidth, setModalWidth] = useState('343px');
+const Modal = ({ isOpen, onClose, children, size }) => {
+  const [modalWidth, setModalWidth] = useState(size || '343px');
 
   useEffect(() => {
+    if (size) return;
+
     const updateModalSize = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth >= 1440) {
@@ -18,11 +20,10 @@ const Modal = ({ isOpen, onClose, children }) => {
       }
     };
 
-
     updateModalSize();
     window.addEventListener('resize', updateModalSize);
     return () => window.removeEventListener('resize', updateModalSize);
-  }, []);
+  }, [size]);
 
   useEffect(() => {
     const handleEsc = event => {

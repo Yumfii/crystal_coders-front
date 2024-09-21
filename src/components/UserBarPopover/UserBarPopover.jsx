@@ -1,41 +1,53 @@
 import React, { useState } from 'react';
 import CSS from './UserBarPopover.module.css';
-import { TbSettings } from "react-icons/tb";
-import { LuLogOut } from "react-icons/lu";
+import { TbSettings } from 'react-icons/tb';
+import { LuLogOut } from 'react-icons/lu';
 import Modal from 'components/Modal/Modal';
 import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal';
+import LogOutModal from 'components/LogOutModal/LogOutModal';
 
 const UserBarPopover = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState(null);
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
+  const handleOpenModal = type => {
+    setModalType(type);
   };
 
   const handleCloseModal = () => {
-    setIsModalOpen(false);
+    setModalType(null);
   };
 
   return (
     <div className={CSS.popoverBlock}>
       <button
-        type='button'
+        type="button"
         className={`${CSS.popoverBtn}`}
-        onClick={handleOpenModal}
+        onClick={() => handleOpenModal('settings')}
       >
         <TbSettings className={CSS.settingsIcon} />
         Settings
       </button>
-      <button type='button' className={`${CSS.popoverBtn} ${CSS.transparentBtn}`}>
+
+      <button
+        type="button"
+        className={`${CSS.popoverBtn} ${CSS.transparentBtn}`}
+        onClick={() => handleOpenModal('logout')}
+      >
         <LuLogOut />
         Log out
       </button>
 
-      {isModalOpen &&
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+      {modalType === 'settings' && (
+        <Modal isOpen={true} onClose={handleCloseModal}>
           <UserSettingsModal />
         </Modal>
-      }
+      )}
+
+      {modalType === 'logout' && (
+        <Modal isOpen={true} onClose={handleCloseModal}>
+          <LogOutModal closeModal={handleCloseModal} />
+        </Modal>
+      )}
     </div>
   );
 };
