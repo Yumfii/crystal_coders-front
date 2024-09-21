@@ -1,5 +1,5 @@
 import css from './SignInPage.module.css'; // Import CSS as a module
-import { useEffect } from 'react';
+
 import AdvantagesSection from '../../components/AdvantagesSection/AdvantagesSection';
 import SignInForm from 'components/SignInForm/SignInForm';
 import { useSelector } from 'react-redux';

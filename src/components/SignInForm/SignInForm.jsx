@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
 import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/operations';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
+
 import NotificationSignIn from '../../components/NotificationSignIn/NotificationSignIn';
 
 const validationSchema = yup.object().shape({
@@ -27,8 +27,6 @@ const validationSchema = yup.object().shape({
 
 const SignInForm = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const navigate = useNavigate();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [loginError, setLoginError] = useState(null); // Local error state
