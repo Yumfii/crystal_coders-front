@@ -1,6 +1,6 @@
-import React from 'react'
-import CSS from './WaterList.module.css'
-import WaterItem from 'components/WaterItem/WaterItem'
+import React from 'react';
+import CSS from './WaterList.module.css';
+import WaterItem from '../../components/WaterItem/WaterItem';
 
 const WaterList = () => {
   return (
@@ -10,9 +10,9 @@ const WaterList = () => {
           <WaterItem amount={ml} time={time}/>
         </li>)} */}
 
-      <WaterItem/>
+      <WaterItem />
     </ul>
-  )
-}
+  );
+};
 
-export default WaterList
+export default WaterList;

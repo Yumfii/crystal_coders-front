@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import { NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
-import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import GoogleBtn from '../../components/GoogleBtn/GoogleBtn';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/operations';
 

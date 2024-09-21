@@ -1,7 +1,7 @@
 import css from './WelcomeSection.module.css';
-import Logo from 'components/Logo/Logo';
+import Logo from '../../components/Logo/Logo';
 import { NavLink } from 'react-router-dom';
-import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import GoogleBtn from '../../components/GoogleBtn/GoogleBtn';
 
 const WelcomeSection = () => {
   return (

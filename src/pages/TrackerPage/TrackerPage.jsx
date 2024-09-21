@@ -1,5 +1,5 @@
-import WaterDetailedInfo from 'components/WaterDetailedInfo/WaterDetailedInfo';
-import WaterMainInfo from 'components/WaterMainInfo/WaterMainInfo';
+import WaterDetailedInfo from '../../components/WaterDetailedInfo/WaterDetailedInfo';
+import WaterMainInfo from '../../components/WaterMainInfo/WaterMainInfo';
 import css from './TrackerPage.module.css';
 import React from 'react';
 

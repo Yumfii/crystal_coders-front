@@ -1,8 +1,8 @@
-import WaterDailyNorma from 'components/WaterDailyNorma/WaterDailyNorma';
-import WaterProgressBar from 'components/WaterProgressBar/WaterProgressBar';
+import WaterDailyNorma from '../../components/WaterDailyNorma/WaterDailyNorma';
+import WaterProgressBar from '../../components/WaterProgressBar/WaterProgressBar';
 import css from './WaterMainInfo.module.css';
-import AddWaterBtn from 'components/AddWaterBtn/AddWaterBtn';
-import Logo from 'components/Logo/Logo';
+import AddWaterBtn from '../../components/AddWaterBtn/AddWaterBtn';
+import Logo from '../../components/Logo/Logo';
 
 const WaterMainInfo = () => {
   const value = 50;
