@@ -1,15 +1,18 @@
-import React from 'react'
-import CSS from './DailyInfo.module.css'
-import AddWaterBtn from 'components/AddWaterBtn/AddWaterBtn'
-import WaterList from 'components/WaterList/WaterList'
+import AddWaterBtn from 'components/AddWaterBtn/AddWaterBtn';
+import ChooseDate from 'components/ChooseDate/ChooseDate';
+import WaterList from 'components/WaterList/WaterList';
+import css from './DailyInfo.module.css';
 
-const DailyInfo = () => {
+const DailyInfo = ({ selectedDate }) => {
   return (
     <div>
-      <AddWaterBtn/>
-      <WaterList/>
+      <div className={css.wrapper}>
+        <ChooseDate selectedDate={selectedDate} />
+        <AddWaterBtn variant="secondary" />
+      </div>
+      <WaterList />
     </div>
-  )
-}
+  );
+};
 
-export default DailyInfo
+export default DailyInfo;

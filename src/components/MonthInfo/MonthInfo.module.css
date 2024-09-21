@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.monthName {
+  color: var(--dark-blue);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+}
+
+@media screen and (min-width: 768px) {
+  .monthName {
+    font-size: 28px;
+    line-height: 1.14;
+    letter-spacing: -0.28px;
+  }
+}
