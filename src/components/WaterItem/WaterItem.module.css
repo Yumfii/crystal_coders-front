@@ -1,0 +1,29 @@
+.waterItem{
+  width: 149px;
+  height: 74px;
+  padding: 18px 14px;
+  background-color: var(--white);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+.details{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.detailsInfoAmount{
+  font-size: 14px;
+  font-weight: 700;
+}
+.detailsInfoTime{
+  font-size: 12px;
+  font-weight: 400;
+}
+.btnIcons{
+  display: flex;
+  flex-direction: column;
+}
+.btnIcon{
+  background-color: transparent;
+}
