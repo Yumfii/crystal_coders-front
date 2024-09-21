@@ -1,10 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.module.css';
 import { RxCross2 } from 'react-icons/rx';
-import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal';
 
 const Modal = ({ isOpen, onClose, children }) => {
+  const [modalWidth, setModalWidth] = useState('343px');
+
+  useEffect(() => {
+    const updateModalSize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 1440) {
+        setModalWidth('920px');
+      } else if (screenWidth >= 768) {
+        setModalWidth('768px');
+      } else {
+        setModalWidth('375px');
+      }
+    };
+
+
+    updateModalSize();
+    window.addEventListener('resize', updateModalSize);
+    return () => window.removeEventListener('resize', updateModalSize);
+  }, []);
+
   useEffect(() => {
     const handleEsc = event => {
       if (event.key === 'Escape') {
@@ -41,52 +60,32 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   const modalContentStyle = {
     background: 'var(--white)',
-    padding: '40px 20px',
+    padding: '40px',
     borderRadius: 'var(--border-radius)',
     position: 'relative',
-    width: '343px',
+    width: modalWidth,
     maxWidth: '100%',
     maxHeight: '90vh',
     overflowY: 'auto',
   };
 
-  const modalContentStyleLarge = {
-    ...modalContentStyle,
-    padding: '40px',
-    width: '518px',
-    maxHeight: '90vh',
-  };
-
   const modalCloseButtonStyle = {
     position: 'absolute',
     top: '20px',
-    right: '16px',
+    right: '20px',
     background: 'none',
     border: 'none',
     cursor: 'pointer',
-    width: '24px',
-    height: '24px',
-    transition: 'background-color var(--animation), color var(--animation)',
-  };
-
-  const modalCloseButtonStyleLarge = {
-    ...modalCloseButtonStyle,
-    top: '20px',
-    right: '20px',
     width: '28px',
     height: '28px',
+    transition: 'background-color var(--animation), color var(--animation)',
   };
 
   return ReactDOM.createPortal(
     <div style={modalBackdropStyle} onClick={handleBackdropClick}>
-      <div
-        style={window.innerWidth >= 376 ? modalContentStyleLarge : modalContentStyle}
-      >
-        <button
-          style={window.innerWidth >= 376 ? modalCloseButtonStyleLarge : modalCloseButtonStyle}
-          onClick={onClose}
-        >
-          <RxCross2 size={window.innerWidth >= 376 ? 28 : 24} color="black" />
+      <div style={modalContentStyle}>
+        <button style={modalCloseButtonStyle} onClick={onClose}>
+          <RxCross2 size={28} color="black" />
         </button>
         <div>{children}</div>
       </div>
