@@ -1,4 +1,5 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+/* bring in normalize.css styles */
 
 *,
 *::before,
@@ -12,16 +13,15 @@
   --dark-blue: #323f47;
   --light-green: #9be1a0;
   --light-green-hover: #87d28d;
+  --light-dark-green: #5aab62;
   --white: #ffffff;
   --white-disabled: #e6e6e6;
   --light-gray: #f0eff4;
   --light-gray-disabled: #bcbcbc;
   --light-red: #ef5050;
-  --linear-gradient: linear-gradient(
-    3deg,
-    rgba(155, 225, 160, 0) 1.54%,
-    #9be1a0 93.64%
-  );
+  --linear-gradient: linear-gradient(3deg,
+      rgba(155, 225, 160, 0) 1.54%,
+      #9be1a0 93.64%);
   --animation: 0.4s cubic-bezier(0.5, -0.45, 0.5, 1.45);
 }
 
@@ -111,5 +111,4 @@ input {
   }
 }
 
-@media screen and (min-width: 1440px) {
-}
+@media screen and (min-width: 1440px) {}
