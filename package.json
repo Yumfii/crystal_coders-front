@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://goitacademy.github.io/react-homework-template/",
   "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
     "@hookform/resolvers": "^3.9.0",
     "@reactour/tour": "^3.7.0",
     "@reduxjs/toolkit": "^2.2.7",
@@ -32,7 +31,6 @@
     "react-router-dom": "^6.26.2",
     "react-scripts": "^5.0.1",
     "react-text-mask": "^5.5.0",
-    "react-toastify": "^10.0.5",
     "recharts": "^2.12.7",
     "redux-persist": "^6.0.0",
     "text-mask-addons": "^3.8.0",
