@@ -1,7 +1,7 @@
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
-import styles from './NotificationSignIn.module.css'; // Ensure your styles are still applied
+import styles from './NotificationSignIn.module.css';
 import loginError from '../SignInForm/SignInForm';
 const CustomToast = ({ navigate }) => (
   <div className={styles.customToast}>
