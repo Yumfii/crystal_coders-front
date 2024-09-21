@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.module.css';
 import { RxCross2 } from 'react-icons/rx';
+import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal';
 
 const Modal = ({ isOpen, onClose, children }) => {
   useEffect(() => {
