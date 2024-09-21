@@ -9,7 +9,6 @@ import ConfirmGoogleAuth from 'pages/ConfirmGoogleAuth/ConfirmGoogleAuth';
 import ForgotPasswordPage from 'pages/ForgotPassword/ForgotPassword';
 import ResetPasswordPage from 'pages/ResetPassword/ResetPassword';
 import GraphPage from 'pages/GraphPage/GraphPage';
-import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -27,9 +26,6 @@ export const App = () => {
       <Route path="/water-graph" element={<GraphPage/>} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
-
-      <Route path='/settings' element={<UserSettingsModal/> } />
-
     </Routes>
   );
 };

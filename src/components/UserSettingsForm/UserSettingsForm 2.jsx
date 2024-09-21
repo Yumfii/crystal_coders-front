@@ -6,16 +6,8 @@ import { Image } from 'cloudinary-react'
 import { FiUpload } from "react-icons/fi";
 import { userSchema, validateInput } from './userSettingsFormValidation'
 import { yupResolver } from "@hookform/resolvers/yup"
-import { useDispatch, useSelector } from 'react-redux'
-import { updateUsersSettings } from '../../redux/auth/operations'
-import { selectUser } from '../../redux/auth/selectors'
-import { Toast } from 'react-hot-toast'
 
 const UserSettingsForm = () => {
-
-  const user = useSelector(selectUser)
-  console.log(user);
-
   const {
     register,
     handleSubmit,
@@ -25,27 +17,23 @@ const UserSettingsForm = () => {
     resolver: yupResolver(userSchema),
     mode: "onChange",
     defaultValues: {
-      // приходять данні з бекенду взяті з редаксу або дефолтні значення
-      // avatar : user.avatar ,
       gender: 'woman',
-      // user.gender && 'woman'
+      // resp.user.gender && 'woman'
       name: 'Nadia',
       // if(resp.user.name === null) {return resp.user.email.split('@'[0])}
       email: 'nadia10@gmail.com',
-      // user.email
+      // resp.user.email
+
       weight: 0,
-      // user.weight||0
+      // resp.user.weight||0
       time: 0,
-      // user.hours||0
+      // resp.user.hours||0
       liters: 2,
-        // user.liters
     }
   });
 
-  const dispatch = useDispatch()
   const [gender, setGender] = useState(watch('gender'))
 
-  // перерахування формули при зміні статі
   useEffect(() => {
     const subscription = watch((value, { name }) => {
       if (name === 'gender') {
@@ -55,7 +43,7 @@ const UserSettingsForm = () => {
     return () => subscription.unsubscribe();
     }, [watch]);
 
-  // при зміні аватар зберігається в клаудінарі
+
   function uploadToCloudinary() {
     // cloudinary.v2.uploader.upload("/home/my_image.jpg",
     //   { upload_preset: "my_preset" },
@@ -64,7 +52,8 @@ const UserSettingsForm = () => {
     // });
   }
 
-  // зображення помилок валідації при втраті фокусу
+  
+
   const validateInputValue = async (evt) => {
 
     const key = evt.target.name
@@ -79,8 +68,6 @@ const UserSettingsForm = () => {
       });
   }
 
-
-// калькулятор рекомендованої кількості води
   function calculateLiters() {
 
     const weight = watch('weight')
@@ -106,13 +93,7 @@ const UserSettingsForm = () => {
     <div className={CSS.formContainer}>
       <form
         className={CSS.settingsForm}
-        // вбудована в бібліотку ф-ція сабміту з валідацією
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-          dispatch(updateUsersSettings(data))
-        }
-
-        )}
+      onSubmit={handleSubmit((data) => console.log(data))}
         >
 
         <div className={CSS.avatarBlock}>

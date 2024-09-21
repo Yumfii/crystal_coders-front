@@ -28,6 +28,9 @@ const UserSettingsDailyNormaInfo = () => {
       </span>
 
       <span className={CSS.activeTimeInHours}>
+        {/* <svg className={CSS.exclamIcon}>
+          <use xlinkHref='../../../img/icons.jsx#exclamation-mark'></use>
+        </svg> */}
         <BsExclamationLg className={CSS.exclamIcon}/>
             Active time in hours
       </span>
