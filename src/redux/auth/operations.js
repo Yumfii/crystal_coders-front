@@ -27,7 +27,7 @@ export const signIn = createAsyncThunk(
       const accessToken = data.data.accessToken;
       setAuthHeader(accessToken);
       console.log(data.data.accessToken);
-
+      console.log(data);
       return data;
     } catch (error) {
       console.log(error);

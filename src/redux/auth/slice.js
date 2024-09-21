@@ -12,8 +12,8 @@ const handlePending = state => {
 
 const initialState = {
   user: {
+    name: null,
     email: null,
-    password: null,
   },
   token: null,
   isLoggedIn: false,
@@ -53,6 +53,7 @@ const authSlice = createSlice({
         state.user.email = action.payload.email;
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
+        state.error = null;
       })
       .addCase(signIn.rejected, (state, action) => {
         state.error = action.payload;

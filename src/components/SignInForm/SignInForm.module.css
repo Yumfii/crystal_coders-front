@@ -1,13 +1,15 @@
 @import '../../index.css';
 
 .infoContainer {
-  width: 400px;
+  width: 343px;
+
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
   text-align: left;
   align-self: center;
-  margin: 0 auto;
+
+  min-height: 100%;
 }
 
 .logo {
@@ -40,12 +42,12 @@
 .form {
   display: grid;
   align-content: center;
-  padding: 16px;
-  gap: 16px;
+
   align-self: center;
 }
 
 .inputBox {
+  position: relative;
   margin-bottom: 32px;
   gap: 16px;
   display: flex;
@@ -73,7 +75,7 @@
 .input {
   border-radius: 15px;
   border: 1px solid rgba(47, 47, 47, 0.2);
-  width: 100%;
+  width: 311px;
   height: 50px;
   padding-left: 16px;
   padding: 16px 50px 16px 16px;
@@ -100,8 +102,9 @@
 
 .error {
   color: #ef5050;
-  font-size: 12px;
-  margin-top: 4px;
+
+  font-size: 0.875rem;
+  margin-top: 0.1rem;
 }
 
 .wrapPass {
@@ -123,6 +126,7 @@
   width: 311px;
   height: 50px;
   padding: 16px 131px;
+  padding: 0;
 
   justify-content: center;
   align-items: center;
@@ -197,6 +201,7 @@
   border: 2px solid rgb(35, 195, 35);
   border-radius: 30px;
   transition: box-shadow 0.3s ease;
+  align-self: center;
 }
 
 .google:hover,
@@ -205,11 +210,41 @@
   background: #82ea8a;
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
 }
+@media screen and (max-width: 320px) {
+  .infoContainer {
+    max-width: 100%;
+    padding: 16px;
+    margin: 0 auto;
+  }
 
+  .formContainer {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .input,
+  .signInBtn {
+    width: 100%;
+    max-width: 100%;
+    height: 50px;
+  }
+
+  .inputBox {
+    margin-bottom: 16px;
+  }
+
+  .signInBtn {
+    margin-bottom: 16px;
+  }
+
+  .logo {
+    margin-bottom: 100px;
+  }
+}
 @media screen and (min-width: 768px) {
   .infoContainer {
     width: 704px;
-    height: 100vh;
+    height: 960px;
     padding: 32px;
   }
 
@@ -277,9 +312,8 @@
 @media screen and (min-width: 1440px) {
   .infoContainer {
     width: 672px;
-
-    height: 754px;
     margin: 0;
+    height: 754px;
   }
 
   .logo {
@@ -297,6 +331,10 @@
   .label {
     font-size: 16px;
     line-height: 24px;
+  }
+
+  .inputBox {
+    gap: 20px;
   }
 
   .input {
@@ -325,5 +363,6 @@
   .signinpoffer {
     font-size: 18px;
     line-height: 24px;
+    letter-spacing: -0.16px;
   }
 }

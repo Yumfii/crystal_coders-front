@@ -1,6 +1,5 @@
 @import '../../index.css';
 .main {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,8 +10,8 @@
 }
 
 @media screen and (min-width: 768px) {
-  .main {
-    height: 100vh;
+  main {
+    max-height: 100vh;
   }
   .advantagesSection {
     display: none;
@@ -21,14 +20,12 @@
 
 @media screen and (min-width: 1440px) {
   .main {
-    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+
     gap: 32px;
   }
 
   .advantagesSection {
-    display: flex;
+    display: block;
   }
 }
