@@ -1,25 +1,35 @@
-import css from './SignInForm.module.css'; // Import CSS as a module
+import css from './SignInForm.module.css';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
+import * as yup from 'yup';
 import { NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
-import { signIn } from '../../redux/auth/operations';
 import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
 import { useDispatch } from 'react-redux';
+import { signIn } from '../../redux/auth/operations';
 
-const validationSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email address').required('Required'),
-  password: Yup.string()
-    .min(8, 'Must be at least 8 characters')
-    .required('Required'),
+import NotificationSignIn from '../../components/NotificationSignIn/NotificationSignIn';
+
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .trim()
+    .required('Email is required')
+    .email('Invalid email format'),
+  password: yup
+    .string()
+    .trim()
+    .required('Password is required')
+    .min(8, 'Password must be at least 8 characters long'),
 });
 
 const SignInForm = () => {
   const dispatch = useDispatch();
+
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loginError, setLoginError] = useState(null); // Local error state
 
   const {
     register,
@@ -30,10 +40,15 @@ const SignInForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     const { email, password } = data;
-    dispatch(signIn({ email, password }));
-    reset();
+
+    try {
+      await dispatch(signIn({ email, password })).unwrap();
+      reset();
+    } catch (error) {
+      setLoginError(error);
+    }
   };
 
   return (
@@ -84,6 +99,9 @@ const SignInForm = () => {
                   <p className={css.error}>{errors.password.message}</p>
                 )}
               </div>
+              <NavLink to="/forgot-password" className={css.forgotPassword}>
+                Forgot password?
+              </NavLink>
             </div>
           </div>
 
@@ -98,11 +116,14 @@ const SignInForm = () => {
                 Sign Up
               </NavLink>
             </p>
-
-            <p className={css.conc}>Or</p>
-            <GoogleBtn />
           </div>
+
+          {/* Show Notification if there's a local login error */}
+          {loginError && <NotificationSignIn />}
         </form>
+
+        <p className={css.conc}>Or</p>
+        <GoogleBtn />
       </div>
     </div>
   );
