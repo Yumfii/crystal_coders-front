@@ -1,28 +1,35 @@
-import React, { useEffect } from 'react'
-import UserSettingsForm from '../UserSettingsForm/UserSettingsForm'
-import CSS from './UserSettingsModal.module.css'
+import React, { useEffect } from 'react';
+import UserSettingsForm from '../UserSettingsForm/UserSettingsForm';
+import CSS from './UserSettingsModal.module.css';
 import { useTour } from '@reactour/tour';
 import { stepsModal } from 'components/stepsModal';
 
 const UserSettingsModal = () => {
   const { setIsOpen, setSteps } = useTour();
+
   useEffect(() => {
-    setSteps (stepsModal);
+
+    setSteps(stepsModal);
+
     const hasSeenModalTour = localStorage.getItem('hasSeenModalTour');
     if (!hasSeenModalTour) {
       setTimeout(() => {
         setIsOpen(true);
-      }, 1000);
+      }, 500);
     }
+
+
+    return () => {
+      localStorage.removeItem('hasSeenModalTour');
+    };
   }, [setIsOpen, setSteps]);
-    return (
 
-      <div className={CSS.modalContainer}>
-        <h2 className={CSS.settingsHeader}>Settings</h2>
-
-        <UserSettingsForm/>
+  return (
+    <div className={CSS.modalContainer}>
+      <h2 className={CSS.settingsHeader}>Settings</h2>
+      <UserSettingsForm />
     </div>
-  )
-}
+  );
+};
 
-export default UserSettingsModal
+export default UserSettingsModal;

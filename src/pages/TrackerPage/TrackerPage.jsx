@@ -4,24 +4,27 @@ import WaterMainInfo from 'components/WaterMainInfo/WaterMainInfo';
 import AddWaterBtn from 'components/AddWaterBtn/AddWaterBtn';
 import css from './TrackerPage.module.css';
 import { useTour } from '@reactour/tour';
+import { steps } from 'components/steps';
 
 const TrackerPage = () => {
-  const { setIsOpen } = useTour();
-
+  const { setIsOpen, setSteps } = useTour();
 
   useEffect(() => {
-    const hasSeenTour = localStorage.getItem('hasSeenTrackerTour');
-    if (!hasSeenTour) {
+
+    setSteps(steps);
+    const hasSeenTrackerTour = localStorage.getItem('hasSeenTrackerTour');
+    if (!hasSeenTrackerTour) {
       setTimeout(() => {
         setIsOpen(true);
       }, 500);
     }
-  }, [setIsOpen]);
 
-  // const closeTour = () => {
-  //   setIsOpen(false);
-  //   localStorage.setItem('hasSeenTrackerTour', 'true');
-  // };
+
+    return () => {
+
+      localStorage.removeItem('hasSeenTrackerTour');
+    };
+  }, [setIsOpen, setSteps]);
 
   return (
     <div className={css.container}>

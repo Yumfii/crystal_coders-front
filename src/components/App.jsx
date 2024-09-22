@@ -13,13 +13,20 @@ import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 import VerifyEmailPage from 'pages/VerifyEmailPage/VerifyEmailPage.jsx';
 
 // import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
-import { TourProvider } from '@reactour/tour';
+import { TourProvider, useTour } from '@reactour/tour';
 import { steps } from './steps';
+import { useEffect } from 'react';
 
 export const App = () => {
+  const location = useLocation();
+  const{setIsOpen} = useTour();
+  useEffect(()=>{
+    setIsOpen(false);
+
+  }, [location,setIsOpen]);
   const radius = 8
   return (
     <TourProvider
