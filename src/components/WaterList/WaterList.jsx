@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import css from './WaterList.module.css';
 import WaterItem from '../../components/WaterItem/WaterItem';
-import Modal from '../../components/Modal/Modal';
+import ModalSmall from '../../components/ModalSmall/ModalSmall';
 import WaterModal from '../../components/WaterModal/WaterModal';
-import  { useState } from 'react';
 import DeleteWaterModal from '../../components/DeleteWaterModal/DeleteWaterModal';
-
 
 const waterData = [
   {
@@ -83,14 +81,28 @@ const WaterList = () => {
       <ul className={css.list}>
         {waterData.map(({ volumeId, volume, time }) => (
           <li key={volumeId} className={css.item}>
-            <WaterItem volume={volume} time={time} onEdit={handleOpenEditModal} onDelete={() => handleOpenDeleteModal(volumeId)} />
+            <WaterItem
+              volume={volume}
+              time={time}
+              onEdit={handleOpenEditModal}
+              onDelete={() => handleOpenDeleteModal(volumeId)}
+            />
           </li>
         ))}
       </ul>
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-           <WaterModal operationType="edit" onClose={handleCloseModal} editData={editData} />
-        </Modal>
+        <ModalSmall isOpen={isModalOpen} onClose={handleCloseModal}>
+          <WaterModal operationType="edit" onClose={handleCloseModal} editData={editData} />
+        </ModalSmall>
+      )}
+      {isDeleteModalOpen && (
+        <ModalSmall isOpen={isDeleteModalOpen} onClose={handleCloseDeleteModal}>
+          <DeleteWaterModal
+            modalIsOpen={isDeleteModalOpen}
+            closeModal={handleCloseDeleteModal}
+            waterId={deleteId}
+          />
+        </ModalSmall>
       )}
          {isDeleteModalOpen && (
         <Modal isOpen={isDeleteModalOpen} onClose={handleCloseDeleteModal}>
@@ -106,3 +118,4 @@ const WaterList = () => {
 };
 
 export default WaterList;
+
