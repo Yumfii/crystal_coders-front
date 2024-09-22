@@ -266,21 +266,15 @@
   .formContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   .form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .title {
     font-size: 36px;
     line-height: 38px;
-    justify-content: center;
-    align-items: center;
   }
 
   .label {
