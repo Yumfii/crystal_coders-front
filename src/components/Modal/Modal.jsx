@@ -62,7 +62,7 @@ const Modal = ({ isOpen, onClose, children, size }) => {
   const modalContentStyle = {
     background: 'var(--white)',
     padding: '40px',
-    borderRadius: 'var(--border-radius)',
+    borderRadius: '15px',
     position: 'relative',
     width: modalWidth,
     maxWidth: '100%',
@@ -82,13 +82,27 @@ const Modal = ({ isOpen, onClose, children, size }) => {
     transition: 'background-color var(--animation), color var(--animation)',
   };
 
+  // const scrollContainerStyle = {
+  //   borderRadius: '30px',
+  //   background: 'var(--Background, #F0EFF4)',
+  //   position: 'absolute',
+  //   right: '16px',
+  //   top: '266px',
+  //   width: '16px',
+  //   height: 'calc(100% - 266px)',
+  //   overflowY: 'auto',
+  //   scrollbarWidth: 'thin',
+  // };
+
   return ReactDOM.createPortal(
     <div style={modalBackdropStyle} onClick={handleBackdropClick}>
       <div style={modalContentStyle}>
         <button style={modalCloseButtonStyle} onClick={onClose}>
           <RxCross2 size={28} color="black" />
         </button>
-        <div>{children}</div>
+        {/* <div style={scrollContainerStyle}> */}
+          <div>{children}</div>
+        {/* </div> */}
       </div>
     </div>,
     document.body
