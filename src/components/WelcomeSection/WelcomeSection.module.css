@@ -6,6 +6,7 @@
   text-align: left;
   align-self: center;
 }
+
 .logo {
   margin-bottom: 74px;
 }
@@ -28,6 +29,7 @@
   letter-spacing: -0.38px;
   margin-bottom: 32px;
 }
+
 .nav {
   display: flex;
   max-width: 300px;
@@ -104,6 +106,7 @@
     min-width: 704px;
     padding: 32px;
   }
+
   .subheader {
     font-size: 16px;
     line-height: 1.5;
@@ -111,12 +114,14 @@
     margin-bottom: 16px;
     padding-left: 32px;
   }
+
   .header {
     font-size: 64px;
     line-height: 1.09;
     letter-spacing: -0.64px;
     padding-left: 32px;
   }
+
   .logo {
     margin-bottom: 50px;
   }
@@ -133,6 +138,7 @@
     margin-bottom: 28px;
     padding-left: 32px;
   }
+
   .signin,
   .signup {
     padding: 18px 40px;
@@ -160,6 +166,7 @@
     line-height: 0.95;
     letter-spacing: -0.8px;
   }
+
   .logo {
     margin-bottom: 132px;
   }

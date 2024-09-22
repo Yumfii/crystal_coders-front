@@ -2,13 +2,16 @@ import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
 import css from './LogOutModal.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const LogOutModal = ({ modalIsOpen, closeModal }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     dispatch(logOut());
     closeModal();
+    navigate('/');
   };
 
   const colorBtnClass = clsx(css.btn, css.colorBtn);

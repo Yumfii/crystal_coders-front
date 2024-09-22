@@ -86,7 +86,7 @@ const ForgotPasswordForm = () => {
             <p className={css.signInOffer}>
               Remember your password?&nbsp;
               <NavLink className={css.signInLink} to="/signin">
-                Sign In
+                Sign in
               </NavLink>
             </p>
           </div>
