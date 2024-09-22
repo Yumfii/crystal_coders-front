@@ -64,6 +64,11 @@ const SignUpForm = () => {
 
       console.log(response.data);
     }} catch (err) {
+      if(err.response && err.response.status === 409){
+        toast.error('User with this email already exists!')
+      }else{
+        toast.error('Registration failed. Please try again.')
+      }
       console.log(err.message);
     }
   };
