@@ -33,5 +33,3 @@ const DailyInfo = ({ selectedDate }) => {
     </div>
   );
 };
-
-export default DailyInfo;

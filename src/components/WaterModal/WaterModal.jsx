@@ -1,7 +1,7 @@
 import React from 'react';
 import WaterForm from '../WaterForm/WaterForm';
 
-const WaterModal = ({ onClose, operationType }) => {
+const WaterModal = ({ onClose, operationType, editData }) => {
   const title = operationType === 'edit' ? 'Edit the entered amount of water' : 'Add water';
 
   const modalTitleStyle = {
@@ -25,7 +25,7 @@ const WaterModal = ({ onClose, operationType }) => {
     <div>
           <h2 style={modalTitleStyle}>{title}</h2>
       <div>
-        <WaterForm mode={operationType} onClose={onClose} />
+        <WaterForm mode={operationType} onClose={onClose} initialData={editData} />
       </div>
    </div>
   );

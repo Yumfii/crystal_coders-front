@@ -18,32 +18,29 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-export const createWaterEntry = async data => {
-  try {
+export const addWaterEntry = createAsyncThunk(
+  'water/addWaterEntry',
+  async (data) => {
     const response = await axiosInstance.post('/water', data);
     return response.data;
-  } catch (error) {
-    throw error.response ? error.response.data : error;
   }
-};
+);
 
-export const updateWaterEntry = async (id, data) => {
-  try {
+export const updateWaterEntry = createAsyncThunk(
+  'water/updateWaterEntry',
+  async ({ id, data }) => {
     const response = await axiosInstance.put(`/water/${id}`, data);
     return response.data;
-  } catch (error) {
-    throw error.response ? error.response.data : error;
   }
-};
+);
 
-export const fetchWaterEntry = async id => {
-  try {
+export const fetchWaterEntry = createAsyncThunk(
+  'water/fetchWaterEntry',
+  async (id) => {
     const response = await axiosInstance.get(`/water/${id}`);
     return response.data;
-  } catch (error) {
-    throw error.response ? error.response.data : error;
   }
-};
+);
 
 export const fetchWaterListDaily = createAsyncThunk(
   'water/perDay',
