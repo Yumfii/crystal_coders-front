@@ -63,7 +63,7 @@ const WaterList = () => {
     setModalOpen(false);
     setEditData(null);
   };
-  
+
   return (
     <div>
       <ul className={css.list}>

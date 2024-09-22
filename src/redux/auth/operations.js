@@ -8,6 +8,7 @@ const setAuthHeader = token => {
   if (token) {
     // console.log(token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    localStorage.setItem('authToken', token);
     console.log(
       'Authorization Header Set:',
       axios.defaults.headers.common.Authorization
