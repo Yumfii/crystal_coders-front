@@ -10,7 +10,9 @@ import css from './SignUpForm.module.css';
 import { signUp } from '../../redux/auth/operations';
 // import GoogleBtnSignUp from 'components/GoogleBtnSignUp/GoogleBtnSignUp';
 import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
+
 
 export const validationSchema = yup.object().shape({
   email: yup
@@ -56,6 +58,24 @@ const SignUpForm = () => {
         email,
         password,
       });
+
+      if (response.status === 201) {
+
+        toast.success('Registration successful! Please check your email to verify your account!');
+        setTimeout(()=>{
+          navigate('/tracker')
+        }, 2000);
+
+      console.log(response.data);
+    }} catch (err) {
+      if(err.response && err.response.status === 409){
+        toast.error('User with this email already exists!')
+      }else{
+        toast.error('Registration failed. Please try again.')
+      }
+      console.log(err.message);
+    }
+  };
 
       await dispatch(response).unwrap();
     } catch (err) {
@@ -159,5 +179,4 @@ const SignUpForm = () => {
     </div>
   );
 };
-
 export default SignUpForm;

@@ -50,17 +50,14 @@ const authSlice = createSlice({
         state.isLoggedIn = false;
       })
       .addCase(signIn.fulfilled, (state, action) => {
-        // console.log('Payload:', action.payload.data.user.email);
+      
+        console.log('Payload:', action.payload);
+        state.user = action.payload.data.user;
         state.user._id = action.payload.data.user._id;
         state.user.email = action.payload.data.user.email;
-        // state.user.name = action.payload.data.user.name;
-        // state.user.gender = action.payload.data.user.gender;
-        // state.user.weight = action.payload.data.user.weight;
-        // state.user.sportActiveTime = action.payload.data.user.sportActiveTime;
-        // state.user.dailyWater = action.payload.data.user.dailyWater;
-        // state.user.dailyWater = action.payload.data.user.dailyWater;
-
+        state.token = action.payload.accessToken;
         state.accessToken = action.payload.data.accessToken;
+
         state.isLoggedIn = true;
         state.error = null;
       })

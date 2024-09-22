@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://crystal-coders-back.onrender.com/';
+axios.defaults.baseURL = 'http://localhost:3001/';
 
 const setAuthHeader = token => {
   if (token) {

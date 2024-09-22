@@ -5,16 +5,19 @@ import UserBar from 'components/UserBar/UserBar';
 import CSS from './UserPanel.module.css';
 
 const UserPanel = () => {
+
   const user = useSelector(selectUser);
-  // console.log(user);
+//   console.log(user);
+
 
   return (
     <div className={CSS.userPanelSection}>
       <h2 className={CSS.userPanelHeader}>
         Hello, &nbsp;
         <span className={CSS.userPanelHeaderSpan}>
-          {user.name ? user.name : 'Nadia !'}
-          {/* Nadia ! */}
+          {/* {user.email} */}
+          {user.name}
+
         </span>
       </h2>
 
