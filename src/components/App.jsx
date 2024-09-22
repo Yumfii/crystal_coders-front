@@ -11,10 +11,11 @@ import ResetPasswordPage from 'pages/ResetPassword/ResetPassword';
 import GraphPage from 'pages/GraphPage/GraphPage';
 import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 
-import React from 'react';
+// import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
+  // useEffect(() => {}, []);
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -24,12 +25,11 @@ export const App = () => {
       <Route path="/userSetting" element={<UserSettingsModalT />} />
       <Route path="/waterform" element={<UserSettingsModalT />} />
       <Route path="/confirm-google-auth" element={<ConfirmGoogleAuth />} />
-      <Route path="/water-graph" element={<GraphPage/>} />
+      <Route path="/water-graph" element={<GraphPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
 
-      <Route path='/settings' element={<UserSettingsModal/> } />
-
+      <Route path="/settings" element={<UserSettingsModal />} />
     </Routes>
   );
 };

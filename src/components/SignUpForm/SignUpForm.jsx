@@ -2,14 +2,15 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
-import { signUp } from 'services/auth';
+import { signUp } from '../../redux/auth/operations';
 // import GoogleBtnSignUp from 'components/GoogleBtnSignUp/GoogleBtnSignUp';
 import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import { useDispatch } from 'react-redux';
 
 export const validationSchema = yup.object().shape({
   email: yup
@@ -29,7 +30,7 @@ export const validationSchema = yup.object().shape({
 });
 
 const SignUpForm = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
@@ -48,23 +49,19 @@ const SignUpForm = () => {
   });
 
   const onSubmit = async data => {
+    const { email, password } = data;
+
     try {
-      const response = await signUp({
-        email: data.email,
-        password: data.password,
+      const response = signUp({
+        email,
+        password,
       });
 
-      if (response.status === 201) {
-        navigate('/tracker');
-
-
-      console.log(response.data);
-    }} catch (err) {
+      await dispatch(response).unwrap();
+    } catch (err) {
       console.log(err.message);
     }
-  }
-;
-
+  };
   return (
     <div className={css.SignUpContainer}>
       <div className={css.logo}>
@@ -99,7 +96,9 @@ const SignUpForm = () => {
                   {...field}
                   type={passwordVisible ? 'text' : 'password'}
                   placeholder="Enter your password"
-                  className={`${css.input} ${errors.password ? css.inputError : ''}`}
+                  className={`${css.input} ${
+                    errors.password ? css.inputError : ''
+                  }`}
                 />
               )}
             />
@@ -127,7 +126,9 @@ const SignUpForm = () => {
                   {...field}
                   type={repeatPasswordVisible ? 'text' : 'password'}
                   placeholder="Repeat password"
-                  className={`${css.input} ${errors.repeatPassword ? css.inputError : ''}`}
+                  className={`${css.input} ${
+                    errors.repeatPassword ? css.inputError : ''
+                  }`}
                 />
               )}
             />
