@@ -1,4 +1,7 @@
-
+.userBar{
+  display: inline-block;
+  min-width: 137px;
+}
 .userBtn{
   background-color: var(--dark-blue);
   display: flex;
@@ -19,8 +22,8 @@
 }
 
 .avatarImage{
-  min-width: 38px;
-  min-height: 38px;
+  width: 38px;
+  height: 38px;
 }
 .arrowIcon{
   color: var(--white);

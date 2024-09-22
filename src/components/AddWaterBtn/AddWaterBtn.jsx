@@ -2,7 +2,9 @@ import React from 'react';
 import css from './AddWaterBtn.module.css';
 import { GoPlus } from 'react-icons/go';
 
-const AddWaterBtn = ({ variant }) => {
+
+const AddWaterBtn = ({ variant, onClick }) => {
+
   const styleBtn =
     variant === 'primary'
       ? css.addWaterBtnMainInfo
@@ -11,12 +13,18 @@ const AddWaterBtn = ({ variant }) => {
   const styleIcon =
     variant === 'primary' ? css.iconPrimaryBtn : css.iconSecondaryBtn;
 
+
   return (
-    <button type="button" className={styleBtn}>
-      <GoPlus className={styleIcon} />
-      Add water
-    </button>
+    <>
+      <button type="button" className={styleBtn} onClick={onClick}>
+        <div className={styleIcon}>
+          <GoPlus size={19} />
+        </div>
+        Add water
+      </button>
+    </>
   );
 };
 
 export default AddWaterBtn;
+

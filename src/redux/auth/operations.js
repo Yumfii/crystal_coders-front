@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-
 axios.defaults.baseURL = 'https://crystal-coders-back.onrender.com/';
 
 const setAuthHeader = token => {
   if (token) {
-    console.log(token);
+    // console.log(token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     console.log(
       'Authorization Header Set:',
@@ -15,9 +14,9 @@ const setAuthHeader = token => {
   }
 };
 
-// const clearAuthHeader = () => {
-//   delete axios.defaults.headers.common["Authorization"];
-// };
+const clearAuthHeader = () => {
+  delete axios.defaults.headers.common['Authorization'];
+};
 
 export const signIn = createAsyncThunk(
   'auth/login',
@@ -26,8 +25,8 @@ export const signIn = createAsyncThunk(
       const { data } = await axios.post('auth/login', credentials);
       const accessToken = data.data.accessToken;
       setAuthHeader(accessToken);
-      console.log(data.data.accessToken);
-      console.log(data);
+      // console.log(data.data.accessToken);
+      // console.log(data);
       return data;
     } catch (error) {
       console.log(error);
@@ -41,7 +40,6 @@ export const signIn = createAsyncThunk(
 export const signUp = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
-    console.log(credentials);
     try {
       const { data } = await axios.post('auth/register', credentials);
       const accessToken = data.data.accessToken;
@@ -58,7 +56,7 @@ export const signUp = createAsyncThunk(
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/auth/logout');
-    //clearAuthHeader();
+    clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -66,9 +64,21 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 
 export const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
   try {
-    const { data } = await axios.post('/auth/refresh');
+    const { data } = await axios.post('auth/refresh');
     return data.data;
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
 });
+
+export const updateUsersSettings = createAsyncThunk(
+  'updateUser',
+  async (id, thunkApi) => {
+    try {
+      const { data } = await axios.patch(`users/${id}`);
+      return data.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

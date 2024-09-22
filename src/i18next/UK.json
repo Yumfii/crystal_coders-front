@@ -1,0 +1,135 @@
+{
+  "welcomeSection": {
+    "recordDaily": "Записуйте та відстежуйте щоденне споживання води",
+    "waterTracker": "Трекер споживання води",
+    "tryTracker": "Спробуй трекер",
+    "signIn": "Увійти"
+  },
+
+  "advantagesSection": {
+    "our": "Наші",
+    "happy": "щасливі",
+    "customers": "користувачі",
+    "habitDrive": "Керуй звичкою",
+    "viewStatistics": "Статистика",
+    "personalRate": "Персональні налаштування"
+  },
+
+  "signInForm": {
+    "signIn": "Увійти",
+    "email": "Електронна скринька",
+    "placeholderEmail": "Ввести свою електронну скриньку",
+    "password": "Пароль",
+    "placeholderPassword": "Введіть свій пароль",
+    "forgotPassword": "Забули пароль",
+    "dontHaveAccount": "Аккаунту не знайдено",
+    "signUp": "Зареєструватися",
+    "or": "або",
+    "signInWithGoogle": "Увійти з Google"
+  },
+
+  "signUpForm": {
+    "signГp": "Зареєструватися",
+    "email": "Адреса електронної скриньки",
+    "placeholderEmail": "Введіть свою електронну скриньку",
+    "password": "Пароль",
+    "placeholderPassword": "Введіть свій пароль",
+    "repeat": "Повторити пароль",
+    "placeholderPasswordRepeat": "Повторити пароль",
+    "alreadyHaveAccount": "Вже маєте аккаунт",
+    "signIn": "Увійти",
+    "or": "або",
+    "signInWithGoogle": "Зареєструватися з Google"
+  },
+
+  "forgotPasswordForm": {
+    "resetPassword": "Змінити пароль",
+    "email": "Електронна скринька",
+    "placeholderEmail": "Введіть свою електронну скриньку",
+    "sendMessage": "Відправити повідомлення",
+    "rememberPassword": "Запам'ятати пароль",
+    "SignIn": "Увійти"
+  },
+
+  "trackerPage": {
+    "waterDailyNorma": {
+      "L": "Л",
+      "myDailyNorma": "Моя денна норма",
+      "today": "Сьогодні",
+      "addWater": "Додати воду"
+    },
+
+    "waterDetailedInfo": {
+      "hello": "Вітаю",
+      "user": "Користувач",
+      "settings": "Налаштування",
+      "logOut": "Вийти",
+      "today": "Сьогодні",
+      "addWater": "Додати воду",
+      "ml": "мл",
+      "month": "Місяць",
+      "statistics": "Статистика"
+    },
+
+    "months": {
+      "January": "Січень",
+      "February": "Лютий",
+      "March": "Березень",
+      "April": "Квітень",
+      "May": "Травень",
+      "June": "Червень",
+      "July": "Липень",
+      "August": "Серпень",
+      "September": "Вересень",
+      "October": "Жовтень",
+      "November": "Листопад",
+      "December": "Грудень"
+    },
+
+    "userSettingForm": {
+      "setting": "Налаштування",
+      "uploadPhoto": "Завантажити фото",
+      "gender": "Ваша гендерна ідентичність",
+      "woman": "Жінка",
+      "man": "Чоловік",
+      "name": "Ваше ім'я",
+      "email": "Електронна скринька",
+      "myDailyNorma": "Моя щоденна норма",
+      "forWoman": "Для жінки",
+      "forMan": "Для чоловіка",
+      "countVolume": "V - це об'єм норми води в літрах на день, M - це ваша вага, T - це час активних занять спортом або іншого виду активності, співмірного за навантаженнями (у разі відсутності їх, необхідно вказати 0)",
+      "activeTime": "Активний час у годинах",
+      "yourWeight": "Ваша вага в кілограмах",
+      "yourActivities": "Час активної участі у спорті",
+      "requiredAmount": "Необхідна кількість води в літрах на день",
+      "writeDown": "Запишіть, скільки води ви будете випивати",
+      "save": "Зберегти"
+    },
+
+    "logoutModal": {
+      "logOut": "Вийти",
+      "leave": "Ви впевнені, що хочете вийти",
+      "cancel": "Скасувати"
+    },
+
+    "waterModal": {
+      "editEntered": "Редагувати введену кількість води",
+      "correctEntered": "Виправте введені дані:",
+      "amountWater": "Кількість води",
+      "recordingTime": "Час запису",
+      "enterValue": "Ввести значення використаної води",
+      "addWater": "Додати воду",
+      "chooseValue": "Обрати значення",
+      "save": "Зберегти"
+    },
+
+    "deleteModal": {
+      "deleteEntry": "Видалити запис",
+      "sureDelete": "Ви впевнені, що хочете видалити запис",
+      "delete": "Видалити",
+      "cancel": "Скасувати"
+    }
+  },
+
+  "notifications": {}
+}

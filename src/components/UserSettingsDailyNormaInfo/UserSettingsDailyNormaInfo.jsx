@@ -1,3 +1,4 @@
+
 import React from 'react'
 import CSS from './UserSettingsDailyNormaInfo.module.css'
 import { BsExclamationLg } from "react-icons/bs";
@@ -28,6 +29,9 @@ const UserSettingsDailyNormaInfo = () => {
       </span>
 
       <span className={CSS.activeTimeInHours}>
+        {/* <svg className={CSS.exclamIcon}>
+          <use xlinkHref='../../../img/icons.jsx#exclamation-mark'></use>
+        </svg> */}
         <BsExclamationLg className={CSS.exclamIcon}/>
             Active time in hours
       </span>

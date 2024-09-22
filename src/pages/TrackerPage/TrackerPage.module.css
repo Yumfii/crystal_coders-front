@@ -1,6 +1,7 @@
 @media screen and (min-width: 1440px) {
   .container {
     display: flex;
-    justify-content: space-between;
+    gap: 32px;
   }
 }
+

@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import { NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
-import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import GoogleBtn from '../../components/GoogleBtn/GoogleBtn';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/operations';
 
@@ -120,10 +120,9 @@ const SignInForm = () => {
 
           {/* Show Notification if there's a local login error */}
           {loginError && <NotificationSignIn />}
+          <p className={css.conc}>or</p>
+          <GoogleBtn />
         </form>
-
-        <p className={css.conc}>Or</p>
-        <GoogleBtn />
       </div>
     </div>
   );
