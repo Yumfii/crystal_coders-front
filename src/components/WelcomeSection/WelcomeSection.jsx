@@ -30,7 +30,11 @@ const WelcomeSection = () => {
         <Logo />
       </div>
 
-      <p className={`${css.subheader} ${subheaderVisible ? css['subheader-visible'] : ''}`}>
+      <p
+        className={`${css.subheader} ${
+          subheaderVisible ? css['subheader-visible'] : ''
+        }`}
+      >
         Record daily water intake and track
       </p>
 
