@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+
 import css from './AddWaterBtn.module.css';
 import { GoPlus } from 'react-icons/go';
-import WaterModal from '../WaterModal/WaterModal';
+
 
 const AddWaterBtn = ({ variant, onClick }) => {
 
@@ -27,3 +27,4 @@ const AddWaterBtn = ({ variant, onClick }) => {
 };
 
 export default AddWaterBtn;
+
