@@ -26,6 +26,13 @@
   width: 100%;
 }
 
+.form {
+  display: grid;
+  align-content: center;
+
+  align-self: center;
+}
+
 .title {
   color: var(--dark-blue);
 
@@ -37,13 +44,6 @@
   margin-bottom: 32px;
 
   align-self: stretch;
-}
-
-.form {
-  display: grid;
-  align-content: center;
-
-  align-self: center;
 }
 
 .inputBox {
@@ -94,6 +94,7 @@
   border-radius: 15px;
   border: 1px solid rgba(47, 47, 47, 0.2);
 }
+
 .input.error:hover {
   border: 1px solid #ef5050;
   background-color: #fdd;
@@ -105,6 +106,17 @@
 
   font-size: 0.875rem;
   margin-top: 0.1rem;
+}
+
+.forgotPassword {
+  margin-top: 14px;
+  color: var(--dark-gray);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.14px;
+  text-decoration-line: underline;
 }
 
 .wrapPass {
@@ -165,7 +177,6 @@
 
 .signuplink {
   color: var(--dark-gray);
-
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -194,6 +205,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .google {
   height: 56px;
   width: 168px;
@@ -210,6 +222,7 @@
   background: #82ea8a;
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
 }
+
 @media screen and (max-width: 320px) {
   .infoContainer {
     max-width: 100%;
@@ -265,6 +278,7 @@
     justify-content: center;
     align-items: center;
   }
+
   .title {
     font-size: 36px;
     line-height: 38px;

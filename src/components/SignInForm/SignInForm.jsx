@@ -122,7 +122,7 @@ const SignInForm = () => {
           {loginError && <NotificationSignIn />}
         </form>
 
-        <p className={css.conc}>Or</p>
+        <p className={css.conc}>or</p>
         <GoogleBtn />
       </div>
     </div>

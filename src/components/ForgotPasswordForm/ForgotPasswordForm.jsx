@@ -22,17 +22,20 @@ const ForgotPasswordForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     const { email } = data;
 
     try {
-      const response = await fetch('https://crystal-coders-back.onrender.com/auth/request-reset-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
+      const response = await fetch(
+        'https://crystal-coders-back.onrender.com/auth/request-reset-email',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
 
       if (response.ok) {
         setMessage('Reset password email was successfully sent!');
@@ -83,7 +86,7 @@ const ForgotPasswordForm = () => {
             <p className={css.signInOffer}>
               Remember your password?&nbsp;
               <NavLink className={css.signInLink} to="/signin">
-                Sign in
+                Sign In
               </NavLink>
             </p>
           </div>
