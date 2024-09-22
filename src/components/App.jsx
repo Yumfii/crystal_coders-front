@@ -10,10 +10,11 @@ import ForgotPasswordPage from '../pages/ForgotPassword/ForgotPassword';
 import ResetPasswordPage from '../pages/ResetPassword/ResetPassword';
 import GraphPage from '../pages/GraphPage/GraphPage';
 
-import React from 'react';
+// import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
+  // useEffect(() => {}, []);
   // useEffect(() => {}, []);
   return (
     <>

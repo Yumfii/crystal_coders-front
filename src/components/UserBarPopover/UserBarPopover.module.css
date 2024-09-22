@@ -1,7 +1,8 @@
 .popoverBlock{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  position: absolute;
+  width: 137px;
   height: 72px;
   background-color: var(--white);
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.10);
@@ -28,6 +29,12 @@
 }
 .settingsIcon{
   color: var(--dark-blue);
+}
+
+@media screen and (min-width: 768px) {
+  .popoverBlock{
+    width: 157px;
+  }
 }
 
 @media only screen and (min-width: minwidthpx) {

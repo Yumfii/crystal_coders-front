@@ -4,6 +4,8 @@ import CSS from './UserBar.module.css';
 import UserBarPopover from '../../components/UserBarPopover/UserBarPopover';
 import { IoIosArrowDown } from 'react-icons/io';
 import { IoIosArrowUp } from 'react-icons/io';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors.js';
 
 const UserBar = () => {
   const user = useSelector(selectUser);
