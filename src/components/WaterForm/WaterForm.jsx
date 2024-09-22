@@ -3,14 +3,13 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import toast, { Toaster } from 'react-hot-toast';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import './WaterForm.module.css';
+import { AiOutlineMinusCircle } from 'react-icons/ai';
+import { AiOutlinePlusCircle } from 'react-icons/ai';
 
-import { AiOutlineMinusCircle } from "react-icons/ai";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 import axiosInstance from '../../redux/water/operations';
 
-// import { updateWaterProgress, updateWaterList, updateCalendar } from '../redux/actions';
 
 const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
   // const dispatch = useDispatch();
@@ -25,7 +24,12 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
     time: Yup.string().required('Time is required'),
   });
 
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
 
     defaultValues: {
@@ -37,7 +41,6 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
   useEffect(() => {
     if (mode === 'edit' && initialData) {
       axiosInstance.get(`/water/${initialData.id}`)
-
         .then(response => {
           const data = response.data;
           setValue('amount', data.amount);
