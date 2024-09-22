@@ -12,7 +12,7 @@ const UserSettingsModal = () => {
     if (!hasSeenModalTour) {
       setTimeout(() => {
         setIsOpen(true);
-      }, 500);
+      }, 1000);
     }
   }, [setIsOpen, setSteps]);
     return (
