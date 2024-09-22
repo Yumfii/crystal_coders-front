@@ -33,7 +33,6 @@ export const App = () => {
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
       <Route path="/verify-email" element={<VerifyEmailPage/>}/>
-
       <Route path="/settings" element={<UserSettingsModal />} />
     </Routes>
     <Toaster/>
