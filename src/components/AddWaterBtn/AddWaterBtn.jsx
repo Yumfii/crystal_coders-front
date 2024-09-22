@@ -1,4 +1,4 @@
-
+import React from 'react';
 import css from './AddWaterBtn.module.css';
 import { GoPlus } from 'react-icons/go';
 
