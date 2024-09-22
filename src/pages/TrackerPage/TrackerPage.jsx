@@ -12,14 +12,16 @@ const TrackerPage = () => {
   useEffect(() => {
     const hasSeenTour = localStorage.getItem('hasSeenTrackerTour');
     if (!hasSeenTour) {
-      setIsOpen(true);
+      setTimeout(() => {
+        setIsOpen(true);
+      }, 500); 
     }
   }, [setIsOpen]);
 
-  const closeTour = () => {
-    setIsOpen(false);
-    localStorage.setItem('hasSeenTrackerTour', 'true');
-  };
+  // const closeTour = () => {
+  //   setIsOpen(false);
+  //   localStorage.setItem('hasSeenTrackerTour', 'true');
+  // };
 
   return (
     <div className={css.container}>
