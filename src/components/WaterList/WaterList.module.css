@@ -14,6 +14,7 @@
 .list::-webkit-scrollbar-thumb {
   border-radius: 9px;
   background: #323f47;
+  cursor: pointer;
 }
 
 .list::-webkit-scrollbar-track {
