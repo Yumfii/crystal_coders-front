@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+
 axios.defaults.baseURL = 'https://crystal-coders-back.onrender.com/';
 
 const setAuthHeader = token => {
@@ -15,9 +16,8 @@ const setAuthHeader = token => {
 };
 
 // const clearAuthHeader = () => {
-//   delete axios.defaults.headers.common.Authorization;
+//   delete axios.defaults.headers.common["Authorization"];
 // };
-
 
 export const signIn = createAsyncThunk(
   'auth/login',
@@ -58,6 +58,7 @@ export const signUp = createAsyncThunk(
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/auth/logout');
+    //clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
