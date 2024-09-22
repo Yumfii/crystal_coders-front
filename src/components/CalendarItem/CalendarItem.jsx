@@ -1,9 +1,7 @@
 import React from 'react';
 import css from './CalendarItem.module.css';
-// import { format } from 'date-fns';
 
 const CalendarItem = ({ day, handleDayClick }) => {
-  // const formattedDay = format(day, 'd');
   return (
     <>
       <button

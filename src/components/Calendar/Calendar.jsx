@@ -1,14 +1,7 @@
 import React from 'react';
-import {
-  // eachDayOfInterval,
-  // endOfMonth,
-  getDaysInMonth,
-  // startOfMonth,
-} from 'date-fns';
-import CalendarItem from 'components/CalendarItem/CalendarItem';
 import { getDaysInMonth } from 'date-fns';
-import CalendarItem from '../../components/CalendarItem/CalendarItem';
 import css from './Calendar.module.css';
+import CalendarItem from '../../components/CalendarItem/CalendarItem';
 
 const Calendar = ({ selectedDate, setSelectedDate }) => {
   const daysInMonth = getDaysInMonth(selectedDate);
@@ -26,10 +19,6 @@ const Calendar = ({ selectedDate, setSelectedDate }) => {
     { length: daysInMonth },
     (_, index) => index + 1
   );
-  // const daysInMonth = eachDayOfInterval({
-  //   start: startOfMonth(selectedDate),
-  //   end: endOfMonth(selectedDate),
-  // });
 
   return (
     <div>
