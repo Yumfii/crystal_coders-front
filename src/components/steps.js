@@ -1,30 +1,37 @@
 export const steps = [
   {
+    selector: '.userPanelHeader',
+    content: "Welcome to AQUATRACK! Let's take a quick tour.",
+    position: 'right',
+  },
+  {
     selector: '.dailyNorma',
-    content: 'This is your daily norma for water intake',
+    content: 'This is your daily water intake norm.',
     position: 'right',
   },
   {
     selector: '.waterProgressBar',
-    content: 'This is how much water you have had today',
+    content: 'Here you can see how much water you’ve consumed today.',
     position: 'right',
   },
   {
     selector: '.addWaterBtnMainInfo',
-    content: 'Here you can add water',
+    content: 'Click here to add the amount of water you’ve consumed.',
     position: 'left',
   },
   {
     selector: '.userBar',
-    content: 'Change your settings here',
-    position:'left'
+    content: 'You can change your settings here.',
+    position: 'left',
   },
-  {selector: '.dailyInfo',
-    content: 'This is the daily info of your water intake ',
-    position:'left'
+  {
+    selector: '.dailyInfo',
+    content: 'Here is the daily summary of your water intake.',
+    position: 'left',
   },
-  {selector: '.monthlyInfo',
-    content: 'This is the monthly info of your water intake ',
-    position:'left'
-  }
+  {
+    selector: '.monthlyInfo',
+    content: 'This is the monthly summary of your water intake. Enjoy using our app!',
+    position: 'left',
+  },
 ];

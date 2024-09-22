@@ -12,7 +12,7 @@ const UserPanel = () => {
 
   return (
     <div className={CSS.userPanelSection}>
-      <h2 className={CSS.userPanelHeader}>
+      <h2 className={`${CSS.userPanelHeader} userPanelHeader`} >
         Hello, &nbsp;
         <span className={CSS.userPanelHeaderSpan}>
           {/* {user.email} */}
