@@ -1,7 +1,8 @@
 import React from 'react';
-import CSS from './DailyInfo.module.css';
+import css from './DailyInfo.module.css';
 import AddWaterBtn from '../../components/AddWaterBtn/AddWaterBtn';
 import WaterList from '../../components/WaterList/WaterList';
+import ChooseDate from '../../components/ChooseDate/ChooseDate';
 
 const DailyInfo = ({ selectedDate }) => {
   return (

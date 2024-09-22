@@ -1,5 +1,5 @@
 import React from 'react';
-import CSS from './WaterList.module.css';
+import css from './WaterList.module.css';
 import WaterItem from '../../components/WaterItem/WaterItem';
 
 const waterData = [

@@ -1,21 +1,11 @@
-<<<<<<< HEAD
-import WaterDailyNorma from '../../components/WaterDailyNorma/WaterDailyNorma';
-import WaterProgressBar from '../../components/WaterProgressBar/WaterProgressBar';
+import WaterDailyNorma from '../WaterDailyNorma/WaterDailyNorma';
+import WaterProgressBar from '../WaterProgressBar/WaterProgressBar';
 import css from './WaterMainInfo.module.css';
-import AddWaterBtn from '../../components/AddWaterBtn/AddWaterBtn';
-import Logo from '../../components/Logo/Logo';
-
-const WaterMainInfo = () => {
-  const value = 50;
-=======
-import WaterDailyNorma from 'components/WaterDailyNorma/WaterDailyNorma';
-import WaterProgressBar from 'components/WaterProgressBar/WaterProgressBar';
-import css from './WaterMainInfo.module.css';
-import AddWaterBtn from 'components/AddWaterBtn/AddWaterBtn';
-import Logo from 'components/Logo/Logo';
+import AddWaterBtn from '../AddWaterBtn/AddWaterBtn';
+import Logo from '../Logo/Logo';
 import React, { useState } from 'react';
-import Modal from 'components/Modal/Modal';
-import WaterModal from 'components/WaterModal/WaterModal';
+import Modal from '../Modal/Modal';
+import WaterModal from '../WaterModal/WaterModal';
 
 const WaterMainInfo = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -31,17 +21,12 @@ const WaterMainInfo = () => {
   };
 
 
->>>>>>> 8d9d660e1cdb7dcf37023b26c0e836a9dafac675
   return (
     <div className={css.section}>
       <div className={css.container}>
         <Logo />
         <WaterDailyNorma />
         <WaterProgressBar value={value} />
-<<<<<<< HEAD
-        <AddWaterBtn variant="primary" />
-      </div>
-=======
         <AddWaterBtn variant="primary" onClick={handleOpenModal} />
       </div>
       {isModalOpen && (
@@ -49,13 +34,8 @@ const WaterMainInfo = () => {
             <WaterModal operationType="add" onClose={handleCloseModal} />
         </Modal>
       )}
->>>>>>> 8d9d660e1cdb7dcf37023b26c0e836a9dafac675
     </div>
   );
 };
 
 export default WaterMainInfo;
-<<<<<<< HEAD
-=======
-
->>>>>>> 8d9d660e1cdb7dcf37023b26c0e836a9dafac675
