@@ -50,7 +50,7 @@ const SignUpForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     const { email, password } = data;
 
     try {
@@ -58,13 +58,9 @@ const SignUpForm = () => {
       const response = await dispatch(signUp({ email, password })).unwrap();
 
       if (response.status === 201) {
-        navigate('/tracker');
-
-        console.log(response.data);
-      }
-    } catch (err) {
-      console.log(err.message);
-        toast.success('Registration successful! Please check your email to verify your account!');
+        toast.success(
+          'Registration successful! Please check your email to verify your account!'
+        );
         setTimeout(() => {
           navigate('/tracker');
         }, 2000);
@@ -77,7 +73,6 @@ const SignUpForm = () => {
       }
       console.error(err.message);
     }
-  };
   };
 
   return (
