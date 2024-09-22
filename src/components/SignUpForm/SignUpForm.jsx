@@ -2,18 +2,17 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import Logo from 'components/Logo/Logo';
 import css from './SignUpForm.module.css';
 import { signUp } from '../../redux/auth/operations';
-// import GoogleBtnSignUp from 'components/GoogleBtnSignUp/GoogleBtnSignUp';
 import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
 import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 
-
+// Validation Schema
 export const validationSchema = yup.object().shape({
   email: yup
     .string()
@@ -33,6 +32,7 @@ export const validationSchema = yup.object().shape({
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
@@ -50,38 +50,29 @@ const SignUpForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async data => {
+  const onSubmit = async (data) => {
     const { email, password } = data;
 
     try {
-      const response = signUp({
-        email,
-        password,
-      });
+      // Dispatch the signUp action with the form data
+      const response = await dispatch(signUp({ email, password })).unwrap();
 
       if (response.status === 201) {
-
         toast.success('Registration successful! Please check your email to verify your account!');
-        setTimeout(()=>{
-          navigate('/tracker')
+        setTimeout(() => {
+          navigate('/tracker');
         }, 2000);
-
-      console.log(response.data);
-    }} catch (err) {
-      if(err.response && err.response.status === 409){
-        toast.error('User with this email already exists!')
-      }else{
-        toast.error('Registration failed. Please try again.')
       }
-      console.log(err.message);
+    } catch (err) {
+      if (err.response && err.response.status === 409) {
+        toast.error('User with this email already exists!');
+      } else {
+        toast.error('Registration failed. Please try again.');
+      }
+      console.error(err.message);
     }
   };
 
-      await dispatch(response).unwrap();
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
   return (
     <div className={css.SignUpContainer}>
       <div className={css.logo}>
@@ -89,6 +80,8 @@ const SignUpForm = () => {
       </div>
       <form className={css.SignUpForm} onSubmit={handleSubmit(onSubmit)}>
         <h2 className={css.SignText}>Sign Up</h2>
+
+        {/* Email Input */}
         <div className={css.inputDiv}>
           <label>Email</label>
           <Controller
@@ -105,6 +98,7 @@ const SignUpForm = () => {
           {errors.email && <p className={css.error}>{errors.email.message}</p>}
         </div>
 
+        {/* Password Input */}
         <div className={css.inputDiv}>
           <label>Password</label>
           <div className={css.wrapPass}>
@@ -116,9 +110,7 @@ const SignUpForm = () => {
                   {...field}
                   type={passwordVisible ? 'text' : 'password'}
                   placeholder="Enter your password"
-                  className={`${css.input} ${
-                    errors.password ? css.inputError : ''
-                  }`}
+                  className={`${css.input} ${errors.password ? css.inputError : ''}`}
                 />
               )}
             />
@@ -135,6 +127,7 @@ const SignUpForm = () => {
           )}
         </div>
 
+        {/* Repeat Password Input */}
         <div className={css.inputDiv}>
           <label>Repeat password</label>
           <div className={css.wrapPass}>
@@ -146,9 +139,7 @@ const SignUpForm = () => {
                   {...field}
                   type={repeatPasswordVisible ? 'text' : 'password'}
                   placeholder="Repeat password"
-                  className={`${css.input} ${
-                    errors.repeatPassword ? css.inputError : ''
-                  }`}
+                  className={`${css.input} ${errors.repeatPassword ? css.inputError : ''}`}
                 />
               )}
             />
@@ -164,19 +155,27 @@ const SignUpForm = () => {
             <p className={css.error}>{errors.repeatPassword.message}</p>
           )}
         </div>
+
+        {/* Submit Button */}
         <button type="submit" className={css.btn}>
           Sign Up
         </button>
+
+        {/* Sign In Link */}
         <p className={css.text}>
-          Already have account?{' '}
+          Already have an account?{' '}
           <Link to="/signin" className={css.linkText}>
             Sign In
           </Link>
         </p>
+
         <p className={css.text}>or</p>
+
+        {/* Google Sign Up Button */}
         <GoogleBtn />
       </form>
     </div>
   );
 };
+
 export default SignUpForm;
