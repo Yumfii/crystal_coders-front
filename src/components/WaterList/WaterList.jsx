@@ -104,6 +104,15 @@ const WaterList = () => {
           />
         </ModalSmall>
       )}
+         {isDeleteModalOpen && (
+        <Modal isOpen={isDeleteModalOpen} onClose={handleCloseDeleteModal}>
+          <DeleteWaterModal
+            modalIsOpen={isDeleteModalOpen}
+            closeModal={handleCloseDeleteModal}
+            waterId={deleteId}
+          />
+        </Modal>
+      )}
     </div>
   );
 };

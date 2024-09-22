@@ -7,6 +7,8 @@ import css from './DeleteWaterModal.module.css';
 const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
   const dispatch = useDispatch();
 
+//   if (!modalIsOpen) return null;
+
   const handleClick = () => {
     dispatch(deleteWater(waterId))
       .unwrap()
