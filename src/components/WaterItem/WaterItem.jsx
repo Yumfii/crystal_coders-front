@@ -6,7 +6,7 @@ import css from './WaterItem.module.css';
 import { format } from 'date-fns';
 
 
-const WaterItem = ({ volume, time, onEdit  }) => {
+const WaterItem = ({ volume, time, onEdit, onDelete   }) => {
   const handleEditClick = () => {
     onEdit(volume, time);
   };
@@ -24,7 +24,7 @@ const WaterItem = ({ volume, time, onEdit  }) => {
              <button type="button" className={css.btnIcon} onClick={handleEditClick}>
           <FiEdit2 />
         </button>
-        <button type="button" className={css.btnIcon}>
+        <button type="button" className={css.btnIcon} onClick={onDelete}>
           <RxTrash />
         </button>
       </div>

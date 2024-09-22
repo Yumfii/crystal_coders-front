@@ -1,4 +1,3 @@
-import Modal from '../Modal/Modal';
 import { useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import clsx from 'clsx';
@@ -26,7 +25,7 @@ const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
   const transparentBtnClass = clsx(css.btn, css.transparentBtn);
 
   return (
-    <Modal modalIsOpen={modalIsOpen} closeModal={closeModal}>
+
       <div className={css.modalBox}>
         <h3 className={css.modalTitle}>Delete entry</h3>
         <p className={css.modalText}>
@@ -41,7 +40,7 @@ const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
           </button>
         </div>
       </div>
-    </Modal>
+
   );
 };
 
