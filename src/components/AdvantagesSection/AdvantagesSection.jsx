@@ -30,10 +30,10 @@ const AdvantatgesSection = () => {
   const fetchUserCount = async () => {
     try {
       const response = await fetch(
-        'https://crystal-coders-back.onrender.com/users/count'
+        'https://crystal-coders-back.onrender.com/count'
       );
       const data = await response.json();
-      setUserCount(data.totalUsers);
+      setUserCount(data.data);
     } catch (err) {
       console.error(err);
     }

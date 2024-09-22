@@ -3,10 +3,13 @@ import CSS from './DailyInfo.module.css';
 import AddWaterBtn from '../../components/AddWaterBtn/AddWaterBtn';
 import WaterList from '../../components/WaterList/WaterList';
 
-const DailyInfo = () => {
+const DailyInfo = ({ selectedDate }) => {
   return (
     <div>
-      <AddWaterBtn />
+      <div className={css.wrapper}>
+        <ChooseDate selectedDate={selectedDate} />
+        <AddWaterBtn variant="secondary" />
+      </div>
       <WaterList />
     </div>
   );

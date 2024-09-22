@@ -6,6 +6,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { IoIosArrowUp } from 'react-icons/io';
 
 const UserBar = () => {
+  const user = useSelector(selectUser);
   const [isActive, setIsActive] = useState(false);
 
   const handleToggle = () => {
@@ -13,9 +14,9 @@ const UserBar = () => {
   };
 
   return (
-    <div>
+    <div className={CSS.userBar}>
       <button type="button" className={CSS.userBtn} onClick={handleToggle}>
-        <span className={CSS.userBtnName}>Nadia</span>
+        <span className={CSS.userBtnName}>{user.name}</span>
         <Image
           className={CSS.avatarImage}
           cloudName="dwyxffoux"

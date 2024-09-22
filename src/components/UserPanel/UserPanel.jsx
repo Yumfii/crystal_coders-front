@@ -6,6 +6,7 @@ import CSS from './UserPanel.module.css';
 
 const UserPanel = () => {
   const user = useSelector(selectUser);
+  //   console.log(user);
 
   return (
     <div className={CSS.userPanelSection}>
@@ -13,7 +14,7 @@ const UserPanel = () => {
         Hello, &nbsp;
         <span className={CSS.userPanelHeaderSpan}>
           {/* {user.email} */}
-          Nadia !
+          {user.name}
         </span>
       </h2>
 
