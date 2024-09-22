@@ -17,9 +17,22 @@ import { TourProvider } from '@reactour/tour';
 import { steps } from './steps';
 
 export const App = () => {
+  const radius = 8
   return (
     <TourProvider
-    steps={steps}>
+    steps={steps}
+    styles={{
+      popover: (base) => ({
+        ...base,
+        '--reactour-accent': 'var(--light-dark-green)',
+        borderRadius: radius,
+      }),
+      maskArea: (base) => ({ ...base, rx: radius }),
+      maskWrapper: (base) => ({ ...base,  }),
+      badge: (base) => ({ ...base, left: 'auto', right: '-0.8125em' }),
+      controls: (base) => ({ ...base, marginTop: 30 }),
+      close: (base) => ({ ...base, right: 'auto', left: 8, top: 8 }),
+    }}>
 
       <Routes>
         <Route path="/" element={<HomePage />} />

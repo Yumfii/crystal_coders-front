@@ -14,8 +14,8 @@ const MonthInfo = ({ selectedDate, setSelectedDate }) => {
   };
 
   return (
-    <div>
-      <div className={css.wrapper}>
+    <div className={`${css.monthlyInfo} monthlyInfo`}>
+      <div className={css.monthWrapper}>
         <p className={css.monthName}>Month</p>
         <CalendarPagination
           selectedDate={selectedDate}

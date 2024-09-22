@@ -5,7 +5,7 @@ import css from './DailyInfo.module.css';
 
 const DailyInfo = ({ selectedDate }) => {
   return (
-    <div>
+    <div  className={`${css.dailyInfo} dailyInfo`}>
       <div className={css.wrapper}>
         <ChooseDate selectedDate={selectedDate} />
         <AddWaterBtn variant="secondary" />

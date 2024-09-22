@@ -18,5 +18,13 @@ export const steps = [
     selector: '.userBar',
     content: 'Change your settings here',
     position:'left'
+  },
+  {selector: '.dailyInfo',
+    content: 'This is the daily info of your water intake ',
+    position:'left'
+  },
+  {selector: '.monthlyInfo',
+    content: 'This is the monthly info of your water intake ',
+    position:'left'
   }
 ];
