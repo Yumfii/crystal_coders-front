@@ -11,16 +11,21 @@ const handlePending = state => {
   state.error = null;
 };
 
-const initialState = {
-  waterEntries: [],
-  currentEntry: null,
-  isLoading: false,
-  error: null,
-};
+// const initialState = {
+//   waterEntries: [],
+//   currentEntry: null,
+//   isLoading: false,
+//   error: null,
+// };
 
 const waterSlice = createSlice({
   name: 'water',
-  initialState,
+  initialState: {
+    waterEntries: [],
+    isLoading: false,
+    error: null,
+    currentEntry: null,
+  },
   reducers: {
     setLoading(state, action) {
       state.isLoading = action.payload;
