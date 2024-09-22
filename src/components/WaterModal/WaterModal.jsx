@@ -1,6 +1,6 @@
 import React from 'react';
-import Modal from './Modal';
-import WaterForm from './WaterForm';
+import Modal from '../Modal/Modal';
+import WaterForm from '../WaterForm/WaterForm';
 
 const WaterModal = ({ isOpen, onClose, operationType }) => {
   const title = operationType === 'edit' ? 'Edit the entered amount of water' : 'Add water';

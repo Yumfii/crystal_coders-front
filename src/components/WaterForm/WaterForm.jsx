@@ -10,7 +10,7 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import axiosInstance from '../../redux/water/operations';
 
-import { updateWaterProgress, updateWaterList, updateCalendar } from '../redux/actions';
+// import { updateWaterProgress, updateWaterList, updateCalendar } from '../redux/actions';
 
 const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
   const dispatch = useDispatch();
@@ -58,9 +58,9 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
   const updateWaterAmountBackend = async newAmount => {
     try {
       await axiosInstance.put('/water/update', { amount: newAmount });
-      dispatch(updateWaterProgress({ amount: newAmount }));
-      dispatch(updateWaterList({ amount: newAmount }));
-      dispatch(updateCalendar({ amount: newAmount }));
+      // dispatch(updateWaterProgress({ amount: newAmount }));
+      // dispatch(updateWaterList({ amount: newAmount }));
+      // dispatch(updateCalendar({ amount: newAmount }));
       toast.success('Water amount updated successfully!');
     } catch (error) {
       toast.error(
@@ -103,9 +103,9 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
         data: data,
       });
 
-      dispatch(updateWaterProgress(data));
-      dispatch(updateWaterList(data));
-      dispatch(updateCalendar(data));
+      // dispatch(updateWaterProgress(data));
+      // dispatch(updateWaterList(data));
+      // dispatch(updateCalendar(data));
 
       toast.success('Water entry saved successfully!');
       onClose();
