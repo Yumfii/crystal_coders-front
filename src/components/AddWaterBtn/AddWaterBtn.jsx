@@ -1,3 +1,4 @@
+
 import React from 'react';
 import css from './AddWaterBtn.module.css';
 import { GoPlus } from 'react-icons/go';
@@ -13,10 +14,13 @@ const AddWaterBtn = ({ variant }) => {
 
   return (
     <button type="button" className={styleBtn}>
-      <GoPlus className={styleIcon} />
+      <div className={styleIcon}>
+        <GoPlus size={19} />
+      </div>
       Add water
     </button>
   );
 };
 
 export default AddWaterBtn;
+

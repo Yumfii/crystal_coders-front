@@ -1,3 +1,4 @@
+
 .addWaterBtnMainInfo {
   display: flex;
   width: 178px -40px;
@@ -30,11 +31,17 @@
 }
 
 .iconPrimaryBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 24px;
   height: 24px;
 }
 
 .iconSecondaryBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30px;
   height: 30px;
   background-color: var(--light-green);
@@ -55,3 +62,4 @@
     padding: 18px 30px;
   }
 }
+
