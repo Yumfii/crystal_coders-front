@@ -5,10 +5,10 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-import Logo from 'components/Logo/Logo';
+import Logo from '../../components/Logo/Logo';
 import css from './SignUpForm.module.css';
 import { signUp } from '../../redux/auth/operations';
-import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import GoogleBtn from '../../components/GoogleBtn/GoogleBtn';
 import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 
@@ -50,7 +50,7 @@ const SignUpForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     const { email, password } = data;
 
     try {
@@ -58,7 +58,9 @@ const SignUpForm = () => {
       const response = await dispatch(signUp({ email, password })).unwrap();
 
       if (response.status === 201) {
-        toast.success('Registration successful! Please check your email to verify your account!');
+        toast.success(
+          'Registration successful! Please check your email to verify your account!'
+        );
         setTimeout(() => {
           navigate('/tracker');
         }, 2000);
@@ -110,7 +112,9 @@ const SignUpForm = () => {
                   {...field}
                   type={passwordVisible ? 'text' : 'password'}
                   placeholder="Enter your password"
-                  className={`${css.input} ${errors.password ? css.inputError : ''}`}
+                  className={`${css.input} ${
+                    errors.password ? css.inputError : ''
+                  }`}
                 />
               )}
             />
@@ -139,7 +143,9 @@ const SignUpForm = () => {
                   {...field}
                   type={repeatPasswordVisible ? 'text' : 'password'}
                   placeholder="Repeat password"
-                  className={`${css.input} ${errors.repeatPassword ? css.inputError : ''}`}
+                  className={`${css.input} ${
+                    errors.repeatPassword ? css.inputError : ''
+                  }`}
                 />
               )}
             />

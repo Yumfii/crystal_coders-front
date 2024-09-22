@@ -1,10 +1,11 @@
-
-import ResetPasswordForm from "components/ResetPasswordForm/ResetPasswordForm";
+import ResetPasswordForm from '../../components/ResetPasswordForm/ResetPasswordForm';
 
 const ResetPasswordPage = () => {
-  return <div>
-    <ResetPasswordForm />
-  </div>
+  return (
+    <div>
+      <ResetPasswordForm />
+    </div>
+  );
 };
 
 export default ResetPasswordPage;

@@ -1,4 +1,4 @@
-import { WaterGraph } from 'components/WaterGraph/WaterGraph';
+import { WaterGraph } from '../../components/WaterGraph/WaterGraph';
 
 const GraphPage = () => {
   return (

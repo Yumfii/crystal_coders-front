@@ -6,6 +6,8 @@ import {
   // startOfMonth,
 } from 'date-fns';
 import CalendarItem from 'components/CalendarItem/CalendarItem';
+import { getDaysInMonth } from 'date-fns';
+import CalendarItem from '../../components/CalendarItem/CalendarItem';
 import css from './Calendar.module.css';
 
 const Calendar = ({ selectedDate, setSelectedDate }) => {

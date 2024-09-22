@@ -1,4 +1,3 @@
-import Modal from '../Modal/Modal';
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
