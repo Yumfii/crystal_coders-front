@@ -23,12 +23,13 @@ const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
       });
   };
 
+  
   const colorBtnClass = clsx(css.btn, css.colorBtn);
 
   const transparentBtnClass = clsx(css.btn, css.transparentBtn);
 
   return (
-   
+
       <div className={css.modalBox}>
         <h3 className={css.modalTitle}>Delete entry</h3>
         <p className={css.modalText}>
