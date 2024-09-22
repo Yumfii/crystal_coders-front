@@ -14,4 +14,9 @@ export const steps = [
     content: 'Here you can add water',
     position: 'left',
   },
+  {
+    selector: '.userBar',
+    content: 'Change your settings here',
+    position:'left'
+  }
 ];

@@ -17,7 +17,7 @@ const UserBar = () => {
 
 
   return (
-    <div className={CSS.userBar}>
+    <div className={`${CSS.userBar} userBar`}>
 
       <button type='button' className={CSS.userBtn}
         onClick={handleToggle}>
