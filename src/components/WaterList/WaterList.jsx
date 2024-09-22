@@ -1,6 +1,9 @@
 import React from 'react';
 import css from './WaterList.module.css';
 import WaterItem from '../../components/WaterItem/WaterItem';
+import Modal from '../../components/Modal/Modal';
+import WaterModal from '../../components/WaterModal/WaterModal';
+import  { useState } from 'react';
 
 const waterData = [
   {
@@ -48,15 +51,33 @@ const waterData = [
 ];
 
 const WaterList = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [editData, setEditData] = useState(null);
+
+  const handleOpenEditModal = (volume, time) => {
+    setEditData({ volume, time });
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setEditData(null);
+  };
+
   return (
     <div>
       <ul className={css.list}>
         {waterData.map(({ volumeId, volume, time }) => (
           <li key={volumeId} className={css.item}>
-            <WaterItem volume={volume} time={time} />
+            <WaterItem volume={volume} time={time} onEdit={handleOpenEditModal} />
           </li>
         ))}
       </ul>
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+           <WaterModal operationType="edit" onClose={handleCloseModal} editData={editData} />
+        </Modal>
+      )}
     </div>
   );
 };
