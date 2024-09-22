@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './WaterList.module.css';
-import WaterItem from 'components/WaterItem/WaterItem';
+import WaterItem from '../../components/WaterItem/WaterItem';
 
 const waterData = [
   {
