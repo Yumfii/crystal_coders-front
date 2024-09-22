@@ -31,7 +31,7 @@ const UserSettingsForm = () => {
       liters: 2,
     }
   });
-
+  const isVarified = false; //нужно вытянуть данные у юзера
   const [gender, setGender] = useState(watch('gender'))
 
   useEffect(() => {
@@ -159,7 +159,7 @@ const UserSettingsForm = () => {
         </label>
 
         <label htmlFor='email' className={`${CSS.boldInputLabel} ${CSS.marginLabel}`}>
-          Email
+          Email {!isVarified &&(<span className={CSS.warninIcon} title="Email not verified!">⚠️ Email not verified!</span>)}
           <input className={errors.email ? CSS.errorInput : CSS.textInput}
                 type="input" name='email'
                 {...register('email')}
