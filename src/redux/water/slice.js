@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchWaterListDaily, deleteWater } from './operations';
+import {  fetchWaterListDaily, deleteWater } from './operations';
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
@@ -11,16 +11,21 @@ const handlePending = state => {
   state.error = null;
 };
 
-const initialState = {
-  waterEntries: [],
-  currentEntry: null,
-  isLoading: false,
-  error: null,
-};
+// const initialState = {
+//   waterEntries: [],
+//   currentEntry: null,
+//   isLoading: false,
+//   error: null,
+// };
 
 const waterSlice = createSlice({
   name: 'water',
-  initialState,
+  initialState: {
+    waterEntries: [],
+    loading: false,
+    error: null,
+    currentEntry: null,
+  },
   reducers: {
     setLoading(state, action) {
       state.isLoading = action.payload;
