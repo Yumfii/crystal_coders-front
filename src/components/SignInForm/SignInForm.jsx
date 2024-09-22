@@ -1,34 +1,55 @@
-import css from './SignInForm.module.css'; // Import CSS as a module
-
+import css from './SignInForm.module.css';
 import { useState } from 'react';
-import * as Yup from 'yup';
-import { Formik, ErrorMessage, Form } from 'formik';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import { NavLink } from 'react-router-dom';
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../Logo/Logo';
-import { signIn } from 'services/auth';
+import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../redux/auth/operations';
 
-const validationSchema = Yup.object({
-  email: Yup.string().email('Invalid email address').required('Required'),
-  password: Yup.string()
-    .min(6, 'Must be at least 6 characters')
-    .required('Required'),
+import NotificationSignIn from '../../components/NotificationSignIn/NotificationSignIn';
+
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .trim()
+    .required('Email is required')
+    .email('Invalid email format'),
+  password: yup
+    .string()
+    .trim()
+    .required('Password is required')
+    .min(8, 'Password must be at least 8 characters long'),
 });
 
 const SignInForm = () => {
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loginError, setLoginError] = useState(null); // Local error state
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
+
+  const onSubmit = async data => {
+    const { email, password } = data;
+
     try {
-      const response = await signIn({ "email": email, "password": password })
-      console.log(response.data);
+      await dispatch(signIn({ email, password })).unwrap();
+      reset();
     } catch (error) {
-      console.log(error.message);
+      setLoginError(error);
     }
-  }
+  };
 
   return (
     <div className={css.infoContainer}>
@@ -36,93 +57,73 @@ const SignInForm = () => {
         <Logo />
       </div>
       <div className={css.formContainer}>
-        <Formik
-          initialValues={{ email: '', password: '' }}
-          validationSchema={validationSchema}
-          //onSubmit={handleSubmit}
-        >
-          {({ errors, touched }) => (
-            <Form autoComplete="off" className={css.form} noValidate onSubmit={handleSubmit}>
-              <h1 className={css.title}>Sign In</h1>
-              <div className={css.inputBox}>
-                <div className={css.group}>
-                  <label htmlFor="email" className={css.label}>
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value)
-                    }}
-                    placeholder="Enter your email"
-                    className={`${css.input} ${
-                      touched.email && errors.email ? css.error : ''
-                    }`}
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className={css.error}
-                  />
-                </div>
-                <div className={css.group}>
-                  <label htmlFor="password" className={css.label}>
-                    Password
-                  </label>
-                  <div className={css.wrapPass}>
-                    <input
-                      type={passwordVisible ? 'text' : 'password'}
-                      name="password"
-                      id="password"
-                      placeholder="Enter your password"
-                      value={password}
-                      onChange={(e) => {
-                        setPassword(e.target.value)
-                      }}
-                      className={`${css.input} ${
-                        touched.password && errors.password ? css.error : ''
-                      }`}
-                    />
-                    <button
-                      type="button"
-                      className={css.toggle}
-                      onClick={() => setPasswordVisible(!passwordVisible)}
-                    >
-                      {passwordVisible ? <FaEye /> : <FaEyeSlash />}
-                    </button>
-                    <ErrorMessage
-                      name="password"
-                      component="div"
-                      className={css.error}
-                    />
-                  </div>
-                </div>
-              </div>
-              <button type="submit" className={css.signInBtn}>
-                Sign In
-              </button>
-              <div className={css.offerCont}>
-                <p className={css.signupoffer}>
-                  Don't have an account?&nbsp;
-                  <NavLink className={css.signuplink} to="/signup">
-                    Sign Up
-                  </NavLink>
-                </p>
+        <form className={css.form} noValidate onSubmit={handleSubmit(onSubmit)}>
+          <h1 className={css.title}>Sign In</h1>
+          <div className={css.inputBox}>
+            <div className={css.group}>
+              <label htmlFor="email" className={css.label}>
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                className={`${css.input} ${errors.email ? css.error : ''}`}
+                {...register('email')}
+              />
+              {errors.email && (
+                <p className={css.error}>{errors.email.message}</p>
+              )}
+            </div>
 
-                <p className={css.conc}>Or</p>
-
-                <NavLink className={css.redirect} to="/">
-                  <button className={css.google}>
-                    <span class={css.register}>Register with</span> <FaGoogle />
-                  </button>
-                </NavLink>
+            <div className={css.group}>
+              <label htmlFor="password" className={css.label}>
+                Password
+              </label>
+              <div className={css.wrapPass}>
+                <input
+                  type={passwordVisible ? 'text' : 'password'}
+                  id="password"
+                  placeholder="Enter your password"
+                  className={`${css.input} ${errors.password ? css.error : ''}`}
+                  {...register('password')}
+                />
+                <button
+                  type="button"
+                  className={css.toggle}
+                  onClick={() => setPasswordVisible(!passwordVisible)}
+                >
+                  {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+                </button>
+                {errors.password && (
+                  <p className={css.error}>{errors.password.message}</p>
+                )}
               </div>
-            </Form>
-          )}
-        </Formik>
+              <NavLink to="/forgot-password" className={css.forgotPassword}>
+                Forgot password?
+              </NavLink>
+            </div>
+          </div>
+
+          <button type="submit" className={css.signInBtn}>
+            Sign In
+          </button>
+
+          <div className={css.offerCont}>
+            <p className={css.signupoffer}>
+              Don't have an account?&nbsp;
+              <NavLink className={css.signuplink} to="/signup">
+                Sign Up
+              </NavLink>
+            </p>
+          </div>
+
+          {/* Show Notification if there's a local login error */}
+          {loginError && <NotificationSignIn />}
+        </form>
+
+        <p className={css.conc}>Or</p>
+        <GoogleBtn />
       </div>
     </div>
   );

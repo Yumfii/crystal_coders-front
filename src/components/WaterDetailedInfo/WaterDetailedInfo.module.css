@@ -1,0 +1,22 @@
+.section {
+  border-radius: 30px;
+  background: var(--light-gray);
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 40px 32px 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .section {
+    width: 672px;
+    min-height: calc(100vh - 64px);
+    flex-grow: 1;
+  }
+}

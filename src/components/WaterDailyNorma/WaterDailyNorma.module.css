@@ -1,0 +1,52 @@
+.dailyNorma {
+  display: inline-block;
+  margin-top: 78px;
+  margin-bottom: 49px;
+  padding: 14px 18px;
+  border-radius: 15px;
+  background-color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+  .dailyNorma {
+    margin-top: 101px;
+    margin-bottom: 87px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .dailyNorma {
+    margin-left: 30px;
+    margin-bottom: 180px;
+  }
+}
+
+.dailyNorma .numberLiters {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--dark-blue);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .dailyNorma .numberLiters {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+.dailyNorma .text {
+  color: rgba(47, 47, 47, 0.6);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .dailyNorma .text {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+}

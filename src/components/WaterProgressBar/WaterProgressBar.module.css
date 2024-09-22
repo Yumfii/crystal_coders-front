@@ -1,0 +1,74 @@
+.waterProgressBar {
+  padding: 12px;
+  width: 198px;
+  margin: 0 auto;
+  margin-bottom: 42px;
+  background-color: var(--white);
+  border-radius: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .waterProgressBar {
+    width: 295px;
+    padding: 20px;
+    margin-bottom: 26px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .waterProgressBar {
+    margin-bottom: 50px;
+  }
+}
+
+.day {
+  margin-bottom: 8px;
+  color: var(--dark-blue);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .day {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+.linearProgress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  margin-bottom: 6px;
+  border-radius: 9px;
+}
+
+.linearProgress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background-color: var(--white);
+  border-radius: 50%;
+  border: 2px solid var(--light-green);
+  margin-top: -1px;
+  margin-left: 2px;
+}
+
+.values {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(47, 47, 47, 0.6);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .day {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}

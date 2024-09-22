@@ -1,15 +1,30 @@
 import React from 'react';
 import Modal from './Modal';
 import WaterForm from './WaterForm';
-import './WaterModal.module.css';
 
 const WaterModal = ({ isOpen, onClose, operationType }) => {
-
   const title = operationType === 'edit' ? 'Edit the entered amount of water' : 'Add water';
+
+  const modalTitleStyle = {
+    textAlign: 'center',
+    color: 'var(--dark-blue)',
+    fontFamily: 'Poppins, sans-serif',
+    fontSize: '20px',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '24px',
+    letterSpacing: '-0.2px',
+    ...(window.innerWidth >= 768 && {
+      fontSize: '28px',
+      marginBottom: '30px',
+      lineHeight: '32px',
+      letterSpacing: '-0.28px',
+    }),
+  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <h2 className='modal-title'>{title}</h2>
+      <h2 style={modalTitleStyle}>{title}</h2>
       <div>
         <WaterForm mode={operationType} onClose={onClose} />
       </div>
@@ -18,45 +33,3 @@ const WaterModal = ({ isOpen, onClose, operationType }) => {
 };
 
 export default WaterModal;
-
-
-
-// import React, { useState } from 'react';
-// import WaterModal from './WaterModal';
-
-// const App = () => {
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-//   const [operationType, setOperationType] = useState('add');
-
-//   const handleOpenAdd = () => {
-//     setOperationType('add');
-//     setIsModalOpen(true);
-//   };
-
-//   const handleOpenEdit = () => {
-//     setOperationType('edit');
-//     setIsModalOpen(true);
-//   };
-
-//   const handleCloseModal = () => {
-//     setIsModalOpen(false);
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={handleOpenAdd}>Add Water</button>
-//       <button onClick={handleOpenEdit}>Edit Water</button>
-
-//       <WaterModal
-//         isOpen={isModalOpen}
-//         onClose={handleCloseModal}
-//         operationType={operationType}
-//       />
-//     </div>
-//   );
-// };
-
-// export default App;
-
-
-
