@@ -1,5 +1,10 @@
 import React from 'react';
-import { getDaysInMonth } from 'date-fns';
+import {
+  // eachDayOfInterval,
+  // endOfMonth,
+  getDaysInMonth,
+  // startOfMonth,
+} from 'date-fns';
 import CalendarItem from 'components/CalendarItem/CalendarItem';
 import css from './Calendar.module.css';
 
@@ -19,12 +24,16 @@ const Calendar = ({ selectedDate, setSelectedDate }) => {
     { length: daysInMonth },
     (_, index) => index + 1
   );
+  // const daysInMonth = eachDayOfInterval({
+  //   start: startOfMonth(selectedDate),
+  //   end: endOfMonth(selectedDate),
+  // });
 
   return (
     <div>
       <ul className={css.listDays}>
-        {daysArray.map(day => (
-          <li key={day}>
+        {daysArray.map((day, index) => (
+          <li key={index}>
             <CalendarItem day={day} handleDayClick={handleDayClick} />
           </li>
         ))}
