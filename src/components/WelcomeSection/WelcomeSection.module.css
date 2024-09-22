@@ -1,5 +1,5 @@
 .welcome {
-  width: 340px;
+  max-width: 343px;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
@@ -30,7 +30,7 @@
 }
 .nav {
   display: flex;
-  width: 300px;
+  max-width: 300px;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
@@ -101,7 +101,7 @@
 /* Tablet */
 @media screen and (min-width: 768px) {
   .welcome {
-    width: 704px;
+    min-width: 704px;
     padding: 32px;
   }
   .subheader {
@@ -128,7 +128,7 @@
   }
 
   .nav {
-    width: 400px;
+    min-width: 400px;
     gap: 16px;
     margin-bottom: 28px;
     padding-left: 32px;

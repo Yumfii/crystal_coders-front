@@ -13,7 +13,9 @@ const AddWaterBtn = ({ variant }) => {
 
   return (
     <button type="button" className={styleBtn}>
-      <GoPlus className={styleIcon} />
+      <div className={styleIcon}>
+        <GoPlus size={19} />
+      </div>
       Add water
     </button>
   );
