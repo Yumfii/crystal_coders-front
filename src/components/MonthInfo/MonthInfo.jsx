@@ -1,6 +1,6 @@
 import React from 'react';
-import Calendar from 'components/Calendar/Calendar';
-import CalendarPagination from 'components/CalendarPagination/CalendarPagination';
+import Calendar from '../../components/Calendar/Calendar';
+import CalendarPagination from '../../components/CalendarPagination/CalendarPagination';
 import { addMonths, subMonths } from 'date-fns';
 import css from './MonthInfo.module.css';
 

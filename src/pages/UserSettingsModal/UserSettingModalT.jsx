@@ -1,4 +1,4 @@
-import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal';
+import UserSettingsModal from '../../components/UserSettingsModal/UserSettingsModal';
 
 const UserSettingsModalT = () => {
   return (

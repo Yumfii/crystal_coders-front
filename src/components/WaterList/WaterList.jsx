@@ -1,8 +1,8 @@
 import React from 'react';
 import css from './WaterList.module.css';
-import WaterItem from 'components/WaterItem/WaterItem';
-import Modal from 'components/Modal/Modal';
-import WaterModal from 'components/WaterModal/WaterModal';
+import WaterItem from '../../components/WaterItem/WaterItem';
+import Modal from '../../components/Modal/Modal';
+import WaterModal from '../../components/WaterModal/WaterModal';
 import  { useState } from 'react';
 
 const waterData = [
@@ -63,6 +63,7 @@ const WaterList = () => {
     setModalOpen(false);
     setEditData(null);
   };
+  
   return (
     <div>
       <ul className={css.list}>

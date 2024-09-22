@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import css from './WelcomeSection.module.css';
-import Logo from 'components/Logo/Logo';
+import Logo from '../Logo/Logo';
 import { NavLink } from 'react-router-dom';
-import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import GoogleBtn from '../GoogleBtn/GoogleBtn';
 import { ReactTyped } from 'react-typed';
 
 const WelcomeSection = () => {
@@ -30,7 +30,11 @@ const WelcomeSection = () => {
         <Logo />
       </div>
 
-      <p className={`${css.subheader} ${subheaderVisible ? css['subheader-visible'] : ''}`}>
+      <p
+        className={`${css.subheader} ${
+          subheaderVisible ? css['subheader-visible'] : ''
+        }`}
+      >
         Record daily water intake and track
       </p>
 

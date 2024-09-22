@@ -1,10 +1,10 @@
-import AddWaterBtn from 'components/AddWaterBtn/AddWaterBtn';
-import ChooseDate from 'components/ChooseDate/ChooseDate';
-import WaterList from 'components/WaterList/WaterList';
+import AddWaterBtn from '../../components/AddWaterBtn/AddWaterBtn';
+import ChooseDate from '../../components/ChooseDate/ChooseDate';
+import WaterList from '../../components/WaterList/WaterList';
 import css from './DailyInfo.module.css';
 import React, { useState } from 'react';
-import Modal from 'components/Modal/Modal';
-import WaterModal from 'components/WaterModal/WaterModal';
+import Modal from '../../components/Modal/Modal';
+import WaterModal from '../../components/WaterModal/WaterModal';
 
 const DailyInfo = ({ selectedDate }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -33,5 +33,3 @@ const DailyInfo = ({ selectedDate }) => {
     </div>
   );
 };
-
-export default DailyInfo;

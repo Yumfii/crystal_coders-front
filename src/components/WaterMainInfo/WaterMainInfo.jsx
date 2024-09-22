@@ -1,11 +1,11 @@
-import WaterDailyNorma from 'components/WaterDailyNorma/WaterDailyNorma';
-import WaterProgressBar from 'components/WaterProgressBar/WaterProgressBar';
+import WaterDailyNorma from '../WaterDailyNorma/WaterDailyNorma';
+import WaterProgressBar from '../WaterProgressBar/WaterProgressBar';
 import css from './WaterMainInfo.module.css';
-import AddWaterBtn from 'components/AddWaterBtn/AddWaterBtn';
-import Logo from 'components/Logo/Logo';
+import AddWaterBtn from '../AddWaterBtn/AddWaterBtn';
+import Logo from '../Logo/Logo';
 import React, { useState } from 'react';
-import Modal from 'components/Modal/Modal';
-import WaterModal from 'components/WaterModal/WaterModal';
+import Modal from '../Modal/Modal';
+import WaterModal from '../WaterModal/WaterModal';
 
 const WaterMainInfo = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -39,4 +39,3 @@ const WaterMainInfo = () => {
 };
 
 export default WaterMainInfo;
-
