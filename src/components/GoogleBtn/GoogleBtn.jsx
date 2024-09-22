@@ -4,7 +4,8 @@ import css from './GoogleBtn.module.css';
 
 const GoogleBtn = () => {
   const handleGoogleLogin = () => {
-    window.location.href = 'https://crystal-coders-back.onrender.com/auth/get-oauth-url?callback=https://crystal-coders-front.vercel.app/confirm-google-auth';
+    window.location.href =
+      'https://crystal-coders-back.onrender.com/auth/get-oauth-url?callback=https://crystal-coders-front.vercel.app/confirm-google-auth';
   };
 
   return (

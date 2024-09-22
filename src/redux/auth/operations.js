@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://crystal-coders-back.onrender.com/';
+// axios.defaults.baseURL = 'http://localhost:3000/';
 
 const setAuthHeader = token => {
   if (token) {
@@ -23,7 +24,12 @@ export const signIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('auth/login', credentials);
+      const { data } = await axios.post('auth/login', credentials, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       const accessToken = data.data.accessToken;
       setAuthHeader(accessToken);
       // console.log(data.data.accessToken);
@@ -42,7 +48,12 @@ export const signUp = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('auth/register', credentials);
+      const { data } = await axios.post('auth/register', credentials, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       const accessToken = data.data.accessToken;
       setAuthHeader(accessToken);
       return data;
@@ -56,7 +67,16 @@ export const signUp = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/auth/logout');
+    await axios.post(
+      '/auth/logout',
+      {},
+      {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -65,19 +85,39 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 
 export const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
   try {
-    const { data } = await axios.post('auth/refresh');
+    const { data } = await axios.post(
+      'auth/refresh',
+      {},
+      {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     return data.data;
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
 });
 
-export const updateUsersSettings = createAsyncThunk('updateUser',
+export const updateUsersSettings = createAsyncThunk(
+  'updateUser',
   async (id, thunkApi) => {
-  try {
-    const { data } = await axios.patch(`users/${id}`);
-    return data.data;
-  } catch (error) {
-    return thunkApi.rejectWithValue(error.message);
+    try {
+      const { data } = await axios.patch(
+        `users/${id}`,
+        {},
+        {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      return data.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
   }
-});
+);
