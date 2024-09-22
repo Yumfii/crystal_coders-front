@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+
 import css from './AddWaterBtn.module.css';
 import { GoPlus } from 'react-icons/go';
-import WaterModal from '../WaterModal/WaterModal';
 
-const AddWaterBtn = ({ variant }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
+const AddWaterBtn = ({ variant, onClick }) => {
 
   const styleBtn =
     variant === 'primary'
@@ -14,25 +13,18 @@ const AddWaterBtn = ({ variant }) => {
   const styleIcon =
     variant === 'primary' ? css.iconPrimaryBtn : css.iconSecondaryBtn;
 
-  const handleAddWater = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <>
-      <button type="button" className={styleBtn} onClick={handleAddWater}>
+      <button type="button" className={styleBtn} onClick={onClick}>
         <div className={styleIcon}>
           <GoPlus size={19} />
         </div>
         Add water
       </button>
-      {isModalOpen && <WaterModal onClose={handleCloseModal} />}
     </>
   );
 };
 
 export default AddWaterBtn;
+
