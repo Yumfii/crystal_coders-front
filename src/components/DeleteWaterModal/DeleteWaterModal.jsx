@@ -8,6 +8,8 @@ import css from './DeleteWaterModal.module.css';
 const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
   const dispatch = useDispatch();
 
+  if (!modalIsOpen) return null;
+
   const handleClick = () => {
     dispatch(deleteWater(waterId))
       .unwrap()
@@ -21,12 +23,13 @@ const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
       });
   };
 
+  
   const colorBtnClass = clsx(css.btn, css.colorBtn);
 
   const transparentBtnClass = clsx(css.btn, css.transparentBtn);
 
   return (
-    <Modal modalIsOpen={modalIsOpen} closeModal={closeModal}>
+
       <div className={css.modalBox}>
         <h3 className={css.modalTitle}>Delete entry</h3>
         <p className={css.modalText}>
@@ -41,7 +44,7 @@ const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
           </button>
         </div>
       </div>
-    </Modal>
+
   );
 };
 
