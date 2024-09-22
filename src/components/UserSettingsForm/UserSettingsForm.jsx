@@ -6,8 +6,14 @@ import { Image } from 'cloudinary-react'
 import { FiUpload } from "react-icons/fi";
 import { userSchema, validateInput } from './userSettingsFormValidation'
 import { yupResolver } from "@hookform/resolvers/yup"
+import { useSelector } from 'react-redux'
+import { selectUser } from '../../redux/auth/selectors.js'
+
+
+
 
 const UserSettingsForm = () => {
+  const user = useSelector(selectUser)
   const {
     register,
     handleSubmit,
@@ -17,24 +23,25 @@ const UserSettingsForm = () => {
     resolver: yupResolver(userSchema),
     mode: "onChange",
     defaultValues: {
-      gender: 'woman',
+      gender: user?.gender === 'male'?'man':'woman',
       // resp.user.gender && 'woman'
-      name: 'Nadia',
+      name: user?.name ||'User',
       // if(resp.user.name === null) {return resp.user.email.split('@'[0])}
-      email: 'nadia10@gmail.com',
+      email: user.email,
       // resp.user.email
 
-      weight: 0,
+      weight: user?.weight || 0,
       // resp.user.weight||0
-      time: 0,
+      time: user?.sportActiveTime || 0,
       // resp.user.hours||0
-      liters: 2,
+      liters: user?.dailyWater || 0,
     }
   });
 
 
-  const isVerified = false; //нужно вытянуть данные у юзера
 
+
+  const isVerified = user.isVerified;
 
   const [gender, setGender] = useState(watch('gender'))
 
