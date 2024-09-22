@@ -14,7 +14,7 @@ const TrackerPage = () => {
     if (!hasSeenTour) {
       setTimeout(() => {
         setIsOpen(true);
-      }, 500); 
+      }, 500);
     }
   }, [setIsOpen]);
 
