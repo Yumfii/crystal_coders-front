@@ -1,34 +1,64 @@
 @import '../../index.css';
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .infoContainer {
   width: 100%;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
   text-align: left;
+  width: 100%;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.3s;
 }
 
 .logo {
   margin-bottom: 172px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
 }
 
 .formContainer {
   display: grid;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.8s;
 }
 
 .title {
   color: var(--dark-blue);
-
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
   line-height: 32px;
   letter-spacing: -0.36px;
   margin-bottom: 32px;
-
-  align-self: stretch;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 1s;
 }
 
 .form {
@@ -36,6 +66,9 @@
   flex-direction: column;
   gap: 16px;
   min-width: 256px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 1.2s;
 }
 
 .inputBox {
@@ -67,22 +100,29 @@
   border: 1px solid rgba(47, 47, 47, 0.2);
   width: 100%;
   height: 50px;
-  padding: 16px 16px 16px 16px;
-
+  padding: 16px;
   background: transparent;
-
   color: rgba(47, 47, 47, 0.6);
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.14px;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .input:focus {
-  border-radius: 15px;
-  border: 1px solid rgba(47, 47, 47, 0.2);
+  border-color: var(--accent);
+  background-color: #f0f9f1;
+  color: var(--dark-blue);
 }
+
+.input.error {
+  border: 1px solid #ef5050;
+  background-color: #fdd;
+  color: red;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
 .input.error:hover {
   border: 1px solid #ef5050;
   background-color: #fdd;
@@ -91,9 +131,10 @@
 
 .error {
   color: #ef5050;
-
   font-size: 0.875rem;
   margin-top: 0.1rem;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
 .forgotPassword {
@@ -105,6 +146,14 @@
   line-height: 18px;
   letter-spacing: -0.14px;
   text-decoration-line: underline;
+}
+
+.forgotPassword, .signuplink {
+  transition: color 0.3s ease;
+}
+
+.forgotPassword:hover, .signuplink:hover {
+  color: #527452;
 }
 
 .wrapPass {
@@ -124,25 +173,23 @@
   display: flex;
   height: 50px;
   padding: 16px 131px;
-
   justify-content: center;
   align-items: center;
   border-radius: 30px;
   background: var(--Accent, #9be1a0);
-  white-space: nowrap;
-
   color: var(--dark-blue);
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 18px;
-  letter-spacing: -0.14px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .signInBtn:hover,
 .signInBtn:focus {
-  cursor: pointer;
   background: #87d28d;
+  box-shadow: 0 0 10px rgba(177, 138, 189, 0.7);
+  cursor: pointer;
+
 }
 
 .signupoffer {
@@ -189,13 +236,13 @@
   align-items: center;
   justify-content: center;
 }
+
 .google {
   height: 56px;
   width: 168px;
   background: transparent;
   border: 2px solid rgb(35, 195, 35);
   border-radius: 30px;
-  transition: box-shadow 0.3s ease;
   align-self: center;
 }
 
@@ -203,7 +250,6 @@
 .google:focus {
   cursor: pointer;
   background: #82ea8a;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
 }
 
 @media screen and (min-width: 768px) {

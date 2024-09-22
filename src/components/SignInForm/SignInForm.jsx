@@ -9,8 +9,7 @@ import Logo from '../Logo/Logo';
 import GoogleBtn from '../../components/GoogleBtn/GoogleBtn';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/operations';
-
-import NotificationSignIn from '../../components/NotificationSignIn/NotificationSignIn';
+import { toast } from 'react-hot-toast';
 
 const validationSchema = yup.object().shape({
   email: yup
@@ -29,7 +28,6 @@ const SignInForm = () => {
   const dispatch = useDispatch();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [loginError, setLoginError] = useState(null); // Local error state
 
   const {
     register,
@@ -47,7 +45,14 @@ const SignInForm = () => {
       await dispatch(signIn({ email, password })).unwrap();
       reset();
     } catch (error) {
-      setLoginError(error);
+      toast.error(
+        'Invalid email or password. Please try again.',
+        {
+          duration: 5000,
+          id: 'auth-error',
+        }
+      );
+      reset();
     }
   };
 
@@ -118,8 +123,6 @@ const SignInForm = () => {
             </p>
           </div>
 
-          {/* Show Notification if there's a local login error */}
-          {loginError && <NotificationSignIn />}
           <p className={css.conc}>or</p>
           <GoogleBtn />
         </form>
