@@ -1,11 +1,11 @@
 @import '../../index.css';
 
 .infoContainer {
+  width: 100%;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
   text-align: left;
-  width: 100%;
 }
 
 .logo {
@@ -262,7 +262,6 @@
 
   .signInBtn {
     width: 436px;
-    height: 60px;
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
@@ -276,7 +275,6 @@
 
 @media screen and (min-width: 1440px) {
   .infoContainer {
-    width: 672px;
     margin: 0;
     height: 754px;
   }
@@ -316,14 +314,6 @@
   .field {
     font-size: 16px;
     line-height: 24px;
-  }
-
-  .signInBtn {
-    width: 436px;
-    height: 60px;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 700;
   }
 
   .signinpoffer {
