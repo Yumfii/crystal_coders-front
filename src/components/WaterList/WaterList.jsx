@@ -13,27 +13,25 @@ const WaterList = ({ userId }) => {
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
 
+  const fetchWaterData = async () => {
+    try {
+      const token = localStorage.getItem('authToken');
+      if (!token) return;
+
+      const response = await axios.get('https://crystal-coders-back.onrender.com/water', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const fetchedData = response.data.data.data || [];
+      setWaterData(fetchedData);
+    } catch (error) {
+      console.error('Error fetching water consumption data:', error.response ? error.response.data : error);
+    }
+  };
+
   useEffect(() => {
-    const fetchWaterData = async () => {
-      const today = new Date();
-      const dateString = today.toISOString().split('T')[0];
-
-      try {
-        const response = await axios.post(`https://crystal-coders-back.onrender.com/water/consumption/day`, null, {
-          params: {
-            userId,
-            date: dateString,
-          },
-        });
-
-        if (response.data) {
-          setWaterData(response.data.volumes || []); // Используем volumes
-        }
-      } catch (error) {
-        console.error('Error fetching water consumption data:', error);
-      }
-    };
-
     fetchWaterData();
   }, [userId]);
 
@@ -61,7 +59,7 @@ const WaterList = ({ userId }) => {
     <div>
       <ul className={css.list}>
         {waterData.length === 0 ? (
-          <li>No water consumption data found for this date.</li>
+          <li>No water consumption data found.</li>
         ) : (
           waterData.map(({ _id, volume, time }) => (
             <li key={_id} className={css.item}>

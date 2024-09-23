@@ -1,20 +1,21 @@
+import Modal from '../Modal/Modal';
 import { useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import clsx from 'clsx';
-import { deleteVolume } from '../../redux/water/operations';
+import { deleteVolume } from '../../redux/water/operations'; // Исправлено название импорта
 import css from './DeleteWaterModal.module.css';
 
 const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
   const dispatch = useDispatch();
 
-//   if (!modalIsOpen) return null;
+  if (!modalIsOpen) return null;
 
   const handleClick = () => {
     dispatch(deleteVolume(waterId))
       .unwrap()
       .then(() => {
         toast.success('Successfully deleted!');
-        closeModal(); // Закрываем модал после успешного удаления
+        closeModal();
       })
       .catch(error => {
         toast.error('Error deleting entry!');
