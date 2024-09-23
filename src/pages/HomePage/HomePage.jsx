@@ -4,10 +4,36 @@ import css from './HomePage.module.css';
 import '../../index.css';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+// import { refresh } from '../../redux/auth/operations.js';
+
+const fetchUser = async () => {
+  try {
+    const response = await fetch(
+      // 'https://crystal-coders-back.onrender.com/auth/refresh',
+      'http://localhost:3000/auth/refresh',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    // setUserCount(data.data);
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 const HomePage = () => {
   useEffect(() => {
-    console.log(document.cookie);
+    fetchUser();
+    // console.log('qwe');
+
+    // const selfInvokingFunc = async () => {};
+    // selfInvokingFunc();
   }, []);
 
   return (
