@@ -5,7 +5,15 @@ import { RxTrash } from 'react-icons/rx';
 import css from './WaterItem.module.css';
 import { format } from 'date-fns';
 
-const WaterItem = ({ volume, time }) => {
+const WaterItem = ({ volume, time, onEdit, onDelete   }) => {
+  const handleEditClick = () => {
+    onEdit(volume, time);
+  };
+
+  const handleDeleteClick = () => {
+    onDelete();
+  };
+
   return (
     <>
       <div className={css.iconWrap}>
@@ -16,10 +24,11 @@ const WaterItem = ({ volume, time }) => {
         <span className={css.time}>{format(time, 'H:mm')} AM</span>
       </div>
       <div className={css.control}>
-        <button type="button" className={css.btnIcon}>
+             <button type="button" className={css.btnIcon} onClick={handleEditClick}>
           <FiEdit2 />
         </button>
-        <button type="button" className={css.btnIcon}>
+        <button type="button" className={css.btnIcon} onClick={onDelete}>
+
           <RxTrash />
         </button>
       </div>

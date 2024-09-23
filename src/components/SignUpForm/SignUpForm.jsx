@@ -5,14 +5,13 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-import Logo from 'components/Logo/Logo';
+import Logo from '../../components/Logo/Logo';
 import css from './SignUpForm.module.css';
 import { signUp } from '../../redux/auth/operations';
-import GoogleBtn from 'components/GoogleBtn/GoogleBtn';
+import GoogleBtn from '../../components/GoogleBtn/GoogleBtn';
 import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 
-// Validation Schema
 export const validationSchema = yup.object().shape({
   email: yup
     .string()
@@ -50,15 +49,16 @@ const SignUpForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     const { email, password } = data;
 
     try {
-      // Dispatch the signUp action with the form data
       const response = await dispatch(signUp({ email, password })).unwrap();
 
       if (response.status === 201) {
-        toast.success('Registration successful! Please check your email to verify your account!');
+        toast.success(
+          'Registration successful! Please check your email to verify your account!'
+        );
         setTimeout(() => {
           navigate('/tracker');
         }, 2000);
@@ -81,7 +81,6 @@ const SignUpForm = () => {
       <form className={css.SignUpForm} onSubmit={handleSubmit(onSubmit)}>
         <h2 className={css.SignText}>Sign Up</h2>
 
-        {/* Email Input */}
         <div className={css.inputDiv}>
           <label>Email</label>
           <Controller
@@ -98,7 +97,6 @@ const SignUpForm = () => {
           {errors.email && <p className={css.error}>{errors.email.message}</p>}
         </div>
 
-        {/* Password Input */}
         <div className={css.inputDiv}>
           <label>Password</label>
           <div className={css.wrapPass}>
@@ -110,7 +108,9 @@ const SignUpForm = () => {
                   {...field}
                   type={passwordVisible ? 'text' : 'password'}
                   placeholder="Enter your password"
-                  className={`${css.input} ${errors.password ? css.inputError : ''}`}
+                  className={`${css.input} ${
+                    errors.password ? css.inputError : ''
+                  }`}
                 />
               )}
             />
@@ -127,7 +127,6 @@ const SignUpForm = () => {
           )}
         </div>
 
-        {/* Repeat Password Input */}
         <div className={css.inputDiv}>
           <label>Repeat password</label>
           <div className={css.wrapPass}>
@@ -139,7 +138,9 @@ const SignUpForm = () => {
                   {...field}
                   type={repeatPasswordVisible ? 'text' : 'password'}
                   placeholder="Repeat password"
-                  className={`${css.input} ${errors.repeatPassword ? css.inputError : ''}`}
+                  className={`${css.input} ${
+                    errors.repeatPassword ? css.inputError : ''
+                  }`}
                 />
               )}
             />
@@ -156,12 +157,10 @@ const SignUpForm = () => {
           )}
         </div>
 
-        {/* Submit Button */}
         <button type="submit" className={css.btn}>
           Sign Up
         </button>
 
-        {/* Sign In Link */}
         <p className={css.text}>
           Already have an account?{' '}
           <Link to="/signin" className={css.linkText}>
@@ -169,9 +168,6 @@ const SignUpForm = () => {
           </Link>
         </p>
 
-        <p className={css.text}>or</p>
-
-        {/* Google Sign Up Button */}
         <GoogleBtn />
       </form>
     </div>

@@ -12,6 +12,7 @@
   .SignUpPageContainer {
     flex-direction: row;
     gap: 32px;
+    justify-content: center;
   }
   .advantages {
     display: block;

@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signIn, signUp, logOut, refresh, updateUsersSettings } from './operations.js';
+import {
+  signIn,
+  signUp,
+  logOut,
+  refresh,
+  updateUsersSettings,
+} from './operations.js';
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
@@ -50,7 +56,6 @@ const authSlice = createSlice({
         state.isLoggedIn = false;
       })
       .addCase(signIn.fulfilled, (state, action) => {
-      
         console.log('Payload:', action.payload);
         state.user = action.payload.data.user;
         state.user._id = action.payload.data.user._id;
@@ -107,8 +112,7 @@ const authSlice = createSlice({
         state.user.sportActiveTime = action.payload.time;
         state.user.dailyWater = action.payload.liters;
         state.error = null;
-      })
-      ;
+      });
   },
 });
 

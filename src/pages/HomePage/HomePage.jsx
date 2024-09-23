@@ -1,10 +1,15 @@
-import AdvantatgesSection from 'components/AdvantagesSection/AdvantagesSection';
-import WelcomeSection from 'components/WelcomeSection/WelcomeSection';
+import AdvantatgesSection from '../../components/AdvantagesSection/AdvantagesSection';
+import WelcomeSection from '../../components/WelcomeSection/WelcomeSection';
 import css from './HomePage.module.css';
 import '../../index.css';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 const HomePage = () => {
+  useEffect(() => {
+    console.log(document.cookie);
+  }, []);
+
   return (
     <motion.div
       className={`${css.HomePageContainer} container`}

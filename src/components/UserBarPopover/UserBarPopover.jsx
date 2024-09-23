@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import CSS from './UserBarPopover.module.css';
 import { TbSettings } from 'react-icons/tb';
 import { LuLogOut } from 'react-icons/lu';
-import Modal from 'components/Modal/Modal';
-import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal';
-import LogOutModal from 'components/LogOutModal/LogOutModal';
+import Modal from '../../components/Modal/Modal';
+import UserSettingsModal from '../../components/UserSettingsModal/UserSettingsModal';
+import LogOutModal from '../../components/LogOutModal/LogOutModal';
 
 const UserBarPopover = () => {
   const [modalType, setModalType] = useState(null);
