@@ -1,34 +1,74 @@
 @import '../../index.css';
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .infoContainer {
+  width: 100%;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
   text-align: left;
-  width: 100%;
+  opacity: 1;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.3s;
 }
 
 .logo {
   margin-bottom: 172px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
 }
 
 .formContainer {
   display: grid;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  animation: fadeInRight 1s ease-out forwards;
+  animation-delay: 0.8s;
 }
 
 .title {
   color: var(--dark-blue);
-
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
   line-height: 32px;
   letter-spacing: -0.36px;
   margin-bottom: 32px;
-
-  align-self: stretch;
+  opacity: 0;
+  animation: fadeInRight 1s ease-out forwards;
+  animation-delay: 1s;
 }
 
 .form {
@@ -36,6 +76,9 @@
   flex-direction: column;
   gap: 16px;
   min-width: 256px;
+  opacity: 0;
+  animation: fadeInRight 1s ease-out forwards;
+  animation-delay: 1.2s;
 }
 
 .inputBox {
@@ -67,22 +110,30 @@
   border: 1px solid rgba(47, 47, 47, 0.2);
   width: 100%;
   height: 50px;
-  padding: 16px 16px 16px 16px;
-
+  padding: 16px;
   background: transparent;
-
   color: rgba(47, 47, 47, 0.6);
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.14px;
+  transition: border-color 0.3s ease, background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .input:focus {
-  border-radius: 15px;
-  border: 1px solid rgba(47, 47, 47, 0.2);
+  border-color: var(--accent);
+  background-color: #f0f9f1;
+  color: var(--dark-blue);
 }
+
+.input.error {
+  border: 1px solid #ef5050;
+  background-color: #fdd;
+  color: red;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
 .input.error:hover {
   border: 1px solid #ef5050;
   background-color: #fdd;
@@ -91,9 +142,10 @@
 
 .error {
   color: #ef5050;
-
   font-size: 0.875rem;
   margin-top: 0.1rem;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
 .forgotPassword {
@@ -105,6 +157,16 @@
   line-height: 18px;
   letter-spacing: -0.14px;
   text-decoration-line: underline;
+}
+
+.forgotPassword,
+.signuplink {
+  transition: color 0.3s ease;
+}
+
+.forgotPassword:hover,
+.signuplink:hover {
+  color: #527452;
 }
 
 .wrapPass {
@@ -123,26 +185,30 @@
 .signInBtn {
   display: flex;
   height: 50px;
-  padding: 16px 131px;
-
+  padding: 0.7em 1.7em;
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background: var(--Accent, #9be1a0);
-  white-space: nowrap;
-
   color: var(--dark-blue);
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 18px;
-  letter-spacing: -0.14px;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.5s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background: var(--Accent, #9be1a0);
 }
 
 .signInBtn:hover,
 .signInBtn:focus {
-  cursor: pointer;
   background: #87d28d;
+  box-shadow: 0 0 10px rgba(177, 138, 189, 0.7);
+  cursor: pointer;
+}
+
+.signInBtn:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
 .signupoffer {
@@ -189,13 +255,13 @@
   align-items: center;
   justify-content: center;
 }
+
 .google {
   height: 56px;
   width: 168px;
   background: transparent;
   border: 2px solid rgb(35, 195, 35);
   border-radius: 30px;
-  transition: box-shadow 0.3s ease;
   align-self: center;
 }
 
@@ -203,7 +269,6 @@
 .google:focus {
   cursor: pointer;
   background: #82ea8a;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
 }
 
 @media screen and (min-width: 768px) {
@@ -214,27 +279,21 @@
   }
 
   .logo {
-    margin-bottom: 225px;
+    margin-bottom: 200px;
   }
 
   .formContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   .form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .title {
     font-size: 36px;
     line-height: 38px;
-    justify-content: center;
-    align-items: center;
   }
 
   .label {
@@ -262,7 +321,6 @@
 
   .signInBtn {
     width: 436px;
-    height: 60px;
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
@@ -276,7 +334,6 @@
 
 @media screen and (min-width: 1440px) {
   .infoContainer {
-    width: 672px;
     margin: 0;
     height: 754px;
   }
@@ -316,14 +373,6 @@
   .field {
     font-size: 16px;
     line-height: 24px;
-  }
-
-  .signInBtn {
-    width: 436px;
-    height: 60px;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 700;
   }
 
   .signinpoffer {

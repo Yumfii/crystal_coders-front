@@ -4,7 +4,7 @@ import css from './WaterDetailedInfo.module.css';
 import MonthInfo from '../../components/MonthInfo/MonthInfo';
 
 import UserPanel from '../../components/UserPanel/UserPanel';
-import DailyInfo from '../../components/DailyInfo/DailyInfo';
+import DailyInfo from '../../components/DailyInfo/DailyInfo.jsx';
 
 const WaterDetailedInfo = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());

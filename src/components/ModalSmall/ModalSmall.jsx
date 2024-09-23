@@ -1,29 +1,27 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import './Modal.module.css';
+import './ModalSmall.module.css';
 import { RxCross2 } from 'react-icons/rx';
 
-const Modal = ({ isOpen, onClose, children, size }) => {
-  const [modalWidth, setModalWidth] = useState(size || '343px');
+const ModalSmall = ({ isOpen, onClose, children }) => {
+  const [modalWidth, setModalWidth] = useState('518px');
+
 
   useEffect(() => {
-    if (size) return;
-
-    const updateModalSize = () => {
-      const screenWidth = window.innerWidth;
-      if (screenWidth >= 1440) {
-        setModalWidth('920px');
-      } else if (screenWidth >= 768) {
-        setModalWidth('768px');
+    const handleResize = () => {
+      if (window.innerWidth <= 375) {
+        setModalWidth('343px');
       } else {
-        setModalWidth('375px');
+        setModalWidth('518px');
       }
     };
 
-    updateModalSize();
-    window.addEventListener('resize', updateModalSize);
-    return () => window.removeEventListener('resize', updateModalSize);
-  }, [size]);
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleEsc = event => {
@@ -64,6 +62,7 @@ const Modal = ({ isOpen, onClose, children, size }) => {
     padding: '40px',
     borderRadius: '15px',
     position: 'relative',
+    width: modalWidth,
     maxWidth: '100%',
     maxHeight: '90vh',
     overflowY: 'auto',
@@ -81,35 +80,18 @@ const Modal = ({ isOpen, onClose, children, size }) => {
     transition: 'background-color var(--animation), color var(--animation)',
   };
 
-  // const scrollContainerStyle = {
-  //   borderRadius: '30px',
-  //   background: 'var(--Background, #F0EFF4)',
-  //   position: 'absolute',
-  //   right: '16px',
-  //   top: '266px',
-  //   width: '16px',
-  //   height: 'calc(100% - 266px)',
-  //   overflowY: 'auto',
-  //   scrollbarWidth: 'thin',
-  // };
-
-
-
   return ReactDOM.createPortal(
     <div style={modalBackdropStyle} onClick={handleBackdropClick}>
-
-        <div style={modalContentStyle}>
-          <button style={modalCloseButtonStyle} onClick={onClose}>
-            <RxCross2 size={28} color="black" />
-          </button>
-          {/* <div style={scrollContainerStyle}> */}
-            <div>{children}</div>
-          {/* </div> */}
+      <div style={modalContentStyle}>
+        <button style={modalCloseButtonStyle} onClick={onClose}>
+          <RxCross2 size={28} color="black" />
+        </button>
+        <div>{children}</div>
       </div>
-
     </div>,
     document.body
   );
 };
 
-export default Modal;
+export default ModalSmall;
+

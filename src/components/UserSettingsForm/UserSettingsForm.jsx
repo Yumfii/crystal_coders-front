@@ -96,7 +96,7 @@ const UserSettingsForm = () => {
           dispatch(updateUsersSettings(data));
         })}
       >
-        <div className={CSS.avatarBlock}>
+        <div className={`${CSS.avatarBlock} avatarBlock`}>
           <Image
             className={CSS.avatarImage}
             cloudName="dwyxffoux"
@@ -186,7 +186,7 @@ const UserSettingsForm = () => {
           </div>
 
           <div className={CSS.rightDesktopBlock}>
-            <label htmlFor="weight" className={CSS.inputLabel}>
+            <label htmlFor="weight" className={`${CSS.inputLabel} weight`}>
               Your weight in kilograms:
               <input
                 className={errors.weight ? CSS.errorInput : CSS.textInput}
@@ -201,7 +201,7 @@ const UserSettingsForm = () => {
 
             <label
               htmlFor="time"
-              className={`${CSS.inputLabel} ${CSS.marginLabel}`}
+              className={`${CSS.inputLabel} ${CSS.marginLabel}  sportTime`}
             >
               The time of active participation in sports:
               <input
@@ -215,14 +215,14 @@ const UserSettingsForm = () => {
               )}
             </label>
 
-            <span className={CSS.waterPerDayTitle}>
+            <span className={`${CSS.waterPerDayTitle} waterPerDayTitle`}>
               The required amount of water in liters per day:
               <span className={CSS.litersPerDay}>{calculateLiters()} L</span>
             </span>
 
             <label
               form="liters"
-              className={`${CSS.boldInputLabel} ${CSS.marginLabel}`}
+              className={`${CSS.boldInputLabel} ${CSS.marginLabel} waterToDrink`}
             >
               Write down how much water you will drink:
               <input
@@ -237,7 +237,7 @@ const UserSettingsForm = () => {
             </label>
           </div>
         </div>
-        <input className={CSS.submitBtn} type="submit" value="Save" />
+        <input className={`${CSS.submitBtn} submitBtn`} type="submit" value="Save" />
       </form>
     </div>
   );

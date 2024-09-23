@@ -1,4 +1,4 @@
-
+import React from 'react';
 import css from './AddWaterBtn.module.css';
 import { GoPlus } from 'react-icons/go';
 
@@ -7,8 +7,8 @@ const AddWaterBtn = ({ variant, onClick }) => {
 
   const styleBtn =
     variant === 'primary'
-      ? css.addWaterBtnMainInfo
-      : css.addWaterBtnDetailedInfo;
+    ? `${css.addWaterBtnMainInfo} addWaterBtnMainInfo`  // added a global class here for the tour
+    : `${css.addWaterBtnDetailedInfo} addWaterBtnDetailedInfo`; // added a global class for the tour
 
   const styleIcon =
     variant === 'primary' ? css.iconPrimaryBtn : css.iconSecondaryBtn;

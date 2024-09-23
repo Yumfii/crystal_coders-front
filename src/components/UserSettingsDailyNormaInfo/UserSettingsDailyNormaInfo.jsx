@@ -5,7 +5,7 @@ import { BsExclamationLg } from "react-icons/bs";
 
 const UserSettingsDailyNormaInfo = () => {
   return (
-    <div className={CSS.dailyNormaBlock}>
+    <div className={`${CSS.dailyNormaBlock} dailyNormaBlock`}>
           <span className={CSS.dailyNormaTitle}>
               My daily norma
           </span>

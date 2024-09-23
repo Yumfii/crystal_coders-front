@@ -16,8 +16,10 @@ const UserBar = () => {
   };
 
   return (
-    <div className={CSS.userBar}>
-      <button type="button" className={CSS.userBtn} onClick={handleToggle}>
+    <div className={`${CSS.userBar} userBar`}>
+
+      <button type='button' className={CSS.userBtn}
+        onClick={handleToggle}>
         <span className={CSS.userBtnName}>{user.name}</span>
         <Image
           className={CSS.avatarImage}

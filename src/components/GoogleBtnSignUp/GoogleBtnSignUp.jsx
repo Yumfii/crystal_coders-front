@@ -1,8 +1,8 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import css from './GoogleBtn.module.css';
+import css from './GoogleBtnSignUp.module.css';
 
-const GoogleBtn = () => {
+const GoogleBtnSignUp = () => {
   const handleGoogleLogin = () => {
     window.location.href =
       'https://crystal-coders-back.onrender.com/auth/get-oauth-url?callback=https://crystal-coders-front.vercel.app/confirm-google-auth';
@@ -13,9 +13,9 @@ const GoogleBtn = () => {
       <div className={css.icon}>
         <FcGoogle />
       </div>
-      <p>Sign in with Google</p>
+      <p>Sign up with Google</p>
     </button>
   );
 };
 
-export default GoogleBtn;
+export default GoogleBtnSignUp;

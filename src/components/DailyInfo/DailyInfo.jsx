@@ -1,17 +1,35 @@
-import React from 'react';
-import css from './DailyInfo.module.css';
 import AddWaterBtn from '../../components/AddWaterBtn/AddWaterBtn';
-import WaterList from '../../components/WaterList/WaterList';
 import ChooseDate from '../../components/ChooseDate/ChooseDate';
+import WaterList from '../../components/WaterList/WaterList';
+import css from './DailyInfo.module.css';
+import React, { useState } from 'react';
+import ModalSmall from '../../components/ModalSmall/ModalSmall';
+import WaterModal from '../../components/WaterModal/WaterModal';
 
 const DailyInfo = ({ selectedDate }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
   return (
-    <div>
+    <div  className={`${css.dailyInfo} dailyInfo`}>
       <div className={css.wrapper}>
         <ChooseDate selectedDate={selectedDate} />
-        <AddWaterBtn variant="secondary" />
+        <AddWaterBtn variant="secondary" onClick={handleOpenModal} />
       </div>
       <WaterList />
+
+      {isModalOpen && (
+        <ModalSmall isOpen={isModalOpen} onClose={handleCloseModal}>
+          <WaterModal operationType="add" onClose={handleCloseModal} />
+        </ModalSmall>
+      )}
     </div>
   );
 };

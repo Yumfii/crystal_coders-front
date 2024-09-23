@@ -1,7 +1,7 @@
 import React from 'react';
 import WaterForm from '../WaterForm/WaterForm';
 
-const WaterModal = ({ onClose, operationType }) => {
+const WaterModal = ({ onClose, operationType, editData, onAfterAction }) => {
   const title = operationType === 'edit' ? 'Edit the entered amount of water' : 'Add water';
 
   const modalTitleStyle = {
@@ -21,13 +21,33 @@ const WaterModal = ({ onClose, operationType }) => {
     }),
   };
 
+  const handleFormSubmit = (data) => {
+    // Assuming you have an action to handle the create/update operation
+    const action = operationType === 'edit' ? updateVolume : createVolume;
+
+    dispatch(action(data))
+      .unwrap()
+      .then(() => {
+        onAfterAction(); // Refresh the water list after successful submission
+        onClose(); // Close the modal
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  };
+
   return (
     <div>
-          <h2 style={modalTitleStyle}>{title}</h2>
+      <h2 style={modalTitleStyle}>{title}</h2>
       <div>
-        <WaterForm mode={operationType} onClose={onClose} />
+        <WaterForm
+          mode={operationType}
+          onClose={onClose}
+          initialData={editData}
+          onSubmit={handleFormSubmit} // Pass the handleFormSubmit to WaterForm
+        />
       </div>
-   </div>
+    </div>
   );
 };
 
