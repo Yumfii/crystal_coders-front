@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.module.css';
 import { RxCross2 } from 'react-icons/rx';
@@ -64,7 +64,6 @@ const Modal = ({ isOpen, onClose, children, size }) => {
     padding: '40px',
     borderRadius: '15px',
     position: 'relative',
-    width: modalWidth,
     maxWidth: '100%',
     maxHeight: '90vh',
     overflowY: 'auto',
@@ -94,16 +93,20 @@ const Modal = ({ isOpen, onClose, children, size }) => {
   //   scrollbarWidth: 'thin',
   // };
 
+
+
   return ReactDOM.createPortal(
     <div style={modalBackdropStyle} onClick={handleBackdropClick}>
-      <div style={modalContentStyle}>
-        <button style={modalCloseButtonStyle} onClick={onClose}>
-          <RxCross2 size={28} color="black" />
-        </button>
-        {/* <div style={scrollContainerStyle}> */}
-          <div>{children}</div>
-        {/* </div> */}
+
+        <div style={modalContentStyle}>
+          <button style={modalCloseButtonStyle} onClick={onClose}>
+            <RxCross2 size={28} color="black" />
+          </button>
+          {/* <div style={scrollContainerStyle}> */}
+            <div>{children}</div>
+          {/* </div> */}
       </div>
+
     </div>,
     document.body
   );
