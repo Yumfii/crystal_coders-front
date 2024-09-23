@@ -16,19 +16,21 @@ const WaterList = ({ userId }) => {
   useEffect(() => {
     const fetchWaterData = async () => {
       const today = new Date();
-      const dateString = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+      const dateString = today.toISOString().split('T')[0];
 
       try {
-        const response = await axios.get(`https://crystal-coders-back.onrender.com/water/consumption/day`, {
+        const response = await axios.post(`https://crystal-coders-back.onrender.com/water/consumption/day`, null, {
           params: {
             userId,
             date: dateString,
           },
         });
 
-        setWaterData(response.data.data); // Assuming your backend returns an array of water entries
+        if (response.data) {
+          setWaterData(response.data.volumes || []); // Используем volumes
+        }
       } catch (error) {
-        console.error('Error fetching water data:', error);
+        console.error('Error fetching water consumption data:', error);
       }
     };
 
@@ -58,11 +60,15 @@ const WaterList = ({ userId }) => {
   return (
     <div>
       <ul className={css.list}>
-        {waterData.map(({ _id, volume, time }) => (
-          <li key={_id} className={css.item}>
-            <WaterItem volume={volume} time={time} onEdit={handleOpenEditModal} onDelete={() => handleOpenDeleteModal(_id)} />
-          </li>
-        ))}
+        {waterData.length === 0 ? (
+          <li>No water consumption data found for this date.</li>
+        ) : (
+          waterData.map(({ _id, volume, time }) => (
+            <li key={_id} className={css.item}>
+              <WaterItem volume={volume} time={time} onEdit={handleOpenEditModal} onDelete={() => handleOpenDeleteModal(_id)} />
+            </li>
+          ))
+        )}
       </ul>
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
