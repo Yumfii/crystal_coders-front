@@ -113,9 +113,7 @@
 .GoogleHomePage {
   width: 230px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-start;
 }
 
 /* Tablet */
@@ -166,9 +164,6 @@
   .GoogleHomePage {
     width: 320px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
   }
 }
 
