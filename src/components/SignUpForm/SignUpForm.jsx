@@ -8,7 +8,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Logo from '../../components/Logo/Logo';
 import css from './SignUpForm.module.css';
 import { signUp } from '../../redux/auth/operations';
-import GoogleBtn from '../../components/GoogleBtn/GoogleBtn';
+import GoogleBtnSignUp from '../../components/GoogleBtnSignUp/GoogleBtnSignUp';
 import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 
@@ -168,7 +168,7 @@ const SignUpForm = () => {
           </Link>
         </p>
 
-        <GoogleBtn />
+        <GoogleBtnSignUp />
       </form>
     </div>
   );
