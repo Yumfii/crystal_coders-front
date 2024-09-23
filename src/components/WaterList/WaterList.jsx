@@ -26,7 +26,7 @@ const WaterList = ({ userId }) => {
           },
         });
 
-        setWaterData(response.data); // Assuming your backend returns an array of water entries
+        setWaterData(response.data.data); // Assuming your backend returns an array of water entries
       } catch (error) {
         console.error('Error fetching water data:', error);
       }
