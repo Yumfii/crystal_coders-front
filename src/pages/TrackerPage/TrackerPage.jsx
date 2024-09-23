@@ -45,8 +45,9 @@ const TrackerPage = () => {
     <div className={css.container}>
       <WaterMainInfo />
       <WaterDetailedInfo />
-      <AddWaterBtn variant="primary" onTourComplete={handleTourComplete} />
-      <button onClick={handleStartTour}>Learn how to use the tracker</button>
+
+
+      {/* <button onClick={handleStartTour}>Learn how to use the tracker</button> */}
     </div>
   );
 };

@@ -4,6 +4,7 @@
   padding: 24px 0;
   margin-bottom: 43px;
   overflow-x: scroll;
+
 }
 
 .list::-webkit-scrollbar {
@@ -21,7 +22,7 @@
   border-radius: 10px;
 }
 
-.item {
+/* .item {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -29,14 +30,14 @@
   border-radius: 15px;
   background: #fff;
   backdrop-filter: blur(16.799999237060547px);
-}
+} */
 
 @media screen and (min-width: 768px) {
   .list {
     gap: 32px;
   }
-  .item {
+  /* .item {
     gap: 20px;
     padding: 20px;
-  }
+  } */
 }

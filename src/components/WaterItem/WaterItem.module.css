@@ -1,3 +1,16 @@
+.waterItem {
+  justify-content: space-between;
+ min-width: 180px;
+  flex-grow: 1;
+  display: flex;
+  padding: 18px 14px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 15px;
+  background: var(--white);
+  backdrop-filter: blur(16.799999237060547px);
+}
+
 .iconWrap {
   display: flex;
   justify-content: center;
@@ -12,12 +25,16 @@
 .information {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 51px;
-  text-align: center;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+
 }
 
 .volume {
+  width:100%;
+  display: block;
+
   margin-bottom: 6px;
   color: var(--dark-blue);
   font-size: 14px;
@@ -26,6 +43,8 @@
 }
 
 .time {
+  width:100%;
+  display: block;
   color: rgba(47, 47, 47, 0.6);
   font-size: 12px;
   font-weight: 400;
@@ -39,11 +58,17 @@
 }
 
 .btnIcon {
+
   background-color: transparent;
   cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
+  .waterItem {
+    min-width: 210px;
+    padding: 20px;
+    gap: 20px;
+  }
   .iconGlass {
     width: 44px;
     height: 45px;
@@ -56,4 +81,3 @@
     line-height: 1.9;
   }
 }
-

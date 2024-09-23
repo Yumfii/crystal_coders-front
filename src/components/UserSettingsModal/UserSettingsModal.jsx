@@ -16,7 +16,7 @@ const UserSettingsModal = () => {
     <div className={CSS.modalContainer}>
       <h2 className={CSS.settingsHeader}>Settings</h2>
       <UserSettingsForm onTourComplete={handleTourComplete} />
-      <button onClick={handleStartTour}>How to change settings</button>
+      {/* <button onClick={handleStartTour}>How to change settings</button> */}
     </div>
   );
 };
