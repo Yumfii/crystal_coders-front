@@ -2,7 +2,7 @@ import Modal from '../Modal/Modal';
 import { useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import clsx from 'clsx';
-import { deleteWater } from '../../redux/water/operations';
+import { deleteVolume } from '../../redux/water/operations';
 import css from './DeleteWaterModal.module.css';
 
 const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
@@ -11,7 +11,7 @@ const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
   if (!modalIsOpen) return null;
 
   const handleClick = () => {
-    dispatch(deleteWater(waterId))
+    dispatch(deleteVolume(waterId))
       .unwrap()
       .then(() => {
         toast.success('Successfully deleted!');
