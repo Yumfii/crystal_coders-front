@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://crystal-coders-back.onrender.com/';
-// axios.defaults.baseURL = 'http://localhost:3000/';
+// axios.defaults.baseURL = 'https://crystal-coders-back.onrender.com/';
+axios.defaults.baseURL = 'http://localhost:3000/';
 
 const setAuthHeader = token => {
   if (token) {
@@ -84,6 +84,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 });
 
 export const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
+  console.log('qwe');
   try {
     const { data } = await axios.post(
       'auth/refresh',
@@ -118,6 +119,93 @@ export const updateUsersSettings = createAsyncThunk(
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+// ==========================================================================
+
+// export const fetchUser = async () => {
+//   try {
+//     const response = await fetch(
+//       // 'https://crystal-coders-back.onrender.com/auth/refresh',
+//       'http://localhost:3000/auth/refresh',
+//       {
+//         method: 'POST',
+//         // headers: {
+//         //   'Content-Type': 'application/json',
+//         //   Authorization: 'Bearer ' + this.accessToken,
+//         // },
+//         headers: new Headers({
+//           'Content-Type': 'application/json',
+//         }),
+//         credentials: 'include',
+//       }
+//     );
+//     const { data } = await response.json();
+//     return data;
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+
+// export const getUserById = async (userId, accessToken) => {
+//   try {
+//     const response = await fetch(
+//       // `https://crystal-coders-back.onrender.com/users/${userId}`,
+//       `http://localhost:3000/users/${userId}`,
+//       {
+//         method: 'GET',
+//         headers: new Headers({
+//           'Content-Type': 'application/json',
+//           Authorization: 'Bearer ' + accessToken,
+//         }),
+//         credentials: 'include',
+//       }
+//     );
+//     const { data } = await response.json();
+//     return data;
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+
+export const fetchUser = createAsyncThunk(
+  'auth/fetchUser',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.post(
+        '/auth/refresh',
+        {},
+        { withCredentials: true }
+      );
+      // console.log(response.data.data.accessToken);
+      setAuthHeader(response.data.data.accessToken);
+      return response.data;
+    } catch (err) {
+      console.log(thunkAPI.getState());
+      return thunkAPI.rejectWithValue(err.response.data);
+    }
+  }
+);
+
+export const getUserById = createAsyncThunk(
+  'auth/getUserById',
+  async ({ userId, accessToken }, thunkAPI) => {
+    try {
+      const response = await axios.get(`/users/${userId}`, {
+        // headers: {
+        //   Authorization: `Bearer ${accessToken}`,
+        // },
+        withCredentials: true,
+      });
+
+      return {
+        data: response.data,
+        accessToken,
+      };
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data);
     }
   }
 );
