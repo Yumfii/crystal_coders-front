@@ -1,4 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const BASE_URL = 'https://crystal-coders-back.onrender.com';
@@ -7,12 +7,21 @@ export const createVolume = createAsyncThunk(
   'water/createVolume',
   async data => {
     const token = localStorage.getItem('authToken');
-    const response = await axios.post(`${BASE_URL}/water`, data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
+    if (!token) {
+      throw new Error('No authentication token found. Please log in.');
+    }
+
+    try {
+      const response = await axios.post(`${BASE_URL}/water`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }
 );
 
@@ -38,8 +47,6 @@ export const deleteVolume = createAsyncThunk('water/deleteVolume', async id => {
   });
   return response.data;
 });
-
-export const deleteWater = deleteVolume;
 
 export const fetchVolumes = createAsyncThunk('water/fetchVolumes', async () => {
   const token = localStorage.getItem('authToken');
