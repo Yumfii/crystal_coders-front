@@ -55,6 +55,10 @@ const WaterList = ({ userId }) => {
     setEditData(null);
   };
 
+  const handleAfterAction = () => {
+    fetchWaterData(); // Re-fetch water data after any action
+  };
+
   return (
     <div>
       <ul className={css.list}>
@@ -63,14 +67,24 @@ const WaterList = ({ userId }) => {
         ) : (
           waterData.map(({ _id, volume, time }) => (
             <li key={_id} className={css.item}>
-              <WaterItem volume={volume} time={time} onEdit={handleOpenEditModal} onDelete={() => handleOpenDeleteModal(_id)} />
+              <WaterItem
+                volume={volume}
+                time={time}
+                onEdit={handleOpenEditModal}
+                onDelete={() => handleOpenDeleteModal(_id)}
+              />
             </li>
           ))
         )}
       </ul>
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-          <WaterModal operationType="edit" onClose={handleCloseModal} editData={editData} />
+          <WaterModal
+            operationType="edit"
+            onClose={handleCloseModal}
+            editData={editData}
+            onAfterAction={handleAfterAction} // Pass function to modal
+          />
         </Modal>
       )}
       {isDeleteModalOpen && (
@@ -79,6 +93,7 @@ const WaterList = ({ userId }) => {
             modalIsOpen={isDeleteModalOpen}
             closeModal={handleCloseDeleteModal}
             waterId={deleteId}
+            onAfterAction={handleAfterAction} // Pass function to modal
           />
         </Modal>
       )}

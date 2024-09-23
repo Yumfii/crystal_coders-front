@@ -8,7 +8,7 @@ import './WaterForm.module.css';
 
 const baseURL = 'https://crystal-coders-back.onrender.com';
 
-const WaterForm = ({ onClose }) => {
+const WaterForm = ({ onClose, onAfterAction }) => {
   const [waterAmount, setWaterAmount] = useState(50);
   const [time, setTime] = useState(new Date().toISOString().substring(11, 16));
 
@@ -73,6 +73,7 @@ const WaterForm = ({ onClose }) => {
       }
 
       toast.success('Water entry saved successfully!');
+      onAfterAction(); // Call this to refresh the water list
       onClose();
     } catch (error) {
       toast.error(`Error: ${error.message}`);
