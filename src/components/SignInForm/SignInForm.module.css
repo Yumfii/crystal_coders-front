@@ -118,6 +118,8 @@
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.14px;
+  transition: border-color 0.3s ease, background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .input:focus {
@@ -158,7 +160,13 @@
   text-decoration-line: underline;
 }
 
-.forgotPassword:hover, .signuplink:hover {
+.forgotPassword,
+.signuplink {
+  transition: color 0.3s ease;
+}
+
+.forgotPassword:hover,
+.signuplink:hover {
   color: #527452;
 }
 
@@ -178,14 +186,19 @@
 .signInBtn {
   display: flex;
   height: 50px;
-  padding: 16px 131px;
+  padding: 0.7em 1.7em;
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background: var(--Accent, #9be1a0);
   color: var(--dark-blue);
   font-size: 14px;
   font-weight: 700;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.5s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+   background: var(--Accent, #9be1a0);
 }
 
 .signInBtn:hover,
@@ -193,7 +206,10 @@
   background: #87d28d;
   box-shadow: 0 0 10px rgba(177, 138, 189, 0.7);
   cursor: pointer;
+}
 
+.signInBtn:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
 .signupoffer {

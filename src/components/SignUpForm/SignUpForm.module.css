@@ -139,15 +139,29 @@
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background: var(--Accent, #9be1a0);
-  color: var(--dark-blue);
   font-size: 14px;
   font-weight: 700;
+  padding: 0.7em 1.7em;
+  color: var(--dark-blue);
+  background-color: var(--Accent, #9be1a0);
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.5s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background: var(--Accent, #9be1a0);
   transition: background-color 0.3s ease;
 }
 
 .btn:hover,
 .btn:focus {
+  background-color: var(--light-green-hover);
+  box-shadow: 0 0 10px rgba(177, 138, 189, 0.7);
+  cursor: pointer;
+}
+
+.btn:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
   background: #87d28d;
   cursor: pointer;
 }
