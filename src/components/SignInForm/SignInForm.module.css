@@ -107,7 +107,8 @@
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.14px;
-  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .input:focus {
@@ -148,11 +149,13 @@
   text-decoration-line: underline;
 }
 
-.forgotPassword, .signuplink {
+.forgotPassword,
+.signuplink {
   transition: color 0.3s ease;
 }
 
-.forgotPassword:hover, .signuplink:hover {
+.forgotPassword:hover,
+.signuplink:hover {
   color: #527452;
 }
 
@@ -189,7 +192,6 @@
   background: #87d28d;
   box-shadow: 0 0 10px rgba(177, 138, 189, 0.7);
   cursor: pointer;
-
 }
 
 .signupoffer {
