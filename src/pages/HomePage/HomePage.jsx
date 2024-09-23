@@ -4,38 +4,32 @@ import css from './HomePage.module.css';
 import '../../index.css';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchUser, getUserById } from '../../redux/auth/operations.js';
 // import { refresh } from '../../redux/auth/operations.js';
 
-const fetchUser = async () => {
-  try {
-    const response = await fetch(
-      // 'https://crystal-coders-back.onrender.com/auth/refresh',
-      'http://localhost:3000/auth/refresh',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      }
-    );
-    const data = await response.json();
-    console.log(data);
-    // setUserCount(data.data);
-  } catch (err) {
-    console.error(err);
-  }
-};
-
 const HomePage = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetchUser();
-    // console.log('qwe');
+    const restoreSession = async () => {
+      try {
+        const session = await dispatch(fetchUser()).unwrap();
 
-    // const selfInvokingFunc = async () => {};
-    // selfInvokingFunc();
-  }, []);
+        if (session) {
+          await dispatch(
+            getUserById({
+              userId: session.data.userId,
+              accessToken: session.data.accessToken,
+            })
+          ).unwrap();
+        }
+      } catch (error) {
+        console.error('Error restoring session:', error);
+      }
+    };
 
+    restoreSession();
+  }, [dispatch]);
   return (
     <motion.div
       className={`${css.HomePageContainer} container`}
