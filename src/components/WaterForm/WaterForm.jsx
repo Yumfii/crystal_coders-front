@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import toast, { Toaster } from 'react-hot-toast';
@@ -8,12 +8,12 @@ import './WaterForm.module.css';
 
 const baseURL = 'https://crystal-coders-back.onrender.com';
 
-const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
+const WaterForm = ({ onClose, onAfterAction }) => {
   const [waterAmount, setWaterAmount] = useState(50);
   const [time, setTime] = useState(new Date().toISOString().substring(11, 16));
 
   const schema = Yup.object().shape({
-    amount: Yup.number()
+    volume: Yup.number()
       .required('Amount of water is required')
       .min(50, 'Amount must be at least 50ml')
       .max(5000, 'Amount cannot exceed 5000ml'),
@@ -28,60 +28,52 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      amount: waterAmount,
+      volume: waterAmount,
       time: time,
     },
   });
 
-  useEffect(() => {
-    if (mode === 'edit' && initialData) {
-      fetch(`${baseURL}/water/${initialData.id}`)
-        .then(response => response.json())
-        .then(data => {
-          setValue('amount', data.amount);
-          setValue('time', data.time);
-          setWaterAmount(data.amount);
-          setTime(data.time);
-        })
-        .catch(error => {
-          toast.error(`Error fetching data: ${error.message}`);
-        });
-    }
-  }, [mode, initialData, setValue]);
-
   const incrementWater = () => {
     setWaterAmount(prevAmount => Math.min(prevAmount + 50, 5000));
-    setValue('amount', Math.min(waterAmount + 50, 5000));
+    setValue('volume', Math.min(waterAmount + 50, 5000));
   };
 
   const decrementWater = () => {
     setWaterAmount(prevAmount => Math.max(prevAmount - 50, 50));
-    setValue('amount', Math.max(waterAmount - 50, 50));
+    setValue('volume', Math.max(waterAmount - 50, 50));
   };
 
   const handleManualInputChange = e => {
     const newAmount = Number(e.target.value);
     if (newAmount >= 50 && newAmount <= 5000) {
       setWaterAmount(newAmount);
-      setValue('amount', newAmount);
+      setValue('volume', newAmount);
     }
   };
 
   const onSubmit = async data => {
     try {
-      const url = mode === 'edit' ? `${baseURL}/water/${initialData.id}` : `${baseURL}/water`;
-      const method = mode === 'edit' ? 'PUT' : 'POST';
-      data.amount = waterAmount;
+      const token = localStorage.getItem('authToken');
 
-      await fetch(url, {
-        method: method,
+      const response = await fetch(`${baseURL}/water`, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          volume: waterAmount,
+          time: data.time,
+        }),
       });
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || response.statusText);
+      }
+
       toast.success('Water entry saved successfully!');
+      onAfterAction(); // Call this to refresh the water list
       onClose();
     } catch (error) {
       toast.error(`Error: ${error.message}`);
@@ -92,7 +84,7 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
     <form onSubmit={handleSubmit(onSubmit)} className="water-form">
       <Toaster position="top-right" reverseOrder={false} />
       <h3 style={{ marginBottom: 20 }} className="title">
-        {mode === 'edit' ? 'Correct entered data' : 'Choose a value'}
+        Choose a value
       </h3>
 
       <div className="form-group">
@@ -111,7 +103,7 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
             <AiOutlinePlusCircle style={{ color: '#555555', fontSize: '43px', cursor: 'pointer', transition: 'color 0.3s' }} />
           </button>
         </div>
-        {errors.amount && <p className="error-message">{errors.amount.message}</p>}
+        {errors.volume && <p className="error-message">{errors.volume.message}</p>}
       </div>
 
       <div className="form-group">
@@ -135,7 +127,7 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
       <div className="form-group">
         <input
           className="input"
-          {...register('amount')}
+          {...register('volume')}
           type="number"
           value={waterAmount}
           onChange={handleManualInputChange}
@@ -144,7 +136,7 @@ const WaterForm = ({ mode = 'add', initialData = null, onClose }) => {
           max="5000"
           step="1"
         />
-        {errors.amount && <p className="error-message">{errors.amount.message}</p>}
+        {errors.volume && <p className="error-message">{errors.volume.message}</p>}
       </div>
 
       <button

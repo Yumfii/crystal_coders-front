@@ -1,20 +1,22 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import clsx from 'clsx';
-import { deleteWater } from '../../redux/water/operations';
+import { deleteVolume } from '../../redux/water/operations';
 import css from './DeleteWaterModal.module.css';
 
-const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
+const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId, onAfterAction }) => {
   const dispatch = useDispatch();
 
-//   if (!modalIsOpen) return null;
+  if (!modalIsOpen) return null;
 
   const handleClick = () => {
-    dispatch(deleteWater(waterId))
+    dispatch(deleteVolume(waterId))
       .unwrap()
       .then(() => {
         toast.success('Successfully deleted!');
-        closeModal(); // Закрываем модал после успешного удаления
+        onAfterAction(); // Call the function to update the list
+        closeModal(); // Close modal after successful deletion
       })
       .catch(error => {
         toast.error('Error deleting entry!');

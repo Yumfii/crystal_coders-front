@@ -13,25 +13,29 @@ const WaterList = ({ userId }) => {
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
 
+  const fetchWaterData = async () => {
+    try {
+      const token = localStorage.getItem('authToken');
+console.log('Auth Token:', token);
+if (!token) {
+    console.error('No authentication token found. Please log in.');
+    return;
+}
+
+      const response = await axios.get('https://crystal-coders-back.onrender.com/water', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const fetchedData = response.data.data.data || [];
+      setWaterData(fetchedData);
+    } catch (error) {
+      console.error('Error fetching water consumption data:', error.response ? error.response.data : error);
+    }
+  };
+
   useEffect(() => {
-    const fetchWaterData = async () => {
-      const today = new Date();
-      const dateString = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
-
-      try {
-        const response = await axios.get(`https://crystal-coders-back.onrender.com/water/consumption/day`, {
-          params: {
-            userId,
-            date: dateString,
-          },
-        });
-
-        setWaterData(response.data); // Assuming your backend returns an array of water entries
-      } catch (error) {
-        console.error('Error fetching water data:', error);
-      }
-    };
-
     fetchWaterData();
   }, [userId]);
 
@@ -55,18 +59,36 @@ const WaterList = ({ userId }) => {
     setEditData(null);
   };
 
+  const handleAfterAction = () => {
+    fetchWaterData(); // Re-fetch water data after any action
+  };
+
   return (
     <div>
       <ul className={css.list}>
-        {waterData.map(({ _id, volume, time }) => (
-          <li key={_id} className={css.item}>
-            <WaterItem volume={volume} time={time} onEdit={handleOpenEditModal} onDelete={() => handleOpenDeleteModal(_id)} />
-          </li>
-        ))}
+        {waterData.length === 0 ? (
+          <li>No water consumption data found.</li>
+        ) : (
+          waterData.map(({ _id, volume, time }) => (
+            <li key={_id} className={css.item}>
+              <WaterItem
+                volume={volume}
+                time={time}
+                onEdit={handleOpenEditModal}
+                onDelete={() => handleOpenDeleteModal(_id)}
+              />
+            </li>
+          ))
+        )}
       </ul>
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-          <WaterModal operationType="edit" onClose={handleCloseModal} editData={editData} />
+          <WaterModal
+            operationType="edit"
+            onClose={handleCloseModal}
+            editData={editData}
+            onAfterAction={handleAfterAction}
+          />
         </Modal>
       )}
       {isDeleteModalOpen && (
@@ -75,6 +97,7 @@ const WaterList = ({ userId }) => {
             modalIsOpen={isDeleteModalOpen}
             closeModal={handleCloseDeleteModal}
             waterId={deleteId}
+            onAfterAction={handleAfterAction} // Pass function to modal
           />
         </Modal>
       )}
