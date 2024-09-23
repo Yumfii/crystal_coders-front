@@ -123,6 +123,7 @@
   .welcome {
     min-width: 704px;
     padding: 32px;
+    min-height: 498px;
   }
 
   .subheader {
