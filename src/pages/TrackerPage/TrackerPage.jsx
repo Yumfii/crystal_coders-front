@@ -7,30 +7,30 @@ import { useTour } from '@reactour/tour';
 import { steps } from 'components/steps';
 
 const TrackerPage = () => {
-  const { setIsOpen, setSteps } = useTour();
+  const { setIsOpen, setSteps, close } = useTour();
 
   useEffect(() => {
-
     setSteps(steps);
     const hasSeenTrackerTour = localStorage.getItem('hasSeenTrackerTour');
     if (!hasSeenTrackerTour) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setIsOpen(true);
       }, 500);
+
+      return () => clearTimeout(timer);
     }
-
-
-    return () => {
-
-      localStorage.removeItem('hasSeenTrackerTour');
-    };
   }, [setIsOpen, setSteps]);
+
+  const handleTourComplete = () => {
+    localStorage.setItem('hasSeenTrackerTour', 'true');
+    close();
+  };
 
   return (
     <div className={css.container}>
       <WaterMainInfo />
       <WaterDetailedInfo />
-      <AddWaterBtn variant="primary" />
+      <AddWaterBtn variant="primary" onTourComplete={handleTourComplete} />
     </div>
   );
 };

@@ -5,29 +5,29 @@ import { useTour } from '@reactour/tour';
 import { stepsModal } from 'components/stepsModal';
 
 const UserSettingsModal = () => {
-  const { setIsOpen, setSteps } = useTour();
+  const { setIsOpen, setSteps, close } = useTour();
 
   useEffect(() => {
-
     setSteps(stepsModal);
-
     const hasSeenModalTour = localStorage.getItem('hasSeenModalTour');
     if (!hasSeenModalTour) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setIsOpen(true);
       }, 500);
+
+      return () => clearTimeout(timer);
     }
-
-
-    return () => {
-      localStorage.removeItem('hasSeenModalTour');
-    };
   }, [setIsOpen, setSteps]);
+
+  const handleTourComplete = () => {
+    localStorage.setItem('hasSeenModalTour', 'true');
+    close();
+  };
 
   return (
     <div className={CSS.modalContainer}>
       <h2 className={CSS.settingsHeader}>Settings</h2>
-      <UserSettingsForm />
+      <UserSettingsForm  onTourComplete={handleTourComplete}/>
     </div>
   );
 };
