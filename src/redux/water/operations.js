@@ -1,74 +1,93 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const axiosInstance = axios.create({
-  baseURL: 'https://crystal-coders-back.onrender.com',
+const BASE_URL = 'https://crystal-coders-back.onrender.com';
+
+export const createVolume = createAsyncThunk(
+  'water/createVolume',
+  async data => {
+    const token = localStorage.getItem('authToken');
+    const response = await axios.post(`${BASE_URL}/water`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+);
+
+export const updateVolume = createAsyncThunk(
+  'water/updateVolume',
+  async ({ id, data }) => {
+    const token = localStorage.getItem('authToken');
+    const response = await axios.put(`${BASE_URL}/water/${id}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+);
+
+export const deleteVolume = createAsyncThunk('water/deleteVolume', async id => {
+  const token = localStorage.getItem('authToken');
+  const response = await axios.delete(`${BASE_URL}/water/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
 });
 
-axiosInstance.interceptors.request.use(
-  config => {
+export const deleteWater = deleteVolume;
+
+export const fetchVolumes = createAsyncThunk('water/fetchVolumes', async () => {
+  const token = localStorage.getItem('authToken');
+  const response = await axios.get(`${BASE_URL}/water`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+});
+
+export const fetchVolumeById = createAsyncThunk(
+  'water/fetchVolumeById',
+  async id => {
     const token = localStorage.getItem('authToken');
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
-    }
-    return config;
-  },
-  error => {
-    return Promise.reject(error);
-  }
-);
-
-export const addWaterEntry = createAsyncThunk(
-  'water/addWaterEntry',
-  async (data) => {
-    const response = await axiosInstance.post('/water', data);
+    const response = await axios.get(`${BASE_URL}/water/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   }
 );
 
-export const updateWaterEntry = createAsyncThunk(
-  'water/updateWaterEntry',
-  async ({ id, data }) => {
-    const response = await axiosInstance.put(`/water/${id}`, data);
+export const fetchWaterConsumptionForMonth = createAsyncThunk(
+  'water/fetchWaterConsumptionForMonth',
+  async month => {
+    const token = localStorage.getItem('authToken');
+    const response = await axios.get(`${BASE_URL}/water/consumption/month`, {
+      params: { month },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   }
 );
 
-export const fetchWaterEntry = createAsyncThunk(
-  'water/fetchWaterEntry',
-  async (id) => {
-    const response = await axiosInstance.get(`/water/${id}`);
+export const fetchWaterConsumptionForDay = createAsyncThunk(
+  'water/fetchWaterConsumptionForDay',
+  async day => {
+    const token = localStorage.getItem('authToken');
+    const response = await axios.get(`${BASE_URL}/water/consumption/day`, {
+      params: { day },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   }
 );
-
-export const fetchWaterListDaily = createAsyncThunk(
-  'water/perDay',
-  async ({ date }, thunkAPI) => {
-    try {
-      const response = await axios.get(`/water/perDay`, {
-        params: {
-          day: date,
-        },
-      });
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
-
-export const deleteWater = createAsyncThunk(
-  'water/deleteWater',
-  async (id, thunkAPI) => {
-    try {
-      const response = await axios.delete(`/water/${id}`);
-      console.log(response);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export default axiosInstance;
