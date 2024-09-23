@@ -79,11 +79,25 @@
   padding: 14px 20px;
   background: var(--light-green);
   color: (var--dark-blue);
+  padding: 0.7em 1.7em;
+  color: var(--dark-blue);
+  background-color: var(--Accent, #9be1a0);
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.5s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .signup:hover,
 .signup:focus {
-  background: var(--light-green-hover);
+  background-color: var(--light-green-hover);
+  box-shadow: 0 0 10px rgba(177, 138, 189, 0.7);
+  cursor: pointer;
+}
+
+.signup:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
 .signup:disabled {
@@ -96,12 +110,22 @@
   padding: 14px 28px;
   border: 1px solid var(--dark-blue);
   color: var(--dark-blue);
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.5s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .signin:hover,
 .signin:focus {
-  border-color: var(--light-green-hover);
-  color: var(--light-green-hover);
+  border: 1px solid var(--light-green-hover);
+  box-shadow: 0 0 10px rgba(177, 138, 189, 0.7);
+  cursor: pointer;
+}
+
+.signin:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
 .signin:disabled {
@@ -113,9 +137,7 @@
 .GoogleHomePage {
   width: 230px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-start;
 }
 
 /* Tablet */
@@ -123,6 +145,7 @@
   .welcome {
     min-width: 704px;
     padding: 32px;
+    min-height: 498px;
   }
 
   .subheader {
@@ -165,9 +188,6 @@
   .GoogleHomePage {
     width: 320px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
   }
 }
 

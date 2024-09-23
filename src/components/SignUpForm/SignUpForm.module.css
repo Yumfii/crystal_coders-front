@@ -1,25 +1,74 @@
+@import '../../index.css';
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .SignUpContainer {
   width: 100%;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
   text-align: left;
-}
-
-.SignUpForm {
-  min-width: 256px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  opacity: 1;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.3s;
 }
 
 .logo {
-  margin-bottom: 110px;
+  margin-bottom: 172px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.SignUpForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 256px;
+  opacity: 0;
+  animation: fadeInRight 1s ease-out forwards;
+  animation-delay: 1.2s;
 }
 
 .SignText {
-  margin-bottom: 16px;
+  color: var(--dark-blue);
   font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.36px;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeInRight 1s ease-out forwards;
+  animation-delay: 1s;
 }
 
 .inputDiv {
@@ -37,6 +86,39 @@
   justify-items: stretch;
 }
 
+.input {
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 15px;
+  border: 1px solid rgba(47, 47, 47, 0.2);
+  background: var(--light-gray);
+  padding-right: 40px;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: var(--accent);
+  background-color: #f0f9f1;
+  color: var(--dark-blue);
+}
+
+.inputError {
+  border: 1px solid #ef5050;
+  background-color: #fdd;
+  color: red;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.error {
+  color: #ef5050;
+  font-size: 0.875rem;
+  margin-top: 0.1rem;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
 .toggle {
   position: absolute;
   right: 10px;
@@ -50,64 +132,50 @@
   display: none;
 }
 
-.input {
-  display: flex;
-  padding: 16px;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 15px;
-  border: 1px solid rgba(47, 47, 47, 0.2);
-  background: var(--light-gray);
-  padding-right: 40px;
-  transition: border-color 0.3s ease;
-}
-
-.inputError {
-  border: 1px solid #ef5050;
-  color: #ef5050;
-}
-
-.error {
-  color: #ef5050;
-}
-
-.input:focus {
-  outline: none;
-}
-
 .btn {
-  margin-top: 16px;
   display: flex;
+  height: 50px;
   padding: 16px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   border-radius: 30px;
-  background: var(--light-green);
   font-size: 14px;
   font-weight: 700;
+  padding: 0.7em 1.7em;
+  color: var(--dark-blue);
+  background-color: var(--Accent, #9be1a0);
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.5s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background: var(--Accent, #9be1a0);
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover,
 .btn:focus {
-  background: var(--light-green-hover);
+  background-color: var(--light-green-hover);
+  box-shadow: 0 0 10px rgba(177, 138, 189, 0.7);
+  cursor: pointer;
+}
+
+.btn:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+  background: #87d28d;
+  cursor: pointer;
 }
 
 .text {
   color: rgba(47, 47, 47, 0.5);
   font-size: 14px;
-  line-height: 18px;
-  letter-spacing: -0.14px;
   text-align: center;
 }
 
 .linkText {
-  color: #2f2f2f;
-  font-size: 14px;
+  color: var(--dark-gray);
   font-weight: 700;
-  line-height: 18px;
-  letter-spacing: -0.14px;
-  text-decoration-line: underline;
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 768px) {
@@ -115,6 +183,7 @@
     width: 672px;
     padding: 32px;
   }
+
   .SignUpForm {
     padding: 102px;
   }
@@ -122,15 +191,19 @@
   .SignText {
     font-size: 36px;
   }
+
   .inputDiv {
     font-size: 16px;
   }
+
   .toggle {
     display: block;
   }
+
   .btn {
     font-size: 16px;
   }
+
   .logo {
     margin-bottom: 69px;
   }
@@ -141,10 +214,12 @@
     gap: 32px;
     height: 754px;
   }
+
   .SignUpForm {
     padding: 0 102px;
     width: 640px;
   }
+
   .logo {
     margin-bottom: 74px;
   }
