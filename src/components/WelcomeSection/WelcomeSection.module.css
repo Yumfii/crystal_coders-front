@@ -59,6 +59,21 @@
   transform: translateY(0);
 }
 
+/* .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.14px;
+  text-align: center;
+  height: 46px;
+  width: auto;
+} */
+
 .btn {
   display: flex;
   justify-content: center;
@@ -74,8 +89,98 @@
   width: auto;
 }
 
-/* Signup button */
+/* .btn:hover a {
+  letter-spacing: 3px;
+} */
+
+.btn a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.149), transparent);
+  transform: skewX(45deg);
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+a:hover::before {
+  transform: skewX(45deg) translateX(200%);
+  transition-delay: 0s;
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  left: 28%;
+  transform: translateX(-50%);
+  background: var(--clr-glow);
+  bottom: 105px;
+  width: 30px;
+  height: 10px;
+  border-radius: 10px;
+  transition: 0.5s;
+  transition-delay: 0s;
+}
+
+.btn:hover::before {
+  bottom: 0px;
+  height: 50%;
+  width: 80%;
+  border-radius: 30px;
+  transition-delay: 0.5s;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  left: 28%;
+  transform: translateX(-50%);
+  background: var(--clr-glow);
+  bottom: 60px;
+  width: 30px;
+  height: 10px;
+  border-radius: 10px;
+  transition: 0.5s;
+  transition-delay: 0s;
+}
+
+.btn:hover::after {
+  top: 0px;
+  height: 50%;
+  width: 80%;
+  border-radius: 30px;
+  transition-delay: 0.5s;
+}
+
+.btn:nth-child(1):before,
+.btn:nth-child(1):after {
+  background: var(--light-green);
+  box-shadow: 0 0 5px var(--light-green), 0 0 15px var(--clr),
+    0 0 60px var(--light-green), 0 0 60px var(--light-green);
+}
+
 .signup {
+  padding: 14px 20px;
+  /* background: var(--light-green); */
+  color: (var--dark-blue);
+}
+
+.signup:hover,
+.signup:focus {
+  background: var(--light-green-hover);
+  letter-spacing: 1px;
+}
+
+.signup:disabled {
+  background: var(--white-disabled);
+  color: var(--light-gray-disabled);
+}
+
+/* Signup button */
+/* .signup {
   padding: 14px 20px;
   background: var(--light-green);
   color: (var--dark-blue);
@@ -89,7 +194,7 @@
 .signup:disabled {
   background: var(--white-disabled);
   color: var(--light-gray-disabled);
-}
+} */
 
 /* Signin button */
 .signin {
