@@ -6,6 +6,7 @@ import Logo from '../Logo/Logo';
 import React, { useState } from 'react';
 import ModalSmall from '../ModalSmall/ModalSmall';
 import WaterModal from '../WaterModal/WaterModal';
+import { useTour } from '@reactour/tour';
 
 const WaterMainInfo = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -20,12 +21,19 @@ const WaterMainInfo = () => {
     setModalOpen(false);
   };
 
+  const {setIsOpen} = useTour();
+  const handleStartTour = ()=>{
+    setIsOpen(true);
+  }
+
 
   return (
     <div className={css.section}>
       <div className={css.container}>
         <Logo />
-        <WaterDailyNorma />
+        <button  className={css.tourBtn} onClick={handleStartTour}>How the tracker works </button>
+
+           <WaterDailyNorma />
         <WaterProgressBar value={value} />
         <AddWaterBtn variant="primary" onClick={handleOpenModal} />
       </div>
@@ -34,6 +42,7 @@ const WaterMainInfo = () => {
             <WaterModal operationType="add" onClose={handleCloseModal} />
         </ModalSmall>
       )}
+
     </div>
   );
 };

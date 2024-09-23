@@ -14,7 +14,44 @@
   padding-bottom: 32px;
 }
 
+
+
+.tourBtn{
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  margin-top:50px;
+  margin-left: 150px;
+
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 30px;
+  background-color: transparent;
+  color: var(--dark-blue);
+  border: 1px solid var(--dark-blue);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.14px;
+  cursor: pointer;
+  transform: rotate(90deg);
+
+}
+.tourBtn:hover, .tourBtn:focus{
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+
+
 @media screen and (min-width: 768px) {
+  .tourBtn{
+    margin-left: auto;
+    margin-top: 0px;
+
+    font-size: 18px;
+    transform: rotate(0deg);
+  }
   .section {
     background-size: 374px 477px;
   }
@@ -24,6 +61,7 @@
 }
 
 @media screen and (min-width: 1440px) {
+
   .section {
     width: 672px;
     min-height: calc(100vh - 64px);
