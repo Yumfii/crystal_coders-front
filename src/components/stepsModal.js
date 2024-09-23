@@ -1,6 +1,6 @@
 export const stepsModal = [
   {
-    selector: '.avatarBlock',
+    selector: '.avatarImage',
     content: 'Change your photo here.',
     position: 'left',
   },
