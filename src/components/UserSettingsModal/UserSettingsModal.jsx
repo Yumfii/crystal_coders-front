@@ -2,32 +2,21 @@ import React, { useEffect } from 'react';
 import UserSettingsForm from '../UserSettingsForm/UserSettingsForm';
 import CSS from './UserSettingsModal.module.css';
 import { useTour } from '@reactour/tour';
-import { stepsModal } from 'components/stepsModal';
+import { stepsModal } from '../stepsModal';
 
 const UserSettingsModal = () => {
-  const { setIsOpen, setSteps, close } = useTour();
+  const { setIsOpen, setSteps } = useTour();
 
-  useEffect(() => {
+  const handleStartTour = () => {
     setSteps(stepsModal);
-    const hasSeenModalTour = localStorage.getItem('hasSeenModalTour');
-    if (!hasSeenModalTour) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 500);
-
-      return () => clearTimeout(timer);
-    }
-  }, [setIsOpen, setSteps]);
-
-  const handleTourComplete = () => {
-    localStorage.setItem('hasSeenModalTour', 'true');
-    close();
+    setIsOpen(true);
   };
 
   return (
     <div className={CSS.modalContainer}>
       <h2 className={CSS.settingsHeader}>Settings</h2>
-      <UserSettingsForm  onTourComplete={handleTourComplete}/>
+      <UserSettingsForm onTourComplete={handleTourComplete} />
+      <button onClick={handleStartTour}>How to change settings</button>
     </div>
   );
 };
