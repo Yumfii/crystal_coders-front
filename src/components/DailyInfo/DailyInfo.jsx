@@ -3,7 +3,7 @@ import ChooseDate from '../../components/ChooseDate/ChooseDate';
 import WaterList from '../../components/WaterList/WaterList';
 import css from './DailyInfo.module.css';
 import React, { useState } from 'react';
-import Modal from '../../components/Modal/Modal';
+import ModalSmall from '../../components/ModalSmall/ModalSmall';
 import WaterModal from '../../components/WaterModal/WaterModal';
 
 const DailyInfo = ({ selectedDate }) => {
@@ -26,9 +26,9 @@ const DailyInfo = ({ selectedDate }) => {
       <WaterList />
 
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <ModalSmall isOpen={isModalOpen} onClose={handleCloseModal}>
           <WaterModal operationType="add" onClose={handleCloseModal} />
-        </Modal>
+        </ModalSmall>
       )}
     </div>
   );

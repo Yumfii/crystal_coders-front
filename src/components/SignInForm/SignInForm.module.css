@@ -21,6 +21,7 @@
 }
 
 .infoContainer {
+  width: 100%;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
@@ -191,58 +192,6 @@
 
 }
 
-.signInBtn::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-      180deg,
-      rgba(8, 77, 126, 0) 0%,
-      rgba(8, 77, 126, 0.42) 100%
-    ),
-    rgba(47, 255, 255, 0.24);
-  box-shadow: inset 0 0 12px rgba(151, 200, 255, 0.44);
-  border-radius: 0.5rem;
-  opacity: 0;
-  z-index: -1;
-  transition: all 0.3s ease-in;
-}
-
-.signInBtn:hover::after {
-  opacity: 1;
-}
-
-.signInBtn-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border-radius: 0.5rem;
-  z-index: -1;
-}
-
-.signInBtn-border::before {
-  content: '';
-  position: absolute;
-  border-radius: 0.5rem;
-  padding: 1px;
-  inset: 0;
-  background: linear-gradient(
-      180deg,
-      rgba(184, 238, 255, 0.24) 0%,
-      rgba(184, 238, 255, 0) 100%
-    ),
-    linear-gradient(0deg, rgba(184, 238, 255, 0.32), rgba(184, 238, 255, 0.32));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  pointer-events: none;
-}
-
 .signupoffer {
   color: rgba(47, 47, 47, 0.5);
 
@@ -317,21 +266,15 @@
   .formContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   .form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .title {
     font-size: 36px;
     line-height: 38px;
-    justify-content: center;
-    align-items: center;
   }
 
   .label {
@@ -359,7 +302,6 @@
 
   .signInBtn {
     width: 436px;
-    height: 60px;
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
@@ -373,7 +315,6 @@
 
 @media screen and (min-width: 1440px) {
   .infoContainer {
-    width: 672px;
     margin: 0;
     height: 754px;
   }
@@ -413,14 +354,6 @@
   .field {
     font-size: 16px;
     line-height: 24px;
-  }
-
-  .signInBtn {
-    width: 436px;
-    height: 60px;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 700;
   }
 
   .signinpoffer {
