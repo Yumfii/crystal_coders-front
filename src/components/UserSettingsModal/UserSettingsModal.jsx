@@ -17,7 +17,7 @@ const UserSettingsModal = () => {
   return (
     <div className={CSS.modalContainer}>
       <h2 className={CSS.settingsHeader}>Settings</h2>
-      <UserSettingsForm onTourComplete={handleTourComplete} />
+      <UserSettingsForm />
     </div>
   );
 };
