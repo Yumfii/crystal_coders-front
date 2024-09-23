@@ -8,7 +8,7 @@ const ChooseDate = ({ selectedDate }) => {
   const isToday = isSameDay(today, selectedDate);
   return (
     <div>
-      <p className={css.selectedDate}>
+      <p className={`${css.selectedDate} selectedDate`}>
         {isToday ? 'Today' : format(selectedDate, 'd, MMMM')}
       </p>
     </div>
