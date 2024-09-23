@@ -3,7 +3,7 @@ import WaterDetailedInfo from 'components/WaterDetailedInfo/WaterDetailedInfo';
 import WaterMainInfo from 'components/WaterMainInfo/WaterMainInfo';
 import AddWaterBtn from 'components/AddWaterBtn/AddWaterBtn';
 import css from './TrackerPage.module.css';
-import { useTour }, { useEffect } from '@reactour/tour';
+import { useTour } from '@reactour/tour';
 import { steps } from 'components/steps';
 import { selectUser } from '../../redux/auth/selectors.js';
 import { useSelector } from 'react-redux';
