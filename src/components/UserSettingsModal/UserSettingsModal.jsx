@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UserSettingsForm from '../UserSettingsForm/UserSettingsForm'
 import CSS from './UserSettingsModal.module.css'
 
 const UserSettingsModal = () => {
+
+
     return (
 
       <div className={CSS.modalContainer}>

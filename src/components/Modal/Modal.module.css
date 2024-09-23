@@ -16,7 +16,7 @@
   padding: 40px 20px;
   border-radius: var(--border-radius);
   position: relative;
-  width: 343px;
+  /* width: 343px; */
   max-width: 100%;
 }
 
@@ -53,4 +53,20 @@
     top: 20px;
     right: 20px;
   }
+}
+
+::-webkit-scrollbar{
+  border-radius: 30px;
+
+}
+::-webkit-scrollbar-track{
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--light-gray);
+    border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover{
+    cursor: pointer;
 }
