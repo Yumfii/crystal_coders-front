@@ -1,5 +1,5 @@
-export const selectWaterProgress = state => state.water.progress;
-export const selectWaterList = state => state.water.waterList;
-export const selectWaterCalendar = state => state.water.calendar;
-export const selectIsLoading = state => state.auth.isLoading;
-export const selectError = state => state.auth.error;
+export const selectVolumes = state => state.water.volumes;
+export const selectVolume = state => state.water.volume;
+export const selectLoading = state => state.water.loading;
+export const selectError = state => state.water.error;
+export const selectWaterConsumption = state => state.water.waterConsumption;
