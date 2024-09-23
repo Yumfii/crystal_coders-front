@@ -16,10 +16,10 @@ const WaterList = ({ userId }) => {
   const fetchWaterData = async () => {
     try {
       const token = localStorage.getItem('authToken');
-console.log('Auth Token:', token); // Check if the token exists
+console.log('Auth Token:', token);
 if (!token) {
     console.error('No authentication token found. Please log in.');
-    return; // Prevent API call if no token
+    return;
 }
 
       const response = await axios.get('https://crystal-coders-back.onrender.com/water', {
