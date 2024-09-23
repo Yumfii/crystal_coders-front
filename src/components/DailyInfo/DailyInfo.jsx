@@ -18,7 +18,7 @@ const DailyInfo = ({ selectedDate }) => {
   };
 
   return (
-    <div>
+    <div  className={`${css.dailyInfo} dailyInfo`}>
       <div className={css.wrapper}>
         <ChooseDate selectedDate={selectedDate} />
         <AddWaterBtn variant="secondary" onClick={handleOpenModal} />

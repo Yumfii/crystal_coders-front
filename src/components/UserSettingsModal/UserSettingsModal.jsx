@@ -1,18 +1,25 @@
-import React, { useEffect } from 'react'
-import UserSettingsForm from '../UserSettingsForm/UserSettingsForm'
-import CSS from './UserSettingsModal.module.css'
+import React, { useEffect } from 'react';
+import UserSettingsForm from '../UserSettingsForm/UserSettingsForm';
+import CSS from './UserSettingsModal.module.css';
+import { useTour } from '@reactour/tour';
+import { stepsModal } from '../stepsModal';
 
 const UserSettingsModal = () => {
 
 
-    return (
+  const { setIsOpen, setSteps } = useTour();
 
-      <div className={CSS.modalContainer}>
-        <h2 className={CSS.settingsHeader}>Settings</h2>
+  const handleStartTour = () => {
+    setSteps(stepsModal);
+    setIsOpen(true);
+  };
 
-        <UserSettingsForm/>
+  return (
+    <div className={CSS.modalContainer}>
+      <h2 className={CSS.settingsHeader}>Settings</h2>
+      <UserSettingsForm />
     </div>
-  )
-}
+  );
+};
 
-export default UserSettingsModal
+export default UserSettingsModal;

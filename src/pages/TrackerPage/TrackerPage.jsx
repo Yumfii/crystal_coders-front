@@ -1,16 +1,21 @@
-import WaterDetailedInfo from '../../components/WaterDetailedInfo/WaterDetailedInfo';
-import WaterMainInfo from '../../components/WaterMainInfo/WaterMainInfo';
-import css from './TrackerPage.module.css';
 import React, { useEffect } from 'react';
+import WaterMainInfo from '../../components/WaterMainInfo/WaterMainInfo';
+import AddWaterBtn from '../../components/AddWaterBtn/AddWaterBtn';
+import css from './TrackerPage.module.css';
+import { useTour } from '@reactour/tour';
+import { steps } from '../../components/steps';
 import { selectUser } from '../../redux/auth/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchUser, getUserById } from '../../redux/auth/operations.js';
+import WaterDetailedInfo from '../../components/WaterDetailedInfo/WaterDetailedInfo';
 
 const TrackerPage = () => {
   const selector = useSelector(selectUser);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { setIsOpen, setSteps} = useTour();
 
   useEffect(() => {
     const restoreSession = async () => {
@@ -40,6 +45,9 @@ const TrackerPage = () => {
     <div className={css.container}>
       <WaterMainInfo />
       <WaterDetailedInfo />
+
+
+      {/* <button onClick={handleStartTour}>Learn how to use the tracker</button> */}
     </div>
   );
 };

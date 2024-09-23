@@ -3,7 +3,7 @@ import css from './WaterProgressBar.module.css';
 
 const WaterProgressBar = ({ value }) => {
   return (
-    <div className={css.waterProgressBar}>
+    <div className={`${css.waterProgressBar} waterProgressBar` } >
       <p className={css.day}>Today</p>
       <input
         type="range"
