@@ -31,7 +31,7 @@ const WaterMainInfo = () => {
     <div className={css.section}>
       <div className={css.container}>
         <Logo />
-        <button  className={css.tourBtn} onClick={handleStartTour}>How the tracker works </button>
+        <button  className={css.tourBtn} onClick={handleStartTour}>Tracker overview </button>
 
            <WaterDailyNorma />
         <WaterProgressBar value={value} />

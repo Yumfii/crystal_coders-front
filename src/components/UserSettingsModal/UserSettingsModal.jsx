@@ -1,4 +1,4 @@
-import React, { useEffect }, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import UserSettingsForm from '../UserSettingsForm/UserSettingsForm';
 import CSS from './UserSettingsModal.module.css';
 import { useTour } from '@reactour/tour';
