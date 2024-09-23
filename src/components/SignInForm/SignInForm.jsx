@@ -122,8 +122,6 @@ const SignInForm = () => {
               </NavLink>
             </p>
           </div>
-
-          <p className={css.conc}>or</p>
           <GoogleBtn />
         </form>
       </div>

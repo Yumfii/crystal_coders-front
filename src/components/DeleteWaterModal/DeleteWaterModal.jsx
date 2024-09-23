@@ -14,35 +14,32 @@ const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
       .unwrap()
       .then(() => {
         toast.success('Successfully deleted!');
-        <Toaster position="top-center" reverseOrder={true} />;
+        closeModal(); // Закрываем модал после успешного удаления
       })
       .catch(error => {
-        toast.error('Addition error!');
-        <Toaster position="top-center" reverseOrder={true} />;
+        toast.error('Error deleting entry!');
       });
   };
 
   const colorBtnClass = clsx(css.btn, css.colorBtn);
-
   const transparentBtnClass = clsx(css.btn, css.transparentBtn);
 
   return (
-
-      <div className={css.modalBox}>
-        <h3 className={css.modalTitle}>Delete entry</h3>
-        <p className={css.modalText}>
-          Are you sure you want to delete the entry?
-        </p>
-        <div className={css.btnBox}>
-          <button className={colorBtnClass} onClick={handleClick}>
-            Delete
-          </button>
-          <button className={transparentBtnClass} onClick={closeModal}>
-            Cancel
-          </button>
-        </div>
+    <div className={css.modalBox}>
+      <h3 className={css.modalTitle}>Delete entry</h3>
+      <p className={css.modalText}>
+        Are you sure you want to delete the entry?
+      </p>
+      <div className={css.btnBox}>
+        <button className={colorBtnClass} onClick={handleClick}>
+          Delete
+        </button>
+        <button className={transparentBtnClass} onClick={closeModal}>
+          Cancel
+        </button>
       </div>
-
+      <Toaster position="top-center" reverseOrder={true} />
+    </div>
   );
 };
 

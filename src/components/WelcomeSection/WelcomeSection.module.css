@@ -137,9 +137,7 @@
 .GoogleHomePage {
   width: 230px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-start;
 }
 
 /* Tablet */
@@ -147,6 +145,7 @@
   .welcome {
     min-width: 704px;
     padding: 32px;
+    min-height: 498px;
   }
 
   .subheader {
@@ -189,9 +188,6 @@
   .GoogleHomePage {
     width: 320px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
   }
 }
 

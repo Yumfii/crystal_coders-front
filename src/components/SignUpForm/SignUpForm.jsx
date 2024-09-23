@@ -12,7 +12,6 @@ import GoogleBtn from '../../components/GoogleBtn/GoogleBtn';
 import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 
-// Validation Schema
 export const validationSchema = yup.object().shape({
   email: yup
     .string()
@@ -54,7 +53,6 @@ const SignUpForm = () => {
     const { email, password } = data;
 
     try {
-      // Dispatch the signUp action with the form data
       const response = await dispatch(signUp({ email, password })).unwrap();
 
       if (response.status === 201) {
@@ -83,7 +81,6 @@ const SignUpForm = () => {
       <form className={css.SignUpForm} onSubmit={handleSubmit(onSubmit)}>
         <h2 className={css.SignText}>Sign Up</h2>
 
-        {/* Email Input */}
         <div className={css.inputDiv}>
           <label>Email</label>
           <Controller
@@ -100,7 +97,6 @@ const SignUpForm = () => {
           {errors.email && <p className={css.error}>{errors.email.message}</p>}
         </div>
 
-        {/* Password Input */}
         <div className={css.inputDiv}>
           <label>Password</label>
           <div className={css.wrapPass}>
@@ -131,7 +127,6 @@ const SignUpForm = () => {
           )}
         </div>
 
-        {/* Repeat Password Input */}
         <div className={css.inputDiv}>
           <label>Repeat password</label>
           <div className={css.wrapPass}>
@@ -162,12 +157,10 @@ const SignUpForm = () => {
           )}
         </div>
 
-        {/* Submit Button */}
         <button type="submit" className={css.btn}>
           Sign Up
         </button>
 
-        {/* Sign In Link */}
         <p className={css.text}>
           Already have an account?{' '}
           <Link to="/signin" className={css.linkText}>
@@ -175,9 +168,6 @@ const SignUpForm = () => {
           </Link>
         </p>
 
-        <p className={css.text}>or</p>
-
-        {/* Google Sign Up Button */}
         <GoogleBtn />
       </form>
     </div>
