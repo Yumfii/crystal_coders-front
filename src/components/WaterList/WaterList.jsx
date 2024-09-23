@@ -87,7 +87,7 @@ if (!token) {
             operationType="edit"
             onClose={handleCloseModal}
             editData={editData}
-            onAfterAction={handleAfterAction} // Pass function to modal
+            onAfterAction={handleAfterAction}
           />
         </Modal>
       )}
