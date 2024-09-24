@@ -53,7 +53,6 @@ const ModalSmall = ({ isOpen, onClose, children }) => {
     justifyContent: 'center',
     alignItems: 'flex-start',
     zIndex: 1000,
-    overflowY: 'auto',
     paddingTop: '64px',
   };
 
@@ -65,7 +64,7 @@ const ModalSmall = ({ isOpen, onClose, children }) => {
     width: modalWidth,
     maxWidth: '100%',
     maxHeight: '90vh',
-    overflowY: 'auto',
+
   };
 
   const modalCloseButtonStyle = {
