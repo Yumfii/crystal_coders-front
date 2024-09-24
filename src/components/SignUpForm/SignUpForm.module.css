@@ -149,8 +149,6 @@
   transition: all 0.5s;
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background: var(--Accent, #9be1a0);
-  transition: background-color 0.3s ease;
 }
 
 .btn:hover,

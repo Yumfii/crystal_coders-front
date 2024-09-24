@@ -24,19 +24,22 @@ const ResetPasswordForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     const { password } = data;
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('token');
 
     try {
-      const response = await fetch('https://crystal-coders-back.onrender.com/auth/reset-password', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ token, password }),
-      });
+      const response = await fetch(
+        'https://crystal-coders-back.onrender.com/auth/reset-password',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ token, password }),
+        }
+      );
 
       if (response.ok) {
         setMessage('Your password has been reset successfully!');

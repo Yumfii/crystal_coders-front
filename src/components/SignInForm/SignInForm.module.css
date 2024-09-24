@@ -68,7 +68,7 @@
   letter-spacing: -0.36px;
   margin-bottom: 32px;
   opacity: 0;
-  animation: fadeInRight  1s ease-out forwards;
+  animation: fadeInRight 1s ease-out forwards;
   animation-delay: 1s;
 }
 
@@ -191,6 +191,7 @@
   align-items: center;
   border-radius: 30px;
   color: var(--dark-blue);
+  background: var(--Accent, #9be1a0);
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -198,7 +199,6 @@
   transition: all 0.5s;
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-   background: var(--Accent, #9be1a0);
 }
 
 .signInBtn:hover,
