@@ -6,7 +6,6 @@ import { RxCross2 } from 'react-icons/rx';
 const ModalSmall = ({ isOpen, onClose, children }) => {
   const [modalWidth, setModalWidth] = useState('518px');
 
-
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 375) {
@@ -15,7 +14,6 @@ const ModalSmall = ({ isOpen, onClose, children }) => {
         setModalWidth('518px');
       }
     };
-
 
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -53,7 +51,6 @@ const ModalSmall = ({ isOpen, onClose, children }) => {
     justifyContent: 'center',
     alignItems: 'flex-start',
     zIndex: 1000,
-    overflowY: 'auto',
     paddingTop: '64px',
   };
 
@@ -62,10 +59,9 @@ const ModalSmall = ({ isOpen, onClose, children }) => {
     padding: '40px',
     borderRadius: '15px',
     position: 'relative',
-    width: modalWidth,
+    // width: modalWidth,
     maxWidth: '100%',
     maxHeight: '90vh',
-    overflowY: 'auto',
   };
 
   const modalCloseButtonStyle = {
@@ -94,4 +90,3 @@ const ModalSmall = ({ isOpen, onClose, children }) => {
 };
 
 export default ModalSmall;
-
