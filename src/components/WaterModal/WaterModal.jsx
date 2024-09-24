@@ -1,5 +1,7 @@
 import React from 'react';
 import WaterForm from '../WaterForm/WaterForm';
+import { fetchVolumes } from '../../redux/water/operations';
+
 
 const WaterModal = ({ onClose, operationType, editData, onAfterAction }) => {
   const title = operationType === 'edit' ? 'Edit the entered amount of water' : 'Add water';
@@ -44,7 +46,8 @@ const WaterModal = ({ onClose, operationType, editData, onAfterAction }) => {
           mode={operationType}
           onClose={onClose}
           initialData={editData}
-          onSubmit={handleFormSubmit} // Pass the handleFormSubmit to WaterForm
+          onSubmit={handleFormSubmit}
+          onAfterAction={fetchVolumes} // Pass the handleFormSubmit to WaterForm
         />
       </div>
     </div>
