@@ -57,6 +57,7 @@ export const App = () => {
 
         {/* <Route path="/settings" element={<UserSettingsModal />} /> */}
       </Routes>
+      <Toaster position="top-center" reverseOrder={false} />
     </TourProvider>
   );
 };
