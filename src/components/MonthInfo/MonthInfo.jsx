@@ -3,8 +3,45 @@ import Calendar from '../../components/Calendar/Calendar';
 import CalendarPagination from '../../components/CalendarPagination/CalendarPagination';
 import { addMonths, subMonths } from 'date-fns';
 import css from './MonthInfo.module.css';
+import axios from 'axios';
 
 const MonthInfo = ({ selectedDate, setSelectedDate }) => {
+  // !! Check how to get data about percentage of the water
+  const [waterData, setWaterData] = useState([]);
+
+    // Fetch water data from API
+    const fetchWaterData = async () => {
+      try {
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+          console.error('No authentication token found.');
+          return;
+        }
+
+        const response = await axios.get('https://crystal-coders-back.onrender.com/water', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        console.log('Fetched Water Data:', response.data);
+
+        if (response.data && response.data.data) {
+          setWaterData(response.data.data.data || []);
+        }
+      } catch (error) {
+        console.error('Error fetching water consumption data:', error);
+      }
+    };
+
+
+    useEffect(() => {
+      if (selectedDate) {
+        fetchWaterData();
+      } else {
+        console.error('selectedDate is null or undefined.');
+      }
+    }, [selectedDate]);
+    // !! Check the part above
+
   const nextMonth = () => {
     setSelectedDate(prevDate => addMonths(prevDate, 1));
   };
@@ -23,7 +60,9 @@ const MonthInfo = ({ selectedDate, setSelectedDate }) => {
           nextMonth={nextMonth}
         />
       </div>
-      <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+      <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate}
+       waterData={waterData}
+       />
     </div>
   );
 };
