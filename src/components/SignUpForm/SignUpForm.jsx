@@ -69,7 +69,7 @@ const SignUpForm = () => {
       } else {
         toast.error('Registration failed. Please try again.');
       }
-      console.error(err.message);
+      // console.error(err.message);
     }
   };
 
