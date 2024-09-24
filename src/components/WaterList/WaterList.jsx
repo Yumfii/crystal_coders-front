@@ -16,11 +16,10 @@ const WaterList = ({ userId }) => {
   const fetchWaterData = async () => {
     try {
       const token = localStorage.getItem('authToken');
-console.log('Auth Token:', token);
-if (!token) {
-    console.error('No authentication token found. Please log in.');
-    return;
-}
+      if (!token) {
+        console.error('No authentication token found. Please log in.');
+        return;
+      }
 
       const response = await axios.get('https://crystal-coders-back.onrender.com/water', {
         headers: {
@@ -37,7 +36,7 @@ if (!token) {
 
   useEffect(() => {
     fetchWaterData();
-  }, [userId]);
+  }, [userId, isModalOpen, isDeleteModalOpen]);
 
   const handleOpenEditModal = (volume, time) => {
     setEditData({ volume, time });
@@ -59,8 +58,9 @@ if (!token) {
     setEditData(null);
   };
 
-  const handleAfterAction = () => {
-    fetchWaterData(); // Re-fetch water data after any action
+  const handleOpenAddModal = () => {
+    setEditData(null); // Обнуляем данные редактирования, если это новая запись
+    setModalOpen(true); // Открываем модальное окно
   };
 
   return (
@@ -84,10 +84,12 @@ if (!token) {
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <WaterModal
-            operationType="edit"
-            onClose={handleCloseModal}
+            operationType={editData ? "edit" : "add"}
+            onClose={() => {
+              fetchWaterData(); // Обновляем данные при закрытии модального окна
+              handleCloseModal();
+            }}
             editData={editData}
-            onAfterAction={handleAfterAction}
           />
         </Modal>
       )}
@@ -95,9 +97,11 @@ if (!token) {
         <Modal isOpen={isDeleteModalOpen} onClose={handleCloseDeleteModal}>
           <DeleteWaterModal
             modalIsOpen={isDeleteModalOpen}
-            closeModal={handleCloseDeleteModal}
+            closeModal={() => {
+              fetchWaterData(); // Обновляем данные при закрытии модального окна
+              handleCloseDeleteModal();
+            }}
             waterId={deleteId}
-            onAfterAction={handleAfterAction} // Pass function to modal
           />
         </Modal>
       )}

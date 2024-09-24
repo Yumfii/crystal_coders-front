@@ -8,6 +8,7 @@ import {
   fetchWaterConsumptionForMonth,
   fetchWaterConsumptionForDay,
 } from './operations';
+import { toast } from 'react-hot-toast'; // не забудьте импортировать toast, если используете
 
 const waterSlice = createSlice({
   name: 'water',
@@ -52,6 +53,7 @@ const waterSlice = createSlice({
       })
       .addCase(createVolume.fulfilled, (state, action) => {
         state.volumes.push(action.payload);
+        toast.success('Volume added successfully!');
       })
       .addCase(updateVolume.fulfilled, (state, action) => {
         const index = state.volumes.findIndex(
