@@ -22,28 +22,27 @@ import { useEffect } from 'react';
 
 export const App = () => {
   const location = useLocation();
-  const{setIsOpen} = useTour();
-  useEffect(()=>{
+  const { setIsOpen } = useTour();
+  useEffect(() => {
     setIsOpen(false);
-
-  }, [location,setIsOpen]);
-  const radius = 8
+  }, [location, setIsOpen]);
+  const radius = 8;
   return (
     <TourProvider
-    steps={steps}
-    styles={{
-      popover: (base) => ({
-        ...base,
-        '--reactour-accent': 'var(--light-dark-green)',
-        borderRadius: radius,
-      }),
-      maskArea: (base) => ({ ...base, rx: radius }),
-      maskWrapper: (base) => ({ ...base,  }),
-      badge: (base) => ({ ...base, left: 'auto', right: '-0.8125em' }),
-      controls: (base) => ({ ...base, marginTop: 30 }),
-      close: (base) => ({ ...base, right: 'auto', left: 8, top: 8 }),
-    }}>
-
+      steps={steps}
+      styles={{
+        popover: base => ({
+          ...base,
+          '--reactour-accent': 'var(--light-dark-green)',
+          borderRadius: radius,
+        }),
+        maskArea: base => ({ ...base, rx: radius }),
+        maskWrapper: base => ({ ...base }),
+        badge: base => ({ ...base, left: 'auto', right: '-0.8125em' }),
+        controls: base => ({ ...base, marginTop: 30 }),
+        close: base => ({ ...base, right: 'auto', left: 8, top: 8 }),
+      }}
+    >
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signin" element={<SignInPage />} />
@@ -58,6 +57,7 @@ export const App = () => {
 
         <Route path="/settings" element={<UserSettingsModal />} />
       </Routes>
+      <Toaster position="top-center" reverseOrder={false} />
     </TourProvider>
   );
 };
