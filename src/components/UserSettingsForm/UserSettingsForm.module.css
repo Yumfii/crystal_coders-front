@@ -238,4 +238,8 @@
     .uploadTitleInput{
         top: 190px
     }
+    
+    .submitBtn{
+      margin-bottom: 40px;
+  }
 }
