@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './AddWaterBtn.module.css';
 import { GoPlus } from 'react-icons/go';
+import { useDispatch } from 'react-redux';
 
 const AddWaterBtn = ({ variant, onClick }) => {
   const dispatch = useDispatch();
