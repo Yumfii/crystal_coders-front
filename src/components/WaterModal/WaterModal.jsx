@@ -1,52 +1,37 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import WaterForm from '../WaterForm/WaterForm';
+import { createVolume, updateVolume } from '../../redux/water/operations'; // Убедитесь, что эти импорты корректны
 
-const WaterModal = ({ onClose, operationType, editData, onAfterAction }) => {
+const WaterModal = ({ onClose, operationType, editData }) => {
+  const dispatch = useDispatch();
+
   const title = operationType === 'edit' ? 'Edit the entered amount of water' : 'Add water';
 
-  const modalTitleStyle = {
-    textAlign: 'center',
-    color: 'var(--dark-blue)',
-    fontFamily: 'Poppins, sans-serif',
-    fontSize: '20px',
-    fontStyle: 'normal',
-    fontWeight: 700,
-    lineHeight: '24px',
-    letterSpacing: '-0.2px',
-    ...(window.innerWidth >= 768 && {
-      fontSize: '28px',
-      marginBottom: '30px',
-      lineHeight: '32px',
-      letterSpacing: '-0.28px',
-    }),
-  };
+  const handleFormSubmit = async (data) => {
+    try {
+      // Определяем действие на основе типа операции
+      const action = operationType === 'edit' ? updateVolume : createVolume;
 
-  const handleFormSubmit = (data) => {
-    // Assuming you have an action to handle the create/update operation
-    const action = operationType === 'edit' ? updateVolume : createVolume;
+      // Диспатчим действие с данными
+      await dispatch(action(data)).unwrap();
 
-    dispatch(action(data))
-      .unwrap()
-      .then(() => {
-        onAfterAction(); // Refresh the water list after successful submission
-        onClose(); // Close the modal
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+      // Закрываем модальное окно после успешного добавления или обновления
+      onClose();
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
     <div>
-      <h2 style={modalTitleStyle}>{title}</h2>
-      <div>
-        <WaterForm
-          mode={operationType}
-          onClose={onClose}
-          initialData={editData}
-          onSubmit={handleFormSubmit} // Pass the handleFormSubmit to WaterForm
-        />
-      </div>
+      <h2>{title}</h2>
+      <WaterForm
+        mode={operationType}
+        onClose={onClose}
+        initialData={editData}
+        onSubmit={handleFormSubmit} // Передаем handleFormSubmit в WaterForm
+      />
     </div>
   );
 };
