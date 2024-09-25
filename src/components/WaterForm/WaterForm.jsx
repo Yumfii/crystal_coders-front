@@ -84,7 +84,7 @@ const WaterForm = ({ onClose, onAfterAction, mode, initialData }) => {
       }
 
       toast.success('Water entry saved successfully!');
-      onClose(); // Закрываем форму, обновление произойдет в WaterList
+      onClose();
     } catch (error) {
       toast.error(`Error: ${error.message}`);
     }
