@@ -48,7 +48,7 @@ const TrackerPage = () => {
   const fetchWaterConsumption = async (userId) => {
     try {
       const response = await axios.get(
-        `https://crystal-coders-back.onrender.com/waterTracking/consumption/month?month=4&userId=${userId}`,
+        `https://crystal-coders-back.onrender.com/water/consumption/month?month=4&userId=${userId}`,
         {
           headers: {
             Authorization: `Bearer ${user.accessToken}`, // Make sure to include the token here

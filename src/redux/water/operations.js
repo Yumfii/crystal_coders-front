@@ -155,15 +155,15 @@ export const fetchWaterConsumptionForDay = createAsyncThunk(
 
 export const fetchRemainingWaterPercentage = createAsyncThunk(
   'water/fetchRemainingWaterPercentage',
-  async (date) => {
+  async ({date, userId}) => {
     const token = localStorage.getItem('authToken');
     if (!token) {
       throw new Error('No authentication token found. Please log in.');
     }
 
     try {
-      const response = await axios.get(`${BASE_URL}/waterTracking/consumption/remaining`, {
-        params: { date },
+      const response = await axios.get(`${BASE_URL}/water/consumption/remaining`, {
+        params: { date, userId},
         headers: {
           Authorization: `Bearer ${token}`,
         },
