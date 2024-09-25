@@ -1,10 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import WaterForm from '../WaterForm/WaterForm';
-import { createVolume, updateVolume } from '../../redux/water/operations'; // Убедитесь, что эти импорты корректны
-
-const WaterModal = ({ onClose, operationType, editData }) => {
-  const dispatch = useDispatch();
 
 import { fetchVolumes } from '../../redux/water/operations';
 
@@ -13,6 +9,7 @@ import { createVolume, updateVolume } from '../../redux/water/operations'; // У
 
 const WaterModal = ({ onClose, operationType, editData }) => {
   const dispatch = useDispatch();
+
 
   const title = operationType === 'edit' ? 'Edit the entered amount of water' : 'Add water';
 
@@ -52,6 +49,7 @@ const WaterModal = ({ onClose, operationType, editData }) => {
         initialData={editData}
         onSubmit={handleFormSubmit} // Передаем handleFormSubmit в WaterForm
       />
+
     </div>
   );
 };
