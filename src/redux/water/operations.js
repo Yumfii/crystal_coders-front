@@ -73,16 +73,16 @@ export const fetchVolumeById = createAsyncThunk(
 
 export const fetchWaterConsumptionForMonth = createAsyncThunk(
   'water/fetchWaterConsumptionForMonth',
-  async month => {
+  async ({month, year, userId}) => {
     const token = localStorage.getItem('authToken');
     const response = await axios.get(`${BASE_URL}/water/consumption/month`, {
-      params: { month },
+      params: { month , year, userId},
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
-  
+
   }
 );
 

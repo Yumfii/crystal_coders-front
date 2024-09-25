@@ -16,7 +16,9 @@ const MonthInfo = ({ selectedDate, setSelectedDate }) => {
   useEffect(() => {
     if (selectedDate) {
       const month = selectedDate.getMonth() + 1;
-      dispatch(fetchWaterConsumptionForMonth(month));
+      const year = selectedDate.getFullYear();
+      const userId = localStorage.getItem('userId').trim();
+      dispatch(fetchWaterConsumptionForMonth(month, year, userId ));
       dispatch(fetchRemainingWaterPercentage({date: selectedDate.toISOString().split('T')[0]}))
     }
   }, [selectedDate, dispatch]);
