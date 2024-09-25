@@ -55,18 +55,17 @@
   }
 }
 
-::-webkit-scrollbar{
-  border-radius: 30px;
-
-}
-::-webkit-scrollbar-track{
+::-webkit-scrollbar {
   border-radius: 30px;
 }
-
-::-webkit-scrollbar-thumb{
-    background-color: var(--light-gray);
-    border-radius: 30px;
+::-webkit-scrollbar-track {
+  border-radius: 30px;
 }
-::-webkit-scrollbar-thumb:hover{
-    cursor: pointer;
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--light-gray);
+  border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
 }
