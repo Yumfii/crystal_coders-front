@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser, getUserById } from '../auth/operations.js';
 import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../auth/selectors.js';
+import { use } from 'i18next';
 
 export const useRestoreHome = () => {
   const dispatch = useDispatch();
@@ -20,17 +21,17 @@ export const useRestoreHome = () => {
           })
         ).unwrap();
 
-        // console.log(user);
-        // console.log(window.location.pathname);
-        // console.log(selector);
-        if (user) {
-          if (window.location.pathname === '/tracker') {
-            return;
+        window.setTimeout(() => {
+          console.log(user);
+          if (user) {
+            if (window.location.pathname === '/tracker') {
+              return;
+            }
+            // console.log(selector);
+          } else {
+            navigate('/');
           }
-          // console.log(selector);
-        } else {
-          navigate('/');
-        }
+        }, 150);
       }
     } catch (error) {
       navigate('/');

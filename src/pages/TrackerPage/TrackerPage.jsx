@@ -1,46 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'; // Ensure you import these hooks
-import { useNavigate } from 'react-router-dom';
-import { useTour } from '@reactour/tour';
+import React, { useEffect } from 'react';
 import WaterMainInfo from '../../components/WaterMainInfo/WaterMainInfo';
-import WaterDetailedInfo from '../../components/WaterDetailedInfo/WaterDetailedInfo';
-import { fetchUser, getUserById } from '../../redux/auth/operations'; // Import necessary actions
-import { selectUser } from '../../redux/auth/selectors'; // Ensure you import your selector
-import { steps } from '../../components/steps';
+import AddWaterBtn from '../../components/AddWaterBtn/AddWaterBtn';
 import css from './TrackerPage.module.css';
+import { useTour } from '@reactour/tour';
+import { steps } from '../../components/steps';
+import WaterDetailedInfo from '../../components/WaterDetailedInfo/WaterDetailedInfo';
+
+import { useRestoreHome } from '../../redux/utils/returnHomePage.jsx';
 
 const TrackerPage = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const selector = useSelector(selectUser);
-
   const { setIsOpen, setSteps } = useTour();
-  const [waterConsumption, setWaterConsumption] = useState(null);
+
+  const restoreHome = useRestoreHome();
 
   useEffect(() => {
-    const restoreSession = async () => {
-      try {
-        const session = await dispatch(fetchUser()).unwrap();
-
-        if (session) {
-          await dispatch(
-            getUserById({
-              userId: session.data.userId,
-              accessToken: session.data.accessToken,
-            })
-          ).unwrap();
-        }
-      } catch (error) {
-        console.error('Error restoring session:', error);
-        if (!selector.email) {
-          navigate('/');
-        }
-      }
-    };
-
-    restoreSession();
-  }, [dispatch, navigate, selector.email]);
-
+    restoreHome();
+  }, [restoreHome]);
   return (
     <div className={css.container}>
       <WaterMainInfo />
