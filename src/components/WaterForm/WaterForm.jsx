@@ -8,7 +8,7 @@ import './WaterForm.module.css';
 
 const baseURL = 'https://crystal-coders-back.onrender.com';
 
-const WaterForm = ({ onClose, onAfterAction }) => {
+const WaterForm = ({ onClose, onAfterAction, mode, initialData }) => {
   const [waterAmount, setWaterAmount] = useState(50);
   const [time, setTime] = useState(new Date().toISOString().substring(11, 16));
 
@@ -27,10 +27,13 @@ const WaterForm = ({ onClose, onAfterAction }) => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: {
-      volume: waterAmount,
-      time: time,
-    },
+    defaultValues:
+      mode === 'edit'
+        ? { volume: initialData.volume, time: initialData.time }
+        : {
+            volume: waterAmount,
+            time: time,
+          },
   });
 
   const incrementWater = () => {
@@ -89,24 +92,75 @@ const WaterForm = ({ onClose, onAfterAction }) => {
       <div className="form-group">
         <p className="title2">Amount of water:</p>
         <br />
-        <div className="input-group" style={{ display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
-          <button type="button" onClick={decrementWater} className="circle-btn" style={{ backgroundColor: 'transparent' }}>
-            <AiOutlineMinusCircle style={{ color: '#555555', fontSize: '43px', cursor: 'pointer', transition: 'color 0.3s' }} />
+        <div
+          className="input-group"
+          style={{
+            display: 'flex',
+            justifyContent: 'start',
+            alignItems: 'center',
+          }}
+        >
+          <button
+            type="button"
+            onClick={decrementWater}
+            className="circle-btn"
+            style={{ backgroundColor: 'transparent' }}
+          >
+            <AiOutlineMinusCircle
+              style={{
+                color: '#555555',
+                fontSize: '43px',
+                cursor: 'pointer',
+                transition: 'color 0.3s',
+              }}
+            />
           </button>
 
-          <div className="water-amount-panel" style={{ fontSize: '15px', fontWeight: 700, lineHeight: '22.4px', color: '#FFF', backgroundColor: '#323F47', borderRadius: '30px', padding: '20px 11px', display: 'flex', justifyContent: 'center', height: '43px', alignItems: 'center' }}>
+          <div
+            className="water-amount-panel"
+            style={{
+              fontSize: '15px',
+              fontWeight: 700,
+              lineHeight: '22.4px',
+              color: '#FFF',
+              backgroundColor: '#323F47',
+              borderRadius: '30px',
+              padding: '20px 11px',
+              display: 'flex',
+              justifyContent: 'center',
+              height: '43px',
+              alignItems: 'center',
+            }}
+          >
             {waterAmount} ml
           </div>
 
-          <button type="button" onClick={incrementWater} className="circle-btn" style={{ backgroundColor: 'transparent' }}>
-            <AiOutlinePlusCircle style={{ color: '#555555', fontSize: '43px', cursor: 'pointer', transition: 'color 0.3s' }} />
+          <button
+            type="button"
+            onClick={incrementWater}
+            className="circle-btn"
+            style={{ backgroundColor: 'transparent' }}
+          >
+            <AiOutlinePlusCircle
+              style={{
+                color: '#555555',
+                fontSize: '43px',
+                cursor: 'pointer',
+                transition: 'color 0.3s',
+              }}
+            />
           </button>
         </div>
-        {errors.volume && <p className="error-message">{errors.volume.message}</p>}
+        {errors.volume && (
+          <p className="error-message">{errors.volume.message}</p>
+        )}
       </div>
 
       <div className="form-group">
-        <label style={{ marginBottom: 8, marginTop: '16px', display: 'block' }} className="title2">
+        <label
+          style={{ marginBottom: 8, marginTop: '16px', display: 'block' }}
+          className="title2"
+        >
           Recording time:
         </label>
         <input
@@ -115,7 +169,13 @@ const WaterForm = ({ onClose, onAfterAction }) => {
           type="time"
           value={time}
           onChange={e => setTime(e.target.value)}
-          style={{ padding: '16px 16px', borderRadius: '15px', width: '100%', border: '1px solid rgba(47, 47, 47, 0.15)', marginBottom: '24px' }}
+          style={{
+            padding: '16px 16px',
+            borderRadius: '15px',
+            width: '100%',
+            border: '1px solid rgba(47, 47, 47, 0.15)',
+            marginBottom: '24px',
+          }}
         />
         {errors.time && <p className="error-message">{errors.time.message}</p>}
       </div>
@@ -130,17 +190,33 @@ const WaterForm = ({ onClose, onAfterAction }) => {
           type="number"
           value={waterAmount}
           onChange={handleManualInputChange}
-          style={{ padding: '16px 16px', borderRadius: '15px', width: '100%', border: '1px solid rgba(47, 47, 47, 0.15)', marginBottom: '24px' }}
+          style={{
+            padding: '16px 16px',
+            borderRadius: '15px',
+            width: '100%',
+            border: '1px solid rgba(47, 47, 47, 0.15)',
+            marginBottom: '24px',
+          }}
           min="50"
           max="5000"
           step="1"
         />
-        {errors.volume && <p className="error-message">{errors.volume.message}</p>}
+        {errors.volume && (
+          <p className="error-message">{errors.volume.message}</p>
+        )}
       </div>
 
       <button
         type="submit"
-        style={{ backgroundColor: 'var(--light-green)', color: '#323F47', border: 'none', padding: '0.75rem 1.5rem', cursor: 'pointer', borderRadius: '30px', transition: 'background-color var(--animation)' }}
+        style={{
+          backgroundColor: 'var(--light-green)',
+          color: '#323F47',
+          border: 'none',
+          padding: '0.75rem 1.5rem',
+          cursor: 'pointer',
+          borderRadius: '30px',
+          transition: 'background-color var(--animation)',
+        }}
       >
         Save
       </button>
