@@ -66,8 +66,9 @@ const WaterForm = ({ onClose, onAfterAction, mode, initialData }) => {
     try {
       const token = localStorage.getItem('authToken');
 
-      const response = await fetch(`${baseURL}/water`, {
-        method: 'POST',
+      console.log(data);
+      const response = await fetch(`${baseURL}/water${mode === "edit" ? "/" + initialData.id : ""}`, {
+        method: mode === 'edit' ? 'PATCH' : 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,

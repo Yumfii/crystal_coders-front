@@ -25,7 +25,7 @@ const UserSettingsForm = () => {
     resolver: yupResolver(userSchema),
     mode: 'onChange',
     defaultValues: {
-      gender: user?.gender === 'male' ? 'man' : 'woman',
+      gender: user?.gender === 'male' ? 'male' : 'female',
       name: user?.name || 'User',
       email: user?.email || '',
       weight: user?.weight || 0,
@@ -79,7 +79,7 @@ const UserSettingsForm = () => {
 
     if (weight && time) {
       let volume =
-        gender === 'woman'
+        gender === 'female'
           ? weight * 0.03 + time * 0.4
           : weight * 0.04 + time * 0.6;
       return volume.toFixed(1);
@@ -93,7 +93,8 @@ const UserSettingsForm = () => {
         className={CSS.settingsForm}
         onSubmit={handleSubmit(data => {
           console.log(data);
-          dispatch(updateUsersSettings(data));
+          const {time, liters, email, ...body} = data;
+          dispatch(updateUsersSettings({...body, sportActiveTime:time, dailyWater:liters}));
         })}
       >
         <div className={CSS.avatarBlock}>
@@ -120,24 +121,24 @@ const UserSettingsForm = () => {
         <div className={CSS.genderBlockWrapper}>
           <span className={CSS.boldInputLabel}>Your gender identity</span>
           <span className={CSS.radioBtnWrapper}>
-            <label htmlFor="woman" className={CSS.radioLabel}>
+            <label htmlFor="female" className={CSS.radioLabel}>
               <input
                 className={CSS.radioBtn}
                 type="radio"
-                id="woman"
-                value="woman"
+                id="female"
+                value="female"
                 {...register('gender')}
               />
               <span className={CSS.customRadioBtn}></span>
               Woman
             </label>
 
-            <label htmlFor="man" className={CSS.radioLabel}>
+            <label htmlFor="male" className={CSS.radioLabel}>
               <input
                 className={CSS.radioBtn}
                 type="radio"
-                id="man"
-                value="man"
+                id="male"
+                value="male"
                 {...register('gender')}
               />
               <span className={CSS.customRadioBtn}></span>

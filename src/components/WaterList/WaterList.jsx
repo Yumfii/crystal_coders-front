@@ -43,8 +43,8 @@ const WaterList = ({ userId }) => {
 
 
 
-  const handleOpenEditModal = (volume, time) => {
-    setEditData({ volume, time });
+  const handleOpenEditModal = (volume, time, id) => {
+    setEditData({ volume, time, id });
     setModalOpen(true);
   };
 
@@ -80,6 +80,7 @@ const WaterList = ({ userId }) => {
               <WaterItem
                 volume={volume}
                 time={time}
+                id={_id}
                 onEdit={handleOpenEditModal}
                 onDelete={() => handleOpenDeleteModal(_id)}
               />

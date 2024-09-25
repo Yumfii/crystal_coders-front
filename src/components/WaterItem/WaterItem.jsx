@@ -5,10 +5,10 @@ import { RxTrash } from 'react-icons/rx';
 import css from './WaterItem.module.css';
 import { format } from 'date-fns';
 
-const WaterItem = ({ volume, time, onEdit, onDelete }) => {
+const WaterItem = ({ volume, time, id, onEdit, onDelete }) => {
   const handleEditClick = () => {
     console.log('Edit clicked:', { volume, time });
-    onEdit(volume, time);
+    onEdit(volume, time, id);
   };
 
   const handleDeleteClick = () => {

@@ -104,16 +104,14 @@ export const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
 
 export const updateUsersSettings = createAsyncThunk(
   'updateUser',
-  async (id, thunkApi) => {
+  async (body, thunkApi) => {
+    const id = thunkApi.getState().auth.user._id;
     try {
       const { data } = await axios.patch(
         `users/${id}`,
-        {},
+        body,
         {
           withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json',
-          },
         }
       );
       return data.data;

@@ -37,17 +37,17 @@ const WaterModal = ({ onClose, operationType, editData }) => {
           onClose={onClose}
           initialData={editData}
           onSubmit={handleFormSubmit}
-          onAfterAction={fetchVolumes} // Pass the handleFormSubmit to WaterForm
+          // onAfterAction={fetchVolumes}
         />
       </div>
 
-      <h2>{title}</h2>
+      {/* <h2>{title}</h2>
       <WaterForm
         mode={operationType}
         onClose={onClose}
         initialData={editData}
         onSubmit={handleFormSubmit}
-      />
+      /> */}
     </div>
   );
 };
