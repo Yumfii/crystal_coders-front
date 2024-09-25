@@ -11,6 +11,7 @@ import ResetPasswordPage from '../pages/ResetPassword/ResetPassword';
 import GraphPage from '../pages/GraphPage/GraphPage';
 import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 import VerifyEmailPage from '../pages/VerifyEmailPage/VerifyEmailPage.jsx';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 
 // import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
@@ -54,8 +55,9 @@ export const App = () => {
         <Route path="/water-graph" element={<GraphPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
-
-        {/* <Route path="/settings" element={<UserSettingsModal />} /> */}
+        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/settings" element={<UserSettingsModal />} />
+          
       </Routes>
       <Toaster position="top-center" reverseOrder={false} />
     </TourProvider>

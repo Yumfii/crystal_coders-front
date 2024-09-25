@@ -1,5 +1,5 @@
 .addWaterBtnMainInfo {
-  display: flex;
+   display: flex;
   width: 178px -40px;
   margin-left: auto;
   align-items: center;
@@ -12,7 +12,20 @@
   font-weight: 700;
   line-height: 1.28;
   letter-spacing: -0.14px;
+  padding: 0.7em 1.7em;
   cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 2px 2px 4px #c5c5c5, -2px -2px 4px var(--white);
+}
+
+.addWaterBtnMainInfo:hover,
+.addWaterBtnMainInfo:focus {
+  border: 1px solid var(--white);
+}
+
+.addWaterBtnMainInfo:active {
+  box-shadow: 2px 2px 4px #c5c5c5, -2px -2px 4px var(--white);
 }
 
 .addWaterBtnDetailedInfo {
@@ -58,6 +71,13 @@
 
 @media screen and (min-width: 1440px) {
   .addWaterBtnMainInfo {
+    position: fixed;
+    bottom: 64px;
+    left: 50%;
+    transform: translateX(calc(-50% - 134px));
     padding: 18px 30px;
   }
 }
+
+
+
