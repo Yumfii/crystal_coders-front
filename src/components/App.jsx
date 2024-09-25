@@ -11,6 +11,9 @@ import ResetPasswordPage from '../pages/ResetPassword/ResetPassword';
 import GraphPage from '../pages/GraphPage/GraphPage';
 import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 import VerifyEmailPage from '../pages/VerifyEmailPage/VerifyEmailPage.jsx';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
+
+// import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
