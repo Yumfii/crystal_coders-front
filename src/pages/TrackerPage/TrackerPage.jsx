@@ -11,7 +11,7 @@ import { useRestoreHome } from '../../redux/utils/returnHomePage.jsx';
 const TrackerPage = () => {
   const { setIsOpen, setSteps } = useTour();
 
-  const restoreHome = useRestoreHome('/');
+  const restoreHome = useRestoreHome();
 
   useEffect(() => {
     restoreHome();
