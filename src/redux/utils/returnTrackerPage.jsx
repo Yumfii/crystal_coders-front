@@ -21,9 +21,12 @@ export const useRestoreSession = () => {
         ).unwrap();
 
         // console.log(window.location.pathname);
-        if (user) {
-          navigate('/tracker');
-        }
+        console.log(user);
+        window.setTimeout(() => {
+          if (user) {
+            navigate('/tracker');
+          }
+        }, 300);
       }
     } catch (error) {
       console.log('Error restoring session:', error);
