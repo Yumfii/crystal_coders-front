@@ -31,7 +31,7 @@ export const App = () => {
   }, [location, setIsOpen]);
   const radius = 8;
   return (
-    <Provider store={store}>
+
       <TourProvider
         steps={steps}
         styles={{
@@ -63,6 +63,6 @@ export const App = () => {
         </Routes>
         <Toaster position="top-center" reverseOrder={false} />
       </TourProvider>
-    </Provider>
+
   );
 };
