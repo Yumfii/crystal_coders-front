@@ -28,7 +28,7 @@ const WaterModal = ({ onClose, operationType, editData }) => {
   return (
     <div>
 
-      <h2 style={modalTitleStyle}>{title}</h2>
+      <h2 >{title}</h2>
       <div>
         <WaterForm
           mode={operationType}
