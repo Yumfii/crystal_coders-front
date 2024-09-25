@@ -8,9 +8,18 @@ import './WaterForm.module.css';
 
 const baseURL = 'https://crystal-coders-back.onrender.com';
 
-const WaterForm = ({ onClose, onAfterAction }) => {
+const WaterForm = ({ onClose, onAfterAction, mode, initialData }) => {
   const [waterAmount, setWaterAmount] = useState(50);
-  const [time, setTime] = useState(new Date().toISOString().substring(11, 16));
+
+
+  const getCurrentTime = () => {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    return hours + ':' + minutes;
+  };
+
+  const [time, setTime] = useState(getCurrentTime());
 
   const schema = Yup.object().shape({
     volume: Yup.number()
@@ -27,10 +36,13 @@ const WaterForm = ({ onClose, onAfterAction }) => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: {
-      volume: waterAmount,
-      time: time,
-    },
+    defaultValues:
+      mode === 'edit'
+        ? { volume: initialData.volume, time: initialData.time }
+        : {
+            volume: waterAmount,
+            time: time,
+          },
   });
 
   const incrementWater = () => {
