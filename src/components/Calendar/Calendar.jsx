@@ -4,6 +4,11 @@ import CalendarItem from '../../components/CalendarItem/CalendarItem';
 import css from './Calendar.module.css';
 
 const Calendar = ({ selectedDate, setSelectedDate, waterData =[]}) => {
+  const { waterConsumption = {}, remainingPercentage = {} } = waterData || {};
+
+  const consumptionDay = waterConsumption.day ?? 'No data';
+  const consumptionMonth = waterConsumption.month ?? 'No data';
+  const remainingPercent = remainingPercentage?.percentage ?? 0;
   console.log('Water Data in Calendar:', waterData);
   const daysInMonth = getDaysInMonth(selectedDate);
 
@@ -16,6 +21,17 @@ const Calendar = ({ selectedDate, setSelectedDate, waterData =[]}) => {
     return waterEntry ? waterEntry.percentage : 0;
   };
 
+  // useEffect(() => {
+  //   if (waterConsumption) {
+  //     console.log('Water Consumption:', waterConsumption);
+  //   }
+  // }, [waterConsumption]);
+
+  // useEffect(() => {
+  //   if (remainingPercentage) {
+  //     console.log('Remaining Percentage:', remainingPercentage);
+  //   }
+  // }, [remainingPercentage]);
 
 
   const handleDayClick = day => {
