@@ -4,45 +4,13 @@ import CalendarPagination from '../../components/CalendarPagination/CalendarPagi
 import { addMonths, subMonths } from 'date-fns';
 import css from './MonthInfo.module.css';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 
 const MonthInfo = ({ selectedDate, setSelectedDate }) => {
+  const dispatch = useDispatch();
   // !! Check how to get data about percentage of the water
-  const [waterData, setWaterData] = useState([]);
+  const [waterData, loading, error] = useSelector(state => state.water);
 
-    // Fetch water data from API
-    const fetchWaterData = async () => {
-      try {
-        const token = localStorage.getItem('authToken');
-        if (!token) {
-          console.error('No authentication token found.');
-          return;
-        }
-
-        const response = await axios.get(`${BASE_URL}/water/consumption/month`, {
-          params: { month },
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        console.log('Fetched Water Data:', response.data);
-
-        if (response.data && response.data.data) {
-          setWaterData(response.data.data.data || []);
-        }
-      } catch (error) {
-        console.error('Error fetching water consumption data:', error);
-      }
-    };
-
-
-    useEffect(() => {
-      if (selectedDate) {
-        fetchWaterData();
-      } else {
-        console.error('selectedDate is null or undefined.');
-      }
-    }, [selectedDate]);
     // !! Check the part above
 
   const nextMonth = () => {

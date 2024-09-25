@@ -98,3 +98,14 @@ export const fetchWaterConsumptionForDay = createAsyncThunk(
     return response.data;
   }
 );
+
+export const fetchRemainingWaterPercentage = createAsyncThunk(
+  'water/fetchRemainingWaterPercentage',
+  async(date) =>{
+    const response = await axios.get(`${BASE_URL}/waterTracking/consumption/remaining`,{
+      params: {date}
+    });
+    return response.data;
+  }
+
+)
