@@ -7,12 +7,12 @@ const Calendar = ({ selectedDate, setSelectedDate, waterData =[]}) => {
   const daysInMonth = getDaysInMonth(selectedDate);
 
   const getWaterPercentageForDay = day => {
-    if (!waterData || waterData.length === 0) return 0; // Fallback for no data
+    if (!waterData || waterData.length === 0) return 0;
     const date = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), day);
-    const dateString = date.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+    const dateString = date.toISOString().split('T')[0];
 
     const waterEntry = waterData.find(entry => entry.date === dateString);
-    return waterEntry ? waterEntry.percentage : 0; // Return the percentage or 0 if no entry
+    return waterEntry ? waterEntry.percentage : 0;
   };
 
 

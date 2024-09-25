@@ -5,17 +5,19 @@ import { addMonths, subMonths } from 'date-fns';
 import css from './MonthInfo.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  fetchRemainingWaterPercentage,
   fetchWaterConsumptionForMonth,
-} from 'redux/water/operations';
+} from '../../redux/water/operations';
 
 const MonthInfo = ({ selectedDate, setSelectedDate }) => {
   const dispatch = useDispatch();
   // !! Check how to get data about percentage of the water
-  const [waterConsumption, loading, error] = useSelector(state => state.water);
+  const [waterConsumption, loading, error, remainingPercentage] = useSelector(state => state.water);
   useEffect(() => {
     if (selectedDate) {
       const month = selectedDate.getMonth() + 1;
       dispatch(fetchWaterConsumptionForMonth(month));
+      dispatch(fetchRemainingWaterPercentage({date: selectedDate.toISOString().split('T')[0]}))
     }
   }, [selectedDate, dispatch]);
 
@@ -42,7 +44,7 @@ const MonthInfo = ({ selectedDate, setSelectedDate }) => {
       <Calendar
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
-        waterData={waterConsumption}
+        waterData={{waterConsumption, remainingPercentage}}
       />
     </div>
   );
