@@ -64,12 +64,12 @@ const SignUpForm = () => {
         }, 2000);
       }
     } catch (err) {
-      if (err.response && err.response.status === 409) {
+      if (err.status === 409) {
         toast.error('User with this email already exists!');
       } else {
         toast.error('Registration failed. Please try again.');
       }
-      console.error(err.message);
+      // console.error(err.message);
     }
   };
 

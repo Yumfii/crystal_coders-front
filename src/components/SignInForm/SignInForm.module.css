@@ -32,6 +32,7 @@
 }
 
 .infoContainer {
+  max-width: 343px;
   width: 100%;
   border-radius: 30px;
   background: var(--light-gray);
@@ -43,16 +44,17 @@
 }
 
 .logo {
-  margin-bottom: 172px;
+  margin-bottom: 150px;
   opacity: 0;
   animation: fadeInUp 1s ease-out forwards;
   animation-delay: 0.5s;
 }
 
 .formContainer {
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 311px;
+  margin: 0 auto 50px;
   opacity: 0;
   animation: fadeInRight 1s ease-out forwards;
   animation-delay: 0.8s;
@@ -61,7 +63,6 @@
 .title {
   color: var(--dark-blue);
   font-size: 32px;
-  font-style: normal;
   font-weight: 700;
   line-height: 32px;
   letter-spacing: -0.36px;
@@ -273,18 +274,18 @@
 
 @media screen and (min-width: 768px) {
   .infoContainer {
-    width: 704px;
-    height: 960px;
+    min-width: 704px;
     padding: 32px;
   }
 
   .logo {
-    margin-bottom: 200px;
+    margin-bottom: 69px;
   }
 
   .formContainer {
     display: flex;
     flex-direction: column;
+    min-width: 436px;
   }
 
   .form {
@@ -335,7 +336,8 @@
 @media screen and (min-width: 1440px) {
   .infoContainer {
     margin: 0;
-    height: 754px;
+    min-height: 754px;
+    width: 672px;
   }
 
   .logo {

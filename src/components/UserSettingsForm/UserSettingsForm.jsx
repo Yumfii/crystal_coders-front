@@ -96,9 +96,9 @@ const UserSettingsForm = () => {
           dispatch(updateUsersSettings(data));
         })}
       >
-        <div className={`${CSS.avatarBlock} avatarBlock`}>
+        <div className={CSS.avatarBlock}>
           <Image
-            className={CSS.avatarImage}
+            className={`${CSS.avatarImage} avatarImage`}
             cloudName="dwyxffoux"
             publicId="nvtxl4guwbr4a3atayvr"
             crop="scale"

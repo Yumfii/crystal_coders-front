@@ -58,6 +58,7 @@ export const App = () => {
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/settings" element={<UserSettingsModal />} />
       </Routes>
+      <Toaster position="top-center" reverseOrder={false} />
     </TourProvider>
   );
 };
