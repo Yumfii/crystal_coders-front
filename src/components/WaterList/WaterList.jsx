@@ -36,7 +36,7 @@ const WaterList = ({ userId }) => {
 
   useEffect(() => {
     fetchWaterData();
-  }, [userId, isModalOpen, isDeleteModalOpen]);
+  }, [userId, isModalOpen, isDeleteModalOpen, fetchWaterData]);
 
   const handleOpenEditModal = (volume, time) => {
     setEditData({ volume, time });
@@ -56,11 +56,12 @@ const WaterList = ({ userId }) => {
   const handleCloseModal = () => {
     setModalOpen(false);
     setEditData(null);
+    fetchWaterData();
   };
 
   const handleOpenAddModal = () => {
-    setEditData(null); // Обнуляем данные редактирования, если это новая запись
-    setModalOpen(true); // Открываем модальное окно
+    setEditData(null);
+    setModalOpen(true);
   };
 
   return (
@@ -85,10 +86,7 @@ const WaterList = ({ userId }) => {
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <WaterModal
             operationType={editData ? "edit" : "add"}
-            onClose={() => {
-              fetchWaterData(); // Обновляем данные при закрытии модального окна
-              handleCloseModal();
-            }}
+            onClose={handleCloseModal}
             editData={editData}
           />
         </Modal>
@@ -97,10 +95,7 @@ const WaterList = ({ userId }) => {
         <Modal isOpen={isDeleteModalOpen} onClose={handleCloseDeleteModal}>
           <DeleteWaterModal
             modalIsOpen={isDeleteModalOpen}
-            closeModal={() => {
-              fetchWaterData(); // Обновляем данные при закрытии модального окна
-              handleCloseDeleteModal();
-            }}
+            closeModal={handleCloseDeleteModal}
             waterId={deleteId}
           />
         </Modal>
@@ -108,5 +103,6 @@ const WaterList = ({ userId }) => {
     </div>
   );
 };
+
 
 export default WaterList;
