@@ -11,6 +11,7 @@ import ResetPasswordPage from '../pages/ResetPassword/ResetPassword';
 import GraphPage from '../pages/GraphPage/GraphPage';
 import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 import VerifyEmailPage from '../pages/VerifyEmailPage/VerifyEmailPage.jsx';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 
 // import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
@@ -22,28 +23,27 @@ import { useEffect } from 'react';
 
 export const App = () => {
   const location = useLocation();
-  const{setIsOpen} = useTour();
-  useEffect(()=>{
+  const { setIsOpen } = useTour();
+  useEffect(() => {
     setIsOpen(false);
-
-  }, [location,setIsOpen]);
-  const radius = 8
+  }, [location, setIsOpen]);
+  const radius = 8;
   return (
     <TourProvider
-    steps={steps}
-    styles={{
-      popover: (base) => ({
-        ...base,
-        '--reactour-accent': 'var(--light-dark-green)',
-        borderRadius: radius,
-      }),
-      maskArea: (base) => ({ ...base, rx: radius }),
-      maskWrapper: (base) => ({ ...base,  }),
-      badge: (base) => ({ ...base, left: 'auto', right: '-0.8125em' }),
-      controls: (base) => ({ ...base, marginTop: 30 }),
-      close: (base) => ({ ...base, right: 'auto', left: 8, top: 8 }),
-    }}>
-
+      steps={steps}
+      styles={{
+        popover: base => ({
+          ...base,
+          '--reactour-accent': 'var(--light-dark-green)',
+          borderRadius: radius,
+        }),
+        maskArea: base => ({ ...base, rx: radius }),
+        maskWrapper: base => ({ ...base }),
+        badge: base => ({ ...base, left: 'auto', right: '-0.8125em' }),
+        controls: base => ({ ...base, marginTop: 30 }),
+        close: base => ({ ...base, right: 'auto', left: 8, top: 8 }),
+      }}
+    >
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signin" element={<SignInPage />} />
@@ -55,7 +55,7 @@ export const App = () => {
         <Route path="/water-graph" element={<GraphPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
-
+        <Route path="*" element={<NotFoundPage />} />
         <Route path="/settings" element={<UserSettingsModal />} />
       </Routes>
     </TourProvider>
