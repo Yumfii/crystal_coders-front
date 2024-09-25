@@ -59,7 +59,6 @@ const ModalSmall = ({ isOpen, onClose, children }) => {
     padding: '40px',
     borderRadius: '15px',
     position: 'relative',
-    // width: modalWidth,
     maxWidth: '100%',
     maxHeight: '90vh',
   };

@@ -1,8 +1,8 @@
-.userBar{
+.userBar {
   display: inline-block;
   min-width: 137px;
 }
-.userBtn{
+.userBtn {
   background-color: var(--dark-blue);
   display: flex;
   align-items: center;
@@ -12,44 +12,52 @@
   height: 50px;
   border-radius: 30px;
   padding: 0 12px 0 12px;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 2px 2px 4px #c5c5c5, -2px -2px 4px var(--white);
 }
 
-.userBtnName{
+.userBtn:active {
+  box-shadow: 2px 2px 4px #c5c5c5, -2px -2px 4px var(--white);
+}
+
+.userBtnName {
   color: var(--white);
   font-weight: 700;
   line-height: 1.28em;
   letter-spacing: -0.14px;
 }
 
-.avatarImage{
+.avatarImage {
   width: 38px;
   height: 38px;
 }
-.arrowIcon{
+.arrowIcon {
   color: var(--white);
   width: 16px;
   height: 16px;
 }
 
 @media only screen and (min-width: 768px) {
-  .userBtn{
+  .userBtn {
     min-width: 157px;
     min-height: 56px;
   }
 
-  .userBtnName{
+  .userBtnName {
     font-size: 16px;
     line-height: 1.5em;
     letter-spacing: -0.16px;
   }
 
-  .avatarImage{
+  .avatarImage {
     width: 44px;
     height: 44px;
   }
 
-  .arrowIcon{
-  width: 20px;
-  height: 20px;
-}
+  .arrowIcon {
+    width: 20px;
+    height: 20px;
+  }
 }
