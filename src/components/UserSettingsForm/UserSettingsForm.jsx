@@ -6,15 +6,26 @@ import { Image } from 'cloudinary-react';
 import { FiUpload } from 'react-icons/fi';
 import { userSchema, validateInput } from './userSettingsFormValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+import { getUserById } from '../../redux/auth/operations';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { updateUsersSettings } from '../../redux/auth/operations';
-import { selectUser } from '../../redux/auth/selectors';
-// import { Toast } from 'react-hot-toast';
 
 const UserSettingsForm = () => {
+
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+  const [user, setUser] = useState();
+  const [avatar, setAvatar] = useState(null);
+
+  useEffect(() => {
+      dispatch(getUserById('66ec8720bd98147f704c239c'))
+      .then((data) => {
+        setUser(data)
+        console.log(data);
+      }).catch((err) => {
+        console.log(err);
+      });
+
+  },[])
 
   const {
     register,
@@ -25,6 +36,7 @@ const UserSettingsForm = () => {
     resolver: yupResolver(userSchema),
     mode: 'onChange',
     defaultValues: {
+      avatar: user?.avatar,
       gender: user?.gender === 'male' ? 'man' : 'woman',
       name: user?.name || 'User',
       email: user?.email || '',
@@ -34,8 +46,8 @@ const UserSettingsForm = () => {
     },
   });
 
-  const isVerified = user?.isVerified;
   const [gender, setGender] = useState(watch('gender'));
+  const isVerified = user?.isVerified;
 
   // Update gender state when the value changes
   useEffect(() => {
@@ -48,17 +60,42 @@ const UserSettingsForm = () => {
   }, [watch]);
 
   // Handling avatar upload
-  const uploadToCloudinary = event => {
-    const file = event.target.files[0];
-    if (file) {
+  const uploadToCloudinary = async (event) => {
+    setAvatar(event.target.files[0])
+
+    const formData = new FormData();
+    formData.append('avatar', avatar)
+
+    if (avatar) {
       // Assuming that you will use a Cloudinary upload method, integrate it here
-      console.log('File selected for upload:', file);
-      // Example:
-      // cloudinary.v2.uploader.upload(file, { upload_preset: "my_preset" }, (error, result) => {
-      //   console.log(result, error);
-      // });
+      console.log('File selected for upload:', avatar);
+      dispatch(updateUsersSettings(avatar))
+
     }
   };
+
+//   function removeFileExtension(payload) {
+//     const dotIndex = payload.lastIndexOf('.');
+//     if (dotIndex !== -1) {
+//       return payload.substring(0, dotIndex);
+//     } else {
+//       return payload;
+//     }
+//   }
+
+//   function idAndNameReturn(payload) {
+//   const partitioningIntoAnArray = payload.split('/');
+//   const file = removeFileExtension(
+//     partitioningIntoAnArray[partitioningIntoAnArray.length - 1],
+//   );
+
+//   return {
+//     name: partitioningIntoAnArray[3],
+//     idPhoto: file,
+//   };
+// }
+
+
 
   // Validate input value on blur
   const validateInputValue = async evt => {
@@ -75,9 +112,9 @@ const UserSettingsForm = () => {
   // Calculate recommended water intake
   const calculateLiters = () => {
     const weight = watch('weight');
-    const time = watch('time');
 
-    if (weight && time) {
+    if (weight) {
+      const time = watch('time');
       let volume =
         gender === 'woman'
           ? weight * 0.03 + time * 0.4

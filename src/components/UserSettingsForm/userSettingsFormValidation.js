@@ -27,7 +27,8 @@ export const userSchema = yup.object({
         .typeError('For rfaction number use . instead of ,')
         .min('0', 'Enter a valid number here')
         .max('10', 'We doubt you will drink more than 10 liters')
-        .required('This field is important too!'),
+      .required('This field is important too!'),
+  avatar: yup.mixed()
 })
 
 export const validateInput = (key, value) => {

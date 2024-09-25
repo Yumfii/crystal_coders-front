@@ -209,3 +209,5 @@ export const getUserById = createAsyncThunk(
     }
   }
 );
+
+export const fetchUsersSettings = createAsyncThunk('auth')
