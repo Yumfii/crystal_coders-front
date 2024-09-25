@@ -14,14 +14,26 @@ const MonthInfo = ({ selectedDate, setSelectedDate }) => {
   // !! Check how to get data about percentage of the water
   const {waterConsumption, loading, error, remainingPercentage} = useSelector(state => state.water);
   useEffect(() => {
-    if (selectedDate) {
+    console.log('Water Consumption:', waterConsumption);
+  }, [waterConsumption]);
+  const state = useSelector(state => state);
+console.log('Redux State:', state);
+
+
+useEffect(() => {
+  console.log('Selected Date:', selectedDate);
+  if (selectedDate) {
       const month = selectedDate.getMonth() + 1;
       const year = selectedDate.getFullYear();
-      const userId = localStorage.getItem('userId').trim();
-      dispatch(fetchWaterConsumptionForMonth(month, year, userId ));
-      dispatch(fetchRemainingWaterPercentage({date: selectedDate.toISOString().split('T')[0]}))
-    }
-  }, [selectedDate, dispatch]);
+      const userId = localStorage.getItem('userId')?.trim();
+      if (userId) {
+          dispatch(fetchWaterConsumptionForMonth(month, year, userId));
+          dispatch(fetchRemainingWaterPercentage({ date: selectedDate.toISOString().split('T')[0] }));
+      } else {
+          console.error('User ID not found in localStorage.');
+      }
+  }
+}, [selectedDate, dispatch]);
 
   // !! Check the part above
 

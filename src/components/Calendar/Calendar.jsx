@@ -4,6 +4,7 @@ import CalendarItem from '../../components/CalendarItem/CalendarItem';
 import css from './Calendar.module.css';
 
 const Calendar = ({ selectedDate, setSelectedDate, waterData =[]}) => {
+  console.log('Water Data in Calendar:', waterData);
   const daysInMonth = getDaysInMonth(selectedDate);
 
   const getWaterPercentageForDay = day => {
