@@ -1,21 +1,18 @@
 import css from './SignInPage.module.css';
 import AdvantagesSection from '../../components/AdvantagesSection/AdvantagesSection';
 import SignInForm from '../../components/SignInForm/SignInForm';
-import { useSelector } from 'react-redux';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
-import { useNavigate } from 'react-router-dom';
+
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+import { useRestoreSession } from '../../redux/utils/returnTrackerPage.jsx';
+
 const SignInPage = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const navigate = useNavigate();
+  const restoreSession = useRestoreSession();
 
   useEffect(() => {
-    if (isLoggedIn) {
-      navigate('/tracker');
-    }
-  }, [isLoggedIn, navigate]);
+    restoreSession();
+  }, [restoreSession]);
 
   return (
     <motion.div

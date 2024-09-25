@@ -31,38 +31,37 @@ export const App = () => {
   }, [location, setIsOpen]);
   const radius = 8;
   return (
+    <TourProvider
+      steps={steps}
+      styles={{
+        popover: base => ({
+          ...base,
+          '--reactour-accent': 'var(--light-dark-green)',
+          borderRadius: radius,
+        }),
+        maskArea: base => ({ ...base, rx: radius }),
+        maskWrapper: base => ({ ...base }),
+        badge: base => ({ ...base, left: 'auto', right: '-0.8125em' }),
+        controls: base => ({ ...base, marginTop: 30 }),
+        close: base => ({ ...base, right: 'auto', left: 8, top: 8 }),
+      }}
+    >
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/tracker" element={<TrackerPage />} />
+        {/* <Route path="/userSetting" element={<UserSettingsModalT />} /> */}
+        {/* <Route path="/waterform" element={<UserSettingsModalT />} /> */}
+        <Route path="/confirm-google-auth" element={<ConfirmGoogleAuth />} />
+        <Route path="/water-graph" element={<GraphPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/settings" element={<UserSettingsModal />} />
 
-      <TourProvider
-        steps={steps}
-        styles={{
-          popover: base => ({
-            ...base,
-            '--reactour-accent': 'var(--light-dark-green)',
-            borderRadius: radius,
-          }),
-          maskArea: base => ({ ...base, rx: radius }),
-          maskWrapper: base => ({ ...base }),
-          badge: base => ({ ...base, left: 'auto', right: '-0.8125em' }),
-          controls: base => ({ ...base, marginTop: 30 }),
-          close: base => ({ ...base, right: 'auto', left: 8, top: 8 }),
-        }}
-      >
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signin" element={<SignInPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/tracker" element={<TrackerPage />} />
-          <Route path="/userSetting" element={<UserSettingsModalT />} />
-          <Route path="/waterform" element={<UserSettingsModalT />} />
-          <Route path="/confirm-google-auth" element={<ConfirmGoogleAuth />} />
-          <Route path="/water-graph" element={<GraphPage />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="/reset-password" element={<ResetPasswordPage />} />
-
-          <Route path="/settings" element={<UserSettingsModal />} />
-        </Routes>
-        <Toaster position="top-center" reverseOrder={false} />
-      </TourProvider>
-
+      </Routes>
+      <Toaster position="top-center" reverseOrder={false} />
+    </TourProvider>
   );
 };

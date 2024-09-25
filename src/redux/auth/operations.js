@@ -9,10 +9,10 @@ const setAuthHeader = token => {
     // console.log(token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     localStorage.setItem('authToken', token);
-    console.log(
-      'Authorization Header Set:',
-      axios.defaults.headers.common.Authorization
-    );
+    // console.log(
+    //   'Authorization Header Set:',
+    //   axios.defaults.headers.common.Authorization
+    // );
   }
 };
 
@@ -181,9 +181,9 @@ export const fetchUser = createAsyncThunk(
       );
       // console.log(response.data.data.accessToken);
       setAuthHeader(response.data.data.accessToken);
+      // console.log(thunkAPI.getState());
       return response.data;
     } catch (err) {
-      console.log(thunkAPI.getState());
       return thunkAPI.rejectWithValue(err.response.data);
     }
   }
