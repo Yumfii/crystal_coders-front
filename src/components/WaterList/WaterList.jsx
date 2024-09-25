@@ -34,9 +34,14 @@ const WaterList = ({ userId }) => {
     }
   };
 
+
   useEffect(() => {
-    fetchWaterData();
-  }, [userId, isModalOpen, isDeleteModalOpen, fetchWaterData]);
+    window.setTimeout(() => {
+      fetchWaterData()
+    }, 300);
+  }, [userId, isModalOpen, isDeleteModalOpen, setWaterData ]);
+
+
 
   const handleOpenEditModal = (volume, time) => {
     setEditData({ volume, time });
