@@ -29,11 +29,13 @@ export const updateVolume = createAsyncThunk(
   'water/updateVolume',
   async ({ id, data }) => {
     const token = localStorage.getItem('authToken');
-    const response = await axios.put(`${BASE_URL}/water/${id}`, data, {
+    console.log(id);
+    const response = await axios.patch(`${BASE_URL}/water/${id}`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
+
     return response.data;
   }
 );

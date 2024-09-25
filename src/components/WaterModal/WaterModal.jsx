@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import WaterForm from '../WaterForm/WaterForm';
-import { createVolume, updateVolume } from '../../redux/water/operations'; // Убедитесь, что эти импорты корректны
+import { createVolume, updateVolume } from '../../redux/water/operations';
 
 const WaterModal = ({ onClose, operationType, editData }) => {
   const dispatch = useDispatch();
@@ -11,6 +11,7 @@ const WaterModal = ({ onClose, operationType, editData }) => {
   const handleFormSubmit = async (data) => {
     try {
       const action = operationType === 'edit' ? updateVolume : createVolume;
+      console.log(action);
 
       await dispatch(action(data)).unwrap();
 
@@ -20,9 +21,15 @@ const WaterModal = ({ onClose, operationType, editData }) => {
     }
   };
 
+  const modalTitleStyle = {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    color: '#333',
+  };
+
   return (
     <div>
-      <h2>{title}</h2>
+      <h2 style={modalTitleStyle}>{title}</h2>
       <WaterForm
         mode={operationType}
         onClose={onClose}
