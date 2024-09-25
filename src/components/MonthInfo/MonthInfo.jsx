@@ -18,8 +18,11 @@ const MonthInfo = ({ selectedDate, setSelectedDate }) => {
           return;
         }
 
-        const response = await axios.get('https://crystal-coders-back.onrender.com/water', {
-          headers: { Authorization: `Bearer ${token}` },
+        const response = await axios.get(`${BASE_URL}/water/consumption/month`, {
+          params: { month },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
 
         console.log('Fetched Water Data:', response.data);
@@ -49,6 +52,8 @@ const MonthInfo = ({ selectedDate, setSelectedDate }) => {
   const previousMonth = () => {
     setSelectedDate(prevDate => subMonths(prevDate, 1));
   };
+
+
 
   return (
     <div className={`${css.monthlyInfo} monthlyInfo`}>
