@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Calendar from '../../components/Calendar/Calendar';
 import CalendarPagination from '../../components/CalendarPagination/CalendarPagination';
 import { addMonths, subMonths } from 'date-fns';
@@ -12,7 +12,7 @@ import {
 const MonthInfo = ({ selectedDate, setSelectedDate }) => {
   const dispatch = useDispatch();
   // !! Check how to get data about percentage of the water
-  const [waterConsumption, loading, error, remainingPercentage] = useSelector(state => state.water);
+  const {waterConsumption, loading, error, remainingPercentage} = useSelector(state => state.water);
   useEffect(() => {
     if (selectedDate) {
       const month = selectedDate.getMonth() + 1;

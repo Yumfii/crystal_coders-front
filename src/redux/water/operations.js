@@ -82,6 +82,7 @@ export const fetchWaterConsumptionForMonth = createAsyncThunk(
       },
     });
     return response.data;
+  
   }
 );
 
