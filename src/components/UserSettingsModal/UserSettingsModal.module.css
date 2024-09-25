@@ -1,41 +1,45 @@
-.modalContainer{
-    max-width: 337px;
-    text-align: left;
-    margin: 0 auto;
-    background-color: var(--white);
+.modalContainer {
+  max-width: 337px;
+  text-align: left;
+  margin: 0 auto;
+  background-color: var(--white);
 }
 
-.settingsHeader{
-    margin-bottom: 20px;
+.settingsHeader {
+  margin-bottom: 15px;
 }
-.tourBtn{
+
+.tourBtn {
   display: flex;
   flex-direction: column;
-margin-top: 8px;
-margin-left: -8px;
-width:160px;
+  margin-left: -8px;
+  width: 150px;
   align-items: center;
   padding: 8px 14px;
   border-radius: 30px;
   background-color: transparent;
   color: var(--dark-blue);
   border: 1px solid var(--dark-blue);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.28;
   letter-spacing: -0.14px;
-  cursor: pointer;}
+  cursor: pointer;
+  border: 1px solid var(--white);
+  transition: all 0.3s;
+  box-shadow: 2px 2px 4px #c5c5c5, -2px -2px 4px var(--white);
+}
 
-.tourBtn:hover {
-  background-color: var(--dark-blue);
-  color: var(--white)
+.tourBtn:hover,
+.tourBtn:focus {
+  border: 1px solid var(--light-green);
 }
 
 @media only screen and (min-width: 768px) {
-   .modalContainer{
+  .modalContainer {
     max-width: 568px;
   }
-  .settingsHeader{
+  .settingsHeader {
     font-size: 28px;
     font-weight: 700;
     line-height: 1.14em;
@@ -43,9 +47,8 @@ width:160px;
 }
 
 @media only screen and (min-width: 1440px) {
-   .modalContainer{
+  .modalContainer {
     max-width: 840px;
     max-height: 916px;
   }
-
 }
