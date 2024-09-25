@@ -78,7 +78,7 @@ const waterSlice = createSlice({
         state.waterConsumption.day = action.payload;
       })
       .addCase(fetchRemainingWaterPercentage.fulfilled, (state, action) => {
-        state.remainingPercentage = action.payload;
+        state.remainingPercentage = action.payload.remainingPercentage;
       })
       .addCase(fetchRemainingWaterPercentage.rejected, (state, action) => {
         state.error = action.payload || action.error.message;
