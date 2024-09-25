@@ -9,9 +9,11 @@ const LogOutModal = ({ modalIsOpen, closeModal }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    dispatch(logOut());
-    closeModal();
-    navigate('/');
+    window.setTimeout(() => {
+      closeModal();
+      navigate('/');
+      dispatch(logOut());
+    }, 2000);
   };
 
   const colorBtnClass = clsx(css.btn, css.colorBtn);

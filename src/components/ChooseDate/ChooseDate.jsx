@@ -5,7 +5,9 @@ import React from 'react';
 const ChooseDate = ({ selectedDate }) => {
   const today = new Date();
 
+  // Check if the selected date is today
   const isToday = isSameDay(today, selectedDate);
+
   return (
     <div>
       <p className={`${css.selectedDate} selectedDate`}>

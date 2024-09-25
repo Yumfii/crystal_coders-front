@@ -1,8 +1,8 @@
-.userPanelSection{
+.userPanelSection {
   margin-bottom: 43px;
 }
 
-.userPanelHeader{
+.userPanelHeader {
   /* font-family: Gilroy; */
   color: var(--dark-blue);
   font-size: 32px;
@@ -11,18 +11,18 @@
   letter-spacing: -0.32px;
   margin-bottom: 20px;
 }
-.userPanelHeaderSpan{
+.userPanelHeaderSpan {
   font-weight: 700;
 }
 
 @media only screen and (min-width: 768px) {
-   .userPanelSection{
+  .userPanelSection {
     display: flex;
     justify-content: space-between;
     margin-bottom: 49px;
   }
 
-  .userPanelHeader{
+  .userPanelHeader {
     font-size: 36px;
     line-height: 1.05em;
     letter-spacing: -0.36px;

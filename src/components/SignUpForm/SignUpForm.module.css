@@ -32,18 +32,20 @@
 }
 
 .SignUpContainer {
+  max-width: 343px;
   width: 100%;
   border-radius: 30px;
   background: var(--light-gray);
   padding: 24px 16px;
   text-align: left;
+  align-self: center;
   opacity: 1;
   animation: fadeIn 1s ease-out forwards;
   animation-delay: 0.3s;
 }
 
 .logo {
-  margin-bottom: 172px;
+  margin-bottom: 150px;
   opacity: 0;
   animation: fadeInUp 1s ease-out forwards;
   animation-delay: 0.5s;
@@ -53,7 +55,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  min-width: 256px;
+  max-width: 311px;
+  margin: 0 auto 50px;
   opacity: 0;
   animation: fadeInRight 1s ease-out forwards;
   animation-delay: 1.2s;
@@ -135,7 +138,6 @@
 .btn {
   display: flex;
   height: 50px;
-  padding: 16px;
   justify-content: center;
   align-items: center;
   border-radius: 30px;
@@ -180,12 +182,12 @@
 
 @media screen and (min-width: 768px) {
   .SignUpContainer {
-    width: 672px;
+    min-width: 704px;
     padding: 32px;
   }
 
   .SignUpForm {
-    padding: 102px;
+    max-width: 436px;
   }
 
   .SignText {
@@ -212,11 +214,11 @@
 @media screen and (min-width: 1440px) {
   .SignUpContainer {
     gap: 32px;
-    height: 754px;
+    min-height: 754px;
+    width: 672px;
   }
 
   .SignUpForm {
-    padding: 0 102px;
     width: 640px;
   }
 
