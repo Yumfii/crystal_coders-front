@@ -7,9 +7,9 @@ import {
   deleteVolume,
   fetchWaterConsumptionForMonth,
   fetchWaterConsumptionForDay,
-  fetchRemainingWaterPercentage,
+  // fetchRemainingWaterPercentage,
 } from './operations';
-import { toast } from 'react-hot-toast'; // не забудьте импортировать toast, если используете
+import { toast } from 'react-hot-toast';
 
 const waterSlice = createSlice({
   name: 'water',
@@ -77,12 +77,12 @@ const waterSlice = createSlice({
       .addCase(fetchWaterConsumptionForDay.fulfilled, (state, action) => {
         state.waterConsumption.day = action.payload;
       })
-      .addCase(fetchRemainingWaterPercentage.fulfilled, (state, action) => {
-        state.consumedPercentage = action.payload.consumedPercentage;
-      })
-      .addCase(fetchRemainingWaterPercentage.rejected, (state, action) => {
-        state.error = action.payload || action.error.message;
-      });
+      // .addCase(fetchRemainingWaterPercentage.fulfilled, (state, action) => {
+      //   state.consumedPercentage = action.payload.consumedPercentage;
+      // })
+      // .addCase(fetchRemainingWaterPercentage.rejected, (state, action) => {
+      //   state.error = action.payload || action.error.message;
+      // });
   },
 });
 

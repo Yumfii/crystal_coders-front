@@ -20,6 +20,7 @@
     "js-cookie": "^3.0.5",
     "modern-normalize": "^3.0.1",
     "nanoid": "^5.0.7",
+    "netlify-cli": "^17.36.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
@@ -46,7 +47,9 @@
     "start": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [

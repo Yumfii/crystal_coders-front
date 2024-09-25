@@ -5,7 +5,7 @@ import { addMonths, subMonths } from 'date-fns';
 import css from './MonthInfo.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchRemainingWaterPercentage,
+  // fetchRemainingWaterPercentage,
   fetchWaterConsumptionForMonth,
 } from '../../redux/water/operations';
 
@@ -20,7 +20,7 @@ const MonthInfo = ({ selectedDate, setSelectedDate }) => {
       const userId = localStorage.getItem('userId')?.trim();
       if (userId) {
         dispatch(fetchWaterConsumptionForMonth(month, year, userId));
-        dispatch(fetchRemainingWaterPercentage({ date: selectedDate.toISOString().split('T')[0] }));
+        // dispatch(fetchRemainingWaterPercentage({ date: selectedDate.toISOString().split('T')[0] }));
       } else {
         console.error('User ID not found in localStorage.');
       }

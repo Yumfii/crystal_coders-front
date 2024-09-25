@@ -30,3 +30,6 @@ yarn-error.log*
 /dist
 .dist
 dist
+
+# Local Netlify folder
+.netlify
