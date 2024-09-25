@@ -9,9 +9,7 @@ import {
   fetchWaterConsumptionForMonth,
 } from '../../redux/water/operations';
 
-const MonthInfo = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
+const MonthInfo = ({ selectedDate, setSelectedDate }) => {
   const dispatch = useDispatch();
   const { waterConsumption, loading, error, remainingPercentage } = useSelector(state => state.water);
 
@@ -20,8 +18,6 @@ const MonthInfo = () => {
       const month = selectedDate.getMonth() + 1;
       const year = selectedDate.getFullYear();
       const userId = localStorage.getItem('userId')?.trim();
-      console.log(localStorage.getItem('userId'));
-
       if (userId) {
         dispatch(fetchWaterConsumptionForMonth(month, year, userId));
         dispatch(fetchRemainingWaterPercentage({ date: selectedDate.toISOString().split('T')[0] }));
@@ -42,7 +38,6 @@ const MonthInfo = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
-  // Ensure that waterConsumption and remainingPercentage have valid data before rendering
   return (
     <div className={`${css.monthlyInfo} monthlyInfo`}>
       <div className={css.monthWrapper}>
@@ -53,7 +48,6 @@ const MonthInfo = () => {
           nextMonth={nextMonth}
         />
       </div>
-      {/* Only pass waterData if it contains valid entries */}
       <Calendar
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}

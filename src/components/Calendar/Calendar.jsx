@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getDaysInMonth } from 'date-fns';
 import CalendarItem from '../../components/CalendarItem/CalendarItem';
 import css from './Calendar.module.css';
+import ChooseDate from '../../components/ChooseDate/ChooseDate';
 
 const Calendar = ({ selectedDate, setSelectedDate, waterData = [] }) => {
   const [selectedDay, setSelectedDay] = useState(null); // State for selected day
@@ -17,7 +18,7 @@ const Calendar = ({ selectedDate, setSelectedDate, waterData = [] }) => {
   };
 
   const handleDayClick = (day) => {
-    setSelectedDay(day); // Update the selected day
+    setSelectedDay(day);
     const date = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), day);
     setSelectedDate(date);
   };
@@ -26,6 +27,7 @@ const Calendar = ({ selectedDate, setSelectedDate, waterData = [] }) => {
 
   return (
     <div>
+     
       <ul className={css.listDays}>
         {daysArray.map((day) => (
           <li key={day}>
