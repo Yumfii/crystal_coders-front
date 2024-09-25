@@ -10,13 +10,10 @@ const WaterModal = ({ onClose, operationType, editData }) => {
 
   const handleFormSubmit = async (data) => {
     try {
-      // Определяем действие на основе типа операции
       const action = operationType === 'edit' ? updateVolume : createVolume;
 
-      // Диспатчим действие с данными
       await dispatch(action(data)).unwrap();
 
-      // Закрываем модальное окно после успешного добавления или обновления
       onClose();
     } catch (error) {
       console.error('Error:', error);
@@ -30,7 +27,7 @@ const WaterModal = ({ onClose, operationType, editData }) => {
         mode={operationType}
         onClose={onClose}
         initialData={editData}
-        onSubmit={handleFormSubmit} // Передаем handleFormSubmit в WaterForm
+        onSubmit={handleFormSubmit}
       />
     </div>
   );
