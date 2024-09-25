@@ -1,31 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getDaysInMonth } from 'date-fns';
 import CalendarItem from '../../components/CalendarItem/CalendarItem';
 import css from './Calendar.module.css';
+import ChooseDate from '../../components/ChooseDate/ChooseDate';
 
-const Calendar = ({ selectedDate, setSelectedDate }) => {
+const Calendar = ({ selectedDate, setSelectedDate, waterData = [] }) => {
+  const [selectedDay, setSelectedDay] = useState(null); // State for selected day
+
   const daysInMonth = getDaysInMonth(selectedDate);
 
-  const handleDayClick = day => {
-    const date = new Date(
-      selectedDate.getFullYear(),
-      selectedDate.getMonth(),
-      day
-    );
+  const getWaterPercentageForDay = (day) => {
+    const date = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), day);
+    const dateString = date.toISOString().split('T')[0];
+
+    const waterEntry = waterData.find((entry) => entry.date === dateString);
+    return waterEntry ? waterEntry.consumedPercentage || 0 : 0;
+  };
+
+  const handleDayClick = (day) => {
+    setSelectedDay(day);
+    const date = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), day);
     setSelectedDate(date);
   };
 
-  const daysArray = Array.from(
-    { length: daysInMonth },
-    (_, index) => index + 1
-  );
+  const daysArray = Array.from({ length: daysInMonth }, (_, index) => index + 1);
 
   return (
     <div>
+     
       <ul className={css.listDays}>
-        {daysArray.map(day => (
+        {daysArray.map((day) => (
           <li key={day}>
-            <CalendarItem day={day} handleDayClick={handleDayClick} />
+            <CalendarItem
+              day={day}
+              waterPercentage={getWaterPercentageForDay(day)}
+              handleDayClick={handleDayClick}
+              isSelected={selectedDay === day}
+            />
           </li>
         ))}
       </ul>
