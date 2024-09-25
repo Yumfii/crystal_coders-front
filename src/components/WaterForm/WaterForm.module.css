@@ -1,4 +1,3 @@
-
 .water-form {
   max-width: 438px;
   margin: 0 auto;
@@ -15,7 +14,6 @@
   font-weight: 700;
   line-height: 1.33; /* 24px */
   letter-spacing: -0.18px;
-
 }
 
 .title2 {
@@ -26,8 +24,6 @@
   line-height: 1.5; /* 24px */
   letter-spacing: -0.16px;
 }
-
-
 
 .error-message {
   color: var(--light-red);
@@ -49,6 +45,4 @@
     font-size: 14px !important;
     line-height: 18px !important;
   }
-
-
 }

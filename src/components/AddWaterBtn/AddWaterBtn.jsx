@@ -1,9 +1,22 @@
 import React from 'react';
 import css from './AddWaterBtn.module.css';
 import { GoPlus } from 'react-icons/go';
-
+import { useDispatch } from 'react-redux';
 
 const AddWaterBtn = ({ variant, onClick }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(deleteVolume(waterId))
+      .unwrap()
+      .then(() => {
+        toast.success('Successfully deleted!');
+        closeModal();
+      })
+      .catch(error => {
+        toast.error('Error deleting entry!');
+      });
+  };
 
   const styleBtn =
     variant === 'primary'

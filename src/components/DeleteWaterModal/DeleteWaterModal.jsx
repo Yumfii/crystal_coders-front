@@ -5,24 +5,20 @@ import clsx from 'clsx';
 import { deleteVolume } from '../../redux/water/operations';
 import css from './DeleteWaterModal.module.css';
 
-const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId, onAfterAction }) => {
+const DeleteWaterModal = ({ modalIsOpen, closeModal, waterId }) => {
   const dispatch = useDispatch();
-
-  if (!modalIsOpen) return null;
 
   const handleClick = () => {
     dispatch(deleteVolume(waterId))
       .unwrap()
       .then(() => {
         toast.success('Successfully deleted!');
-        onAfterAction(); // Call the function to update the list
-        closeModal(); // Close modal after successful deletion
+        closeModal();
       })
       .catch(error => {
         toast.error('Error deleting entry!');
       });
   };
-
   const colorBtnClass = clsx(css.btn, css.colorBtn);
   const transparentBtnClass = clsx(css.btn, css.transparentBtn);
 

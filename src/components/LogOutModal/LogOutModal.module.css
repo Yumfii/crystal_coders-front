@@ -1,9 +1,7 @@
 /* Mobile 320px */
 .modalBox {
-  /* width: 316px; */
   width: 100%;
   max-height: 164px;
-  /* margin: 40px 14px; */
   display: grid;
   justify-content: center;
   align-content: center;
@@ -53,6 +51,9 @@
   text-align: center;
   border-radius: 30px;
   transition: background-color var(--animation);
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px var(--white);
 }
 
 .colorBtn {
