@@ -84,6 +84,8 @@ const MonthInfo = () => {
 
   const dispatch = useDispatch();
   const { waterConsumption, loading, error, remainingPercentage } = useSelector(state => state.water);
+  console.log('Redux State:', useSelector(state => state.water));
+
 
   useEffect(() => {
     console.log('Water Consumption:', waterConsumption);

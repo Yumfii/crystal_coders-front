@@ -122,13 +122,15 @@ export const fetchWaterConsumptionForMonth = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log('Response for Water Consumption:', response.data); // Add this line
       return response.data;
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching water consumption:', error);
       throw error;
     }
   }
 );
+
 
 export const fetchWaterConsumptionForDay = createAsyncThunk(
   'water/fetchWaterConsumptionForDay',
