@@ -20,6 +20,8 @@ const MonthInfo = () => {
       const month = selectedDate.getMonth() + 1;
       const year = selectedDate.getFullYear();
       const userId = localStorage.getItem('userId')?.trim();
+      console.log(localStorage.getItem('userId'));
+
       if (userId) {
         dispatch(fetchWaterConsumptionForMonth(month, year, userId));
         dispatch(fetchRemainingWaterPercentage({ date: selectedDate.toISOString().split('T')[0] }));

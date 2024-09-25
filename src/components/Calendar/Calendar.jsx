@@ -1,13 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getDaysInMonth } from 'date-fns';
 import CalendarItem from '../../components/CalendarItem/CalendarItem';
 import css from './Calendar.module.css';
 
 const Calendar = ({ selectedDate, setSelectedDate, waterData = [] }) => {
-  // Ensure waterData is an array
-  if (!waterData || !Array.isArray(waterData) || waterData.length === 0) {
-    return <div>No data available</div>; // Show a message if no data is available
-  }
+  const [selectedDay, setSelectedDay] = useState(null); // State for selected day
 
   const daysInMonth = getDaysInMonth(selectedDate);
 
@@ -16,12 +13,11 @@ const Calendar = ({ selectedDate, setSelectedDate, waterData = [] }) => {
     const dateString = date.toISOString().split('T')[0];
 
     const waterEntry = waterData.find((entry) => entry.date === dateString);
-
-    // Return 0 if no entry is found or data is missing
     return waterEntry ? waterEntry.consumedPercentage || 0 : 0;
   };
 
   const handleDayClick = (day) => {
+    setSelectedDay(day); // Update the selected day
     const date = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), day);
     setSelectedDate(date);
   };
@@ -37,6 +33,7 @@ const Calendar = ({ selectedDate, setSelectedDate, waterData = [] }) => {
               day={day}
               waterPercentage={getWaterPercentageForDay(day)}
               handleDayClick={handleDayClick}
+              isSelected={selectedDay === day}
             />
           </li>
         ))}
