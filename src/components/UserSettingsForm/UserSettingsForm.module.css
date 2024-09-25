@@ -1,79 +1,79 @@
-
-.settingsForm{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.settingsForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.avatarBlock{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 40px;
+.avatarBlock {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
-.avatarImage{
-    width: 75px;
+.avatarImage {
+  width: 75px;
 }
 
-.uploadTitleInput{
-    position: absolute;
-    top: 150px;
-    width: 150px;
-    display: none;
+.uploadTitleInput {
+  position: absolute;
+  top: 150px;
+  width: 150px;
+  display: none;
 }
 
-.uploadTitle{
-    margin-top: 10px;
-    display: flex;
-    gap: 8px;
-    align-content: center;
-    cursor: pointer;
+.uploadTitle {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  align-content: center;
+  cursor: pointer;
 }
 
-.uploadIcon{
-    width: 18px;
-    height: 18px;
-    color: var(--dark-gray);
+.uploadIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--dark-gray);
 }
 
-.boldInputLabel{
-    display: block;
-    color: var(--dark-blue);
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.25em;
-    width: 100%;
+.boldInputLabel {
+  display: block;
+  color: var(--dark-blue);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25em;
+  width: 100%;
 }
-.boldInputLabel:nth-child(3){
-    margin-top: 14px;
-}
-
-.genderBlockWrapper{
-    margin-bottom: 24px;
+.boldInputLabel:nth-child(3) {
+  margin-top: 14px;
 }
 
-.radioBtnWrapper{
-    display: inline-flex;
-    margin-top: 14px;
+.genderBlockWrapper {
+  margin-bottom: 24px;
 }
 
-.radioBtn{
-    display: none;
+.radioBtnWrapper {
+  display: inline-flex;
+  margin-top: 14px;
 }
 
-.customRadioBtn{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--light-green);
-    border-radius: 50%;
-    position: relative;
+.radioBtn {
+  display: none;
+}
+
+.customRadioBtn {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--light-green);
+  border-radius: 50%;
+  position: relative;
 }
 
 .radioBtn:checked + .customRadioBtn:after {
-  content: "";
+  content: '';
   display: block;
   width: 8px;
   height: 8px;
@@ -85,161 +85,162 @@
   transform: translate(-50%, -50%);
 }
 
-.radioLabel{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.radioLabel:not(:last-child){
-    margin-right: 20px;
-}
-
-.textInput{
-    width: 100%;
-    height: auto;
-    padding: 14px 16px;
-    border: 1px, solid, rgba(47, 47, 47, 0.15);
-    border-radius: 15px;
-    margin-top: 8px;
-    color: var(--dark-gray);
-    font-size: 14px;
-    font-weight: 400;
+.radioLabel:not(:last-child) {
+  margin-right: 20px;
 }
 
-.textInput:focus{
-    border: 1px solid rgba(47, 47, 47, 0.40);
-    outline: none;
+.textInput {
+  width: 100%;
+  height: auto;
+  padding: 14px 16px;
+  border: 1px, solid, rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  margin-top: 8px;
+  color: var(--dark-gray);
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.inputLabel{
-    width: 100%;
-    font-size: 16px;
-    line-height: 1.5em;
+.textInput:focus {
+  border: 1px solid rgba(47, 47, 47, 0.4);
+  outline: none;
 }
 
-.inputLabel:not(:first-child){
-    margin-top: 14px;
+.inputLabel {
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.5em;
 }
 
-.waterPerDayTitle{
-    display: block;
-    margin-top: 24px;
+.inputLabel:not(:first-child) {
+  margin-top: 14px;
 }
 
-.litersPerDay{
-    color: var(--light-green);
-    font-weight: 700;
+.waterPerDayTitle {
+  display: block;
+  margin-top: 24px;
 }
 
-.marginLabel{
-    display: block;
-    margin-top: 14px;
+.litersPerDay {
+  color: var(--light-green);
+  font-weight: 700;
 }
 
-.submitBtn{
-    width: 116px;
-    height: 46px;
-    background-color: var(--light-green);
-    border: none;
-    border-radius: 30px;
-    color: var(--dark-gray);
-    font-weight: 700;
-    line-height: 1.28em;
-    margin-top: 40px;
-    cursor: pointer;
+.marginLabel {
+  display: block;
+  margin-top: 14px;
 }
 
-.submitBtn:hover{
-    background-color: var(--light-green-hover);
+.submitBtn {
+  width: 116px;
+  height: 46px;
+  background-color: var(--light-green);
+  border: none;
+  border-radius: 30px;
+  color: var(--dark-gray);
+  font-weight: 700;
+  line-height: 1.28em;
+  margin-top: 40px;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 2px 2px 4px #c5c5c5, -2px -2px 4px var(--white);
 }
 
-.errorInput{
-    border: 1px, solid, #EF5050;
-    width: 100%;
-    height: auto;
-    padding: 14px 16px;
-    border-radius: 15px;
-    margin-top: 8px;
-    color: var(--dark-gray);
-    font-size: 14px;
-    font-weight: 400;
-    outline: 0;
+.submitBtn:hover {
+  background-color: var(--light-green-hover);
 }
 
-.errorMessage{
-    color:#EF5050;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.28em;
+.errorInput {
+  border: 1px, solid, #ef5050;
+  width: 100%;
+  height: auto;
+  padding: 14px 16px;
+  border-radius: 15px;
+  margin-top: 8px;
+  color: var(--dark-gray);
+  font-size: 14px;
+  font-weight: 400;
+  outline: 0;
 }
-.warninIcon{
-  color: #EF5050;
+
+.errorMessage {
+  color: #ef5050;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28em;
+}
+.warninIcon {
+  color: #ef5050;
   margin-left: 5px;
 }
 
 @media only screen and (min-width: 768px) {
+  .avatarImage {
+    width: 100px;
+  }
 
-    .avatarImage{
-        width: 100px;
-    }
+  .uploadTitle {
+    font-size: 16px;
+  }
 
-    .uploadTitle{
-        font-size: 16px;
-    }
+  .uploadTitleInput {
+    top: 190px;
+  }
 
-    .uploadTitleInput{
-        top: 190px;
-    }
-
-    .boldInputLabel{
+  .boldInputLabel {
     font-size: 18px;
     line-height: 1.33em;
-    }
-    .radioLabel{
-        font-size: 16px;
-    }
-    .textInput{
-        padding: 16px;
-        font-size: 16px;
-        line-height: 1.5em;
-    }
+  }
+  .radioLabel {
+    font-size: 16px;
+  }
+  .textInput {
+    padding: 16px;
+    font-size: 16px;
+    line-height: 1.5em;
+  }
 
-    .errorInput{
-        border: 1px, solid, #EF5050;
-        padding: 16px;
-        font-size: 16px;
-        line-height: 1.5em;
-}
+  .errorInput {
+    border: 1px, solid, #ef5050;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 1.5em;
+  }
 
-    .submitBtn{
-        width: 141px;
-        height: 56px;
-        font-size: 16px;
-        line-height: 1.5em;
-    }
-
+  .submitBtn {
+    width: 141px;
+    height: 56px;
+    font-size: 16px;
+    line-height: 1.5em;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-    .desktopBlock{
-       display: flex;
-       gap: 40px;
-    }
-    .leftDesktopBlock{
+  .desktopBlock {
+    display: flex;
+    gap: 40px;
+  }
+  .leftDesktopBlock {
     max-width: 400px;
-    }
-    .rightDesktopBlock{
+  }
+  .rightDesktopBlock {
     max-width: 400px;
-    }
-    .boldInputLabel{
-        font-size: 18px;
-        line-height: 1.33em;
-    }
-    .uploadTitleInput{
-        top: 190px
-    }
-    
-    .submitBtn{
-      margin-bottom: 40px;
+  }
+  .boldInputLabel {
+    font-size: 18px;
+    line-height: 1.33em;
+  }
+  .uploadTitleInput {
+    top: 190px;
+  }
+
+  .submitBtn {
+    margin-bottom: 40px;
   }
 }

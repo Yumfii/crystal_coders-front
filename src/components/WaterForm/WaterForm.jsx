@@ -220,11 +220,13 @@ const WaterForm = ({ onClose, onAfterAction, mode, initialData }) => {
         style={{
           backgroundColor: 'var(--light-green)',
           color: '#323F47',
-          border: 'none',
           padding: '0.75rem 1.5rem',
           cursor: 'pointer',
           borderRadius: '30px',
           transition: 'background-color var(--animation)',
+          border: '1px solid #e8e8e8',
+          transition: 'all 0.3s',
+          boxShadow: '2px 2px 4px #c5c5c5, -2px -2px 4px var(--white)',
         }}
       >
         Save
