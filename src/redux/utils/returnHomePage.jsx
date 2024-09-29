@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser, getUserById } from '../auth/operations.js';
 import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../auth/selectors.js';
-import { use } from 'i18next';
 
 export const useRestoreHome = () => {
   const dispatch = useDispatch();
